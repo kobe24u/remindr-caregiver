@@ -1,0 +1,783 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A43EC2ACA6E91DB5D65D640 /* Pods_ReMindrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675DE655B9F62EB58485A8CC /* Pods_ReMindrUITests.framework */; };
+		86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */; };
+		9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */; };
+		F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4511E875B4A00BF3995 /* AppDelegate.swift */; };
+		F816D4541E875B4A00BF3995 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4531E875B4A00BF3995 /* ViewController.swift */; };
+		F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */; };
+		F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F816D45B1E875B4A00BF3995 /* Assets.xcassets */; };
+		F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */; };
+		F816D46A1E875B4A00BF3995 /* ReMindrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4691E875B4A00BF3995 /* ReMindrTests.swift */; };
+		F816D4751E875B4A00BF3995 /* ReMindrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4741E875B4A00BF3995 /* ReMindrUITests.swift */; };
+		F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4841E87A91600BF3995 /* FavouritesTableViewController.swift */; };
+		F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F816D4861E87B74800BF3995 /* GoogleService-Info.plist */; };
+		F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4881E87BC7B00BF3995 /* AddFavouriteViewController.swift */; };
+		F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D48A1E87BCA400BF3995 /* ViewFavouriteViewController.swift */; };
+		F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D48C1E87BE9000BF3995 /* FavouriteCell.swift */; };
+		F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D48E1E87BFE400BF3995 /* Favourite.swift */; };
+		F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4901E89080200BF3995 /* LocationViewController.swift */; };
+		F816D4931E890A1800BF3995 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4921E890A1800BF3995 /* Reachability.swift */; };
+		F816D4951E89131B00BF3995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816D4941E89131B00BF3995 /* Main.storyboard */; };
+		F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4961E8950BA00BF3995 /* EditFavouriteViewController.swift */; };
+		F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4981E89E9F600BF3995 /* MapViewController.swift */; };
+		F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */; };
+		F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F816D4661E875B4A00BF3995 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F816D4461E875B4900BF3995 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F816D44D1E875B4900BF3995;
+			remoteInfo = ReMindr;
+		};
+		F816D4711E875B4A00BF3995 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F816D4461E875B4900BF3995 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F816D44D1E875B4900BF3995;
+			remoteInfo = ReMindr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		675DE655B9F62EB58485A8CC /* Pods_ReMindrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		958B6064BA3021920242855D /* Pods-ReMindrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9F66E2B39F91FD2269E9FDCF /* Pods-ReMindrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.release.xcconfig"; sourceTree = "<group>"; };
+		C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.debug.xcconfig"; sourceTree = "<group>"; };
+		DE45ECB99425F0451783066E /* Pods-ReMindrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.release.xcconfig"; sourceTree = "<group>"; };
+		F816D44E1E875B4A00BF3995 /* ReMindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F816D4511E875B4A00BF3995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F816D4531E875B4A00BF3995 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReMindr.xcdatamodel; sourceTree = "<group>"; };
+		F816D45B1E875B4A00BF3995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F816D45E1E875B4A00BF3995 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F816D4601E875B4A00BF3995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F816D4651E875B4A00BF3995 /* ReMindrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReMindrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F816D4691E875B4A00BF3995 /* ReMindrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReMindrTests.swift; sourceTree = "<group>"; };
+		F816D46B1E875B4A00BF3995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F816D4701E875B4A00BF3995 /* ReMindrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReMindrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F816D4741E875B4A00BF3995 /* ReMindrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReMindrUITests.swift; sourceTree = "<group>"; };
+		F816D4761E875B4A00BF3995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F816D4841E87A91600BF3995 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
+		F816D4861E87B74800BF3995 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F816D4881E87BC7B00BF3995 /* AddFavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFavouriteViewController.swift; sourceTree = "<group>"; };
+		F816D48A1E87BCA400BF3995 /* ViewFavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFavouriteViewController.swift; sourceTree = "<group>"; };
+		F816D48C1E87BE9000BF3995 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		F816D48E1E87BFE400BF3995 /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
+		F816D4901E89080200BF3995 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		F816D4921E890A1800BF3995 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F816D4941E89131B00BF3995 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F816D4961E8950BA00BF3995 /* EditFavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFavouriteViewController.swift; sourceTree = "<group>"; };
+		F816D4981E89E9F600BF3995 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOnlyViewController.swift; sourceTree = "<group>"; };
+		F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F816D44B1E875B4900BF3995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D4621E875B4A00BF3995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D46D1E875B4A00BF3995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A43EC2ACA6E91DB5D65D640 /* Pods_ReMindrUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BAB5D3314FCE7F6E034DDD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */,
+				BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */,
+				9F66E2B39F91FD2269E9FDCF /* Pods-ReMindrTests.debug.xcconfig */,
+				DE45ECB99425F0451783066E /* Pods-ReMindrTests.release.xcconfig */,
+				C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */,
+				958B6064BA3021920242855D /* Pods-ReMindrUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		94C69BAE2E96E1B2BD45B45D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */,
+				A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */,
+				675DE655B9F62EB58485A8CC /* Pods_ReMindrUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F816D4451E875B4900BF3995 = {
+			isa = PBXGroup;
+			children = (
+				F816D4501E875B4A00BF3995 /* ReMindr */,
+				F816D4681E875B4A00BF3995 /* ReMindrTests */,
+				F816D4731E875B4A00BF3995 /* ReMindrUITests */,
+				F816D44F1E875B4A00BF3995 /* Products */,
+				1BAB5D3314FCE7F6E034DDD9 /* Pods */,
+				94C69BAE2E96E1B2BD45B45D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F816D44F1E875B4A00BF3995 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F816D44E1E875B4A00BF3995 /* ReMindr.app */,
+				F816D4651E875B4A00BF3995 /* ReMindrTests.xctest */,
+				F816D4701E875B4A00BF3995 /* ReMindrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F816D4501E875B4A00BF3995 /* ReMindr */ = {
+			isa = PBXGroup;
+			children = (
+				F816D4511E875B4A00BF3995 /* AppDelegate.swift */,
+				F816D4531E875B4A00BF3995 /* ViewController.swift */,
+				F816D45B1E875B4A00BF3995 /* Assets.xcassets */,
+				F816D4941E89131B00BF3995 /* Main.storyboard */,
+				F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */,
+				F816D4601E875B4A00BF3995 /* Info.plist */,
+				F816D4861E87B74800BF3995 /* GoogleService-Info.plist */,
+				F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */,
+				F816D4841E87A91600BF3995 /* FavouritesTableViewController.swift */,
+				F816D4881E87BC7B00BF3995 /* AddFavouriteViewController.swift */,
+				F816D48A1E87BCA400BF3995 /* ViewFavouriteViewController.swift */,
+				F816D48C1E87BE9000BF3995 /* FavouriteCell.swift */,
+				F816D48E1E87BFE400BF3995 /* Favourite.swift */,
+				F816D4901E89080200BF3995 /* LocationViewController.swift */,
+				F816D4921E890A1800BF3995 /* Reachability.swift */,
+				F816D4961E8950BA00BF3995 /* EditFavouriteViewController.swift */,
+				F816D4981E89E9F600BF3995 /* MapViewController.swift */,
+				F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */,
+				F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */,
+			);
+			path = ReMindr;
+			sourceTree = "<group>";
+		};
+		F816D4681E875B4A00BF3995 /* ReMindrTests */ = {
+			isa = PBXGroup;
+			children = (
+				F816D4691E875B4A00BF3995 /* ReMindrTests.swift */,
+				F816D46B1E875B4A00BF3995 /* Info.plist */,
+			);
+			path = ReMindrTests;
+			sourceTree = "<group>";
+		};
+		F816D4731E875B4A00BF3995 /* ReMindrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F816D4741E875B4A00BF3995 /* ReMindrUITests.swift */,
+				F816D4761E875B4A00BF3995 /* Info.plist */,
+			);
+			path = ReMindrUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F816D44D1E875B4900BF3995 /* ReMindr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F816D4791E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindr" */;
+			buildPhases = (
+				A5441714A4DCCFE6808084C8 /* [CP] Check Pods Manifest.lock */,
+				F816D44A1E875B4900BF3995 /* Sources */,
+				F816D44B1E875B4900BF3995 /* Frameworks */,
+				F816D44C1E875B4900BF3995 /* Resources */,
+				0D10EE6F582530A4B3E5297D /* [CP] Embed Pods Frameworks */,
+				3584BBE82CE7CD22F6D672E8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReMindr;
+			productName = ReMindr;
+			productReference = F816D44E1E875B4A00BF3995 /* ReMindr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F816D4641E875B4A00BF3995 /* ReMindrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F816D47C1E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindrTests" */;
+			buildPhases = (
+				F4A880379B6BBB63D5D1B2FF /* [CP] Check Pods Manifest.lock */,
+				F816D4611E875B4A00BF3995 /* Sources */,
+				F816D4621E875B4A00BF3995 /* Frameworks */,
+				F816D4631E875B4A00BF3995 /* Resources */,
+				BE866DCEDD57756062A69207 /* [CP] Embed Pods Frameworks */,
+				0D8E835B09525BE4007B9A35 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F816D4671E875B4A00BF3995 /* PBXTargetDependency */,
+			);
+			name = ReMindrTests;
+			productName = ReMindrTests;
+			productReference = F816D4651E875B4A00BF3995 /* ReMindrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F816D46F1E875B4A00BF3995 /* ReMindrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F816D47F1E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindrUITests" */;
+			buildPhases = (
+				4355D1E53B72A0DB0271DCC3 /* [CP] Check Pods Manifest.lock */,
+				F816D46C1E875B4A00BF3995 /* Sources */,
+				F816D46D1E875B4A00BF3995 /* Frameworks */,
+				F816D46E1E875B4A00BF3995 /* Resources */,
+				089A503AA01E73A5F48F4914 /* [CP] Embed Pods Frameworks */,
+				0E9112777F6FA1C994C4E9F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F816D4721E875B4A00BF3995 /* PBXTargetDependency */,
+			);
+			name = ReMindrUITests;
+			productName = ReMindrUITests;
+			productReference = F816D4701E875B4A00BF3995 /* ReMindrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F816D4461E875B4900BF3995 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Priyanka Gopakumar";
+				TargetAttributes = {
+					F816D44D1E875B4900BF3995 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					F816D4641E875B4A00BF3995 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F816D44D1E875B4900BF3995;
+					};
+					F816D46F1E875B4A00BF3995 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F816D44D1E875B4900BF3995;
+					};
+				};
+			};
+			buildConfigurationList = F816D4491E875B4900BF3995 /* Build configuration list for PBXProject "ReMindr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F816D4451E875B4900BF3995;
+			productRefGroup = F816D44F1E875B4A00BF3995 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F816D44D1E875B4900BF3995 /* ReMindr */,
+				F816D4641E875B4A00BF3995 /* ReMindrTests */,
+				F816D46F1E875B4A00BF3995 /* ReMindrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F816D44C1E875B4900BF3995 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
+				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
+				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
+				F816D4951E89131B00BF3995 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D4631E875B4A00BF3995 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D46E1E875B4A00BF3995 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		089A503AA01E73A5F48F4914 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D10EE6F582530A4B3E5297D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D8E835B09525BE4007B9A35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0E9112777F6FA1C994C4E9F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3584BBE82CE7CD22F6D672E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4355D1E53B72A0DB0271DCC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5441714A4DCCFE6808084C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE866DCEDD57756062A69207 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4A880379B6BBB63D5D1B2FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F816D44A1E875B4900BF3995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */,
+				F816D4541E875B4A00BF3995 /* ViewController.swift in Sources */,
+				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
+				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
+				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
+				F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */,
+				F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */,
+				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,
+				F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */,
+				F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */,
+				F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */,
+				F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */,
+				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
+				F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D4611E875B4A00BF3995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F816D46A1E875B4A00BF3995 /* ReMindrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F816D46C1E875B4A00BF3995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F816D4751E875B4A00BF3995 /* ReMindrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F816D4671E875B4A00BF3995 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F816D44D1E875B4900BF3995 /* ReMindr */;
+			targetProxy = F816D4661E875B4A00BF3995 /* PBXContainerItemProxy */;
+		};
+		F816D4721E875B4A00BF3995 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F816D44D1E875B4900BF3995 /* ReMindr */;
+			targetProxy = F816D4711E875B4A00BF3995 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F816D45E1E875B4A00BF3995 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F816D4771E875B4A00BF3995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F816D4781E875B4A00BF3995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F816D47A1E875B4A00BF3995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ReMindr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F816D47B1E875B4A00BF3995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ReMindr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F816D47D1E875B4A00BF3995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F66E2B39F91FD2269E9FDCF /* Pods-ReMindrTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ReMindrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReMindr.app/ReMindr";
+			};
+			name = Debug;
+		};
+		F816D47E1E875B4A00BF3995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE45ECB99425F0451783066E /* Pods-ReMindrTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ReMindrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReMindr.app/ReMindr";
+			};
+			name = Release;
+		};
+		F816D4801E875B4A00BF3995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ReMindrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ReMindr;
+			};
+			name = Debug;
+		};
+		F816D4811E875B4A00BF3995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 958B6064BA3021920242855D /* Pods-ReMindrUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = ReMindrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ReMindr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F816D4491E875B4900BF3995 /* Build configuration list for PBXProject "ReMindr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F816D4771E875B4A00BF3995 /* Debug */,
+				F816D4781E875B4A00BF3995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F816D4791E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F816D47A1E875B4A00BF3995 /* Debug */,
+				F816D47B1E875B4A00BF3995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F816D47C1E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F816D47D1E875B4A00BF3995 /* Debug */,
+				F816D47E1E875B4A00BF3995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F816D47F1E875B4A00BF3995 /* Build configuration list for PBXNativeTarget "ReMindrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F816D4801E875B4A00BF3995 /* Debug */,
+				F816D4811E875B4A00BF3995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */,
+			);
+			currentVersion = F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */;
+			path = ReMindr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F816D4461E875B4900BF3995 /* Project object */;
+}
