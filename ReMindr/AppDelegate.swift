@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     let locationManager = CLLocationManager()
+    var ref: FIRDatabaseReference?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -47,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
+         ref = FIRDatabase.database().reference()
+         patientLeftGeofencingArea()
         return true
     }
 
@@ -174,6 +177,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
 
         }
+    }
+    
+    func patientLeftGeofencingArea()
+    {
+        self.ref?.child("geofencing").observe(.value, with: { (snapshot) in
+            
+            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            {
+                let value = current.value as? NSDictionary
+                if let locationName = value?["locationName"] as? String {
+                    if let isViolated = value?["violated"] as? String {
+                        if (isViolated == "true")
+                        {
+                            let title = "ALERT"
+                            let message = "Patient has left region: \(locationName)"
+                            
+                            if UIApplication.shared.applicationState == .active {
+                                // App is active, show an alert
+                                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alertAction)
+                                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                                //self.present(alertController, animated: true, completion: nil)
+                            } else {
+                                // App is inactive, show a notification
+                                let notification = UILocalNotification()
+                                notification.alertTitle = title
+                                notification.alertBody = message
+                                UIApplication.shared.presentLocalNotificationNow(notification)
+                            }
+                            
+                        }
+                        else
+                        {
+                            let title = "Patient in Safe Zone"
+                            let message = "Patient has returned to region: \(locationName)"
+                            
+                            if UIApplication.shared.applicationState == .active {
+                                // App is active, show an alert
+                                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alertAction)
+                                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                                //self.present(alertController, animated: true, completion: nil)
+                            } else {
+                                // App is inactive, show a notification
+                                let notification = UILocalNotification()
+                                notification.alertTitle = title
+                                notification.alertBody = message
+                                UIApplication.shared.presentLocalNotificationNow(notification)
+                            }
+
+                        }
+                    }
+                }
+            }
+        })
     }
     
 
