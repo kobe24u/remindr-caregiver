@@ -13,7 +13,7 @@ protocol geofenceLocationDelegate {
     func addGeofenceLocation(locLat: Double, locLng: Double)
 }
 
-class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate{
+class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate{
         
         let locationManager = CLLocationManager()
         var lat : Double?
@@ -34,6 +34,10 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            //Looks for single or multiple taps.
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+            view.addGestureRecognizer(tap)
+            
             // checking if network is available (Reachability class is defined in another file)
             if Reachability.isConnectedToNetwork() == true      // if data network exists
             {
@@ -50,6 +54,8 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
             // Setup delegation so we can respond to MapView and LocationManager events
             mapView.delegate = self
             locationManager.delegate = self
+            
+            mapView.showsUserLocation = true
             
             // remove all annotations
             let allAnnotations = self.mapView.annotations
@@ -84,7 +90,13 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
             }
             
         }
-        
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
         /*SOURCE : http://stackoverflow.com/questions/34431459/ios-swift-how-to-add-pinpoint-to-map-on-touch-and-get-detailed-address-of-th
          Author : Moriya
          Retrieved on: 09/09/2016
@@ -144,67 +156,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
          Date: 05/09/2016
          */
     @IBAction func findAddressCoordinates(_ sender: Any) {
-        
-        // remove all annotations
-        let allAnnotations = self.mapView.annotations
-        self.mapView.removeAnnotations(allAnnotations)
-        
-        let address = textAddress.text
-        
-        if (!((address?.isEmpty)!))
-        {
-            let geoCoder = CLGeocoder()
-            geoCoder.geocodeAddressString(address!, completionHandler: { (placemarks: [CLPlacemark]?, error) -> Void in
-                if error == nil
-                {
-                    if placemarks!.count > 0
-                    {
-                        let topResult: CLPlacemark = (placemarks?[0])!
-                        let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate = (placemark.location!.coordinate)
-                        
-                        var region: MKCoordinateRegion = self.mapView.region
-                        
-                        region.center.latitude = (placemark.location?.coordinate.latitude)!
-                        region.center.longitude = (placemark.location?.coordinate.longitude)!
-                        
-                        print("lat = \(region.center.latitude)")
-                        print("lng = \(region.center.longitude)")
-                        
-                        self.lat = region.center.latitude
-                        self.lng = region.center.longitude
-                        
-                        region.span = MKCoordinateSpanMake(0.5, 0.5)
-                        
-                        self.mapView.setRegion(region, animated: true)
-                        self.mapView.addAnnotation(placemark)
-                    }
-                    else
-                    {
-                        let alertController = UIAlertController(title: "Alert", message: "Location could not be found. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                }
-                else
-                {
-                    let alertController = UIAlertController(title: "Alert", message: "Location could not be found. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                }
-                
-            })
-            
-        }
-        else
-        {
-            let alertController = UIAlertController(title: "Alert", message: "Please enter an address to search.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-
-        
+        searchForAddressCoordinates()
     }
     
         // MARK: MKMapViewDelegate
@@ -302,5 +254,80 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        searchForAddressCoordinates()
+        return true
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+         // Zoom to new user location when updated
+                var mapRegion = MKCoordinateRegion()
+                mapRegion.center = mapView.userLocation.coordinate
+                //mapRegion.span = MKSpan
+                mapView.setRegion(mapRegion, animated: true)
+    }
+    
+    func searchForAddressCoordinates()
+    {
+        // remove all annotations
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
         
+        let address = textAddress.text
+        
+        if (!((address?.isEmpty)!))
+        {
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(address!, completionHandler: { (placemarks: [CLPlacemark]?, error) -> Void in
+                if error == nil
+                {
+                    if placemarks!.count > 0
+                    {
+                        let topResult: CLPlacemark = (placemarks?[0])!
+                        let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = (placemark.location!.coordinate)
+                        
+                        var region: MKCoordinateRegion = self.mapView.region
+                        
+                        region.center.latitude = (placemark.location?.coordinate.latitude)!
+                        region.center.longitude = (placemark.location?.coordinate.longitude)!
+                        
+                        print("lat = \(region.center.latitude)")
+                        print("lng = \(region.center.longitude)")
+                        
+                        self.lat = region.center.latitude
+                        self.lng = region.center.longitude
+                        
+                        region.span = MKCoordinateSpanMake(0.5, 0.5)
+                        
+                        self.mapView.setRegion(region, animated: true)
+                        self.mapView.addAnnotation(placemark)
+                    }
+                    else
+                    {
+                        let alertController = UIAlertController(title: "Alert", message: "Location could not be found. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+                else
+                {
+                    let alertController = UIAlertController(title: "Alert", message: "Location could not be found. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+            })
+            
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Alert", message: "Please enter an address to search.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

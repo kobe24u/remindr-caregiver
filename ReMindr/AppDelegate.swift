@@ -11,9 +11,10 @@ import CoreData
 import CoreLocation
 import Firebase
 import UserNotifications
+import UserNotificationsUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     let locationManager = CLLocationManager()
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        UNUserNotificationCenter.current().delegate = self
         // Enable local notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
@@ -42,17 +43,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
         
+        let turquoiseColor = UIColor(red: 38/255, green: 50/255, blue: 72/255, alpha: 1)
+        // Override point for customization after application launch.
+        //let navBar: UIImage = UIImage(named: "turquoise back")!
+        // UINavigationBar.appearance().backgroundColor = turquoiseColor
+        //setBackgroundImage(navBar, forBarMetrics: .Default)
+        //UINavigationBar.appearance().barTintColor = turquoiseColor
+        
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "darkbluetexturedbackground")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .tile), for: .default)
+        
+        let navBarItemsColor = UIColor.white
+        
+        //let blueColourUsed = UIColor(red: 45/255, green: 86/255, blue: 105/255, alpha: 1)
+        //let navBarItemsColor = UIColor(red: 254/255, green: 218/255, blue: 2/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: navBarItemsColor]
+        UIBarButtonItem.appearance().tintColor = navBarItemsColor
+        UINavigationBar.appearance().tintColor = navBarItemsColor
+        
+        UITabBar.appearance().barTintColor = turquoiseColor
+
         
         FIRApp.configure()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
-         ref = FIRDatabase.database().reference()
-         patientLeftGeofencingArea()
+        ref = FIRDatabase.database().reference()
+        patientLeftGeofencingArea()
         return true
     }
 
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -174,6 +198,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 notification.alertTitle = title
                 notification.alertBody = message
                 UIApplication.shared.presentLocalNotificationNow(notification)
+                
+                
             }
 
         }
@@ -190,7 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     if let isViolated = value?["violated"] as? String {
                         if (isViolated == "true")
                         {
-                            let title = "ALERT"
+                            let title = "Patient outside Safe Zone"
                             let message = "Patient has left region: \(locationName)"
                             
                             if UIApplication.shared.applicationState == .active {
@@ -202,10 +228,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {
                                 // App is inactive, show a notification
-                                let notification = UILocalNotification()
-                                notification.alertTitle = title
-                                notification.alertBody = message
-                                UIApplication.shared.presentLocalNotificationNow(notification)
+                                if #available(iOS 10.0, *) {
+                                    self.generateLocalNotification()
+                                }
+                                else
+                                 {
+                                    let notification = UILocalNotification()
+                                    notification.alertTitle = title
+                                    notification.alertBody = message
+                                    UIApplication.shared.presentLocalNotificationNow(notification)
+
+                                }
                             }
                             
                         }
@@ -222,11 +255,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {
-                                // App is inactive, show a notification
-                                let notification = UILocalNotification()
-                                notification.alertTitle = title
-                                notification.alertBody = message
-                                UIApplication.shared.presentLocalNotificationNow(notification)
+//                                // App is inactive, show a notification
+                                if #available(iOS 10.0, *) {
+                                    self.generateNotificationWithNoActions()
+                                }
+                                else
+                                {
+                                    let notification = UILocalNotification()
+                                    notification.alertTitle = title
+                                    notification.alertBody = message
+                                    UIApplication.shared.presentLocalNotificationNow(notification)
+                                }
                             }
 
                         }
@@ -236,6 +275,155 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         })
     }
     
+    func setupNotificationSettings() {
 
+        // Specify the notification actions.
+        let justInformAction = UIMutableUserNotificationAction()
+        justInformAction.identifier = "justInform"
+        justInformAction.title = "OK, got it"
+        justInformAction.activationMode = UIUserNotificationActivationMode.background
+        justInformAction.isDestructive = false
+        justInformAction.isAuthenticationRequired = false
+        
+        var modifyListAction = UIMutableUserNotificationAction()
+        modifyListAction.identifier = "editList"
+        modifyListAction.title = "Edit list"
+        modifyListAction.activationMode = UIUserNotificationActivationMode.foreground
+        modifyListAction.isDestructive = false
+        modifyListAction.isAuthenticationRequired = true
+        
+        var trashAction = UIMutableUserNotificationAction()
+        trashAction.identifier = "trashAction"
+        trashAction.title = "Delete list"
+        trashAction.activationMode = UIUserNotificationActivationMode.background
+        trashAction.isDestructive = true
+        trashAction.isAuthenticationRequired = true
+        
+    }
+    
+    func generateLocalNotification() {
+        // App is inactive, show a notification
+    
+    
+        //let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [.destructive, .authenticationRequired, .foreground])
+        let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [])
+        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
+        //let callPatientAction = UNNotificationAction(identifier: "callPatient", title: "Call my patient", options: [.destructive, .foreground, .authenticationRequired] )
+        
+        let actionsArray = NSArray(objects: justInformAction, showPatientAction) //, callPatientAction)
+        //let actionsArrayMinimal = NSArray(objects: showPatientAction, callPatientAction)
+        
+        let geofencingNotificationCategory = UNNotificationCategory(identifier: "geofencingNotificationCategory", actions: actionsArray as! [UNNotificationAction], intentIdentifiers: [], options: [])
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Patient has left safe zone"
+        content.body = "Your patient has wandered away from the safe zone"
+        content.sound = UNNotificationSound.default()
+        content.badge = UIApplication.shared.applicationIconBadgeNumber as NSNumber?
+        content.categoryIdentifier = "geofencingNotificationCategory"
+        content.launchImageName = "home"
+        
+        guard let path = Bundle.main.path(forResource: "patientLeftIcon", ofType: "png") else { return }
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let attachment = try UNNotificationAttachment(identifier: "notificationImage", url: url, options: nil)
+            content.attachments = [attachment]
+        }
+        catch
+        {
+            print ("An error occurred while trying to attach an image to the notification")
+        }
+        
+//        
+//        //let imagePath = URL(fileReferenceLiteralResourceName: "home")
+//        let imagePath = URL(string: "https://firebasestorage.googleapis.com/v0/b/remindr-be120.appspot.com/o/pizza.jpg?alt=media&token=e5831bb2-eec7-4b1f-bdef-3f975cf0e7b5")
+//        if let attachment =  try? UNNotificationAttachment(identifier: "notificationImage", url: imagePath!, options: nil) {
+//            content.attachments.append(attachment)
+//        }
+//        
+    
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "geofenceNotification", content: content, trigger: trigger)
+        
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.setNotificationCategories([geofencingNotificationCategory])
+        center.removeAllPendingNotificationRequests()
+        
+        center.add(request, withCompletionHandler: {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        })
+
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        center.removeAllPendingNotificationRequests()
+        center.removeAllDeliveredNotifications()
+        
+        switch response.actionIdentifier {
+            case "justInform":
+                print ("cancelled")
+            case "showPatient":
+                print ("must show patient here")
+            
+//            case "callPatient":
+//                print ("must call patient here")
+            default:
+                print ("default action")
+        }
+        completionHandler()
+    }
+    
+    func generateNotificationWithNoActions()
+    {
+        // App is inactive, show a notification
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Patient has returned to safe zone"
+        content.body = "Your patient is back inside the safe zone"
+        content.sound = UNNotificationSound.default()
+        content.badge = UIApplication.shared.applicationIconBadgeNumber as NSNumber?
+        content.launchImageName = "home"
+        
+        guard let path = Bundle.main.path(forResource: "patientBackIcon", ofType: "png") else { return }
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let attachment = try UNNotificationAttachment(identifier: "notificationImage", url: url, options: nil)
+            content.attachments = [attachment]
+        }
+        catch
+        {
+            print ("An error occurred while trying to attach an image to the notification")
+        }
+        
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "OtherNotification", content: content, trigger: trigger)
+        
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        center.add(request, withCompletionHandler: {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        })
+
+    }
+    
 }
 

@@ -21,6 +21,9 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var ref: FIRDatabaseReference!
 
     
+    var midLatitude: Double?
+    var midLongitude: Double?
+    
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -66,6 +69,10 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
 
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,10 +82,10 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         // Zoom to new user location when updated
-//        var mapRegion = MKCoordinateRegion()
-//        mapRegion.center = mapView.userLocation.coordinate
-//        mapRegion.span = mapView.region.span; // Use current 'zoom'
-//        mapView.setRegion(mapRegion, animated: true)
+        var mapRegion = MKCoordinateRegion()
+        mapRegion.center = mapView.userLocation.coordinate
+        mapRegion.span = mapView.region.span; // Use current 'zoom'
+        mapView.setRegion(mapRegion, animated: true)
     }
     
     
@@ -203,6 +210,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             patMarker.imageName = "patient"
                             
                             self.mapView.addAnnotation(patMarker)
+                            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                         }
                     }
                     
@@ -230,7 +238,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                 print("radius is \(range)")
                                 if let enabled = value?["enabled"] as? String {
                                     print("enabled is \(enabled)")
-                                    if (enabled == "True")
+                                    if (enabled == "true")
                                     {
                                         geoMarker.coordinate = CLLocationCoordinate2D(latitude: Double(locationLat)!, longitude: Double(locationLng)!)
                                     geoMarker.title = location
@@ -247,6 +255,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                     let circle = MKCircle(center: geoMarker.coordinate, radius: CLLocationDistance(range) as CLLocationDistance)
                                     self.mapView.add(circle)
                                         
+
+                                    
                                     var mapRegion = MKCoordinateRegionMakeWithDistance(geoMarker.coordinate, range * 2.5, range * 2.5)
                                     
                                     self.mapView.setRegion(mapRegion, animated: true)

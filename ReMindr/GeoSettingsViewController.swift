@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, geofenceLocationDelegate {
+class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, geofenceLocationDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var rangePicker: UIPickerView!
@@ -34,6 +34,10 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view.
         rangePicker.dataSource = self
         rangePicker.delegate = self
@@ -43,6 +47,12 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func saveGeofencingSettings(_ sender: Any) {
@@ -143,6 +153,12 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+   
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }
