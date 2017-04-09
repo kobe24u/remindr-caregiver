@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var window: UIWindow?
     let locationManager = CLLocationManager()
     var ref: FIRDatabaseReference?
+    var badgeCount: Int = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -93,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -302,9 +304,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func generateLocalNotification() {
+        
+        badgeCount += 1
+        
         // App is inactive, show a notification
-    
-    
         //let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [.destructive, .authenticationRequired, .foreground])
         let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [])
         let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
@@ -319,7 +322,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         content.title = "Patient has left safe zone"
         content.body = "Your patient has wandered away from the safe zone"
         content.sound = UNNotificationSound.default()
-        content.badge = UIApplication.shared.applicationIconBadgeNumber as NSNumber?
+        content.badge = badgeCount as NSNumber
         content.categoryIdentifier = "geofencingNotificationCategory"
         content.launchImageName = "home"
         
@@ -375,7 +378,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 print ("cancelled")
             case "showPatient":
                 print ("must show patient here")
-            
+                badgeCount = 0
 //            case "callPatient":
 //                print ("must call patient here")
             default:
@@ -386,13 +389,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func generateNotificationWithNoActions()
     {
+        badgeCount += 1
         // App is inactive, show a notification
-        
         let content = UNMutableNotificationContent()
         content.title = "Patient has returned to safe zone"
         content.body = "Your patient is back inside the safe zone"
         content.sound = UNNotificationSound.default()
-        content.badge = UIApplication.shared.applicationIconBadgeNumber as NSNumber?
+        content.badge = badgeCount as NSNumber
         content.launchImageName = "home"
         
         guard let path = Bundle.main.path(forResource: "patientBackIcon", ofType: "png") else { return }
