@@ -10,8 +10,15 @@
 		2A43EC2ACA6E91DB5D65D640 /* Pods_ReMindrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675DE655B9F62EB58485A8CC /* Pods_ReMindrUITests.framework */; };
 		86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */; };
 		9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */; };
+		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
+		BF8EB84F1E975ACA002EA93B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8EB84E1E975ACA002EA93B /* Main.storyboard */; };
+		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
+		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
+		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
+		BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */; };
+		BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */; };
+		BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */; };
 		F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4511E875B4A00BF3995 /* AppDelegate.swift */; };
-		F816D4541E875B4A00BF3995 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4531E875B4A00BF3995 /* ViewController.swift */; };
 		F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */; };
 		F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F816D45B1E875B4A00BF3995 /* Assets.xcassets */; };
 		F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */; };
@@ -25,7 +32,6 @@
 		F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D48E1E87BFE400BF3995 /* Favourite.swift */; };
 		F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4901E89080200BF3995 /* LocationViewController.swift */; };
 		F816D4931E890A1800BF3995 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4921E890A1800BF3995 /* Reachability.swift */; };
-		F816D4951E89131B00BF3995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816D4941E89131B00BF3995 /* Main.storyboard */; };
 		F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4961E8950BA00BF3995 /* EditFavouriteViewController.swift */; };
 		F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4981E89E9F600BF3995 /* MapViewController.swift */; };
 		F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */; };
@@ -60,12 +66,19 @@
 		9F66E2B39F91FD2269E9FDCF /* Pods-ReMindrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.release.xcconfig"; sourceTree = "<group>"; };
+		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
+		BF8EB84E1E975ACA002EA93B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
+		BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionAddPhotoHandler.swift; sourceTree = "<group>"; };
 		C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.debug.xcconfig"; sourceTree = "<group>"; };
 		DE45ECB99425F0451783066E /* Pods-ReMindrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.release.xcconfig"; sourceTree = "<group>"; };
 		F816D44E1E875B4A00BF3995 /* ReMindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D4511E875B4A00BF3995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F816D4531E875B4A00BF3995 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReMindr.xcdatamodel; sourceTree = "<group>"; };
 		F816D45B1E875B4A00BF3995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F816D45E1E875B4A00BF3995 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +97,6 @@
 		F816D48E1E87BFE400BF3995 /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		F816D4901E89080200BF3995 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F816D4921E890A1800BF3995 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		F816D4941E89131B00BF3995 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F816D4961E8950BA00BF3995 /* EditFavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFavouriteViewController.swift; sourceTree = "<group>"; };
 		F816D4981E89E9F600BF3995 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOnlyViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +158,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BFF0B0391E97A577007AD381 /* PhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */,
+				BFAD72BF1E9796B300FE5180 /* Photo.swift */,
+				BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */,
+				BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */,
+				BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */,
+				BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */,
+				BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */,
+			);
+			name = PhotoAlbum;
+			sourceTree = "<group>";
+		};
 		F816D4451E875B4900BF3995 = {
 			isa = PBXGroup;
 			children = (
@@ -171,11 +197,11 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
+				BFF0B0391E97A577007AD381 /* PhotoAlbum */,
 				F816D4511E875B4A00BF3995 /* AppDelegate.swift */,
-				F816D4531E875B4A00BF3995 /* ViewController.swift */,
 				F816D45B1E875B4A00BF3995 /* Assets.xcassets */,
-				F816D4941E89131B00BF3995 /* Main.storyboard */,
 				F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */,
+				BF8EB84E1E975ACA002EA93B /* Main.storyboard */,
 				F816D4601E875B4A00BF3995 /* Info.plist */,
 				F816D4861E87B74800BF3995 /* GoogleService-Info.plist */,
 				F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */,
@@ -293,6 +319,7 @@
 				TargetAttributes = {
 					F816D44D1E875B4900BF3995 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NHS5CFX24Q;
 						ProvisioningStyle = Automatic;
 					};
 					F816D4641E875B4A00BF3995 = {
@@ -335,7 +362,7 @@
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
-				F816D4951E89131B00BF3995 /* Main.storyboard in Resources */,
+				BF8EB84F1E975ACA002EA93B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,20 +526,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */,
-				F816D4541E875B4A00BF3995 /* ViewController.swift in Sources */,
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
+				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
+				BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */,
+				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
 				F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */,
 				F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */,
 				F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */,
+				BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
+				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
 				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,
+				BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */,
 				F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */,
 				F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */,
 				F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */,
 				F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */,
+				BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */,
 				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
 				F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */,
 				F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */,
@@ -660,7 +693,7 @@
 			baseConfigurationReference = D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindr;
@@ -674,7 +707,7 @@
 			baseConfigurationReference = BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pgop6.ReMindr;
