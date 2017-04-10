@@ -11,7 +11,6 @@
 		86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */; };
 		9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
-		BF83D46C1E9B5FAE009156D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF83D46B1E9B5FAE009156D2 /* Main.storyboard */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
 		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
 		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
@@ -36,6 +35,7 @@
 		F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4981E89E9F600BF3995 /* MapViewController.swift */; };
 		F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */; };
 		F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */; };
+		F85288C91E9B60FD00595E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85288C81E9B60FD00595E0A /* Main.storyboard */; };
 		F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447371E9A0EAB009713AC /* patientLeftIcon.png */; };
 		F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447381E9A0EAB009713AC /* patientBackIcon.png */; };
 		F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */ = {isa = PBXBuildFile; fileRef = F874474A1E9A35BA009713AC /* patientBackIcon New.png */; };
@@ -70,7 +70,6 @@
 		A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.release.xcconfig"; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
-		BF83D46B1E9B5FAE009156D2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Desktop/Main.storyboard; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		F816D4981E89E9F600BF3995 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOnlyViewController.swift; sourceTree = "<group>"; };
 		F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		F85288C81E9B60FD00595E0A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F87447371E9A0EAB009713AC /* patientLeftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientLeftIcon.png; sourceTree = "<group>"; };
 		F87447381E9A0EAB009713AC /* patientBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientBackIcon.png; sourceTree = "<group>"; };
 		F874474A1E9A35BA009713AC /* patientBackIcon New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "patientBackIcon New.png"; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				F816D4511E875B4A00BF3995 /* AppDelegate.swift */,
 				F816D45B1E875B4A00BF3995 /* Assets.xcassets */,
 				F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */,
-				BF83D46B1E9B5FAE009156D2 /* Main.storyboard */,
+				F85288C81E9B60FD00595E0A /* Main.storyboard */,
 				F816D4601E875B4A00BF3995 /* Info.plist */,
 				F816D4861E87B74800BF3995 /* GoogleService-Info.plist */,
 				F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */,
@@ -376,11 +376,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85288C91E9B60FD00595E0A /* Main.storyboard in Resources */,
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
 				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,
 				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
-				BF83D46C1E9B5FAE009156D2 /* Main.storyboard in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
 				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,
 			);
