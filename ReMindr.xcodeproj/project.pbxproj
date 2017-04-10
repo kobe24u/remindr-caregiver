@@ -36,6 +36,8 @@
 		F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4981E89E9F600BF3995 /* MapViewController.swift */; };
 		F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */; };
 		F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */; };
+		F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447371E9A0EAB009713AC /* patientLeftIcon.png */; };
+		F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447381E9A0EAB009713AC /* patientBackIcon.png */; };
 		F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C141E947733000F0965 /* AddLocationViewController.swift */; };
 		F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */; };
 		F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */; };
@@ -101,6 +103,8 @@
 		F816D4981E89E9F600BF3995 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOnlyViewController.swift; sourceTree = "<group>"; };
 		F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		F87447371E9A0EAB009713AC /* patientLeftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientLeftIcon.png; sourceTree = "<group>"; };
+		F87447381E9A0EAB009713AC /* patientBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientBackIcon.png; sourceTree = "<group>"; };
 		F88C5C141E947733000F0965 /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSettingsViewController.swift; sourceTree = "<group>"; };
 		F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencingViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF0B0391E97A577007AD381 /* PhotoAlbum */,
+				F874472E1E99E9CF009713AC /* notificationImages */,
 				F816D4511E875B4A00BF3995 /* AppDelegate.swift */,
 				F816D45B1E875B4A00BF3995 /* Assets.xcassets */,
 				F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */,
@@ -240,6 +245,15 @@
 				F816D4761E875B4A00BF3995 /* Info.plist */,
 			);
 			path = ReMindrUITests;
+			sourceTree = "<group>";
+		};
+		F874472E1E99E9CF009713AC /* notificationImages */ = {
+			isa = PBXGroup;
+			children = (
+				F87447371E9A0EAB009713AC /* patientLeftIcon.png */,
+				F87447381E9A0EAB009713AC /* patientBackIcon.png */,
+			);
+			name = notificationImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,8 +375,11 @@
 			files = (
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
+				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
 				BF8EB84F1E975ACA002EA93B /* Main.storyboard in Resources */,
+				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,
+				F816D4951E89131B00BF3995 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
