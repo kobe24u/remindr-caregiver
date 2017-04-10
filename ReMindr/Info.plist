@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>App requires access to your location to identify when you have arrived near certain locations</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App requires access to your microphone to record an audio clip</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App requires access to your photo library to add images</string>
 	<key>UILaunchStoryboardName</key>
