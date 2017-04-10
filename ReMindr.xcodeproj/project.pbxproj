@@ -33,6 +33,7 @@
 		F874472D1E99E693009713AC /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = F874472C1E99E693009713AC /* heart.png */; };
 		F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447371E9A0EAB009713AC /* patientLeftIcon.png */; };
 		F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447381E9A0EAB009713AC /* patientBackIcon.png */; };
+		F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */ = {isa = PBXBuildFile; fileRef = F874474A1E9A35BA009713AC /* patientBackIcon New.png */; };
 		F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C141E947733000F0965 /* AddLocationViewController.swift */; };
 		F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */; };
 		F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */; };
@@ -95,6 +96,7 @@
 		F874472C1E99E693009713AC /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = ../../../../../../../Downloads/heart.png; sourceTree = "<group>"; };
 		F87447371E9A0EAB009713AC /* patientLeftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientLeftIcon.png; sourceTree = "<group>"; };
 		F87447381E9A0EAB009713AC /* patientBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientBackIcon.png; sourceTree = "<group>"; };
+		F874474A1E9A35BA009713AC /* patientBackIcon New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "patientBackIcon New.png"; sourceTree = "<group>"; };
 		F88C5C141E947733000F0965 /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSettingsViewController.swift; sourceTree = "<group>"; };
 		F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencingViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		F874472E1E99E9CF009713AC /* notificationImages */ = {
 			isa = PBXGroup;
 			children = (
+				F874474A1E9A35BA009713AC /* patientBackIcon New.png */,
 				F87447371E9A0EAB009713AC /* patientLeftIcon.png */,
 				F87447381E9A0EAB009713AC /* patientBackIcon.png */,
 			);
@@ -352,6 +355,7 @@
 				F874472D1E99E693009713AC /* heart.png in Resources */,
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
+				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,
 				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
 				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,

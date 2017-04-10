@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         UNUserNotificationCenter.current().delegate = self
         // Enable local notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
+            // Enable or disable featusres based on authorization.
             guard error == nil else {
                 //Display Error.. Handle Error.. etc..
                 return
