@@ -11,7 +11,7 @@
 		86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */; };
 		9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
-		BF8EB84F1E975ACA002EA93B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8EB84E1E975ACA002EA93B /* Main.storyboard */; };
+		BF83D46C1E9B5FAE009156D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF83D46B1E9B5FAE009156D2 /* Main.storyboard */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
 		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
 		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
@@ -70,7 +70,7 @@
 		A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.release.xcconfig"; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
-		BF8EB84E1E975ACA002EA93B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		BF83D46B1E9B5FAE009156D2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Desktop/Main.storyboard; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				F816D4511E875B4A00BF3995 /* AppDelegate.swift */,
 				F816D45B1E875B4A00BF3995 /* Assets.xcassets */,
 				F816D45D1E875B4A00BF3995 /* LaunchScreen.storyboard */,
-				BF8EB84E1E975ACA002EA93B /* Main.storyboard */,
+				BF83D46B1E9B5FAE009156D2 /* Main.storyboard */,
 				F816D4601E875B4A00BF3995 /* Info.plist */,
 				F816D4861E87B74800BF3995 /* GoogleService-Info.plist */,
 				F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */,
@@ -380,10 +380,9 @@
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
 				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,
 				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
+				BF83D46C1E9B5FAE009156D2 /* Main.storyboard in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
-				BF8EB84F1E975ACA002EA93B /* Main.storyboard in Resources */,
 				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,
-				F816D4951E89131B00BF3995 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
