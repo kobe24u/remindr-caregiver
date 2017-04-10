@@ -14,6 +14,10 @@ protocol Table3Delegate
 {
     func detailVCDismissed()
 }
+
+protocol failedDelete {
+    func failDelete()
+}
 class DetailViewController: UIViewController, AVAudioPlayerDelegate{
 
     
@@ -33,12 +37,23 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
                 let value = current.value as? NSDictionary
+                let photoDesc = value?["Description"] as! String
                 let onlineaudioURL = value?["audioURL"] as! String
-                if onlineaudioURL == self.audioURL
+                if photoDesc != "this is a sample photo"
                 {
-                    current.ref.removeValue()
-                    return
+                    if onlineaudioURL == self.audioURL
+                    {
+                        current.ref.removeValue()
+                        self.delegate?.detailVCDismissed()
+
+                        return
+                    }
                 }
+                else{
+                    self.failDeleteDelegate?.failDelete()
+                }
+                
+        
 
             }
             
@@ -46,7 +61,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         }) { (error) in
             print(error.localizedDescription)
         }
-        delegate?.detailVCDismissed()
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -60,6 +75,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
     var audioPlayer: AVAudioPlayer!
     var audioURL: String?
     var delegate: Table3Delegate?
+    var failDeleteDelegate: failedDelete?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,7 +83,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         print("executed")
         playButton = UIButton(frame: CGRect(x: 110, y: 500, width: 150, height: 64))
         playButton.isHidden = false
-        let playImage = resizeImage(image: UIImage(named: "play")!, newWidth: CGFloat(30))
+        let playImage = resizeImage(image: UIImage(named: "play")!, newWidth: CGFloat(60))
         playButton.setImage(playImage, for: .normal)
         playButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         stopButton = UIButton(frame: CGRect(x: 110, y: 500, width: 150, height: 64))
@@ -102,7 +118,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully
         flag: Bool) {
         print("Finished")
-        let playImage = resizeImage(image: UIImage(named: "play")!, newWidth: CGFloat(30))
+        let playImage = resizeImage(image: UIImage(named: "play")!, newWidth: CGFloat(60))
         playButton.setImage(playImage, for: .normal)
         stopButton.isHidden = true
         playButton.isHidden = false
@@ -147,10 +163,26 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
 
     }
     
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
     
     func stopTapped(){
         print("Stopped")
-        audioPlayer!.stop()
+        if(audioPlayer != nil)
+        {
+            audioPlayer!.stop()
+            print("Clicked stopped")
+        }
         stopButton.isHidden = true
         playButton.isHidden = false
         //        recordButton.isEnabled = true
@@ -203,19 +235,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         self.present(alertController, animated: true, completion: nil)
         
     }
-    
-    func promptMessage(title: String, message: String)
-    {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        
-        // change to desired number of seconds (in this case 5 seconds)
-        let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when){
-            // your code with delay
-            alert.dismiss(animated: true, completion: nil)
-        }
-    }
+
     
 }
 

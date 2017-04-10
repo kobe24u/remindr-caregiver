@@ -11,7 +11,7 @@ import AVFoundation
 import Firebase
 import FirebaseDatabase
 
-class PhotoCollectionViewController: UICollectionViewController, Table2Delegate, Table3Delegate
+class PhotoCollectionViewController: UICollectionViewController, Table2Delegate, Table3Delegate, failedDelete
 {
     
     var photos = [Photo]()
@@ -33,9 +33,26 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         self.photos.removeAll()
     }
     
+    func failDelete() {
+        self.promptMessage(title: "Oops", message: "Sorry, you cannot delete the sample photo")
+    }
     func detailVCDismissed() {
         print("delegate method called")
         self.photos.removeAll()
+        self.promptMessage(title: "Easy", message: "You've successfully delete the photo")
+    }
+    
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
 
 
@@ -166,6 +183,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
             let detailVC = segue.destination as! DetailViewController
             detailVC.image = sender as! UIImage
             detailVC.delegate = self
+            detailVC.failDeleteDelegate = self
             detailVC.photoTitle = self.chosenPhoto!.title
             detailVC.audioURL = self.chosenPhoto!.audioURL
         }

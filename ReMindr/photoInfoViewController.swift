@@ -271,7 +271,7 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 
                 if success {
                     playButton.isHidden = false
-                    playButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+                    playButton.setImage(#imageLiteral(resourceName: "play-1"), for: .normal)
                     rerecordButton.isHidden = false
    
                 } else {
