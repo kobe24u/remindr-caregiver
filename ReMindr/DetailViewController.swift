@@ -29,40 +29,9 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
     
     @IBAction func deleteAction(_ sender: Any) {
         
-        
-        let ref = FIRDatabase.database().reference().child("Photos").child("testpatient")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            
-            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
-            {
-                let value = current.value as? NSDictionary
-                let photoDesc = value?["Description"] as! String
-                let onlineaudioURL = value?["audioURL"] as! String
-                if photoDesc != "this is a sample photo"
-                {
-                    if onlineaudioURL == self.audioURL
-                    {
-                        current.ref.removeValue()
-                        self.delegate?.detailVCDismissed()
-
-                        return
-                    }
-                }
-                else{
-                    self.failDeleteDelegate?.failDelete()
-                }
-                
+        showInputDialog()
         
 
-            }
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -76,6 +45,7 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
     var audioURL: String?
     var delegate: Table3Delegate?
     var failDeleteDelegate: failedDelete?
+    var delete: Bool?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -218,6 +188,40 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         
         //the confirm action taking the inputs
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            let ref = FIRDatabase.database().reference().child("Photos").child("testpatient")
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                
+                for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+                {
+                    let value = current.value as? NSDictionary
+                    let photoDesc = value?["Description"] as! String
+                    let onlineaudioURL = value?["audioURL"] as! String
+                    if photoDesc != "this is a sample photo"
+                    {
+                        if onlineaudioURL == self.audioURL
+                        {
+                            current.ref.removeValue()
+                            self.delegate?.detailVCDismissed()
+                            
+                            return
+                        }
+                    }
+                    else{
+                        self.failDeleteDelegate?.failDelete()
+                    }
+                    
+                    
+                    
+                }
+                
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+            
             
             
    }
@@ -225,6 +229,8 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         
         //the cancel action doing nothing
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            self.delete = false
+            
 //            alertController.dismiss(animated: true, completion: nil)
         }
         //adding the action to dialogbox
@@ -234,8 +240,11 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         //finally presenting the dialog box
         self.present(alertController, animated: true, completion: nil)
         
+        
+        
     }
-
+    
+   
     
 }
 
