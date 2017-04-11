@@ -104,10 +104,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUs-lg-IIL">
-                                <rect key="frame" x="137" y="72" width="100" height="90"/>
+                                <rect key="frame" x="133" y="72" width="108" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <size key="titleShadowOffset" width="3" height="3"/>
-                                <state key="normal" backgroundImage="marker"/>
+                                <state key="normal" image="marker"/>
                                 <connections>
                                     <segue destination="BcV-WE-07t" kind="show" id="oOX-yf-1FF"/>
                                 </connections>
@@ -134,6 +134,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Panic Logs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-uW-WaJ">
+                                <rect key="frame" x="16" y="571" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w1-01-tN1">
+                                <rect key="frame" x="110" y="463" width="154" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="paniclog"/>
+                                <connections>
+                                    <segue destination="C1w-7J-hG4" kind="show" identifier="showPanicLogsSegue" id="yeB-jM-jwz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,6 +157,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFJ-gM-Bzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="400.80000000000001" y="921.58920539730138"/>
+        </scene>
+        <!--Panic Table View Controller-->
+        <scene sceneID="jGo-5d-pAm">
+            <objects>
+                <tableViewController id="C1w-7J-hG4" customClass="PanicTableViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="fOs-Ki-eZY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No events to display" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RZF-J8-bIZ">
+                            <rect key="frame" x="0.0" y="90" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PanicCell" rowHeight="62" id="wtN-DL-cMk" customClass="PanicTableViewCell" customModule="ReMindr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wtN-DL-cMk" id="ynX-Kd-Fof">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-04-2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtP-h5-AAo">
+                                            <rect key="frame" x="72" y="8" width="295" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="aKC-JJ-L5i"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:32:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9c-hf-uE1">
+                                            <rect key="frame" x="72" y="32" width="295" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alertred" translatesAutoresizingMaskIntoConstraints="NO" id="ncs-xI-ZAQ">
+                                            <rect key="frame" x="8" y="0.0" width="56" height="53"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="56" id="um2-bn-kbm"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ncs-xI-ZAQ" firstAttribute="bottom" secondItem="S9c-hf-uE1" secondAttribute="bottom" id="9kv-Xf-vVO"/>
+                                        <constraint firstItem="S9c-hf-uE1" firstAttribute="top" secondItem="CtP-h5-AAo" secondAttribute="bottom" constant="3" id="BRw-BV-dYN"/>
+                                        <constraint firstItem="ncs-xI-ZAQ" firstAttribute="bottom" secondItem="ynX-Kd-Fof" secondAttribute="bottomMargin" id="JuZ-2v-rkB"/>
+                                        <constraint firstItem="CtP-h5-AAo" firstAttribute="trailing" secondItem="S9c-hf-uE1" secondAttribute="trailing" id="KhI-Fm-j20"/>
+                                        <constraint firstItem="ncs-xI-ZAQ" firstAttribute="top" secondItem="ynX-Kd-Fof" secondAttribute="top" id="Q1D-M2-Pcv"/>
+                                        <constraint firstItem="ncs-xI-ZAQ" firstAttribute="leading" secondItem="ynX-Kd-Fof" secondAttribute="leadingMargin" id="ScJ-AC-ios"/>
+                                        <constraint firstItem="CtP-h5-AAo" firstAttribute="leading" secondItem="ncs-xI-ZAQ" secondAttribute="trailing" constant="8" symbolic="YES" id="ZaL-X4-4zt"/>
+                                        <constraint firstItem="CtP-h5-AAo" firstAttribute="top" secondItem="ynX-Kd-Fof" secondAttribute="topMargin" id="csW-Fq-Tmq"/>
+                                        <constraint firstItem="CtP-h5-AAo" firstAttribute="leading" secondItem="S9c-hf-uE1" secondAttribute="leading" id="gi7-ka-twD"/>
+                                        <constraint firstItem="CtP-h5-AAo" firstAttribute="trailing" secondItem="ynX-Kd-Fof" secondAttribute="trailingMargin" id="o6z-Zx-7di"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="panicDate" destination="CtP-h5-AAo" id="kIO-CI-veJ"/>
+                                    <outlet property="panicImage" destination="ncs-xI-ZAQ" id="P5J-Uh-bJA"/>
+                                    <outlet property="panicTime" destination="S9c-hf-uE1" id="SCe-49-KYI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C1w-7J-hG4" id="es5-lL-CGJ"/>
+                            <outlet property="delegate" destination="C1w-7J-hG4" id="4tX-aZ-aaS"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="noItemsLabel" destination="RZF-J8-bIZ" id="Ptw-dc-gsX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79h-Is-al7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458.39999999999998" y="1734.7826086956522"/>
         </scene>
         <!--Photo Collection View Controller-->
         <scene sceneID="XT3-AY-Qjs">
@@ -201,7 +294,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roL-iO-irP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="2ot-5H-7N8"/>
             </objects>
-            <point key="canvasLocation" x="401" y="1735"/>
+            <point key="canvasLocation" x="439" y="1735"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="7Jn-Wh-2m2">
@@ -281,7 +374,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmr-nM-jmx">
-                                <rect key="frame" x="167.5" y="497" width="40" height="40"/>
+                                <rect key="frame" x="168" y="497" width="40" height="40"/>
                                 <state key="normal" title="Record" image="rec"/>
                                 <connections>
                                     <action selector="startRecording:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="hcY-i5-Tux"/>
@@ -297,7 +390,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x70-NT-Pu5">
-                                <rect key="frame" x="283.5" y="497" width="39.5" height="40"/>
+                                <rect key="frame" x="284" y="497" width="39" height="40"/>
                                 <state key="normal" title="Rerecord" image="rerecord"/>
                                 <connections>
                                     <action selector="rerecordButtonTapped:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="i45-Gx-JY1"/>
@@ -1155,6 +1248,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alertred" width="82" height="71"/>
         <image name="blankPhoto" width="640" height="480"/>
         <image name="delete" width="256" height="256"/>
         <image name="edit" width="32" height="32"/>
@@ -1162,6 +1256,7 @@
         <image name="lightgreytexturedbackground" width="550" height="250"/>
         <image name="maps" width="32" height="32"/>
         <image name="marker" width="100" height="100"/>
+        <image name="paniclog" width="100" height="100"/>
         <image name="photoAlbumicon" width="601" height="476"/>
         <image name="rec" width="1034" height="1034"/>
         <image name="rerecord" width="300" height="300"/>
