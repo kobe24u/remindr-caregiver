@@ -26,6 +26,10 @@ class PanicTableViewController: UITableViewController {
         ref = FIRDatabase.database().reference()
         noItemsLabel.text = ""
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        retrieveDataFromFirebase()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,16 +48,69 @@ class PanicTableViewController: UITableViewController {
         return eventList.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    func retrieveDataFromFirebase()
+    {
+        
+        // Retrieve the list of favourites and listen for changes
+        ref.child("panicEvents/testpatient").observe(.value, with: {(snapshot) in
+            
+            self.eventList.removeAllObjects()
+            
+            // Get user value
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                let value = current.value as? NSDictionary
+                let eventName = value?["eventName"] as? String ?? ""
+                let receivedDate = value?["receivedDate"] as? String ?? ""
+                let receivedTime = value?["receivedTime"] as? String ?? ""
+                let receivedLat = value?["receivedLat"] as? String ?? ""
+                let receivedLng = value?["receivedLng"] as? String ?? ""
+                let resolved = value?["resolved"] as? String ?? ""
+                let resolvedDate = value?["resolvedDate"] as? String ?? ""
+                let resolvedTime = value?["resolvedTime"] as? String ?? ""
+                let newItem = Panic(eventName: eventName, receivedDate: receivedDate, receivedTime: receivedTime, receivedLat: receivedLat, receivedLng: receivedLng, resolved: resolved)
 
-        // Configure the cell...
+                self.eventList.add(newItem)
+                
+            }
+            self.tableView.reloadData()
+            if self.eventList.count == 0
+            {
+                self.noItemsLabel.text = "No events to display"
+            }
+            else
+            {
+                self.noItemsLabel.text = ""
+            }
+        })
+        
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PanicCell", for: indexPath) as! PanicTableViewCell
+
+        let event: Panic = (self.eventList[indexPath.row] as? Panic)!
+        cell.panicDate.text = event.receivedDate
+        cell.panicTime.text = event.receivedTime
+        
+        print ("event resolved \(event.resolved!)")
+        if (event.resolved! == "true")
+        {
+            cell.panicImage.image = #imageLiteral(resourceName: "handledgreen")
+        }
+        else
+        {
+            cell.panicImage.image = #imageLiteral(resourceName: "alertred.png")
+        }
 
         return cell
     }
-    */
 
+
+    //TODO: sort events by date and time
+    //TODO: sort events by resolved true or false
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
