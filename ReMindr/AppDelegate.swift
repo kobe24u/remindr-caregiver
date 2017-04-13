@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         UNUserNotificationCenter.current().delegate = self
         // Enable local notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
+            // Enable or disable featusres based on authorization.
             guard error == nil else {
                 //Display Error.. Handle Error.. etc..
                 return
@@ -74,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         ref = FIRDatabase.database().reference()
         patientLeftGeofencingArea()
+        patientPressedPanicButton()
         return true
     }
 
@@ -95,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         application.applicationIconBadgeNumber = 0
+        self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -427,6 +429,109 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         })
 
     }
+    
+    func patientPressedPanicButton()
+    {
+        self.ref?.child("panicked").observe(.value, with: { (snapshot) in
+            
+            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            {
+                let value = current.value as? NSDictionary
+                if let isPanicked = value?["isPanicked"] as? String {
+                    if (isPanicked == "true")
+                    {
+                            let title = "Patient needs help"
+                            let message = "Your patient has clicked the panic button and requires your assistance"
+                            
+                            if UIApplication.shared.applicationState == .active {
+                                // App is active, show an alert
+                                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alertAction)
+                                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                                //self.present(alertController, animated: true, completion: nil)
+                            } else {
+                                // App is inactive, show a notification
+                                if #available(iOS 10.0, *) {
+                                    self.generatePanicLocalNotification()
+                                }
+                                else
+                                {
+                                    let notification = UILocalNotification()
+                                    notification.alertTitle = title
+                                    notification.alertBody = message
+                                    UIApplication.shared.presentLocalNotificationNow(notification)
+                                    
+                                }
+                            }
+                    }
+                }
+            }
+        })
+    }
+    
+    
+    func generatePanicLocalNotification() {
+        
+        badgeCount += 1
+        
+        // App is inactive, show a notification
+        //let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [.destructive, .authenticationRequired, .foreground])
+        let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [])
+        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
+        //let callPatientAction = UNNotificationAction(identifier: "callPatient", title: "Call my patient", options: [.destructive, .foreground, .authenticationRequired] )
+        
+        let actionsArray = NSArray(objects: justInformAction, showPatientAction) //, callPatientAction)
+        //let actionsArrayMinimal = NSArray(objects: showPatientAction, callPatientAction)
+        
+        let geofencingNotificationCategory = UNNotificationCategory(identifier: "panicNotificationCategory", actions: actionsArray as! [UNNotificationAction], intentIdentifiers: [], options: [])
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Patient is in trouble"
+        content.body = "Your patient has pressed the panic button and requires your help"
+        content.sound = UNNotificationSound.default()
+        content.badge = badgeCount as NSNumber
+        content.categoryIdentifier = "panicNotificationCategory"
+        content.launchImageName = "home"
+        
+        guard let path = Bundle.main.path(forResource: "redalert", ofType: "png") else { return }
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let attachment = try UNNotificationAttachment(identifier: "notificationImage", url: url, options: nil)
+            content.attachments = [attachment]
+        }
+        catch
+        {
+            print ("An error occurred while trying to attach an image to the notification")
+        }
+        
+        //
+        //        //let imagePath = URL(fileReferenceLiteralResourceName: "home")
+        //        let imagePath = URL(string: "https://firebasestorage.googleapis.com/v0/b/remindr-be120.appspot.com/o/pizza.jpg?alt=media&token=e5831bb2-eec7-4b1f-bdef-3f975cf0e7b5")
+        //        if let attachment =  try? UNNotificationAttachment(identifier: "notificationImage", url: imagePath!, options: nil) {
+        //            content.attachments.append(attachment)
+        //        }
+        //
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "panicNotification", content: content, trigger: trigger)
+        
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.setNotificationCategories([geofencingNotificationCategory])
+        center.removeAllPendingNotificationRequests()
+        
+        center.add(request, withCompletionHandler: {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        })
+        
+    }
+
     
 }
 
