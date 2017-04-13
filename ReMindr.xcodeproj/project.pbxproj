@@ -40,6 +40,7 @@
 		F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */; };
 		F85288D51E9CF98D00595E0A /* Panic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D41E9CF98D00595E0A /* Panic.swift */; };
 		F85288D71E9CFC4100595E0A /* alertred.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D61E9CFC4100595E0A /* alertred.png */; };
+		F85288D91E9E379E00595E0A /* redalert.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D81E9E379E00595E0A /* redalert.png */; };
 		F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447371E9A0EAB009713AC /* patientLeftIcon.png */; };
 		F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447381E9A0EAB009713AC /* patientBackIcon.png */; };
 		F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */ = {isa = PBXBuildFile; fileRef = F874474A1E9A35BA009713AC /* patientBackIcon New.png */; };
@@ -112,6 +113,7 @@
 		F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanicTableViewCell.swift; sourceTree = "<group>"; };
 		F85288D41E9CF98D00595E0A /* Panic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panic.swift; sourceTree = "<group>"; };
 		F85288D61E9CFC4100595E0A /* alertred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertred.png; sourceTree = "<group>"; };
+		F85288D81E9E379E00595E0A /* redalert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redalert.png; sourceTree = "<group>"; };
 		F87447371E9A0EAB009713AC /* patientLeftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientLeftIcon.png; sourceTree = "<group>"; };
 		F87447381E9A0EAB009713AC /* patientBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientBackIcon.png; sourceTree = "<group>"; };
 		F874474A1E9A35BA009713AC /* patientBackIcon New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "patientBackIcon New.png"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */,
 				F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */,
 				F85288D41E9CF98D00595E0A /* Panic.swift */,
+				F85288D81E9E379E00595E0A /* redalert.png */,
 				F85288D61E9CFC4100595E0A /* alertred.png */,
 			);
 			name = PanicLogs;
@@ -398,6 +401,7 @@
 			files = (
 				F85288C91E9B60FD00595E0A /* Main.storyboard in Resources */,
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
+				F85288D91E9E379E00595E0A /* redalert.png in Resources */,
 				F85288D71E9CFC4100595E0A /* alertred.png in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
 				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,

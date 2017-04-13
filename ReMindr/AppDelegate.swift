@@ -494,7 +494,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         content.categoryIdentifier = "panicNotificationCategory"
         content.launchImageName = "home"
         
-        guard let path = Bundle.main.path(forResource: "alertred", ofType: "png") else { return }
+        guard let path = Bundle.main.path(forResource: "redalert", ofType: "png") else { return }
         let url = URL(fileURLWithPath: path)
         
         do {

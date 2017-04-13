@@ -28,7 +28,20 @@ class PanicTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        retrieveDataFromFirebase()
+        
+        // checking if network is available (Reachability class is defined in another file)
+        if Reachability.isConnectedToNetwork() == false      // if data network exists
+        {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            retrieveDataFromFirebase()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +63,11 @@ class PanicTableViewController: UITableViewController {
 
     func retrieveDataFromFirebase()
     {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let date: NSDate
+        date = dateFormatter.date(from: "14-04-2017 16:03:11")! as NSDate
+        print ("the scam date is \(date)")
         
         // Retrieve the list of favourites and listen for changes
         ref.child("panicEvents/testpatient").observe(.value, with: {(snapshot) in
@@ -81,6 +99,7 @@ class PanicTableViewController: UITableViewController {
             else
             {
                 self.noItemsLabel.text = ""
+                self.sortEventList()
             }
         })
         
@@ -110,6 +129,93 @@ class PanicTableViewController: UITableViewController {
 
     //TODO: sort events by date and time
     //TODO: sort events by resolved true or false
+    //TODO: check item as resolved; delete event; view event
+    
+ 
+ 
+    
+    /*
+     A function to sort the reminders list based on whether the due date is set or not
+     The function splits the array based on due date (those with a due date and those without)
+     and send the list with the due date to the ordering function that orders it by due date.
+     The two lists are then appended together
+     */
+    func sortEventList()
+    {
+        var listWithResolvedEvents: NSMutableArray    // array to store the events which are resolved
+        var listWithUnresolvedEvents: NSMutableArray   // array to store events that are not resolved
+//        var listWithDate: NSMutableArray
+//        var listWithoutDate: NSMutableArray
+//        listWithDate = NSMutableArray()
+//        listWithoutDate = NSMutableArray()
+        listWithResolvedEvents = NSMutableArray()
+        listWithUnresolvedEvents = NSMutableArray()
+        
+        //looping through the reminder list
+        for event in (eventList as NSArray as! [Panic])
+        {
+            if event.resolved == "true"
+            {
+                listWithResolvedEvents.add(event)
+            }
+            else
+            {
+                listWithUnresolvedEvents.add(event)
+            }
+        }
+        
+        /*
+        // looping through the incomplete reminders list
+        for reminder in (listWithUnresolvedEvents as NSArray as! [Panic])
+        {
+            if reminder.dueDate != nil      // if reminder has due date
+            {
+                listWithDate.addObject(reminder)
+            }
+            else                            // if reminder doesn't have due date
+            {
+                listWithoutDate.addObject(reminder)
+            }
+        }
+        
+        // sending the list to be ordered by due date
+        listWithDate = orderReminderListByDueDate(listWithDate)
+ 
+ */
+        // clearing the main list
+        eventList.removeAllObjects()
+       
+//        // appending the newly sorted lists
+//        reminderList.addObjectsFromArray(listWithDate as [AnyObject])
+//        reminderList.addObjectsFromArray(listWithoutDate as [AnyObject])
+ 
+        eventList.addObjects(from: listWithUnresolvedEvents as [AnyObject])
+        eventList.addObjects(from: listWithResolvedEvents as [AnyObject])
+        
+        self.tableView.reloadData()
+    }
+    
+    /*
+    /*
+     This function is used to sort the reminders list by comparing the due dates of the reminders
+     Adapted from a code retrieved from http://stackoverflow.com/questions/25769107/sort-nsarray-with-sortedarrayusingcomparator
+     Author: Mike S and Miro
+     Date: 08/09/2016
+     */
+    func orderEventListByDateTime(reminderList: NSMutableArray) -> NSMutableArray
+    {
+        let sortedList = reminderList.sortedArrayUsingComparator{
+            (object1, object2) -> NSComparisonResult in
+            let rem1 = object1 as! Item
+            let rem2 = object2 as! Item
+            let result = rem1.dueDate!.compare(rem2.dueDate!)
+            return result
+        }
+        reminderList.setArray(sortedList)
+        return reminderList
+    }
+    */
+    
     
     /*
     // Override to support conditional editing of the table view.
@@ -130,6 +236,31 @@ class PanicTableViewController: UITableViewController {
         }    
     }
     */
+ 
+ 
+ 
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // button to view the details of the category
+        let resolveEvent = UITableViewRowAction(style: .normal, title: "Resolved")
+        {action, indexPath in
+            //self.selectedPosition = indexPath.row
+            
+            // TODO: set this item as resolved
+        }
+        
+        // button to delete the category from the list
+        let delete = UITableViewRowAction(style: .normal, title: "Delete")
+        {action, indexPath in
+            
+          // TODO: delete this item
+        }
+        
+        // setting custom colours for each of the row buttons
+        delete.backgroundColor = UIColor(colorLiteralRed: 233/255, green: 66/255, blue: 35/255, alpha: 1)
+        resolveEvent.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 151/255, blue: 94/255, alpha: 1)
+        return [resolveEvent, delete]
+    }
 
     /*
     // Override to support rearranging the table view.
