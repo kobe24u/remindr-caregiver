@@ -378,6 +378,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         switch response.actionIdentifier {
             case "justInform":
                 print ("cancelled")
+            
+            case "informContacts":
+                print ("call function to SMS emergency contacts")
+                badgeCount = 0
+                let mainNav = self.window?.rootViewController as! UINavigationController
+                let mainPage = mainNav.topViewController!
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)
+            
+//                let otherVC = sb.instantiateViewController(withIdentifier: "PanicMapViewController") as! PanicMapViewController
+//                window?.rootViewController = otherVC;
+            
             case "showPatient":
                 print ("must show patient here")
                 badgeCount = 0
@@ -441,13 +453,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     if (isPanicked == "true")
                     {
                             let title = "Patient needs help"
-                            let message = "Your patient has clicked the panic button and requires your assistance"
+                            let message = "Your patient has pressed the panic button and requires your help"
                             
                             if UIApplication.shared.applicationState == .active {
                                 // App is active, show an alert
                                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                                
                                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                let takeToSCreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
+                                    
+                                    self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+                                    let mainNav = self.window?.rootViewController as! UINavigationController
+                                    let mainPage = mainNav.topViewController!
+                                    mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)
+                                })
+                                
                                 alertController.addAction(alertAction)
+                                alertController.addAction(takeToSCreenAction)
                                 UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {
@@ -478,21 +500,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // App is inactive, show a notification
         //let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [.destructive, .authenticationRequired, .foreground])
         let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [])
-        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
+        let informContacts = UNNotificationAction(identifier: "informContacts", title: "Inform Emergency Contacts", options: [.foreground, .destructive])
+//        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
         //let callPatientAction = UNNotificationAction(identifier: "callPatient", title: "Call my patient", options: [.destructive, .foreground, .authenticationRequired] )
         
-        let actionsArray = NSArray(objects: justInformAction, showPatientAction) //, callPatientAction)
+        let actionsArray = NSArray(objects: justInformAction, informContacts)//, showPatientAction) //, callPatientAction)
         //let actionsArrayMinimal = NSArray(objects: showPatientAction, callPatientAction)
         
         let geofencingNotificationCategory = UNNotificationCategory(identifier: "panicNotificationCategory", actions: actionsArray as! [UNNotificationAction], intentIdentifiers: [], options: [])
         
         let content = UNMutableNotificationContent()
-        content.title = "Patient is in trouble"
+        content.title = "Patient needs help"
         content.body = "Your patient has pressed the panic button and requires your help"
         content.sound = UNNotificationSound.default()
         content.badge = badgeCount as NSNumber
         content.categoryIdentifier = "panicNotificationCategory"
         content.launchImageName = "home"
+        content.userInfo = ["Type": "PanicNotification"]
         
         guard let path = Bundle.main.path(forResource: "redalert", ofType: "png") else { return }
         let url = URL(fileURLWithPath: path)
@@ -531,7 +555,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         })
         
     }
-
     
 }
 

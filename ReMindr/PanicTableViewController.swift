@@ -247,6 +247,23 @@ class PanicTableViewController: UITableViewController {
             //self.selectedPosition = indexPath.row
             
             // TODO: set this item as resolved
+            let dateTime = NSDate()
+            print (dateTime)
+            
+            let dateFormatter = DateFormatter()
+            let timeFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            timeFormatter.dateFormat = "HH:mm:ss"
+            
+            let dateResult = dateFormatter.string(from: dateTime as Date)
+            let timeResult = timeFormatter.string(from: dateTime as Date)
+           
+            
+            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolved").setValue("true")
+            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedDate").setValue(dateResult)
+            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedTime").setValue(timeResult)
+            
+            
         }
         
         // button to delete the category from the list
@@ -254,6 +271,21 @@ class PanicTableViewController: UITableViewController {
         {action, indexPath in
             
           // TODO: delete this item
+            let deleteAlert = UIAlertController(title: "Confirm Delete", message: "Are you sure you want to delete this event?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+                
+                
+                self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).removeValue()
+                
+            }))
+            
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Delete cancelled")
+            }))
+            
+            self.present(deleteAlert, animated: true, completion: nil)
+
         }
         
         // setting custom colours for each of the row buttons
