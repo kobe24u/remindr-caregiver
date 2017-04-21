@@ -17,6 +17,12 @@
 		BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */; };
 		BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */; };
 		BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */; };
+		F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */; };
+		F8019E9C1EA609700058D4EE /* EmergencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */; };
+		F8019E9E1EA60F700058D4EE /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E9D1EA60F700058D4EE /* AddContactViewController.swift */; };
+		F8019EA11EA6135C0058D4EE /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019EA01EA6135C0058D4EE /* EmergencyContact.swift */; };
+		F8019EA51EA76DB90058D4EE /* PanicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019EA41EA76DB90058D4EE /* PanicMapViewController.swift */; };
+		F8019EA71EA7A5CC0058D4EE /* FastestRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019EA61EA7A5CC0058D4EE /* FastestRouteViewController.swift */; };
 		F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4511E875B4A00BF3995 /* AppDelegate.swift */; };
 		F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */; };
 		F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F816D45B1E875B4A00BF3995 /* Assets.xcassets */; };
@@ -41,6 +47,9 @@
 		F85288D51E9CF98D00595E0A /* Panic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D41E9CF98D00595E0A /* Panic.swift */; };
 		F85288D71E9CFC4100595E0A /* alertred.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D61E9CFC4100595E0A /* alertred.png */; };
 		F85288D91E9E379E00595E0A /* redalert.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D81E9E379E00595E0A /* redalert.png */; };
+		F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */; };
+		F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3231EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift */; };
+		F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */; };
 		F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447371E9A0EAB009713AC /* patientLeftIcon.png */; };
 		F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F87447381E9A0EAB009713AC /* patientBackIcon.png */; };
 		F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */ = {isa = PBXBuildFile; fileRef = F874474A1E9A35BA009713AC /* patientBackIcon New.png */; };
@@ -84,6 +93,12 @@
 		C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.debug.xcconfig"; sourceTree = "<group>"; };
 		DE45ECB99425F0451783066E /* Pods-ReMindrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContactsTableViewController.swift; sourceTree = "<group>"; };
+		F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyTableViewCell.swift; sourceTree = "<group>"; };
+		F8019E9D1EA60F700058D4EE /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		F8019EA01EA6135C0058D4EE /* EmergencyContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
+		F8019EA41EA76DB90058D4EE /* PanicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanicMapViewController.swift; sourceTree = "<group>"; };
+		F8019EA61EA7A5CC0058D4EE /* FastestRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastestRouteViewController.swift; sourceTree = "<group>"; };
 		F816D44E1E875B4A00BF3995 /* ReMindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D4511E875B4A00BF3995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReMindr.xcdatamodel; sourceTree = "<group>"; };
@@ -114,6 +129,9 @@
 		F85288D41E9CF98D00595E0A /* Panic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panic.swift; sourceTree = "<group>"; };
 		F85288D61E9CFC4100595E0A /* alertred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertred.png; sourceTree = "<group>"; };
 		F85288D81E9E379E00595E0A /* redalert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redalert.png; sourceTree = "<group>"; };
+		F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceStation.swift; sourceTree = "<group>"; };
+		F865A3231EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceStationDetailsViewController.swift; sourceTree = "<group>"; };
+		F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceWebDetailsViewController.swift; sourceTree = "<group>"; };
 		F87447371E9A0EAB009713AC /* patientLeftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientLeftIcon.png; sourceTree = "<group>"; };
 		F87447381E9A0EAB009713AC /* patientBackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientBackIcon.png; sourceTree = "<group>"; };
 		F874474A1E9A35BA009713AC /* patientBackIcon New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "patientBackIcon New.png"; sourceTree = "<group>"; };
@@ -186,6 +204,38 @@
 				BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */,
 			);
 			name = PhotoAlbum;
+			sourceTree = "<group>";
+		};
+		F8019E9F1EA6133B0058D4EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8019EA01EA6135C0058D4EE /* EmergencyContact.swift */,
+				F85288D41E9CF98D00595E0A /* Panic.swift */,
+				F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F8019EA21EA76D6F0058D4EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */,
+				F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */,
+				F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */,
+				F8019EA41EA76DB90058D4EE /* PanicMapViewController.swift */,
+				F8019EA61EA7A5CC0058D4EE /* FastestRouteViewController.swift */,
+				F865A3231EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8019EA31EA76D840058D4EE /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */,
+				F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 		F816D4451E875B4900BF3995 = {
@@ -263,11 +313,12 @@
 		F85288CF1E9CF86100595E0A /* PanicLogs */ = {
 			isa = PBXGroup;
 			children = (
-				F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */,
-				F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */,
-				F85288D41E9CF98D00595E0A /* Panic.swift */,
+				F8019EA31EA76D840058D4EE /* TableViewCells */,
+				F8019EA21EA76D6F0058D4EE /* ViewControllers */,
+				F8019E9F1EA6133B0058D4EE /* Model */,
 				F85288D81E9E379E00595E0A /* redalert.png */,
 				F85288D61E9CFC4100595E0A /* alertred.png */,
+				F8019E9D1EA60F700058D4EE /* AddContactViewController.swift */,
 			);
 			name = PanicLogs;
 			sourceTree = "<group>";
@@ -574,17 +625,23 @@
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
 				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
+				F8019EA71EA7A5CC0058D4EE /* FastestRouteViewController.swift in Sources */,
+				F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */,
+				F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */,
 				BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */,
 				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
 				F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */,
 				F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */,
+				F8019EA11EA6135C0058D4EE /* EmergencyContact.swift in Sources */,
 				F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */,
 				BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
+				F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */,
 				F85288D11E9CF87E00595E0A /* PanicTableViewController.swift in Sources */,
+				F8019E9E1EA60F700058D4EE /* AddContactViewController.swift in Sources */,
 				F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */,
 				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,
 				BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */,
@@ -592,11 +649,14 @@
 				F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */,
 				F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */,
 				F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */,
+				F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */,
 				BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */,
 				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
 				F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */,
+				F8019E9C1EA609700058D4EE /* EmergencyTableViewCell.swift in Sources */,
 				F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */,
 				F85288D51E9CF98D00595E0A /* Panic.swift in Sources */,
+				F8019EA51EA76DB90058D4EE /* PanicMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
