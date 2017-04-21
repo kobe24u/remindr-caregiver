@@ -73,15 +73,15 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         {
             if (notificationSwitch.isOn)
             {
-                notificationOn = "True"
+                notificationOn = "true"
             }
             else
             {
-                notificationOn = "False"
+                notificationOn = "false"
             }
             
             let values: [String: Any]
-            values = ["locationName": locationName ?? "Home", "enabled": notificationOn ?? "True", "range": notificationRange, "locLat": "\(locationLat!)", "locLng": "\(locationLng!)" ]
+            values = ["locationName": locationName ?? "Home", "enabled": notificationOn ?? "true", "range": notificationRange, "locLat": "\(locationLat!)", "locLng": "\(locationLng!)", "violated": "false" ]
             
             //TODO: Add this value to geofencing settings for the given patient
             self.ref.child("geofencing/testpatient").setValue(values)

@@ -23,9 +23,13 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     var midLatitude: Double?
     var midLongitude: Double?
+    var previousPatientMarker: CustomPointAnnotation?
+    var previousGeofenceMarker: CustomPointAnnotation?
     
     required init?(coder aDecoder: NSCoder)
     {
+        previousPatientMarker = nil
+        previousGeofenceMarker = nil
         super.init(coder: aDecoder)
     }
     
@@ -191,10 +195,18 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     func plotPatientLocationOnMap()
     {
+        
         let patMarker = CustomPointAnnotation()
         self.ref.child("users").observe(.value, with: { (snapshot) in
+            
+            if (self.previousPatientMarker != nil)
+            {
+                self.mapView.removeAnnotation(self.previousPatientMarker!)
+            }
+
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
+                
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
@@ -209,6 +221,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             patMarker.subtitle = "My patient is here"
                             patMarker.imageName = "patient"
                             
+                            self.previousPatientMarker = patMarker
                             self.mapView.addAnnotation(patMarker)
                             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                         }
@@ -225,6 +238,12 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let geoMarker = CustomPointAnnotation()
         self.ref.child("geofencing").observe(.value, with: { (snapshot) in
         
+            if (self.previousGeofenceMarker != nil)
+            {
+                self.mapView.removeAnnotation(self.previousGeofenceMarker!)
+            }
+            
+
             if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
@@ -245,10 +264,10 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                     geoMarker.subtitle = "Radius: \(range)m"
                                     geoMarker.imageName = "home"
                                     
-                                    
+                                    self.previousGeofenceMarker = geoMarker
                                     self.mapView.removeOverlays(self.mapView.overlays)
-                                    self.mapView.removeAnnotations(self.mapView.annotations)
-                                    self.plotPatientLocationOnMap()
+//                                    self.mapView.removeAnnotations(self.mapView.annotations)
+//                                    self.plotPatientLocationOnMap()
                                     self.mapView.addAnnotation(geoMarker)
                                     
                                     // adding a range circle around the annotation (credits given in corresponding function)
@@ -260,6 +279,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                     var mapRegion = MKCoordinateRegionMakeWithDistance(geoMarker.coordinate, range * 2.5, range * 2.5)
                                     
                                     self.mapView.setRegion(mapRegion, animated: true)
+                                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                                 }
                             }
                         }
