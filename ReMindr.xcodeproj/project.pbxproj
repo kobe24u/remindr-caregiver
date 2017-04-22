@@ -10,6 +10,9 @@
 		2A43EC2ACA6E91DB5D65D640 /* Pods_ReMindrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675DE655B9F62EB58485A8CC /* Pods_ReMindrUITests.framework */; };
 		86DE416B5D5DF637F1590FB6 /* Pods_ReMindrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */; };
 		9C9BFE27AF94E6C47762C5F1 /* Pods_ReMindr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6579D57685D9391FB31F74 /* Pods_ReMindr.framework */; };
+		BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */; };
+		BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */; };
+		BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE51EAB29C3006E5EAC /* Reminder.swift */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
 		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
@@ -83,6 +86,9 @@
 		9F66E2B39F91FD2269E9FDCF /* Pods-ReMindrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrTests/Pods-ReMindrTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A521C2A639CF2761931C7234 /* Pods_ReMindrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReMindrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.release.xcconfig"; sourceTree = "<group>"; };
+		BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		BF276EE51EAB29C3006E5EAC /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -192,6 +198,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF276EE01EAB2906006E5EAC /* timebasedReminder */ = {
+			isa = PBXGroup;
+			children = (
+				BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */,
+				BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */,
+				BF276EE51EAB29C3006E5EAC /* Reminder.swift */,
+			);
+			name = timebasedReminder;
+			sourceTree = "<group>";
+		};
 		BFF0B0391E97A577007AD381 /* PhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +280,7 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
+				BF276EE01EAB2906006E5EAC /* timebasedReminder */,
 				F85288CF1E9CF86100595E0A /* PanicLogs */,
 				BFF0B0391E97A577007AD381 /* PhotoAlbum */,
 				F874472E1E99E9CF009713AC /* notificationImages */,
@@ -630,12 +647,15 @@
 				BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */,
 				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
+				BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */,
 				F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */,
 				BFBC69221EA9E68B003219D0 /* FastestRouteViewController.swift in Sources */,
 				F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */,
 				F8019EA11EA6135C0058D4EE /* EmergencyContact.swift in Sources */,
 				F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */,
+				BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */,
 				BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */,
+				BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
