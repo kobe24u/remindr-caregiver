@@ -82,6 +82,26 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func callPatient(_ sender: Any) {
+        
+        self.ref.child("users").observe(.value, with: { (snapshot) in
+            
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                
+                let value = current.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                print ("username \(username)")
+                if (username == "testpatient")
+                {
+                    if let number = value?["contactNumber"] as? String {
+                        guard let number = URL(string: "telprompt://" + number) else { return }
+                        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        })
+    }
     
         // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {

@@ -24,8 +24,10 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     var ref: FIRDatabaseReference?
     var googleMapsURL: String?
+    var emergencyContacts: NSMutableArray
     
     required init?(coder aDecoder: NSCoder) {
+        self.emergencyContacts = NSMutableArray()
         self.policeStationList = NSMutableArray()
         super.init(coder: aDecoder)
     }
@@ -51,6 +53,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print("Internet connection OK")
             plotPatientLocationOnMap()
             plotGeofenceReferenceLocation()
+            readAllEmergencyContacts()
         }
         else        // if data network isn't available show an alert
         {
@@ -70,6 +73,25 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func callPatient(_ sender: Any) {
+        self.ref?.child("users").observe(.value, with: { (snapshot) in
+            
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                
+                let value = current.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                print ("username \(username)")
+                if (username == "testpatient")
+                {
+                    if let number = value?["contactNumber"] as? String {
+                        guard let number = URL(string: "telprompt://" + number) else { return }
+                        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        })
+    }
     
     @IBAction func sendSMSToContacts(_ sender: Any) {
         print("in panic map controller sending sms")
@@ -84,11 +106,31 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Patient needs your help. Last known location can be seen on here: https://www.google.com.au"
-            controller.recipients = ["0401289325"]
+            controller.body = "Patient needs your help. Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
+//            controller.recipients = ["0401289325"]
+            controller.recipients = emergencyContacts as! [String]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
+    }
+    
+    func readAllEmergencyContacts()
+    {
+        ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+            
+            self.emergencyContacts.removeAllObjects()
+            // Get user value
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                let value = current.value as? NSDictionary
+                let name = value?["name"] as? String ?? ""
+                let mobile = value?["mobile"] as? String ?? ""
+                let newItem: EmergencyContact = EmergencyContact(name: name, mobile: mobile)
+                
+                self.emergencyContacts.add(mobile)
+            }
+        })
+
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -174,12 +216,13 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 {
                     print ("showing other cops")
                     patPinAnnotationView.image = #imageLiteral(resourceName: "policeblue")
+                    patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 }
                 else if (cpa.imageName == "closestPolice")
                 {
                     print ("showing the closest cop")
                     patPinAnnotationView.image = #imageLiteral(resourceName: "policered")
-                    
+                    patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 }
                 else
                 {
@@ -188,7 +231,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 }
             }
             patPinAnnotationView.canShowCallout = true
-            patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
             return patPinAnnotationView
         }
         

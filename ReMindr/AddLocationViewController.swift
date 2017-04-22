@@ -34,6 +34,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            self.textAddress.delegate = self
             //Looks for single or multiple taps.
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
             view.addGestureRecognizer(tap)
@@ -96,6 +97,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+
     
         /*SOURCE : http://stackoverflow.com/questions/34431459/ios-swift-how-to-add-pinpoint-to-map-on-touch-and-get-detailed-address-of-th
          Author : Moriya
@@ -256,7 +258,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
         searchForAddressCoordinates()
         return true
     }
@@ -271,6 +273,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
     
     func searchForAddressCoordinates()
     {
+        self.view.endEditing(true)
         // remove all annotations
         let allAnnotations = self.mapView.annotations
         self.mapView.removeAnnotations(allAnnotations)

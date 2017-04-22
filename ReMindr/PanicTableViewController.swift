@@ -291,7 +291,16 @@ class PanicTableViewController: UITableViewController {
         // setting custom colours for each of the row buttons
         delete.backgroundColor = UIColor(colorLiteralRed: 233/255, green: 66/255, blue: 35/255, alpha: 1)
         resolveEvent.backgroundColor = UIColor(colorLiteralRed: 50/255, green: 151/255, blue: 94/255, alpha: 1)
-        return [resolveEvent, delete]
+        
+        if (((self.eventList.object(at: indexPath.row)) as! Panic).resolved == "true")
+        {
+            return [delete]
+        }
+        else
+        {
+            return [resolveEvent, delete]
+        }
+        
     }
 
     /*

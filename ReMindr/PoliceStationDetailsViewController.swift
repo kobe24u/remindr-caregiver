@@ -15,6 +15,7 @@ class PoliceStationDetailsViewController: UIViewController {
     @IBOutlet weak var labelRating: UILabel!
     @IBOutlet weak var imageViewPolice: UIImageView!
     @IBOutlet weak var labelPhone: UILabel!
+    @IBOutlet weak var additionalDetailsView: UIView!
     
     
     var currentPoliceStation: PoliceStation?
@@ -22,6 +23,11 @@ class PoliceStationDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        additionalDetailsView.isHidden = true
+        
+        self.labelAddress.lineBreakMode = .byWordWrapping
+        self.labelAddress.numberOfLines = 0
         
         if Reachability.isConnectedToNetwork() == false      // if data network exists
         {
@@ -41,6 +47,17 @@ class PoliceStationDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func callPoliceStation(_ sender: Any) {
+        
+        var phNumber: String?
+        phNumber = currentPoliceStation?.phone
+        guard let number = URL(string: "telprompt://" + phNumber!) else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        
+    }
+    
     @IBAction func showStationOnGoogleMapsAgain(_ sender: Any) {
         self.urlToOpen = currentPoliceStation?.mapsURL
         performSegue(withIdentifier: "showPoliceWebDetailsSegue", sender: self)
@@ -95,6 +112,7 @@ class PoliceStationDetailsViewController: UIViewController {
         do{
             
             let result = try JSONSerialization.jsonObject(with: mapsJSON as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            
             if let query = result as? NSDictionary
             {
                 if let status = query.object(forKey: "status") as? String
@@ -105,6 +123,7 @@ class PoliceStationDetailsViewController: UIViewController {
                     }
                     else if (status == "OK")
                     {
+                        
                         if let results = query.object(forKey: "result") as? NSDictionary
                         {
                             if let address = results.object(forKey: "formatted_address") as? String
@@ -138,6 +157,7 @@ class PoliceStationDetailsViewController: UIViewController {
 
     func assignLabels()
     {
+        additionalDetailsView.isHidden = false
         self.labelStationName.text = currentPoliceStation?.name
         self.labelAddress.text = currentPoliceStation?.address
         if (currentPoliceStation?.rating != 0.0)
