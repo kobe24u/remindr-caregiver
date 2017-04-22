@@ -123,18 +123,25 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
         }
         else
         {
-            if (selectedContact != nil)
+            if (textMobile?.characters.count != 10)
             {
-                ref?.child("emergencyContacts/testpatient").child(selectedContact!).removeValue()
-                selectedContact = nil
+                displayAlertMessage(title: "Invalid number", message: "Please enter a 10 digit number (eg. 0401234532")
             }
-            
-            let values: [String: Any]
-            values = ["name": textName ?? "nil", "mobile": textMobile ?? "nil"]
-            ref?.child("emergencyContacts/testpatient").child(textMobile!).setValue(values)
-            animateOut()
-            self.textContactName.text = ""
-            self.textContactNumber.text = ""
+            else
+            {
+                if (selectedContact != nil)
+                {
+                    ref?.child("emergencyContacts/testpatient").child(selectedContact!).removeValue()
+                    selectedContact = nil
+                }
+                
+                let values: [String: Any]
+                values = ["name": textName ?? "nil", "mobile": textMobile ?? "nil"]
+                ref?.child("emergencyContacts/testpatient").child(textMobile!).setValue(values)
+                animateOut()
+                self.textContactName.text = ""
+                self.textContactNumber.text = ""
+            }
         }
     }
     
@@ -147,8 +154,6 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     
     func retrieveDataFromFirebase()
     {
-        
-        // Retrieve the list of favourites and listen for changes
         ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
             
             self.emergencyList.removeAllObjects()

@@ -227,7 +227,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 // App is active, show an alert
                                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                
+                                let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
+                                    
+                                    self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+                                    let mainNav = self.window?.rootViewController as! UINavigationController
+                                    let mainPage = mainNav.topViewController!
+                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
+                                })
+                                
                                 alertController.addAction(alertAction)
+                                alertController.addAction(takeToScreenAction)
+
                                 UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {
@@ -312,7 +323,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // App is inactive, show a notification
         //let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [.destructive, .authenticationRequired, .foreground])
         let justInformAction = UNNotificationAction(identifier: "justInform", title: "Okay, got it", options: [])
-        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the app", options: [.foreground, .destructive, .authenticationRequired] )
+        let showPatientAction = UNNotificationAction(identifier: "showPatient", title: "Take me to the map", options: [.foreground, .destructive, .authenticationRequired] )
         //let callPatientAction = UNNotificationAction(identifier: "callPatient", title: "Call my patient", options: [.destructive, .foreground, .authenticationRequired] )
         
         let actionsArray = NSArray(objects: justInformAction, showPatientAction) //, callPatientAction)
@@ -393,8 +404,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             case "showPatient":
                 print ("must show patient here")
                 badgeCount = 0
-//            case "callPatient":
-//                print ("must call patient here")
+                let mainNav = self.window?.rootViewController as! UINavigationController
+                let mainPage = mainNav.topViewController!
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
+
             default:
                 print ("default action")
         }
@@ -460,7 +474,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                                 
                                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                                let takeToSCreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
+                                let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
                                     let mainNav = self.window?.rootViewController as! UINavigationController
@@ -469,7 +483,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 })
                                 
                                 alertController.addAction(alertAction)
-                                alertController.addAction(takeToSCreenAction)
+                                alertController.addAction(takeToScreenAction)
                                 UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {

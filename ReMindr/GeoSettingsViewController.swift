@@ -15,6 +15,7 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var rangePicker: UIPickerView!
     @IBOutlet weak var textLocationName: UITextField!
     @IBOutlet weak var textLocationConfirmation: UILabel!
+    @IBOutlet weak var assignLocationButton: UIButton!
     
     var locationLat: Double?
     var locationLng: Double?
@@ -22,7 +23,7 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var notificationRange: Double
     // the values to be held by the pickerView (distance shown in metres)
-    let rangePickerValues = ["50m", "100m", "250m", "500m", "1000m"]
+    let rangePickerValues = ["200m", "300m", "500m", "750m", "1000m"]
 
     required init?(coder aDecoder: NSCoder) {
         notificationRange = 100
@@ -34,6 +35,8 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.assignLocationButton.layer.cornerRadius = 5
+        self.textLocationName.delegate = self
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -55,7 +58,10 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         view.endEditing(true)
     }
     
+    
     @IBAction func saveGeofencingSettings(_ sender: Any) {
+        
+        self.view.endEditing(true)
         
         let locationName: String?
         let notificationOn: String?
@@ -112,12 +118,12 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch(row)
         {
-        case 0: self.notificationRange = 50
-        case 1: self.notificationRange = 100
-        case 2: self.notificationRange = 250
-        case 3: self.notificationRange = 500
+        case 0: self.notificationRange = 200
+        case 1: self.notificationRange = 300
+        case 2: self.notificationRange = 500
+        case 3: self.notificationRange = 750
         case 4: self.notificationRange = 1000
-        default: self.notificationRange = 100
+        default: self.notificationRange = 200
         }
         self.view.endEditing(true)
     }
@@ -157,7 +163,7 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        self.textLocationName.endEditing(true)
         return true
     }
 
