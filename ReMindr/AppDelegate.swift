@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
 
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -246,14 +246,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+                                    
                                     //let mainNav = self.window?.rootViewController as! MainNavigationController
 //                                    let mainNav = UIApplication.shared.windows[0].rootViewController as! MainNavigationController
 //                                    let mainPage = mainNav.topViewController!
 //                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
+                     
+//                                    let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("MyViewController") as! ViewController
+//                                    let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+//                                    self.presentViewController(navController, animated:true, completion: nil)
                                     
-                                    let nav = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
-                                    let mainPage = nav.topViewController!
-                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
+                                    
+                                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                                    let mainNav = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
+                                    
+                                    let navController = UINavigationController(rootViewController: mainNav)
+                                    //let mapController = mainNav.topViewController?.shouldPerformSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+                                    //navController.navigationItem.backBarButtonItem? = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(self.backAction))
+                                   
+                                    //self.window?.rootViewController?.navigationController?.pushViewController(mainNav, animated: true)
+                                    self.window?.rootViewController?.present(navController, animated: true, completion: nil)
+//                                    // If you want to push to new ViewController then use this
+//                                    self.navigationController?.pushViewController(objSomeViewController, animated: true)
+//                                    
+//                                    let nav = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+//                                    let mainPage = nav.topViewController!
+//                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
                                 })
                                 
                                 alertController.addAction(alertAction)
@@ -310,6 +328,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 }
             }
         })
+    }
+    
+    func backAction()
+    {
+        self.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     func setupNotificationSettings() {
@@ -501,9 +524,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
-                                    let mainNav = self.window?.rootViewController as! UINavigationController
-                                    let mainPage = mainNav.topViewController!
-                                    mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)
+//                                    let mainNav = self.window?.rootViewController as! UINavigationController
+//                                    let mainPage = mainNav.topViewController!
+//                                    mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)
+                                    
+                                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                                    let mainNav = storyBoard.instantiateViewController(withIdentifier: "PanicMapViewController") as! PanicMapViewController
+                                    
+                                    let navController = UINavigationController(rootViewController: mainNav)
+                                    self.window?.rootViewController?.present(navController, animated: true, completion: nil)
                                 })
                                 
                                 alertController.addAction(alertAction)

@@ -339,5 +339,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 }
             }})
     }
+    @IBAction func dismissThisViewController(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

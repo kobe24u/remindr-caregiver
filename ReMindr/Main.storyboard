@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dNB-ca-e1z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dNB-ca-e1z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -475,6 +475,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="Jg2-ul-Erc">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6oa-op-ucL"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="XZA-nR-Fzk">
+                            <connections>
+                                <action selector="dismissThisViewController:" destination="YNn-LA-84D" id="KCq-va-t5z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="1KB-bg-9gy" id="KIw-Me-PHK"/>
@@ -985,7 +990,7 @@
         <!--Geofencing-->
         <scene sceneID="hLi-M2-Blp">
             <objects>
-                <viewController id="BcV-WE-07t" customClass="GeofencingViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeofencingViewController" id="BcV-WE-07t" customClass="GeofencingViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KRf-3m-m2P"/>
                         <viewControllerLayoutGuide type="bottom" id="UUh-RG-QKU"/>
@@ -1020,6 +1025,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Geofencing" id="AlF-kR-dGR">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="vHt-OD-CWP">
+                            <connections>
+                                <action selector="dismissThisViewController:" destination="BcV-WE-07t" id="LUq-yH-BPV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="Qgp-G0-SNg">
                             <connections>
                                 <segue destination="vPr-vN-K3p" kind="show" id="slC-KZ-CkB"/>
