@@ -14,6 +14,7 @@
 		BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */; };
 		BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE51EAB29C3006E5EAC /* Reminder.swift */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
+		BF67AE2F1EAC833300B109C8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
 		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
 		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
@@ -90,6 +91,7 @@
 		BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		BF276EE51EAB29C3006E5EAC /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
+		BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */,
 				F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */,
 				F88C5C1A1E94B8B7000F0965 /* Geofence.swift */,
+				BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */,
 			);
 			path = ReMindr;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
 				BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */,
+				BF67AE2F1EAC833300B109C8 /* MainNavigationController.swift in Sources */,
 				F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */,
 				BFBC69221EA9E68B003219D0 /* FastestRouteViewController.swift in Sources */,
 				F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */,

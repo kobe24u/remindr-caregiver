@@ -29,6 +29,13 @@ class PoliceStationDetailsViewController: UIViewController {
         self.labelAddress.lineBreakMode = .byWordWrapping
         self.labelAddress.numberOfLines = 0
         
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PoliceStationDetailsViewController.callPatientFunction))
+        self.labelPhone.isUserInteractionEnabled = true
+        self.labelPhone.addGestureRecognizer(tap)
+    
+        
+        
         if Reachability.isConnectedToNetwork() == false      // if data network exists
         {
             print("Internet connection FAILED")
@@ -48,15 +55,24 @@ class PoliceStationDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func callPatientFunction()
+    {
+        var phNumber: String?
+        phNumber = currentPoliceStation?.phone
+        phNumber = phNumber?.replacingOccurrences(of: " ", with: "")
+        guard let number = URL(string: "telprompt://" + phNumber!) else { return }
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
     
     @IBAction func callPoliceStation(_ sender: Any) {
         
         var phNumber: String?
         phNumber = currentPoliceStation?.phone
+        phNumber = phNumber?.replacingOccurrences(of: " ", with: "")
         guard let number = URL(string: "telprompt://" + phNumber!) else { return }
         UIApplication.shared.open(number, options: [:], completionHandler: nil)
-        
     }
+    
     
     @IBAction func showStationOnGoogleMapsAgain(_ sender: Any) {
         self.urlToOpen = currentPoliceStation?.mapsURL
