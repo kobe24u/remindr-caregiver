@@ -67,7 +67,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        readPatientCoordinatesOnce()
         plotGeofenceReferenceLocation()
         plotPatientLocationOnMap()
 
@@ -84,7 +84,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     @IBAction func callPatient(_ sender: Any) {
         
-        self.ref.child("users").observe(.value, with: { (snapshot) in
+        self.ref.child("patientContacts").observeSingleEvent(of: .value, with: { (snapshot) in
             
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
@@ -94,7 +94,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 print ("username \(username)")
                 if (username == "testpatient")
                 {
-                    if let number = value?["contactNumber"] as? String {
+                    if let number = value?["mobileNumber"] as? String {
                         guard let number = URL(string: "telprompt://" + number) else { return }
                         UIApplication.shared.open(number, options: [:], completionHandler: nil)
                     }
@@ -243,7 +243,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             
                             self.previousPatientMarker = patMarker
                             self.mapView.addAnnotation(patMarker)
-                            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                            //self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                         }
                     }
                     
@@ -298,8 +298,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                     
                                     var mapRegion = MKCoordinateRegionMakeWithDistance(geoMarker.coordinate, range * 2.5, range * 2.5)
                                     
-                                    self.mapView.setRegion(mapRegion, animated: true)
-                                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                                    //self.mapView.setRegion(mapRegion, animated: true)
+                                    //self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                                 }
                             }
                         }
@@ -310,4 +310,34 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
             }
         })
     }
+    
+    func readPatientCoordinatesOnce()
+    {
+        self.ref?.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                let value = current.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                print ("username \(username)")
+                if (username == "testpatient")
+                {
+                    if let patientLat = value?["patLat"] as? String {
+                        if let patientLng = value?["patLng"] as? String {
+
+                            let patCoordinate = CLLocationCoordinate2D(latitude: Double(patientLat)!, longitude: Double(patientLng)!)
+                            
+                            // Zoom to new patient location when updated
+                            let region = MKCoordinateRegionMakeWithDistance(patCoordinate, 1000, 1000)
+                            //                            var mapRegion = MKCoordinateRegion()
+                            //                            mapRegion.center = patCoordinate
+                            //                            mapRegion.span = self.mapView.region.span; // Use current 'zoom'
+                            self.mapView.setRegion(region, animated: true)
+                        }
+                    }
+                    
+                }
+            }})
+    }
+    
 }

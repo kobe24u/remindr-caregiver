@@ -89,15 +89,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
     }
+    
+    
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+       
+       
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -182,6 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 let notification = UILocalNotification()
                 notification.alertTitle = title
                 notification.alertBody = message
+                notification.soundName = UILocalNotificationDefaultSoundName
                 UIApplication.shared.presentLocalNotificationNow(notification)
             }
 
@@ -208,6 +215,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 let notification = UILocalNotification()
                 notification.alertTitle = title
                 notification.alertBody = message
+                notification.soundName = UILocalNotificationDefaultSoundName
                 UIApplication.shared.presentLocalNotificationNow(notification)
                 
                 
@@ -238,8 +246,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
-                                    let mainNav = self.window?.rootViewController as! UINavigationController
-                                    let mainPage = mainNav.topViewController!
+                                    //let mainNav = self.window?.rootViewController as! MainNavigationController
+//                                    let mainNav = UIApplication.shared.windows[0].rootViewController as! MainNavigationController
+//                                    let mainPage = mainNav.topViewController!
+//                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
+                                    
+                                    let nav = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
+                                    let mainPage = nav.topViewController!
                                     mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
                                 })
                                 
@@ -258,6 +271,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                     let notification = UILocalNotification()
                                     notification.alertTitle = title
                                     notification.alertBody = message
+                                    notification.soundName = UILocalNotificationDefaultSoundName
                                     UIApplication.shared.presentLocalNotificationNow(notification)
 
                                 }
@@ -286,6 +300,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                     let notification = UILocalNotification()
                                     notification.alertTitle = title
                                     notification.alertBody = message
+                                    notification.soundName = UILocalNotificationDefaultSoundName
                                     UIApplication.shared.presentLocalNotificationNow(notification)
                                 }
                             }
@@ -465,8 +480,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func patientPressedPanicButton()
     {
+        
         self.ref?.child("panicked").observe(.value, with: { (snapshot) in
             
+            print("Changed happen")
             if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
@@ -495,6 +512,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 //self.present(alertController, animated: true, completion: nil)
                             } else {
                                 // App is inactive, show a notification
+                                
+                                let center = UNUserNotificationCenter.current()
+                                center.removeAllDeliveredNotifications() // To remove all delivered notifications
+                                center.removeAllPendingNotificationRequests()
+                                
                                 if #available(iOS 10.0, *) {
                                     self.generatePanicLocalNotification()
                                 }
@@ -503,6 +525,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                     let notification = UILocalNotification()
                                     notification.alertTitle = title
                                     notification.alertBody = message
+                                    notification.soundName = UILocalNotificationDefaultSoundName
                                     UIApplication.shared.presentLocalNotificationNow(notification)
                                     
                                 }
@@ -531,6 +554,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let geofencingNotificationCategory = UNNotificationCategory(identifier: "panicNotificationCategory", actions: actionsArray as! [UNNotificationAction], intentIdentifiers: [], options: [])
         
         let content = UNMutableNotificationContent()
+        
         content.title = "Patient needs help"
         content.body = "Your patient has pressed the panic button and requires your help"
         content.sound = UNNotificationSound.default()

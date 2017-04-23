@@ -25,8 +25,10 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var ref: FIRDatabaseReference?
     var googleMapsURL: String?
     var emergencyContacts: NSMutableArray
+    var previousPatientMarker: CustomPointAnnotation?
     
     required init?(coder aDecoder: NSCoder) {
+        self.previousPatientMarker = nil
         self.emergencyContacts = NSMutableArray()
         self.policeStationList = NSMutableArray()
         super.init(coder: aDecoder)
@@ -51,6 +53,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         if Reachability.isConnectedToNetwork() == true      // if data network exists
         {
             print("Internet connection OK")
+            readPatientCoordinatesOnce()
             plotPatientLocationOnMap()
             plotGeofenceReferenceLocation()
             readAllEmergencyContacts()
@@ -74,7 +77,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     @IBAction func callPatient(_ sender: Any) {
-        self.ref?.child("users").observe(.value, with: { (snapshot) in
+        self.ref?.child("patientContacts").observeSingleEvent(of: .value, with: { (snapshot) in
             
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
@@ -84,7 +87,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 print ("username \(username)")
                 if (username == "testpatient")
                 {
-                    if let number = value?["contactNumber"] as? String {
+                    if let number = value?["mobileNumber"] as? String {
                         guard let number = URL(string: "telprompt://" + number) else { return }
                         UIApplication.shared.open(number, options: [:], completionHandler: nil)
                     }
@@ -403,6 +406,12 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     {
         let patMarker = CustomPointAnnotation()
         self.ref?.child("users").observe(.value, with: { (snapshot) in
+            
+            if (self.previousPatientMarker != nil)
+            {
+                self.mapView.removeAnnotation(self.previousPatientMarker!)
+            }
+            
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
                 let value = current.value as? NSDictionary
@@ -422,10 +431,10 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                             patMarker.subtitle = "My patient is here"
                             patMarker.imageName = "patient"
                             
+                            self.previousPatientMarker = patMarker
                             self.mapView.addAnnotation(patMarker)
-                            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                            //self.mapView.showAnnotations(self.mapView.annotations, animated: true)
                             
-                            self.getNearestPoliceStationFromGoogleAPI()
                         }
                     }
                     
@@ -435,6 +444,41 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     
+    func readPatientCoordinatesOnce()
+    {
+        self.ref?.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                let value = current.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                print ("username \(username)")
+                if (username == "testpatient")
+                {
+                    if let patientLat = value?["patLat"] as? String {
+                        if let patientLng = value?["patLng"] as? String {
+                            
+                            self.patientLatitude = patientLat
+                            self.patientLongitude = patientLng
+                            
+                            let patCoordinate = CLLocationCoordinate2D(latitude: Double(self.patientLatitude!)!, longitude: Double(self.patientLongitude!)!)
+                            
+                            // Zoom to new patient location when updated
+                            let region = MKCoordinateRegionMakeWithDistance(patCoordinate, 1000, 1000)
+//                            var mapRegion = MKCoordinateRegion()
+//                            mapRegion.center = patCoordinate
+//                            mapRegion.span = self.mapView.region.span; // Use current 'zoom'
+                            self.mapView.setRegion(region, animated: true)
+                            
+                            self.getNearestPoliceStationFromGoogleAPI()
+                        }
+                    }
+                    
+                }
+            }})
+    }
+        
+        
     func plotGeofenceReferenceLocation()
     {
         let geoMarker = CustomPointAnnotation()
@@ -462,8 +506,6 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                                         
                                         
                                         self.mapView.removeOverlays(self.mapView.overlays)
-                                        self.mapView.removeAnnotations(self.mapView.annotations)
-                                        self.plotPatientLocationOnMap()
                                         self.mapView.addAnnotation(geoMarker)
                                         
                                         // adding a range circle around the annotation (credits given in corresponding function)
@@ -474,7 +516,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                                         
                                         var mapRegion = MKCoordinateRegionMakeWithDistance(geoMarker.coordinate, range * 2.5, range * 2.5)
                                         
-                                        self.mapView.setRegion(mapRegion, animated: true)
+                                        //self.mapView.setRegion(mapRegion, animated: true)
                                     }
                                 }
                             }
