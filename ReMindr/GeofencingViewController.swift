@@ -12,6 +12,7 @@ import Firebase
 
 class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var manualDismissButton: UIBarButtonItem!
    
     @IBOutlet weak var mapView: MKMapView!
     
@@ -19,7 +20,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var selectedPosition: Int?
     let locationManager = CLLocationManager()
     var ref: FIRDatabaseReference!
-
+    var fromSegue: Bool
     
     var midLatitude: Double?
     var midLongitude: Double?
@@ -28,6 +29,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     required init?(coder aDecoder: NSCoder)
     {
+        fromSegue = false
         previousPatientMarker = nil
         previousGeofenceMarker = nil
         super.init(coder: aDecoder)
@@ -37,6 +39,13 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
+        
+//        if let sender = sender {
+//                manualDismissButton.isEnabled = false
+//                manualDismissButton.tintColor = UIColor.clear
+//        }
+        
+
         
         // Setup delegation so we can respond to MapView and LocationManager events
         mapView.delegate = self
@@ -340,7 +349,14 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
             }})
     }
     @IBAction func dismissThisViewController(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+
+        if (fromSegue) {
+            self.navigationController?.popViewController(animated: true)
+        }
+        else
+        {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

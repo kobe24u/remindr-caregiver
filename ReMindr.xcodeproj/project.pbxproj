@@ -51,6 +51,7 @@
 		F85288D51E9CF98D00595E0A /* Panic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D41E9CF98D00595E0A /* Panic.swift */; };
 		F85288D71E9CFC4100595E0A /* alertred.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D61E9CFC4100595E0A /* alertred.png */; };
 		F85288D91E9E379E00595E0A /* redalert.png in Resources */ = {isa = PBXBuildFile; fileRef = F85288D81E9E379E00595E0A /* redalert.png */; };
+		F85925861EACA14F00609D2F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85925851EACA14F00609D2F /* MainMenuViewController.swift */; };
 		F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */; };
 		F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3231EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift */; };
 		F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */; };
@@ -137,6 +138,7 @@
 		F85288D41E9CF98D00595E0A /* Panic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panic.swift; sourceTree = "<group>"; };
 		F85288D61E9CFC4100595E0A /* alertred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertred.png; sourceTree = "<group>"; };
 		F85288D81E9E379E00595E0A /* redalert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redalert.png; sourceTree = "<group>"; };
+		F85925851EACA14F00609D2F /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceStation.swift; sourceTree = "<group>"; };
 		F865A3231EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceStationDetailsViewController.swift; sourceTree = "<group>"; };
 		F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceWebDetailsViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */,
 				F88C5C1A1E94B8B7000F0965 /* Geofence.swift */,
 				BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */,
+				F85925851EACA14F00609D2F /* MainMenuViewController.swift */,
 			);
 			path = ReMindr;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
 				F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */,
 				F85288D11E9CF87E00595E0A /* PanicTableViewController.swift in Sources */,
+				F85925861EACA14F00609D2F /* MainMenuViewController.swift in Sources */,
 				F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */,
 				BFBC69201EA9E64F003219D0 /* AddContactViewController.swift in Sources */,
 				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,

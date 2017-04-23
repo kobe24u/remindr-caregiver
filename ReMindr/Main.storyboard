@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="-418" y="-524"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="J4N-wd-fEC">
             <objects>
-                <viewController id="WFy-1Z-KWV" sceneMemberID="viewController">
+                <viewController id="WFy-1Z-KWV" customClass="MainMenuViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bUT-a2-J3J"/>
                         <viewControllerLayoutGuide type="bottom" id="PVI-X8-6lW"/>
@@ -1077,6 +1077,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="manualDismissButton" destination="vHt-OD-CWP" id="D2x-wj-HtP"/>
                         <outlet property="mapView" destination="Eef-O8-AcR" id="tIx-FX-CRC"/>
                     </connections>
                 </viewController>
