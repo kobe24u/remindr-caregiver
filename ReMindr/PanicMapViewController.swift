@@ -22,12 +22,14 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var policeStationList: NSMutableArray
     var selectedPoliceStation: PoliceStation?
     
+    var fromSegue: Bool
     var ref: FIRDatabaseReference?
     var googleMapsURL: String?
     var emergencyContacts: NSMutableArray
     var previousPatientMarker: CustomPointAnnotation?
     
     required init?(coder aDecoder: NSCoder) {
+        self.fromSegue = false
         self.previousPatientMarker = nil
         self.emergencyContacts = NSMutableArray()
         self.policeStationList = NSMutableArray()
@@ -565,7 +567,13 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBAction func dismissThisViewController(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
+        if (fromSegue) {
+            self.navigationController?.popViewController(animated: true)
+        }
+        else
+        {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     /*
     // MARK: - Navigation

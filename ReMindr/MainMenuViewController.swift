@@ -28,6 +28,11 @@ class MainMenuViewController: UIViewController {
             let destinationVC = segue.destination as! GeofencingViewController
             destinationVC.fromSegue = true
         }
+        if (segue.identifier == "ShowPanicMapSegue")
+        {
+            let destinationVC = segue.destination as! PanicMapViewController
+            destinationVC.fromSegue = true
+        }
     }
     /*
     // MARK: - Navigation
