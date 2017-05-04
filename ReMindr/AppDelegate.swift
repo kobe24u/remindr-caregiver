@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
+        application.beginBackgroundTask(withName: "patientPressedPanicButton", expirationHandler: nil)
+        
         UNUserNotificationCenter.current().delegate = self
         // Enable local notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in

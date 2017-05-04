@@ -22,6 +22,7 @@
 		BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */; };
 		BFBC69201EA9E64F003219D0 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC691F1EA9E64F003219D0 /* AddContactViewController.swift */; };
 		BFBC69221EA9E68B003219D0 /* FastestRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC69211EA9E68B003219D0 /* FastestRouteViewController.swift */; };
+		BFBDBE751EB74FC600EE4EEF /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBDBE741EB74FC600EE4EEF /* ModifyViewController.swift */; };
 		BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */; };
 		F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */; };
 		F8019E9C1EA609700058D4EE /* EmergencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */; };
@@ -100,6 +101,7 @@
 		BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
 		BFBC691F1EA9E64F003219D0 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		BFBC69211EA9E68B003219D0 /* FastestRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastestRouteViewController.swift; sourceTree = "<group>"; };
+		BFBDBE741EB74FC600EE4EEF /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 		BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionAddPhotoHandler.swift; sourceTree = "<group>"; };
 		C3F615D33FD33DDE56F0547F /* Pods-ReMindrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindrUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindrUITests/Pods-ReMindrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReMindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReMindr/Pods-ReMindr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */,
 				BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */,
 				BF276EE51EAB29C3006E5EAC /* Reminder.swift */,
+				BFBDBE741EB74FC600EE4EEF /* ModifyViewController.swift */,
 			);
 			name = timebasedReminder;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */,
 				BFBC69201EA9E64F003219D0 /* AddContactViewController.swift in Sources */,
 				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,
+				BFBDBE751EB74FC600EE4EEF /* ModifyViewController.swift in Sources */,
 				BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */,
 				F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */,
 				F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */,

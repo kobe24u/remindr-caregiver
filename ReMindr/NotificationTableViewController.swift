@@ -10,12 +10,13 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class NotificationTableViewController: UITableViewController {
+class NotificationTableViewController: UITableViewController, EditReminderProtocol {
     // Properties
     var reminders = [Reminder]()
     let dateFormatter = DateFormatter()
     let locale = Locale.current
     var ref: FIRDatabaseReference!
+    var selectedRow: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +119,20 @@ class NotificationTableViewController: UITableViewController {
             cell.detailTextLabel?.textColor = UIColor.blue
         }
         return cell
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.selectedRow = indexPath.row
+//        let popoverVC = storyboard?.instantiateViewController(withIdentifier: "modifyReminder") as! ModifyViewController
+//        let reminder = reminders[indexPath.row]
+//        popoverVC.reminder = reminder
+//        popoverVC.delegate = self
+//        self.present(popoverVC, animated: true, completion: nil)
+//    }
+    
+    func editReminder(reminder: Reminder) {
+        reminders[self.selectedRow!] = reminder
+        self.reminders.removeAll()
     }
     
     // Override to support editing the table view.
