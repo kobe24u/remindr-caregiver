@@ -1,53 +1,55 @@
 //
-//  PoliceStationDetailsViewController.swift
+//  EmergencyServicesDetailViewController.swift
 //  ReMindr
 //
-//  Created by Priyanka Gopakumar on 20/4/17.
+//  Created by Priyanka Gopakumar on 4/5/17.
 //  Copyright © 2017 Priyanka Gopakumar. All rights reserved.
 //
 
 import UIKit
 
-class PoliceStationDetailsViewController: UIViewController {
+class EmergencyServicesDetailViewController: UIViewController {
 
-    @IBOutlet weak var labelStationName: UILabel!
+    var currentEmergencyService: EmergencyService?
+    
     @IBOutlet weak var labelAddress: UILabel!
-    @IBOutlet weak var labelRating: UILabel!
-    @IBOutlet weak var imageViewPolice: UIImageView!
-    @IBOutlet weak var labelPhone: UILabel!
+    @IBOutlet weak var labelServiceContact: UILabel!
+    @IBOutlet weak var serviceImageView: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var additionalDetailsView: UIView!
-    
-    
-    var currentPoliceStation: PoliceStation?
-    var urlToOpen: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         additionalDetailsView.isHidden = true
         
         self.labelAddress.lineBreakMode = .byWordWrapping
         self.labelAddress.numberOfLines = 0
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EmergencyServicesDetailViewController.callService2))
+        self.labelServiceContact.isUserInteractionEnabled = true
+        self.labelServiceContact.addGestureRecognizer(tap)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(PoliceStationDetailsViewController.callPatientFunction))
-        self.labelPhone.isUserInteractionEnabled = true
-        self.labelPhone.addGestureRecognizer(tap)
-    
+
         
-        
-        if Reachability.isConnectedToNetwork() == false      // if data network exists
+        if (currentEmergencyService?.type != "Police Station")
         {
-            print("Internet connection FAILED")
-            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            
+            if Reachability.isConnectedToNetwork() == false      // if data network exists
+            {
+                print("Internet connection FAILED")
+                let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            else
+            {
+                getEmergencyServiceDetailsFromGoogleAPI()
+            }
         }
         else
         {
-            //if (cur)
-            //getEmergencyServiceDetailsFromGoogleAPI()
+            assignLabels()
         }
     }
 
@@ -55,51 +57,37 @@ class PoliceStationDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func callPatientFunction()
+    func callEmergencyService()
     {
         var phNumber: String?
-        phNumber = currentPoliceStation?.phone
+        phNumber = currentEmergencyService?.phone
         phNumber = phNumber?.replacingOccurrences(of: " ", with: "")
         guard let number = URL(string: "telprompt://" + phNumber!) else { return }
         UIApplication.shared.open(number, options: [:], completionHandler: nil)
     }
-    
-    @IBAction func callPoliceStation(_ sender: Any) {
-        
-        var phNumber: String?
-        phNumber = currentPoliceStation?.phone
-        phNumber = phNumber?.replacingOccurrences(of: " ", with: "")
-        guard let number = URL(string: "telprompt://" + phNumber!) else { return }
-        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+
+
+    @IBAction func callService1(_ sender: Any) {
+        callEmergencyService()
     }
     
-    
-    @IBAction func showStationOnGoogleMapsAgain(_ sender: Any) {
-        self.urlToOpen = currentPoliceStation?.mapsURL
-        performSegue(withIdentifier: "showPoliceWebDetailsSegue", sender: self)
+    func callService2()
+    {
+        callEmergencyService()
     }
     
-    @IBAction func showStationWebsiteAgain(_ sender: Any) {
-        self.urlToOpen = currentPoliceStation?.website
-        performSegue(withIdentifier: "showPoliceWebDetailsSegue", sender: self)
+    @IBAction func navigateToMaps1(_ sender: Any) {
+        performSegue(withIdentifier: "showServiceWebDetailsSegue", sender: self)
     }
     
-    @IBAction func showStationOnGoogleMaps(_ sender: Any) {
-        self.urlToOpen = currentPoliceStation?.mapsURL
-        performSegue(withIdentifier: "showPoliceWebDetailsSegue", sender: self)
+    @IBAction func navigateToMaps2(_ sender: Any) {
+        performSegue(withIdentifier: "showServiceWebDetailsSegue", sender: self)
     }
-    
-    @IBAction func showStationWebsite(_ sender: Any) {
-        self.urlToOpen = currentPoliceStation?.website
-        performSegue(withIdentifier: "showPoliceWebDetailsSegue", sender: self)
-    }
-    
     
     func getEmergencyServiceDetailsFromGoogleAPI()
     {
         var requestURL: String?
-        requestURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\((currentPoliceStation?.placeID!)!)&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
+        requestURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\((currentEmergencyService?.placeID!)!)&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
         
         print ("request url is \(requestURL)")
         
@@ -151,10 +139,9 @@ class PoliceStationDetailsViewController: UIViewController {
                                     {
                                         if let website = results.object(forKey: "website") as? String
                                         {
-                                            currentPoliceStation?.address = address
-                                            currentPoliceStation?.mapsURL = mapsURL
-                                            currentPoliceStation?.phone = phone
-                                            currentPoliceStation?.website = website
+                                            currentEmergencyService?.address = address
+                                            currentEmergencyService?.mapsURL = mapsURL
+                                            currentEmergencyService?.phone = phone
                                             DispatchQueue.main.async(){
                                                 self.assignLabels()
                                             }
@@ -176,39 +163,46 @@ class PoliceStationDetailsViewController: UIViewController {
     func assignLabels()
     {
         additionalDetailsView.isHidden = false
-        self.labelStationName.text = currentPoliceStation?.name
-        self.labelAddress.text = currentPoliceStation?.address
-        if (currentPoliceStation?.rating != 0.0)
+        self.labelName.text = currentEmergencyService?.name
+        self.labelAddress.text = currentEmergencyService?.address
+        self.labelServiceContact.text = currentEmergencyService?.phone
+        
+        if (currentEmergencyService?.type == "Fire Station")
         {
-            self.labelRating.text = (String(describing: (currentPoliceStation?.rating!)!))
+            self.serviceImageView.image = #imageLiteral(resourceName: "firestationorange")
+        }
+        else if (currentEmergencyService?.type == "Hospital")
+        {
+            self.serviceImageView.image = #imageLiteral(resourceName: "hospitalred")
         }
         else
         {
-            self.labelRating.text = "-"
+            self.serviceImageView.image = #imageLiteral(resourceName: "policeblue")
         }
-        self.labelPhone.text = currentPoliceStation?.phone
-        let url = URL(string: (currentPoliceStation?.imageURL!)!)
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            
-            if error != nil
-            {
-                print (error)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.imageViewPolice.image = UIImage(data: data!)
-            }
-            
-        }).resume()
+        
+        
+//        let url = URL(string: (currentPoliceStation?.imageURL!)!)
+//        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//            
+//            if error != nil
+//            {
+//                print (error)
+//                return
+//            }
+//            
+//            DispatchQueue.main.async {
+//                self.imageViewPolice.image = UIImage(data: data!)
+//            }
+//            
+//        }).resume()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showPoliceWebDetailsSegue")
+        if (segue.identifier == "showServiceWebDetailsSegue")
         {
             let destinationVC: PoliceWebDetailsViewController = segue.destination as! PoliceWebDetailsViewController
-            destinationVC.googleURL = urlToOpen!
+            destinationVC.googleURL = currentEmergencyService?.mapsURL!
         }
     }
     

@@ -28,6 +28,14 @@
 		F8019E9C1EA609700058D4EE /* EmergencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */; };
 		F8019EA11EA6135C0058D4EE /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019EA01EA6135C0058D4EE /* EmergencyContact.swift */; };
 		F8019EA51EA76DB90058D4EE /* PanicMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8019EA41EA76DB90058D4EE /* PanicMapViewController.swift */; };
+		F813F55A1EB959770067ABFE /* SupportGroupSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */; };
+		F813F55D1EB959B30067ABFE /* SupportGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F55C1EB959B30067ABFE /* SupportGroupTableViewCell.swift */; };
+		F813F5601EB95A8E0067ABFE /* SupportGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F55F1EB95A8E0067ABFE /* SupportGroup.swift */; };
+		F813F5621EB97AF80067ABFE /* SupportGroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */; };
+		F813F5641EB9E8320067ABFE /* SupportGroupsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */; };
+		F813F5671EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */; };
+		F813F5691EBA23860067ABFE /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5681EBA23860067ABFE /* EmergencyService.swift */; };
+		F813F56D1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F56C1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift */; };
 		F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4511E875B4A00BF3995 /* AppDelegate.swift */; };
 		F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F816D4581E875B4A00BF3995 /* ReMindr.xcdatamodeld */; };
 		F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F816D45B1E875B4A00BF3995 /* Assets.xcassets */; };
@@ -110,6 +118,14 @@
 		F8019E9B1EA609700058D4EE /* EmergencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyTableViewCell.swift; sourceTree = "<group>"; };
 		F8019EA01EA6135C0058D4EE /* EmergencyContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		F8019EA41EA76DB90058D4EE /* PanicMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanicMapViewController.swift; sourceTree = "<group>"; };
+		F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupSearchViewController.swift; sourceTree = "<group>"; };
+		F813F55C1EB959B30067ABFE /* SupportGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupTableViewCell.swift; sourceTree = "<group>"; };
+		F813F55F1EB95A8E0067ABFE /* SupportGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroup.swift; sourceTree = "<group>"; };
+		F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupDetailsViewController.swift; sourceTree = "<group>"; };
+		F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupsMapViewController.swift; sourceTree = "<group>"; };
+		F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupWebDetailsViewController.swift; sourceTree = "<group>"; };
+		F813F5681EBA23860067ABFE /* EmergencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
+		F813F56C1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyServicesDetailViewController.swift; sourceTree = "<group>"; };
 		F816D44E1E875B4A00BF3995 /* ReMindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D4511E875B4A00BF3995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F816D4591E875B4A00BF3995 /* ReMindr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReMindr.xcdatamodel; sourceTree = "<group>"; };
@@ -236,6 +252,7 @@
 				F85288D41E9CF98D00595E0A /* Panic.swift */,
 				F865A3211EA8CEA500CE99F9 /* PoliceStation.swift */,
 				BFBC691F1EA9E64F003219D0 /* AddContactViewController.swift */,
+				F813F5681EBA23860067ABFE /* EmergencyService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,6 +260,7 @@
 		F8019EA21EA76D6F0058D4EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F813F56C1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift */,
 				F865A3271EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift */,
 				F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */,
 				F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */,
@@ -260,6 +278,43 @@
 				F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */,
 			);
 			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		F813F5581EB959500067ABFE /* SupportGroups */ = {
+			isa = PBXGroup;
+			children = (
+				F813F5651EB9EC580067ABFE /* ViewControllers */,
+				F813F55E1EB95A650067ABFE /* Model */,
+				F813F55B1EB959890067ABFE /* TableViewCells */,
+			);
+			name = SupportGroups;
+			sourceTree = "<group>";
+		};
+		F813F55B1EB959890067ABFE /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F813F55C1EB959B30067ABFE /* SupportGroupTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		F813F55E1EB95A650067ABFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F813F55F1EB95A8E0067ABFE /* SupportGroup.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F813F5651EB9EC580067ABFE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */,
+				F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */,
+				F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */,
+				F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F816D4451E875B4900BF3995 = {
@@ -287,6 +342,7 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
+				F813F5581EB959500067ABFE /* SupportGroups */,
 				BF276EE01EAB2906006E5EAC /* timebasedReminder */,
 				F85288CF1E9CF86100595E0A /* PanicLogs */,
 				BFF0B0391E97A577007AD381 /* PhotoAlbum */,
@@ -648,11 +704,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */,
+				F813F5691EBA23860067ABFE /* EmergencyService.swift in Sources */,
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
 				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
 				F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */,
 				F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */,
+				F813F5671EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift in Sources */,
 				BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */,
 				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
@@ -670,8 +728,10 @@
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
 				F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */,
+				F813F5601EB95A8E0067ABFE /* SupportGroup.swift in Sources */,
 				F85288D11E9CF87E00595E0A /* PanicTableViewController.swift in Sources */,
 				F85925861EACA14F00609D2F /* MainMenuViewController.swift in Sources */,
+				F813F55D1EB959B30067ABFE /* SupportGroupTableViewCell.swift in Sources */,
 				F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */,
 				BFBC69201EA9E64F003219D0 /* AddContactViewController.swift in Sources */,
 				F816D4911E89080200BF3995 /* LocationViewController.swift in Sources */,
@@ -680,7 +740,9 @@
 				F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */,
 				F816D48B1E87BCA400BF3995 /* ViewFavouriteViewController.swift in Sources */,
 				F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */,
+				F813F55A1EB959770067ABFE /* SupportGroupSearchViewController.swift in Sources */,
 				F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */,
+				F813F5621EB97AF80067ABFE /* SupportGroupDetailsViewController.swift in Sources */,
 				F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */,
 				BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */,
 				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
@@ -689,6 +751,8 @@
 				F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */,
 				F85288D51E9CF98D00595E0A /* Panic.swift in Sources */,
 				F8019EA51EA76DB90058D4EE /* PanicMapViewController.swift in Sources */,
+				F813F56D1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift in Sources */,
+				F813F5641EB9E8320067ABFE /* SupportGroupsMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
