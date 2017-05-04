@@ -16,10 +16,15 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var smsButton: UIButton!
     
+    let BASE_URL: String = "http://35.161.212.185"
+    let POLICE_METHOD: String = "/policeinfo/"
+    
     let locationManager = CLLocationManager()
     var patientLatitude: String?
     var patientLongitude: String?
     var policeStationList: NSMutableArray
+    var emergencyServicesList: NSMutableArray
+    var selectedEmergencyService: EmergencyService?
     var selectedPoliceStation: PoliceStation?
     
     var fromSegue: Bool
@@ -31,6 +36,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     required init?(coder aDecoder: NSCoder) {
         self.fromSegue = false
         self.previousPatientMarker = nil
+        self.emergencyServicesList = NSMutableArray()
         self.emergencyContacts = NSMutableArray()
         self.policeStationList = NSMutableArray()
         super.init(coder: aDecoder)
@@ -217,16 +223,22 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             }
             else
             {
-                if (cpa.imageName == "police")
+                if (cpa.imageName == "policestation")
                 {
-                    print ("showing other cops")
+                    print ("showing policestation")
                     patPinAnnotationView.image = #imageLiteral(resourceName: "policeblue")
                     patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 }
-                else if (cpa.imageName == "closestPolice")
+                else if (cpa.imageName == "firestation")
                 {
-                    print ("showing the closest cop")
-                    patPinAnnotationView.image = #imageLiteral(resourceName: "policered")
+                    print ("showing firestation")
+                    patPinAnnotationView.image = #imageLiteral(resourceName: "firestationorange")
+                    patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                }
+                else if (cpa.imageName == "hospital")
+                {
+                    print ("showing hospital")
+                    patPinAnnotationView.image = #imageLiteral(resourceName: "hospitalred")
                     patPinAnnotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
                 }
                 else
@@ -247,7 +259,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         //        return pinAnnotationView
     }
 
-    
+ 
+    /*
     func getNearestPoliceStationFromGoogleAPI()
     {
         
@@ -372,23 +385,350 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print("JSON Serialization error")
         }
     }
+*/
+    
+    func getPoliceInfoFromWebServer()
+    {
+       var requestURL: String?
+       requestURL = BASE_URL + POLICE_METHOD + "\(String(describing: patientLatitude!))/\(String(describing: patientLongitude!))"
+        print ("request url is \(requestURL)")
+            
+        var url: NSURL = NSURL(string: requestURL!)!
+        let task = URLSession.shared.dataTask(with: url as URL){
+                (data, response, error) in
+                if (error != nil)
+                {
+                    print("Error \(error)")
+                    self.displayAlertMessage(title: "Connection Failed", message: "Failed to retrieve data from the server")
+                }
+                else
+                {
+                    self.parseJSONData(groupsJSON: data! as NSData)
+                    
+                }
+                //self.syncCompleted = true
+        }
+        task.resume()
+    }
+    
+    /*
+     This function is invoked after the JSON data is downloaded from the server. The key-value method is used
+     to extract all the necessary data.
+     */
+    func parseJSONData(groupsJSON:NSData){
+        do{
+            
+            let result = try JSONSerialization.jsonObject(with: groupsJSON as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let results = result as? NSArray
+            {
+                for groupResult in results
+                {
+                    if let currentResult: NSDictionary = groupResult as! NSDictionary
+                    {
+                        let newEmergencyService: EmergencyService
+                        if let station = currentResult.object(forKey: "Station") as? String
+                        {
+                            if let no = currentResult.object(forKey: "No") as? Int
+                            {
+                                if let street = currentResult.object(forKey: "Street") as? String
+                                {
+                                    if let type = currentResult.object(forKey: "Type") as? String
+                                    {
+                                        if let suburb = currentResult.object(forKey: "Suburb") as? String
+                                        {
+                                           if let postcode = currentResult.object(forKey: "Postcode") as? Int
+                                                {
+                                                    if let contact = currentResult.object(forKey: "Phone") as? CLong
+                                                    {
+                                                        if let latitude = currentResult.object(forKey: "Latitude") as? Double
+                                                        {
+                                                            if let longitude = currentResult.object(forKey: "Longitude") as? Double
+                                                            {
+                                                                let name: String = "\(station) Police Station"
+                                                                let address: String = "\(no) \(street) \(type), \(suburb), VIC - \(postcode)"
+                                                                let mapsURL: String = "https://www.google.com/maps/dir/current+location/\(latitude),\(longitude)"
+                                                                newEmergencyService = EmergencyService(name: name, type: "Police Station", address: address, phone: String(contact), mapsURL: mapsURL, lat: latitude, lng: longitude)
+                                                                self.emergencyServicesList.add(newEmergencyService)
+                                                                addPoliceAnnotationOnMap(name: name, lat: latitude, lng: longitude)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                getNearestFireStationFromGoogleAPI()
+            }
+        }
+            
+        catch{
+            print("JSON Serialization error")
+        }
+    }
+
+    
+    func getNearestFireStationFromGoogleAPI()
+    {
+        
+        var requestURL: String?
+        requestURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(self.patientLatitude!),\(self.patientLongitude!)&rankby=distance&type=fire_station&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
+        
+        print ("request url is \(requestURL)")
+        
+        var url: NSURL = NSURL(string: requestURL!)!
+        let task = URLSession.shared.dataTask(with: url as URL){
+            (data, response, error) in
+            if (error != nil)
+            {
+                print("Error \(error)")
+                self.displayAlertMessage(title: "Connection Failed", message: "Failed to retrieve data from the server")
+            }
+            else
+            {
+                self.parseFireMapsJSON(fireJSON: data! as NSData)
+                
+            }
+            //self.syncCompleted = true
+        }
+        task.resume()
+    }
+    
+    /*
+     This function is invoked after the JSON data is downloaded from the server. The key-value method is used
+     to extract all the necessary data.
+     */
+    func parseFireMapsJSON(fireJSON:NSData){
+        do{
+            
+            let result = try JSONSerialization.jsonObject(with: fireJSON as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let query = result as? NSDictionary
+            {
+                if let status = query.object(forKey: "status") as? String
+                {
+                    if (status == "ZERO_RESULTS")
+                    {
+                        displayAlertMessage(title: "No results", message: "No nearby fire stations could be found")
+                    }
+                    else if (status == "OK")
+                    {
+                        if let results = query["results"] as? NSArray
+                        {
+                            var counter: Int = 0
+                            for result in results
+                            {
+                                if (counter < 3)
+                                {
+                                    if let currentResult: NSDictionary = result as! NSDictionary
+                                    {
+                                        let newEmergencyService: EmergencyService
+                                        if let name = currentResult.object(forKey: "name") as? String
+                                        {
+                                            if let placeID = currentResult.object(forKey: "place_id") as? String
+                                            {
+                                                var rating: Double? = 0.0
+                                                if let policeRating = currentResult.object(forKey: "rating") as? Double
+                                                {
+                                                    rating = policeRating
+                                                }
+                                                var imageURL: String? = "nil"
+                                                if let photos = currentResult.object(forKey: "photos") as? NSArray
+                                                {
+                                                    if let firstResult = photos[0] as? NSDictionary
+                                                    {
+                                                        if let width = firstResult["width"] as? Double
+                                                        {
+                                                            if let height = firstResult["height"] as? Double
+                                                            {
+                                                                if let photoRef = firstResult["photo_reference"] as? String
+                                                                {
+                                                                    imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=\(Int(width))&maxheight=\(Int(height))&photoreference=\(photoRef)&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
+                                                                    print ("image url is \(imageURL)")
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                if let geometry = currentResult["geometry"] as? NSDictionary
+                                                {
+                                                    if let location = geometry["location"] as? NSDictionary
+                                                    {
+                                                        let lat = location.object(forKey: "lat") as! Double
+                                                        let lng = location.object(forKey: "lng") as! Double
+                                                        
+                                                        newEmergencyService = EmergencyService(name: name, type: "Fire Station", placeID: placeID, address: "nil", phone: "", mapsURL: "", lat: lat, lng: lng)
+                                                        
+                                                            emergencyServicesList.add(newEmergencyService)
+                                                            
+                                                            addFireStationAnnotationOnMap(name: name, lat: lat, lng: lng)
+                                                    }
+                                                }
+                                            }
+                                            counter += 1
+                                            
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+             getNearestHospitalsFromGoogleAPI()
+        }
+        catch{
+            print("JSON Serialization error")
+        }
+    }
+
+    func getNearestHospitalsFromGoogleAPI()
+    {
+        
+        var requestURL: String?
+        requestURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(self.patientLatitude!),\(self.patientLongitude!)&rankby=distance&type=hospital&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
+        
+        print ("request url is \(requestURL)")
+        
+        var url: NSURL = NSURL(string: requestURL!)!
+        let task = URLSession.shared.dataTask(with: url as URL){
+            (data, response, error) in
+            if (error != nil)
+            {
+                print("Error \(error)")
+                self.displayAlertMessage(title: "Connection Failed", message: "Failed to retrieve data from the server")
+            }
+            else
+            {
+                self.parseHopsitalJSON(hospitalJSON: data! as NSData)
+                
+            }
+            //self.syncCompleted = true
+        }
+        task.resume()
+    }
+    
+    /*
+     This function is invoked after the JSON data is downloaded from the server. The key-value method is used
+     to extract all the necessary data.
+     */
+    func parseHopsitalJSON(hospitalJSON:NSData){
+        do{
+            
+            let result = try JSONSerialization.jsonObject(with: hospitalJSON as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let query = result as? NSDictionary
+            {
+                if let status = query.object(forKey: "status") as? String
+                {
+                    if (status == "ZERO_RESULTS")
+                    {
+                        displayAlertMessage(title: "No results", message: "No nearby police stations could be found")
+                    }
+                    else if (status == "OK")
+                    {
+                        if let results = query["results"] as? NSArray
+                        {
+                            var counter: Int = 0
+                            for result in results
+                            {
+                                if (counter < 3)
+                                {
+                                    if let currentResult: NSDictionary = result as! NSDictionary
+                                    {
+                                        let newEmergencyService: EmergencyService
+                                        if let name = currentResult.object(forKey: "name") as? String
+                                        {
+                                            if let placeID = currentResult.object(forKey: "place_id") as? String
+                                            {
+                                                var rating: Double? = 0.0
+                                                if let policeRating = currentResult.object(forKey: "rating") as? Double
+                                                {
+                                                    rating = policeRating
+                                                }
+                                                var imageURL: String? = "nil"
+                                                if let photos = currentResult.object(forKey: "photos") as? NSArray
+                                                {
+                                                    if let firstResult = photos[0] as? NSDictionary
+                                                    {
+                                                        if let width = firstResult["width"] as? Double
+                                                        {
+                                                            if let height = firstResult["height"] as? Double
+                                                            {
+                                                                if let photoRef = firstResult["photo_reference"] as? String
+                                                                {
+                                                                    imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=\(Int(width))&maxheight=\(Int(height))&photoreference=\(photoRef)&key=AIzaSyCuzBXG3yuafhEAXg_aybtOzfU5LF0o5Lg"
+                                                                    print ("image url is \(imageURL)")
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                if let geometry = currentResult["geometry"] as? NSDictionary
+                                                {
+                                                    if let location = geometry["location"] as? NSDictionary
+                                                    {
+                                                        let lat = location.object(forKey: "lat") as! Double
+                                                        let lng = location.object(forKey: "lng") as! Double
+                                                        newEmergencyService = EmergencyService(name: name, type: "Hospital", placeID: placeID, address: "nil", phone: "", mapsURL: "", lat: lat, lng: lng)
+                                                        
+                                                        emergencyServicesList.add(newEmergencyService)
+                                                        
+                                                        addHospitalAnnotationOnMap(name: name, lat: lat, lng: lng)                                                    }
+                                                }
+                                            }
+                                            counter += 1
+                                            
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        catch{
+            print("JSON Serialization error")
+        }
+    }
 
     
 
-    func addPoliceAnnotationOnMap(name: String, lat: Double, lng: Double, isClosest: Bool)
+    func addPoliceAnnotationOnMap(name: String, lat: Double, lng: Double)
     {
         let geoMarker = CustomPointAnnotation()
         geoMarker.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         geoMarker.title = name
-        if (isClosest)
-        {
-            geoMarker.subtitle = "Closest Police Station"
-            geoMarker.imageName = "closestPolice"
-        }
-        else
-        {
-            geoMarker.imageName = "police"
-        }
+        geoMarker.subtitle = "Police Station"
+        geoMarker.imageName = "policestation"
+        self.mapView.addAnnotation(geoMarker)
+    }
+    
+    func addFireStationAnnotationOnMap(name: String, lat: Double, lng: Double)
+    {
+        let geoMarker = CustomPointAnnotation()
+        geoMarker.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        geoMarker.title = name
+        geoMarker.subtitle = "Fire Station"
+        geoMarker.imageName = "firestation"
+        self.mapView.addAnnotation(geoMarker)
+    }
+    
+    func addHospitalAnnotationOnMap(name: String, lat: Double, lng: Double)
+    {
+        let geoMarker = CustomPointAnnotation()
+        geoMarker.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        geoMarker.title = name
+        geoMarker.subtitle = "Hospital"
+        geoMarker.imageName = "hospital"
         self.mapView.addAnnotation(geoMarker)
     }
 
@@ -472,7 +812,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 //                            mapRegion.span = self.mapView.region.span; // Use current 'zoom'
                             self.mapView.setRegion(region, animated: true)
                             
-                            self.getNearestPoliceStationFromGoogleAPI()
+                            //self.getNearestPoliceStationFromGoogleAPI()
+                            self.getPoliceInfoFromWebServer()
                         }
                     }
                     
@@ -540,9 +881,9 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         if (segue.identifier == "showAnnotationDetails")
         {
-            print(selectedPoliceStation?.name)
-            let destinationVC: PoliceStationDetailsViewController = segue.destination as! PoliceStationDetailsViewController
-            destinationVC.currentPoliceStation = selectedPoliceStation
+            print(selectedEmergencyService?.name)
+            let destinationVC: EmergencyServicesDetailViewController = segue.destination as! EmergencyServicesDetailViewController
+            destinationVC.currentEmergencyService = selectedEmergencyService
         }
 
     }
@@ -554,11 +895,11 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control == view.rightCalloutAccessoryView)
         {
-            for police in (policeStationList as NSArray as! [PoliceStation])
+            for service in (emergencyServicesList as NSArray as! [EmergencyService])
             {
-                if police.name == (view.annotation?.title)!
+                if ((service.name == (view.annotation?.title)!) && (service.type == (view.annotation?.subtitle)!))
                 {
-                    selectedPoliceStation = police
+                    selectedEmergencyService = service
                 }
             }
             self.performSegue(withIdentifier: "showAnnotationDetails", sender: self)

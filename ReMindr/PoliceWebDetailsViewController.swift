@@ -18,19 +18,31 @@ class PoliceWebDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        // Do any additional setup after loading the view.
-        print ("maps url : \(self.googleURL)")
         
-        showProgress()
-        showRouteMap(completion: {
-            (success) -> Void in
-            if success {
-                self.activityView?.stopAnimating()
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }
-        })
-
+        // checking if network is available (Reachability class is defined in another file)
+        if Reachability.isConnectedToNetwork() == false      // if data network exists
+        {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            // Do any additional setup after loading the view.
+            print ("maps url : \(self.googleURL)")
+            
+            showProgress()
+            showRouteMap(completion: {
+                (success) -> Void in
+                if success {
+                    self.activityView?.stopAnimating()
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

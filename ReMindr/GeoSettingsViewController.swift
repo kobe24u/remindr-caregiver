@@ -26,7 +26,7 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     let rangePickerValues = ["200m", "300m", "500m", "750m", "1000m"]
 
     required init?(coder aDecoder: NSCoder) {
-        notificationRange = 100
+        notificationRange = 200
         locationLat = nil
         locationLng = nil
         ref = FIRDatabase.database().reference()
