@@ -1660,7 +1660,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0F-gT-LxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2125.5999999999999" y="1616.9415292353824"/>
+            <point key="canvasLocation" x="2153" y="2471"/>
         </scene>
         <!--Geofencing-->
         <scene sceneID="hLi-M2-Blp">
