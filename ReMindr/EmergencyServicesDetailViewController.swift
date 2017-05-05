@@ -35,7 +35,7 @@ class EmergencyServicesDetailViewController: UIViewController {
         
 
         
-        if (currentEmergencyService?.type != "Police Station")
+        if (currentEmergencyService?.type == "Fire Station")
         {
             if Reachability.isConnectedToNetwork() == false      // if data network exists
             {

@@ -167,6 +167,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3o9-e4-JsQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="hW6-CB-ypT"/>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="H7g-UY-iOP">
                             <connections>
                                 <segue destination="QlM-QY-9z5" kind="show" id="pDz-5v-Xg6"/>
@@ -700,8 +701,8 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
                                 <rect key="frame" x="16" y="289" width="343" height="220"/>
-                                <string key="text">ReMindr is a twinning iOS app aiming to enhance the communication between people living with dementia (PLWD) and their caregivers. 
-For PLWD, it offers photos and audio of family members to stimulate memory function, as well as a panic button in case of emergency. 
+                                <string key="text">ReMindr is a twinning iOS app that aims to enhance the communication between people living with dementia (PLwD) and their caregivers. 
+For PLwD, it offers photos and audio of family members to stimulate memory function, as well as a panic button in case of emergency. 
 For caregivers, it allows real-time monitoring of the location of PLWD and setting notifications to remind PLWD to perform daily tasks. </string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="textColor"/>
@@ -742,7 +743,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
             </objects>
             <point key="canvasLocation" x="-338" y="-429"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings-->
         <scene sceneID="vNc-9e-gxJ">
             <objects>
                 <tableViewController id="QlM-QY-9z5" customClass="SettingsTableViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
@@ -752,10 +753,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" editingAccessoryType="disclosureIndicator" rowHeight="70" id="Sam-2l-WBC" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sam-2l-WBC" id="HGu-hl-UKU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PATIENT PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
@@ -787,10 +788,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" rowHeight="70" id="Fn9-Mv-D8D" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="126" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="125.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fn9-Mv-D8D" id="Aq7-hw-K8J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMERGENCY CONTACTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-xx-rdO">
@@ -823,10 +824,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutUsCell" rowHeight="70" id="Yhu-KR-vOE" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="196" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="195.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhu-KR-vOE" id="c3p-V2-4Il">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="lbm-64-Ya2">
@@ -864,6 +865,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                             <outlet property="delegate" destination="QlM-QY-9z5" id="V6b-Wm-DwU"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="DRZ-zU-5xl"/>
                     <connections>
                         <outlet property="cancelButton" destination="g9t-Am-R3b" id="QJt-bN-8lg"/>
                         <outlet property="doneButton" destination="YM8-qa-wAl" id="xCA-Ja-ygP"/>
@@ -934,7 +936,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YM8-qa-wAl">
                                         <rect key="frame" x="168" y="324" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Done">
                                             <color key="titleColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>

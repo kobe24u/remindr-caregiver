@@ -463,6 +463,97 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                         }
                     }
                 }
+                getHospitalInfoFromWebServer()
+            }
+        }
+            
+        catch{
+            print("JSON Serialization error")
+        }
+    }
+    
+    func getHospitalInfoFromWebServer()
+    {
+        var requestURL: String?
+        requestURL = BASE_URL + HOSPITAL_METHOD + "\(String(describing: patientLatitude!))/\(String(describing: patientLongitude!))"
+        print ("request url is \(requestURL)")
+        
+        var url: NSURL = NSURL(string: requestURL!)!
+        let task = URLSession.shared.dataTask(with: url as URL){
+            (data, response, error) in
+            if (error != nil)
+            {
+                print("Error \(error)")
+                self.displayAlertMessage(title: "Connection Failed", message: "Failed to retrieve data from the server")
+            }
+            else
+            {
+                self.parseHospitalJSONData(groupsJSON: data! as NSData)
+                
+            }
+            //self.syncCompleted = true
+        }
+        task.resume()
+    }
+    
+    /*
+     This function is invoked after the JSON data is downloaded from the server. The key-value method is used
+     to extract all the necessary data.
+     */
+    func parseHospitalJSONData(groupsJSON:NSData){
+        do{
+            
+            let result = try JSONSerialization.jsonObject(with: groupsJSON as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+            if let results = result as? NSArray
+            {
+                for groupResult in results
+                {
+                    if let currentResult: NSDictionary = groupResult as! NSDictionary
+                    {
+                        let newEmergencyService: EmergencyService
+                        if let name = currentResult.object(forKey: "Name") as? String
+                        {
+                            if let street = currentResult.object(forKey: "Street") as? String
+                                {
+                                    if let type = currentResult.object(forKey: "Type") as? String
+                                    {
+                                        if let suburb = currentResult.object(forKey: "Suburb") as? String
+                                        {
+                                            if let postcode = currentResult.object(forKey: "Postcode") as? Int
+                                            {
+                                                if let contact = currentResult.object(forKey: "Phone") as? String
+                                                {
+                                                    if let latitude = currentResult.object(forKey: "Latitude") as? Double
+                                                    {
+                                                        if let longitude = currentResult.object(forKey: "Longitude") as? Double
+                                                        {
+                                                            if let no = currentResult.object(forKey: "No") as? String
+                                                            {
+                                                                let address: String = "\(no) \(street) \(type), \(suburb), VIC - \(postcode)"
+                                                                let mapsURL: String = "https://www.google.com/maps/dir/current+location/\(latitude),\(longitude)"
+                                                                newEmergencyService = EmergencyService(name: name, type: "Hospital", address: address, phone: contact, mapsURL: mapsURL, lat: latitude, lng: longitude)
+                                                                self.emergencyServicesList.add(newEmergencyService)
+                                                                addHospitalAnnotationOnMap(name: name, lat: latitude, lng: longitude)
+                                                            }
+                                                            else if let no = currentResult.object(forKey: "No") as? Int
+                                                            {
+                                                                let address: String = "\(no) \(street) \(type), \(suburb), VIC - \(postcode)"
+                                                                let mapsURL: String = "https://www.google.com/maps/dir/current+location/\(latitude),\(longitude)"
+                                                                newEmergencyService = EmergencyService(name: name, type: "Hospital", address: address, phone: contact, mapsURL: mapsURL, lat: latitude, lng: longitude)
+                                                                self.emergencyServicesList.add(newEmergencyService)
+                                                                addHospitalAnnotationOnMap(name: name, lat: latitude, lng: longitude)
+                                                            }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
                 getNearestFireStationFromGoogleAPI()
             }
         }
@@ -471,6 +562,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print("JSON Serialization error")
         }
     }
+
 
     
     func getNearestFireStationFromGoogleAPI()
@@ -581,13 +673,14 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                     }
                 }
             }
-             getNearestHospitalsFromGoogleAPI()
+            self.mapView.showAnnotations(mapView.annotations, animated: true)
         }
         catch{
             print("JSON Serialization error")
         }
     }
 
+    /*
     func getNearestHospitalsFromGoogleAPI()
     {
         
@@ -701,6 +794,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
 
+ */
     
 
     func addPoliceAnnotationOnMap(name: String, lat: Double, lng: Double)
@@ -711,7 +805,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Police Station"
         geoMarker.imageName = "policestation"
         self.mapView.addAnnotation(geoMarker)
-        self.mapView.showAnnotations(mapView.annotations, animated: true)
+        //self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func addFireStationAnnotationOnMap(name: String, lat: Double, lng: Double)
@@ -722,7 +816,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Fire Station"
         geoMarker.imageName = "firestation"
         self.mapView.addAnnotation(geoMarker)
-        self.mapView.showAnnotations(mapView.annotations, animated: true)
+        //self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func addHospitalAnnotationOnMap(name: String, lat: Double, lng: Double)
@@ -733,7 +827,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Hospital"
         geoMarker.imageName = "hospital"
         self.mapView.addAnnotation(geoMarker)
-        self.mapView.showAnnotations(mapView.annotations, animated: true)
+        //self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
     /*
