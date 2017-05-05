@@ -93,6 +93,7 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedSupportGroup = matchedSupportGroupList[indexPath.row] as? SupportGroup
+        performSegue(withIdentifier: "ShowCommunitySupportAnnotationDetails", sender: self)
     }
     
     

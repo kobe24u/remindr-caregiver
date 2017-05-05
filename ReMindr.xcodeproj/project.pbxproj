@@ -15,6 +15,8 @@
 		BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE51EAB29C3006E5EAC /* Reminder.swift */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
 		BF67AE2F1EAC833300B109C8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */; };
+		BF9546201EBAECC700806C8B /* SupportGroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95461F1EBAECC700806C8B /* SupportGroupDetailsViewController.swift */; };
+		BF9546221EBAED0F00806C8B /* SupportGroupWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9546211EBAED0F00806C8B /* SupportGroupWebDetailsViewController.swift */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
 		BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BF1E9796B300FE5180 /* Photo.swift */; };
 		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
@@ -31,9 +33,7 @@
 		F813F55A1EB959770067ABFE /* SupportGroupSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */; };
 		F813F55D1EB959B30067ABFE /* SupportGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F55C1EB959B30067ABFE /* SupportGroupTableViewCell.swift */; };
 		F813F5601EB95A8E0067ABFE /* SupportGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F55F1EB95A8E0067ABFE /* SupportGroup.swift */; };
-		F813F5621EB97AF80067ABFE /* SupportGroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */; };
 		F813F5641EB9E8320067ABFE /* SupportGroupsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */; };
-		F813F5671EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */; };
 		F813F5691EBA23860067ABFE /* EmergencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F5681EBA23860067ABFE /* EmergencyService.swift */; };
 		F813F56D1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F813F56C1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift */; };
 		F816D4521E875B4A00BF3995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4511E875B4A00BF3995 /* AppDelegate.swift */; };
@@ -102,6 +102,8 @@
 		BF276EE51EAB29C3006E5EAC /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
 		BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		BF95461F1EBAECC700806C8B /* SupportGroupDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupDetailsViewController.swift; sourceTree = "<group>"; };
+		BF9546211EBAED0F00806C8B /* SupportGroupWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupWebDetailsViewController.swift; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFAD72BF1E9796B300FE5180 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -121,9 +123,7 @@
 		F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupSearchViewController.swift; sourceTree = "<group>"; };
 		F813F55C1EB959B30067ABFE /* SupportGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupTableViewCell.swift; sourceTree = "<group>"; };
 		F813F55F1EB95A8E0067ABFE /* SupportGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroup.swift; sourceTree = "<group>"; };
-		F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupDetailsViewController.swift; sourceTree = "<group>"; };
 		F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupsMapViewController.swift; sourceTree = "<group>"; };
-		F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupWebDetailsViewController.swift; sourceTree = "<group>"; };
 		F813F5681EBA23860067ABFE /* EmergencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyService.swift; sourceTree = "<group>"; };
 		F813F56C1EBAAC840067ABFE /* EmergencyServicesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyServicesDetailViewController.swift; sourceTree = "<group>"; };
 		F816D44E1E875B4A00BF3995 /* ReMindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -310,9 +310,9 @@
 			isa = PBXGroup;
 			children = (
 				F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */,
-				F813F5611EB97AF80067ABFE /* SupportGroupDetailsViewController.swift */,
 				F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */,
-				F813F5661EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift */,
+				BF95461F1EBAECC700806C8B /* SupportGroupDetailsViewController.swift */,
+				BF9546211EBAED0F00806C8B /* SupportGroupWebDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -710,7 +710,6 @@
 				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
 				F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */,
 				F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */,
-				F813F5671EBA059B0067ABFE /* SupportGroupWebDetailsViewController.swift in Sources */,
 				BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */,
 				BFF0B03B1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift in Sources */,
 				F816D4851E87A91600BF3995 /* FavouritesTableViewController.swift in Sources */,
@@ -724,6 +723,7 @@
 				BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */,
 				BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */,
 				BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */,
+				BF9546201EBAECC700806C8B /* SupportGroupDetailsViewController.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
@@ -742,8 +742,8 @@
 				F816D4971E8950BB00BF3995 /* EditFavouriteViewController.swift in Sources */,
 				F813F55A1EB959770067ABFE /* SupportGroupSearchViewController.swift in Sources */,
 				F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */,
-				F813F5621EB97AF80067ABFE /* SupportGroupDetailsViewController.swift in Sources */,
 				F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */,
+				BF9546221EBAED0F00806C8B /* SupportGroupWebDetailsViewController.swift in Sources */,
 				BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */,
 				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
 				F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */,
