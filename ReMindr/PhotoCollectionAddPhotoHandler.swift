@@ -13,11 +13,24 @@ extension PhotoCollectionViewController: UIImagePickerControllerDelegate, UINavi
     
     
     
-    func addphoto(){
+    func addphotoUsingCamera(){
         let picker = UIImagePickerController()
         
         picker.delegate = self
         picker.allowsEditing = true
+        
+        picker.sourceType = UIImagePickerControllerSourceType.camera
+        
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func addphotoUsingLibrary(){
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         present(picker, animated: true, completion: nil)
     }

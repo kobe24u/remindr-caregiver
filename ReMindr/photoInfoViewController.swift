@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import AVFoundation
+import AudioToolbox
 
 protocol Table2Delegate: NSObjectProtocol {
     func table2WillDismissed()
@@ -16,21 +17,19 @@ protocol Table2Delegate: NSObjectProtocol {
 
 class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var playBtn: UIButton!
+    
     @IBOutlet weak var chosenImageView: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var photoDescTextfield: UITextField!
     
+    @IBOutlet weak var recoredView: UIView!
     
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
-    @IBOutlet weak var stopButton: UIButton!
-    
-    @IBOutlet weak var rerecordButton: UIButton!
-    
-    @IBOutlet weak var descLabel: UILabel!
-    
-    
-    @IBOutlet weak var recordLabel: UILabel!
+    @IBOutlet weak var micBtn: UIButton!
     
     @IBOutlet weak var saveButton: UIButton!
     
@@ -42,33 +41,119 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
     var audioPlayer: AVAudioPlayer!
     var audioLocalURL: String?
     var imageUUID: String?
-    var recordingSession: AVAudioSession!
+    
+    @IBOutlet weak var savingLabel: UILabel!
+    
+    var nonObservablePropertiesUpdateTimer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
     
     weak var del: Table2Delegate?
     let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
   
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-                recordingSession = AVAudioSession.sharedInstance()
-        
-                do {
-                    try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-                    try recordingSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-                    try recordingSession.setActive(true)
-                    recordingSession.requestRecordPermission() { [unowned self] allowed in
-                        
-                    }
-                } catch {
-                    // failed to record!
-                    print("failed to record")
-                }
+    @IBAction func playFile(_ sender: Any) {
+        if let url = URL(string: self.audioLocalURL!) {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.delegate = self
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+                print("Audio ready to play")
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     
+    
+    @IBAction func StartRecording(_ sender: UIButton) {
+        
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+        
+        if AudioRecorderManager.shared.recored(fileName: "TestFile")
+        {
+            nonObservablePropertiesUpdateTimer.resume()
+        }
+        
+        //we need to create a date formatter to format the time from the recorder
+        
+        let formatter = DateComponentsFormatter()
+        formatter.zeroFormattingBehavior = .pad
+        formatter.includesApproximationPhrase = false
+        formatter.includesTimeRemainingPhrase = false
+        formatter.allowedUnits = [.minute, .second]
+        formatter.calendar = Calendar.current
+        
+        nonObservablePropertiesUpdateTimer.setEventHandler { [weak self] in
+            //Audio recording circle animations here
+            
+            guard let peak = AudioRecorderManager.shared.recorder else{
+                return
+            }
+            
+            print(AudioRecorderManager.shared.recorder!.currentTime)
+            
+            self?.durationLabel.text = formatter.string(from: AudioRecorderManager.shared.recorder!.currentTime)
+            
+            let percent = (Double(AudioRecorderManager.shared.recorderPeak0) + 160) / 160
+            
+            let final = CGFloat(percent) + 0.3
+            
+            UIView.animate(withDuration: 0.15, animations: {
+                self!.WaveAnimationView.transform = CGAffineTransform(scaleX: final, y: final)
+            })
+            
+        }
+        
+        nonObservablePropertiesUpdateTimer.scheduleRepeating(deadline: DispatchTime.now(), interval: DispatchTimeInterval.milliseconds(100))
+        
+        
+        
+        
+        UIView.animate(withDuration: 0.15, animations: {
+            self.WaveAnimationView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        
+        
+        DispatchQueue.main.async {
+            self.statusLabel.text = "Release to stop recording"
+            self.statusLabel.textColor = UIColor.orange
+        }
+    }
+    
+    
+    @IBAction func stopRecording(_ sender: UIButton) {
+        
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+        
+        AudioRecorderManager.shared.finishRecording()
+        if (AudioRecorderManager.shared.audioLocalURL != nil)
+        {
+            self.audioLocalURL = AudioRecorderManager.shared.audioLocalURL
+        }
+        
+        playBtn.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.WaveAnimationView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        })
+        nonObservablePropertiesUpdateTimer.suspend()
+        
+        DispatchQueue.main.async {
+            self.statusLabel.text = "Press again to record a new audio message"
+            self.statusLabel.textColor = UIColor.red
+        }
+    }
+    
+    
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc  = storyboard.instantiateViewController(withIdentifier: "PhotoCollectionView") as! PhotoCollectionViewController
+        
+        self.present(vc, animated: true, completion: nil)
     }
     
     func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
@@ -78,6 +163,8 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
 
+    
+    
     @IBAction func checkBeforeSaveIntoDatabase(_ sender: Any) {
         
         
@@ -96,14 +183,20 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
             else{
                 self.chosenImageView.isHidden = true
                 self.photoDescTextfield.isHidden = true
-                self.playButton.isHidden = true
-                self.stopButton.isHidden = true
-                self.rerecordButton.isHidden = true
-                self.descLabel.isHidden = true
-                self.recordLabel.text = "Storing into server...."
-                self.recordLabel.textColor = UIColor.white
+                self.recoredView.isHidden = true
+                self.statusLabel.isHidden = true
+                
+                self.savingLabel.isHidden = false
+                
+                self.savingLabel.text = "Storing into server...."
+                self.savingLabel.textColor = UIColor.white
                 self.saveButton.isHidden = true
                 self.cancelLabel.isHidden = true
+                self.micBtn.isHidden = true
+                self.playBtn.isHidden = true
+                self.WaveAnimationView.isHidden = true
+                self.titleLabel.isHidden = true
+                
                 
                 self.view.backgroundColor = UIColorFromHex(rgbValue: 0xffffff, alpha: 0.3)
                 activityView.color = UIColor.black
@@ -116,6 +209,7 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
                 self.imageUUID = imageName
                 let storageRef = FIRStorage.storage().reference().child("added_photos").child("\(imageName).png")
                 
+                var vc: PhotoCollectionViewController?
                 if let uploadData = UIImagePNGRepresentation(self.chosenImage!) {
                     
                     storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
@@ -129,23 +223,84 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
                             self.imageURL = imageUrl
                             self.handleAudioSendWith(url: self.audioLocalURL!)
                         }
-                        self.promptMessage(title: "Ta-da!", message: "You've successfully added a new photo")
+                        
                         self.del?.table2WillDismissed()
                         self.dismiss(animated: true, completion: nil)
-                    })
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        
+                        let vc  = storyboard.instantiateViewController(withIdentifier: "PhotoCollectionView") as! PhotoCollectionViewController
+                        
+                        self.present(vc, animated: true, completion: nil)
+                        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                        
                     
+                    })
+                
                 }
-     
             }
         }
    
         
     }
+    
+    var WaveAnimationView:UIView!
+    func buildVoiceCirlce(){
+        
+        let size = CGSize(width: 200, height: 200)
+        
+        let newPoint = CGPoint(x:self.recoredView.frame.size.width / 2 - 100 , y: self.recoredView.frame.size.height / 2 - 100)
+        WaveAnimationView = UIView(frame: CGRect(origin:newPoint , size: size))
+        WaveAnimationView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        WaveAnimationView.layer.cornerRadius = 100
+        WaveAnimationView.backgroundColor = UIColor.clear
+        WaveAnimationView.layer.borderColor = UIColor.red.cgColor
+        WaveAnimationView.layer.borderWidth = 1.0
+        self.recoredView.addSubview(WaveAnimationView)
+        
+        self.WaveAnimationView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        
+        
+    }
+    
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        stopButton.isHidden = true
-        rerecordButton.isHidden = true
+        
+        saveButton.backgroundColor = .clear
+        saveButton.layer.cornerRadius = 5
+        saveButton.layer.borderWidth = 1
+        saveButton.layer.borderColor = UIColor.black.cgColor
+        
+          cancelLabel.backgroundColor = .clear
+        cancelLabel.layer.cornerRadius = 5
+        cancelLabel.layer.borderWidth = 1
+        cancelLabel.layer.borderColor = UIColor.black.cgColor
+        
+        
+        
+        photoDescTextfield.returnKeyType = .done
+    
+        
+        hideKeyboard()
+        playBtn.isHidden = true
+        
+        self.buildVoiceCirlce()
+        
+        savingLabel.isHidden = true
         
         chosenImageView.image = chosenImage
         
@@ -170,6 +325,20 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
             alert.dismiss(animated: true, completion: nil)
         }
     }
+    
+    func promptMessage2(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 1
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
     
     fileprivate func addPhotoIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
@@ -219,82 +388,8 @@ class photoInfoViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
     
     
     
-    @IBAction func startRecording(_ sender: Any) {
-        
-        if self.audioLocalURL == nil {
-                        print("audioLocalURL nil")
-                        startRecording()
-                    }
-                    else {
-                        print("audioURLLocal not nil")
-            if let url = URL(string: self.audioLocalURL!) {
-                do {
-                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-                    audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer?.delegate = self
-                    audioPlayer?.prepareToPlay()
-                    audioPlayer?.play()
-                    print("Audio ready to play")
-                } catch let error {
-                    print(error.localizedDescription)
-                }
-            }
-                    }
-    
-    }
-    
-    func startRecording()
-    {
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
-        ]
-        
-        do {
-            let audioFileUrl = getAudiFileURL()
-            self.audioLocalURL = audioFileUrl.absoluteString
-            audioRecorder = try AVAudioRecorder(url: audioFileUrl, settings: settings)
-            audioRecorder.delegate = self
-            audioRecorder.record()
-            playButton.isHidden = true
-            stopButton.isHidden = false
-            
-        } catch {
-            finishRecording(success: false)
-        }
-    }
-    
-    func finishRecording(success: Bool) {
-                audioRecorder.stop()
 
-                if success {
-                    playButton.isHidden = false
-                    playButton.setImage(#imageLiteral(resourceName: "play-1"), for: .normal)
-                    rerecordButton.isHidden = false
-   
-                } else {
-                    print("record_failed")
-                }
-            }
-
-    
-    
-    
-    @IBAction func stopButtonTapped(_ sender: Any) {
-        if audioRecorder.isRecording == true
-        {
-            stopButton.isHidden = true
-            finishRecording(success: true)
-        }
-
-    }
-    
-    
-    @IBAction func rerecordButtonTapped(_ sender: Any) {
-        startRecording()
-    }
+  
     
     
     
