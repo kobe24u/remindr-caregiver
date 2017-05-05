@@ -25,14 +25,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReMindr/SupportGroupSearchViewController.swift"
-            timestampString = "515563125.730298"
+            filePath = "ReMindr/EmergencyServicesDetailViewController.swift"
+            timestampString = "515567910.820116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "getEmergencyServiceDetailsFromGoogleAPI()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReMindr/EmergencyServicesDetailViewController.swift"
+            timestampString = "515567912.695342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getEmergencyServiceDetailsFromGoogleAPI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReMindr.EmergencyServicesDetailViewController.getEmergencyServiceDetailsFromGoogleAPI () -&gt; ()"
+                  moduleName = "ReMindr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/priyankagopakumar/Desktop/newcaregiver/ReMindr/EmergencyServicesDetailViewController.swift"
+                  timestampString = "515660347.561242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ReMindr.EmergencyServicesDetailViewController.getEmergencyServiceDetailsFromGoogleAPI () -&gt; ()"
+                  moduleName = "ReMindr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/priyankagopakumar/Desktop/newcaregiver/ReMindr/EmergencyServicesDetailViewController.swift"
+                  timestampString = "515660347.563548"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "2005">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

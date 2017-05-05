@@ -95,6 +95,7 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
         cell.labelName.text = sg.name
         cell.labelContact.text = sg.contact
         cell.labelIndex.text = String(indexPath.row + 1)
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
 
     }
