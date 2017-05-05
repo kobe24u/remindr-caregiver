@@ -711,6 +711,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Police Station"
         geoMarker.imageName = "policestation"
         self.mapView.addAnnotation(geoMarker)
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func addFireStationAnnotationOnMap(name: String, lat: Double, lng: Double)
@@ -721,6 +722,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Fire Station"
         geoMarker.imageName = "firestation"
         self.mapView.addAnnotation(geoMarker)
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func addHospitalAnnotationOnMap(name: String, lat: Double, lng: Double)
@@ -731,6 +733,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         geoMarker.subtitle = "Hospital"
         geoMarker.imageName = "hospital"
         self.mapView.addAnnotation(geoMarker)
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
     /*

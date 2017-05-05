@@ -1286,13 +1286,26 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Umbrella Dementia Cafe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaq-eN-1Uv">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lightgreytexturedbackground" translatesAutoresizingMaskIntoConstraints="NO" id="MAq-5w-aCD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Umbrella Dementia Cafe" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaq-eN-1Uv">
                                 <rect key="frame" x="16" y="245" width="343" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="c94-eo-Bfl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
                                 <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blackburn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfL-Na-uJa">
+                                <rect key="frame" x="16" y="304" width="343" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="jcv-PB-G64"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7n-X4-oNn">
@@ -1418,15 +1431,6 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                     <constraint firstAttribute="width" constant="125" id="hcM-Dg-OXl"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blackburn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfL-Na-uJa">
-                                <rect key="frame" x="16" y="304" width="343" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="jcv-PB-G64"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <color key="textColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1464,7 +1468,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4s-lj-A2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-822" y="3260"/>
+            <point key="canvasLocation" x="-823.20000000000005" y="3259.5202398800602"/>
         </scene>
         <!--Support Group Web Details View Controller-->
         <scene sceneID="7vL-1J-lnW">
@@ -2665,63 +2669,47 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRD-2V-N3L">
-                                <rect key="frame" x="16" y="225" width="343" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="VDy-3e-akb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
-                                <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultpolicestation" translatesAutoresizingMaskIntoConstraints="NO" id="3O0-Ba-lWq">
-                                <rect key="frame" x="137" y="105" width="100" height="112"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="RmQ-wj-W2a"/>
-                                    <constraint firstAttribute="width" constant="100" id="SJJ-SW-T75"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightgreytexturedbackground" translatesAutoresizingMaskIntoConstraints="NO" id="ffD-cR-Qoj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAJ-Gd-uKu">
-                                <rect key="frame" x="0.0" y="457" width="375" height="210"/>
+                                <rect key="frame" x="16" y="368" width="343" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bF-jp-L0V">
                                         <rect key="frame" x="172" y="37" width="30" height="8"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="8" id="6SU-SN-3Ea"/>
-                                            <constraint firstAttribute="width" constant="30" id="frq-Rs-hez"/>
+                                            <constraint firstAttribute="width" constant="30" id="agJ-MX-egh"/>
+                                            <constraint firstAttribute="height" constant="8" id="xJP-27-lOR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eze-qT-P1u">
-                                        <rect key="frame" x="66" y="60" width="50" height="50"/>
-                                        <state key="normal" image="markergreen"/>
-                                        <connections>
-                                            <action selector="navigateToMaps1:" destination="nOF-Lb-iil" eventType="touchUpInside" id="iTB-80-MZg"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+61 401 289 325" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-7T-Rob">
-                                        <rect key="frame" x="132" y="16" width="223" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="jX2-Sf-GIJ"/>
-                                        </constraints>
+                                        <rect key="frame" x="128" y="32" width="154" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBz-Yh-6lo">
-                                        <rect key="frame" x="74" y="8" width="35" height="37"/>
+                                        <rect key="frame" x="67" y="19" width="45" height="46"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="r0z-nb-ywG"/>
+                                            <constraint firstAttribute="width" constant="45" id="mf3-pp-cCQ"/>
                                         </constraints>
                                         <state key="normal" image="phonecallgreen"/>
                                         <connections>
                                             <action selector="callService1:" destination="nOF-Lb-iil" eventType="touchUpInside" id="05x-oo-dAE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eze-qT-P1u">
+                                        <rect key="frame" x="62" y="92" width="58" height="58"/>
+                                        <state key="normal" image="markergreen"/>
+                                        <connections>
+                                            <action selector="navigateToMaps1:" destination="nOF-Lb-iil" eventType="touchUpInside" id="iTB-80-MZg"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-nD-tzV">
-                                        <rect key="frame" x="132" y="69" width="185" height="32"/>
+                                        <rect key="frame" x="128" y="105" width="185" height="32"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="Click to navigate to maps"/>
                                         <connections>
@@ -2731,45 +2719,67 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="centerX" secondItem="eze-qT-P1u" secondAttribute="centerX" id="8jw-8x-51H"/>
-                                    <constraint firstItem="7bF-jp-L0V" firstAttribute="centerX" secondItem="eAJ-Gd-uKu" secondAttribute="centerX" id="B6l-bM-4vd"/>
-                                    <constraint firstItem="eze-qT-P1u" firstAttribute="leading" secondItem="eAJ-Gd-uKu" secondAttribute="leading" constant="66" id="CrB-1N-pwE"/>
-                                    <constraint firstItem="eze-qT-P1u" firstAttribute="centerY" secondItem="CcS-nD-tzV" secondAttribute="centerY" id="FzD-to-svE"/>
-                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="leading" secondItem="CcS-nD-tzV" secondAttribute="leading" id="J1a-Km-ihn"/>
-                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="leading" secondItem="KBz-Yh-6lo" secondAttribute="trailing" constant="23" id="Plm-vc-JTX"/>
-                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="topMargin" id="RB8-Zd-qD7"/>
-                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="bottom" secondItem="H1W-7T-Rob" secondAttribute="bottom" constant="8" id="emb-hC-m9K"/>
-                                    <constraint firstAttribute="trailing" secondItem="H1W-7T-Rob" secondAttribute="trailing" constant="20" id="nIe-Oo-keK"/>
-                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="top" constant="16" id="o0P-y1-qvB"/>
-                                    <constraint firstItem="eze-qT-P1u" firstAttribute="top" secondItem="KBz-Yh-6lo" secondAttribute="bottom" constant="15" id="rtK-lF-p6A"/>
-                                    <constraint firstItem="CcS-nD-tzV" firstAttribute="top" secondItem="7bF-jp-L0V" secondAttribute="bottom" constant="24" id="yGx-OU-Rqg"/>
-                                    <constraint firstItem="CcS-nD-tzV" firstAttribute="leading" secondItem="eze-qT-P1u" secondAttribute="trailing" constant="16" id="zVg-Iv-HsZ"/>
+                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="centerY" secondItem="H1W-7T-Rob" secondAttribute="centerY" id="5bT-42-SSm"/>
+                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="leading" secondItem="CcS-nD-tzV" secondAttribute="leading" id="7WK-DS-r2g"/>
+                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="leading" secondItem="KBz-Yh-6lo" secondAttribute="trailing" constant="16" id="Cf4-dM-8bc"/>
+                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="leading" secondItem="eAJ-Gd-uKu" secondAttribute="leading" constant="67" id="FtZ-Ya-7WK"/>
+                                    <constraint firstItem="eze-qT-P1u" firstAttribute="centerY" secondItem="CcS-nD-tzV" secondAttribute="centerY" id="IVh-bA-yrT"/>
+                                    <constraint firstItem="CcS-nD-tzV" firstAttribute="leading" secondItem="eze-qT-P1u" secondAttribute="trailing" constant="8" symbolic="YES" id="LbS-hv-cMw"/>
+                                    <constraint firstItem="7bF-jp-L0V" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="top" constant="37" id="UyI-qI-g85"/>
+                                    <constraint firstItem="CcS-nD-tzV" firstAttribute="top" secondItem="7bF-jp-L0V" secondAttribute="bottom" constant="60" id="XUc-Gr-IMc"/>
+                                    <constraint firstItem="eze-qT-P1u" firstAttribute="top" secondItem="KBz-Yh-6lo" secondAttribute="bottom" constant="27" id="hVo-jX-FYp"/>
+                                    <constraint firstItem="H1W-7T-Rob" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="top" constant="32" id="iC9-bL-tmJ"/>
+                                    <constraint firstItem="CcS-nD-tzV" firstAttribute="top" secondItem="H1W-7T-Rob" secondAttribute="bottom" constant="52" id="kU4-eZ-XKg"/>
+                                    <constraint firstItem="7bF-jp-L0V" firstAttribute="leading" secondItem="KBz-Yh-6lo" secondAttribute="trailing" constant="60" id="nl7-no-hRo"/>
+                                    <constraint firstItem="eze-qT-P1u" firstAttribute="leading" secondItem="eAJ-Gd-uKu" secondAttribute="leading" constant="62" id="pCa-9b-6Ud"/>
+                                    <constraint firstItem="KBz-Yh-6lo" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="top" constant="19" id="pT3-ki-Qk8"/>
+                                    <constraint firstAttribute="trailing" secondItem="H1W-7T-Rob" secondAttribute="trailing" constant="61" id="rNi-Xe-eVu"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading information..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-OX-Ko5">
-                                <rect key="frame" x="16" y="258" width="343" height="108"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultpolicestation" translatesAutoresizingMaskIntoConstraints="NO" id="3O0-Ba-lWq">
+                                <rect key="frame" x="131" y="128" width="112" height="112"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="108" id="IgV-GV-E3q"/>
+                                    <constraint firstAttribute="height" constant="112" id="B6t-Gp-p6G"/>
+                                    <constraint firstAttribute="width" constant="112" id="iP7-RS-YuB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency Service" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRD-2V-N3L">
+                                <rect key="frame" x="16" y="248" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="qjJ-dq-lnf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
+                                <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading information..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-OX-Ko5">
+                                <rect key="frame" x="16" y="311" width="343" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="adj-DW-zPq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eAJ-Gd-uKu" firstAttribute="bottom" secondItem="weJ-Ag-HTb" secondAttribute="top" id="2EN-s5-qFJ"/>
-                            <constraint firstItem="eRD-2V-N3L" firstAttribute="top" secondItem="3O0-Ba-lWq" secondAttribute="bottom" constant="8" symbolic="YES" id="3zn-lg-JHt"/>
-                            <constraint firstAttribute="trailing" secondItem="eAJ-Gd-uKu" secondAttribute="trailing" id="AGz-OI-04O"/>
-                            <constraint firstItem="C2W-OX-Ko5" firstAttribute="centerX" secondItem="eAJ-Gd-uKu" secondAttribute="centerX" id="B31-ES-fFa"/>
-                            <constraint firstItem="eAJ-Gd-uKu" firstAttribute="top" secondItem="C2W-OX-Ko5" secondAttribute="bottom" constant="91" id="DWS-D4-xin"/>
-                            <constraint firstItem="eRD-2V-N3L" firstAttribute="trailing" secondItem="C2W-OX-Ko5" secondAttribute="trailing" id="EQr-wX-Qj7"/>
-                            <constraint firstItem="eAJ-Gd-uKu" firstAttribute="leading" secondItem="afL-hu-vwQ" secondAttribute="leading" id="Ff2-Sm-lBu"/>
-                            <constraint firstItem="eRD-2V-N3L" firstAttribute="leading" secondItem="afL-hu-vwQ" secondAttribute="leadingMargin" id="OOR-kX-Tab"/>
-                            <constraint firstItem="eRD-2V-N3L" firstAttribute="leading" secondItem="C2W-OX-Ko5" secondAttribute="leading" id="Odn-fn-XNh"/>
-                            <constraint firstItem="3O0-Ba-lWq" firstAttribute="centerX" secondItem="eRD-2V-N3L" secondAttribute="centerX" id="Q2q-XJ-12P"/>
-                            <constraint firstItem="3O0-Ba-lWq" firstAttribute="top" secondItem="drH-FW-cFr" secondAttribute="bottom" constant="41" id="h5s-EQ-zA8"/>
-                            <constraint firstItem="C2W-OX-Ko5" firstAttribute="top" secondItem="eRD-2V-N3L" secondAttribute="bottom" constant="8" symbolic="YES" id="rHD-iZ-p3w"/>
+                            <constraint firstItem="ffD-cR-Qoj" firstAttribute="bottom" secondItem="weJ-Ag-HTb" secondAttribute="top" id="2YQ-pq-o2t"/>
+                            <constraint firstItem="ffD-cR-Qoj" firstAttribute="top" secondItem="drH-FW-cFr" secondAttribute="bottom" id="6wV-pQ-1cR"/>
+                            <constraint firstItem="ffD-cR-Qoj" firstAttribute="leading" secondItem="afL-hu-vwQ" secondAttribute="leading" id="9C5-eA-cSe"/>
+                            <constraint firstItem="ffD-cR-Qoj" firstAttribute="centerX" secondItem="3O0-Ba-lWq" secondAttribute="centerX" id="D0F-aL-Dck"/>
+                            <constraint firstItem="eAJ-Gd-uKu" firstAttribute="top" secondItem="C2W-OX-Ko5" secondAttribute="bottom" constant="8" symbolic="YES" id="DlE-JU-WiX"/>
+                            <constraint firstItem="3O0-Ba-lWq" firstAttribute="centerX" secondItem="eRD-2V-N3L" secondAttribute="centerX" id="H2x-69-vnp"/>
+                            <constraint firstItem="C2W-OX-Ko5" firstAttribute="leading" secondItem="eAJ-Gd-uKu" secondAttribute="leading" id="HI8-o3-Z9u"/>
+                            <constraint firstItem="eRD-2V-N3L" firstAttribute="top" secondItem="3O0-Ba-lWq" secondAttribute="bottom" constant="8" symbolic="YES" id="Jo5-9y-xlK"/>
+                            <constraint firstItem="weJ-Ag-HTb" firstAttribute="top" secondItem="eAJ-Gd-uKu" secondAttribute="bottom" constant="129" id="XrD-1H-YOV"/>
+                            <constraint firstItem="C2W-OX-Ko5" firstAttribute="top" secondItem="eRD-2V-N3L" secondAttribute="bottom" constant="8" symbolic="YES" id="cqI-gA-OxC"/>
+                            <constraint firstItem="eRD-2V-N3L" firstAttribute="leading" secondItem="afL-hu-vwQ" secondAttribute="leadingMargin" id="egC-kM-vg7"/>
+                            <constraint firstItem="C2W-OX-Ko5" firstAttribute="trailing" secondItem="eAJ-Gd-uKu" secondAttribute="trailing" id="f0m-wD-yH0"/>
+                            <constraint firstItem="eRD-2V-N3L" firstAttribute="trailing" secondItem="C2W-OX-Ko5" secondAttribute="trailing" id="fGJ-zr-kFg"/>
+                            <constraint firstItem="3O0-Ba-lWq" firstAttribute="top" secondItem="drH-FW-cFr" secondAttribute="bottom" constant="64" id="gHk-Ox-4X4"/>
+                            <constraint firstAttribute="trailing" secondItem="ffD-cR-Qoj" secondAttribute="trailing" id="pWX-Ep-Olm"/>
+                            <constraint firstItem="eRD-2V-N3L" firstAttribute="leading" secondItem="C2W-OX-Ko5" secondAttribute="leading" id="z8D-0j-qNh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2777,13 +2787,15 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <outlet property="labelAddress" destination="C2W-OX-Ko5" id="yha-ol-jni"/>
                         <outlet property="labelName" destination="eRD-2V-N3L" id="XNR-1k-f0l"/>
                         <outlet property="labelServiceContact" destination="H1W-7T-Rob" id="tcQ-cV-vP1"/>
+                        <outlet property="navigationImageButton" destination="eze-qT-P1u" id="E4U-sG-BZc"/>
+                        <outlet property="navigationTextButton" destination="CcS-nD-tzV" id="Sj9-d2-tG1"/>
                         <outlet property="serviceImageView" destination="3O0-Ba-lWq" id="YAv-Fz-q8g"/>
                         <segue destination="03K-pn-XpY" kind="show" identifier="showServiceWebDetailsSegue" id="WXM-Ey-GoX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1s-so-ULN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4716" y="1735"/>
+            <point key="canvasLocation" x="-4716" y="1734.7826086956522"/>
         </scene>
     </scenes>
     <resources>

@@ -337,7 +337,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             let patCoordinate = CLLocationCoordinate2D(latitude: Double(patientLat)!, longitude: Double(patientLng)!)
                             
                             // Zoom to new patient location when updated
-                            let region = MKCoordinateRegionMakeWithDistance(patCoordinate, 1000, 1000)
+                            let region = MKCoordinateRegionMakeWithDistance(patCoordinate, 500, 500)
                             //                            var mapRegion = MKCoordinateRegion()
                             //                            mapRegion.center = patCoordinate
                             //                            mapRegion.span = self.mapView.region.span; // Use current 'zoom'
