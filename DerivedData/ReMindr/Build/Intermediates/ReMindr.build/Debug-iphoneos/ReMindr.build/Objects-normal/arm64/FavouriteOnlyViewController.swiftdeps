@@ -1,0 +1,1072 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "FavouriteOnlyViewController"
+provides-nominal:
+- "C7ReMindr27FavouriteOnlyViewController"
+provides-member:
+- ["C7ReMindr27FavouriteOnlyViewController", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+- "lat"
+- "lng"
+- "descriptionLabel"
+- "mapView"
+- "statusImage"
+- "addAnnotation"
+- "favouriteImage"
+- "didReceiveMemoryWarning"
+- "currentFavourite"
+depends-top-level:
+- "String"
+- !private "MKPointAnnotation"
+- "UILabel"
+- !private "UIImage"
+- "UIImageView"
+- !private "MKCoordinateSpan"
+- !private "!"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "Double"
+- !private "URL"
+- !private "DispatchQueue"
+- "UIViewController"
+- "MKMapView"
+- !private "StringLiteralType"
+- !private "CLLocationCoordinate2D"
+- !private "print"
+- !private "BooleanLiteralType"
+- !private "_ImageLiteralType"
+- "FavouriteOnlyViewController"
+- !private "!="
+- !private "URLSession"
+- !private "MKCoordinateRegion"
+- "Favourite"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Ps9AnyObject", "CLLocationCoordinate2D"]
+- !private ["Ps9AnyObject", "DispatchQueue"]
+- !private ["Ps9AnyObject", "Double"]
+- !private ["Ps9AnyObject", "MKCoordinateRegion"]
+- !private ["Ps9AnyObject", "MKCoordinateSpan"]
+- !private ["Ps9AnyObject", "MKPointAnnotation"]
+- !private ["Ps9AnyObject", "UIImage"]
+- !private ["Ps9AnyObject", "URL"]
+- !private ["Ps9AnyObject", "URLSession"]
+- ["Ps9AnyObject", "addAnnotation"]
+- !private ["Ps9AnyObject", "async"]
+- !private ["Ps9AnyObject", "coordinate"]
+- ["Ps9AnyObject", "currentFavourite"]
+- !private ["Ps9AnyObject", "dataTask"]
+- !private ["Ps9AnyObject", "desc"]
+- ["Ps9AnyObject", "descriptionLabel"]
+- ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- ["Ps9AnyObject", "favouriteImage"]
+- !private ["Ps9AnyObject", "image"]
+- !private ["Ps9AnyObject", "imageURL"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isEmpty"]
+- ["Ps9AnyObject", "lat"]
+- !private ["Ps9AnyObject", "lineBreakMode"]
+- ["Ps9AnyObject", "lng"]
+- !private ["Ps9AnyObject", "main"]
+- ["Ps9AnyObject", "mapView"]
+- !private ["Ps9AnyObject", "numberOfLines"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "resume"]
+- !private ["Ps9AnyObject", "setRegion"]
+- !private ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "status"]
+- ["Ps9AnyObject", "statusImage"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "addAnnotation"]
+- !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "lineBreakMode"]
+- !private ["PSo15CALayerDelegate", "numberOfLines"]
+- !private ["PSo15CALayerDelegate", "setRegion"]
+- !private ["PSo15CALayerDelegate", "text"]
+- ["VSC22CLLocationCoordinate2D", "deinit"]
+- !private ["VSC22CLLocationCoordinate2D", "init"]
+- !private ["Ps7CVarArg", "CLLocationCoordinate2D"]
+- !private ["Ps7CVarArg", "DispatchQueue"]
+- !private ["Ps7CVarArg", "Double"]
+- !private ["Ps7CVarArg", "MKCoordinateRegion"]
+- !private ["Ps7CVarArg", "MKCoordinateSpan"]
+- !private ["Ps7CVarArg", "MKPointAnnotation"]
+- !private ["Ps7CVarArg", "UIImage"]
+- !private ["Ps7CVarArg", "URL"]
+- !private ["Ps7CVarArg", "URLSession"]
+- ["Ps7CVarArg", "addAnnotation"]
+- !private ["Ps7CVarArg", "async"]
+- !private ["Ps7CVarArg", "coordinate"]
+- ["Ps7CVarArg", "currentFavourite"]
+- !private ["Ps7CVarArg", "dataTask"]
+- !private ["Ps7CVarArg", "desc"]
+- ["Ps7CVarArg", "descriptionLabel"]
+- ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- ["Ps7CVarArg", "favouriteImage"]
+- !private ["Ps7CVarArg", "image"]
+- !private ["Ps7CVarArg", "imageURL"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isEmpty"]
+- ["Ps7CVarArg", "lat"]
+- !private ["Ps7CVarArg", "lineBreakMode"]
+- ["Ps7CVarArg", "lng"]
+- !private ["Ps7CVarArg", "main"]
+- ["Ps7CVarArg", "mapView"]
+- !private ["Ps7CVarArg", "numberOfLines"]
+- !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "resume"]
+- !private ["Ps7CVarArg", "setRegion"]
+- !private ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "status"]
+- ["Ps7CVarArg", "statusImage"]
+- !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "title"]
+- ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Vs9Character", "deinit"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "isEmpty"]
+- !private ["Ps28CustomDebugStringConvertible", "CLLocationCoordinate2D"]
+- !private ["Ps28CustomDebugStringConvertible", "DispatchQueue"]
+- !private ["Ps28CustomDebugStringConvertible", "Double"]
+- !private ["Ps28CustomDebugStringConvertible", "MKCoordinateRegion"]
+- !private ["Ps28CustomDebugStringConvertible", "MKCoordinateSpan"]
+- !private ["Ps28CustomDebugStringConvertible", "MKPointAnnotation"]
+- !private ["Ps28CustomDebugStringConvertible", "UIImage"]
+- !private ["Ps28CustomDebugStringConvertible", "URL"]
+- !private ["Ps28CustomDebugStringConvertible", "URLSession"]
+- ["Ps28CustomDebugStringConvertible", "addAnnotation"]
+- !private ["Ps28CustomDebugStringConvertible", "async"]
+- !private ["Ps28CustomDebugStringConvertible", "coordinate"]
+- ["Ps28CustomDebugStringConvertible", "currentFavourite"]
+- !private ["Ps28CustomDebugStringConvertible", "dataTask"]
+- !private ["Ps28CustomDebugStringConvertible", "desc"]
+- ["Ps28CustomDebugStringConvertible", "descriptionLabel"]
+- ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "favouriteImage"]
+- !private ["Ps28CustomDebugStringConvertible", "image"]
+- !private ["Ps28CustomDebugStringConvertible", "imageURL"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
+- ["Ps28CustomDebugStringConvertible", "lat"]
+- !private ["Ps28CustomDebugStringConvertible", "lineBreakMode"]
+- ["Ps28CustomDebugStringConvertible", "lng"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- ["Ps28CustomDebugStringConvertible", "mapView"]
+- !private ["Ps28CustomDebugStringConvertible", "numberOfLines"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "resume"]
+- !private ["Ps28CustomDebugStringConvertible", "setRegion"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "status"]
+- ["Ps28CustomDebugStringConvertible", "statusImage"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "isEmpty"]
+- !private ["Ps23CustomStringConvertible", "CLLocationCoordinate2D"]
+- !private ["Ps23CustomStringConvertible", "DispatchQueue"]
+- !private ["Ps23CustomStringConvertible", "Double"]
+- !private ["Ps23CustomStringConvertible", "MKCoordinateRegion"]
+- !private ["Ps23CustomStringConvertible", "MKCoordinateSpan"]
+- !private ["Ps23CustomStringConvertible", "MKPointAnnotation"]
+- !private ["Ps23CustomStringConvertible", "UIImage"]
+- !private ["Ps23CustomStringConvertible", "URL"]
+- !private ["Ps23CustomStringConvertible", "URLSession"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "addAnnotation"]
+- !private ["Ps23CustomStringConvertible", "async"]
+- !private ["Ps23CustomStringConvertible", "coordinate"]
+- ["Ps23CustomStringConvertible", "currentFavourite"]
+- !private ["Ps23CustomStringConvertible", "dataTask"]
+- !private ["Ps23CustomStringConvertible", "desc"]
+- ["Ps23CustomStringConvertible", "descriptionLabel"]
+- ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "favouriteImage"]
+- !private ["Ps23CustomStringConvertible", "image"]
+- !private ["Ps23CustomStringConvertible", "imageURL"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isEmpty"]
+- ["Ps23CustomStringConvertible", "lat"]
+- !private ["Ps23CustomStringConvertible", "lineBreakMode"]
+- ["Ps23CustomStringConvertible", "lng"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- ["Ps23CustomStringConvertible", "mapView"]
+- !private ["Ps23CustomStringConvertible", "numberOfLines"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "resume"]
+- !private ["Ps23CustomStringConvertible", "setRegion"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "status"]
+- ["Ps23CustomStringConvertible", "statusImage"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["V10Foundation4Data", "deinit"]
+- !private ["CSo14DispatchObject", "async"]
+- !private ["CSo14DispatchObject", "main"]
+- !private ["CSo13DispatchQueue", "async"]
+- !private ["CSo13DispatchQueue", "deinit"]
+- !private ["CSo13DispatchQueue", "main"]
+- ["Sd", "deinit"]
+- !private ["Sd", "init"]
+- !private ["Ps9Equatable", "CLLocationCoordinate2D"]
+- !private ["Ps9Equatable", "DispatchQueue"]
+- !private ["Ps9Equatable", "Double"]
+- !private ["Ps9Equatable", "MKCoordinateRegion"]
+- !private ["Ps9Equatable", "MKCoordinateSpan"]
+- !private ["Ps9Equatable", "MKPointAnnotation"]
+- !private ["Ps9Equatable", "UIImage"]
+- !private ["Ps9Equatable", "URL"]
+- !private ["Ps9Equatable", "URLSession"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "addAnnotation"]
+- !private ["Ps9Equatable", "async"]
+- !private ["Ps9Equatable", "byWordWrapping"]
+- !private ["Ps9Equatable", "coordinate"]
+- ["Ps9Equatable", "currentFavourite"]
+- !private ["Ps9Equatable", "dataTask"]
+- !private ["Ps9Equatable", "desc"]
+- ["Ps9Equatable", "descriptionLabel"]
+- ["Ps9Equatable", "didReceiveMemoryWarning"]
+- ["Ps9Equatable", "favouriteImage"]
+- !private ["Ps9Equatable", "image"]
+- !private ["Ps9Equatable", "imageURL"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isEmpty"]
+- ["Ps9Equatable", "lat"]
+- !private ["Ps9Equatable", "lineBreakMode"]
+- ["Ps9Equatable", "lng"]
+- !private ["Ps9Equatable", "main"]
+- ["Ps9Equatable", "mapView"]
+- !private ["Ps9Equatable", "numberOfLines"]
+- !private ["Ps9Equatable", "print"]
+- !private ["Ps9Equatable", "resume"]
+- !private ["Ps9Equatable", "setRegion"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "status"]
+- ["Ps9Equatable", "statusImage"]
+- !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "title"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps5Error", "deinit"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- !private ["C7ReMindr9Favourite", "desc"]
+- !private ["C7ReMindr9Favourite", "imageURL"]
+- !private ["C7ReMindr9Favourite", "lat"]
+- !private ["C7ReMindr9Favourite", "lng"]
+- !private ["C7ReMindr9Favourite", "status"]
+- !private ["C7ReMindr9Favourite", "title"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "CLLocationCoordinate2D"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "DispatchQueue"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "Double"]
+- ["C7ReMindr27FavouriteOnlyViewController", "Favourite"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "MKCoordinateRegion"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "MKCoordinateSpan"]
+- ["C7ReMindr27FavouriteOnlyViewController", "MKMapView"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "MKPointAnnotation"]
+- ["C7ReMindr27FavouriteOnlyViewController", "String"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "UIImage"]
+- ["C7ReMindr27FavouriteOnlyViewController", "UIImageView"]
+- ["C7ReMindr27FavouriteOnlyViewController", "UILabel"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "URL"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "URLSession"]
+- ["C7ReMindr27FavouriteOnlyViewController", "addAnnotation"]
+- ["C7ReMindr27FavouriteOnlyViewController", "currentFavourite"]
+- ["C7ReMindr27FavouriteOnlyViewController", "deinit"]
+- ["C7ReMindr27FavouriteOnlyViewController", "descriptionLabel"]
+- ["C7ReMindr27FavouriteOnlyViewController", "didReceiveMemoryWarning"]
+- ["C7ReMindr27FavouriteOnlyViewController", "favouriteImage"]
+- ["C7ReMindr27FavouriteOnlyViewController", "init"]
+- ["C7ReMindr27FavouriteOnlyViewController", "lat"]
+- ["C7ReMindr27FavouriteOnlyViewController", "lng"]
+- ["C7ReMindr27FavouriteOnlyViewController", "mapView"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "print"]
+- ["C7ReMindr27FavouriteOnlyViewController", "statusImage"]
+- !private ["C7ReMindr27FavouriteOnlyViewController", "title"]
+- ["C7ReMindr27FavouriteOnlyViewController", "viewDidLoad"]
+- !private ["Sf", "deinit"]
+- !private ["Ps13FloatingPoint", "init"]
+- !private ["Ps8Hashable", "CLLocationCoordinate2D"]
+- !private ["Ps8Hashable", "DispatchQueue"]
+- !private ["Ps8Hashable", "Double"]
+- !private ["Ps8Hashable", "MKCoordinateRegion"]
+- !private ["Ps8Hashable", "MKCoordinateSpan"]
+- !private ["Ps8Hashable", "MKPointAnnotation"]
+- !private ["Ps8Hashable", "UIImage"]
+- !private ["Ps8Hashable", "URL"]
+- !private ["Ps8Hashable", "URLSession"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "addAnnotation"]
+- !private ["Ps8Hashable", "async"]
+- !private ["Ps8Hashable", "byWordWrapping"]
+- !private ["Ps8Hashable", "coordinate"]
+- ["Ps8Hashable", "currentFavourite"]
+- !private ["Ps8Hashable", "dataTask"]
+- !private ["Ps8Hashable", "desc"]
+- ["Ps8Hashable", "descriptionLabel"]
+- ["Ps8Hashable", "didReceiveMemoryWarning"]
+- ["Ps8Hashable", "favouriteImage"]
+- !private ["Ps8Hashable", "image"]
+- !private ["Ps8Hashable", "imageURL"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isEmpty"]
+- ["Ps8Hashable", "lat"]
+- !private ["Ps8Hashable", "lineBreakMode"]
+- ["Ps8Hashable", "lng"]
+- !private ["Ps8Hashable", "main"]
+- ["Ps8Hashable", "mapView"]
+- !private ["Ps8Hashable", "numberOfLines"]
+- !private ["Ps8Hashable", "print"]
+- !private ["Ps8Hashable", "resume"]
+- !private ["Ps8Hashable", "setRegion"]
+- !private ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "status"]
+- ["Ps8Hashable", "statusImage"]
+- !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "title"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- ["Si", "deinit"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "isEmpty"]
+- !private ["PSo12MKAnnotation", "coordinate"]
+- !private ["PSo12MKAnnotation", "init"]
+- !private ["PSo12MKAnnotation", "title"]
+- ["VSC18MKCoordinateRegion", "deinit"]
+- !private ["VSC18MKCoordinateRegion", "init"]
+- ["VSC16MKCoordinateSpan", "deinit"]
+- !private ["VSC16MKCoordinateSpan", "init"]
+- !private ["CSo9MKMapView", "addAnnotation"]
+- !private ["CSo9MKMapView", "setRegion"]
+- !private ["CSo17MKPointAnnotation", "coordinate"]
+- ["CSo17MKPointAnnotation", "deinit"]
+- !private ["CSo17MKPointAnnotation", "init"]
+- !private ["CSo17MKPointAnnotation", "title"]
+- !private ["CSo7MKShape", "coordinate"]
+- !private ["CSo7MKShape", "init"]
+- !private ["CSo7MKShape", "title"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "isEmpty"]
+- ["CSo7NSCoder", "deinit"]
+- !private ["PSo8NSCoding", "CLLocationCoordinate2D"]
+- !private ["PSo8NSCoding", "DispatchQueue"]
+- !private ["PSo8NSCoding", "Double"]
+- !private ["PSo8NSCoding", "MKCoordinateRegion"]
+- !private ["PSo8NSCoding", "MKCoordinateSpan"]
+- !private ["PSo8NSCoding", "MKPointAnnotation"]
+- !private ["PSo8NSCoding", "UIImage"]
+- !private ["PSo8NSCoding", "URL"]
+- !private ["PSo8NSCoding", "URLSession"]
+- ["PSo8NSCoding", "addAnnotation"]
+- ["PSo8NSCoding", "currentFavourite"]
+- ["PSo8NSCoding", "descriptionLabel"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "favouriteImage"]
+- !private ["PSo8NSCoding", "image"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isEmpty"]
+- ["PSo8NSCoding", "lat"]
+- !private ["PSo8NSCoding", "lineBreakMode"]
+- ["PSo8NSCoding", "lng"]
+- ["PSo8NSCoding", "mapView"]
+- !private ["PSo8NSCoding", "numberOfLines"]
+- !private ["PSo8NSCoding", "print"]
+- !private ["PSo8NSCoding", "setRegion"]
+- ["PSo8NSCoding", "statusImage"]
+- !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "title"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEmpty"]
+- !private ["PSo9NSCopying", "resume"]
+- !private ["PSo26NSExtensionRequestHandling", "CLLocationCoordinate2D"]
+- !private ["PSo26NSExtensionRequestHandling", "DispatchQueue"]
+- !private ["PSo26NSExtensionRequestHandling", "Double"]
+- !private ["PSo26NSExtensionRequestHandling", "MKCoordinateRegion"]
+- !private ["PSo26NSExtensionRequestHandling", "MKCoordinateSpan"]
+- !private ["PSo26NSExtensionRequestHandling", "MKPointAnnotation"]
+- !private ["PSo26NSExtensionRequestHandling", "UIImage"]
+- !private ["PSo26NSExtensionRequestHandling", "URL"]
+- !private ["PSo26NSExtensionRequestHandling", "URLSession"]
+- ["PSo26NSExtensionRequestHandling", "addAnnotation"]
+- ["PSo26NSExtensionRequestHandling", "currentFavourite"]
+- ["PSo26NSExtensionRequestHandling", "descriptionLabel"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "favouriteImage"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "lat"]
+- ["PSo26NSExtensionRequestHandling", "lng"]
+- ["PSo26NSExtensionRequestHandling", "mapView"]
+- !private ["PSo26NSExtensionRequestHandling", "print"]
+- ["PSo26NSExtensionRequestHandling", "statusImage"]
+- !private ["PSo26NSExtensionRequestHandling", "title"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["OSC15NSLineBreakMode", "byWordWrapping"]
+- ["OSC15NSLineBreakMode", "deinit"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "isEmpty"]
+- !private ["CSo8NSObject", "CLLocationCoordinate2D"]
+- !private ["CSo8NSObject", "DispatchQueue"]
+- !private ["CSo8NSObject", "Double"]
+- ["CSo8NSObject", "Favourite"]
+- !private ["CSo8NSObject", "MKCoordinateRegion"]
+- !private ["CSo8NSObject", "MKCoordinateSpan"]
+- ["CSo8NSObject", "MKMapView"]
+- !private ["CSo8NSObject", "MKPointAnnotation"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "UIImage"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "URL"]
+- !private ["CSo8NSObject", "URLSession"]
+- ["CSo8NSObject", "addAnnotation"]
+- !private ["CSo8NSObject", "async"]
+- !private ["CSo8NSObject", "coordinate"]
+- ["CSo8NSObject", "currentFavourite"]
+- !private ["CSo8NSObject", "dataTask"]
+- !private ["CSo8NSObject", "desc"]
+- ["CSo8NSObject", "descriptionLabel"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "favouriteImage"]
+- !private ["CSo8NSObject", "image"]
+- !private ["CSo8NSObject", "imageURL"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isEmpty"]
+- ["CSo8NSObject", "lat"]
+- !private ["CSo8NSObject", "lineBreakMode"]
+- ["CSo8NSObject", "lng"]
+- !private ["CSo8NSObject", "main"]
+- ["CSo8NSObject", "mapView"]
+- !private ["CSo8NSObject", "numberOfLines"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "resume"]
+- !private ["CSo8NSObject", "setRegion"]
+- !private ["CSo8NSObject", "shared"]
+- !private ["CSo8NSObject", "status"]
+- ["CSo8NSObject", "statusImage"]
+- !private ["CSo8NSObject", "text"]
+- !private ["CSo8NSObject", "title"]
+- ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "CLLocationCoordinate2D"]
+- !private ["PSo16NSObjectProtocol", "DispatchQueue"]
+- !private ["PSo16NSObjectProtocol", "Double"]
+- !private ["PSo16NSObjectProtocol", "MKCoordinateRegion"]
+- !private ["PSo16NSObjectProtocol", "MKCoordinateSpan"]
+- !private ["PSo16NSObjectProtocol", "MKPointAnnotation"]
+- !private ["PSo16NSObjectProtocol", "UIImage"]
+- !private ["PSo16NSObjectProtocol", "URL"]
+- !private ["PSo16NSObjectProtocol", "URLSession"]
+- ["PSo16NSObjectProtocol", "addAnnotation"]
+- !private ["PSo16NSObjectProtocol", "async"]
+- !private ["PSo16NSObjectProtocol", "coordinate"]
+- ["PSo16NSObjectProtocol", "currentFavourite"]
+- !private ["PSo16NSObjectProtocol", "dataTask"]
+- !private ["PSo16NSObjectProtocol", "desc"]
+- ["PSo16NSObjectProtocol", "descriptionLabel"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "favouriteImage"]
+- !private ["PSo16NSObjectProtocol", "image"]
+- !private ["PSo16NSObjectProtocol", "imageURL"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isEmpty"]
+- ["PSo16NSObjectProtocol", "lat"]
+- !private ["PSo16NSObjectProtocol", "lineBreakMode"]
+- ["PSo16NSObjectProtocol", "lng"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- ["PSo16NSObjectProtocol", "mapView"]
+- !private ["PSo16NSObjectProtocol", "numberOfLines"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "resume"]
+- !private ["PSo16NSObjectProtocol", "setRegion"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "status"]
+- ["PSo16NSObjectProtocol", "statusImage"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "isEmpty"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "isEmpty"]
+- !private ["CSo9OS_object", "async"]
+- !private ["CSo9OS_object", "main"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "byWordWrapping"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "init"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["SS", "isEmpty"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "isEmpty"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "isEmpty"]
+- !private ["PSo29UIAccessibilityIdentification", "addAnnotation"]
+- !private ["PSo29UIAccessibilityIdentification", "image"]
+- !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "lineBreakMode"]
+- !private ["PSo29UIAccessibilityIdentification", "numberOfLines"]
+- !private ["PSo29UIAccessibilityIdentification", "setRegion"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo12UIAppearance", "addAnnotation"]
+- !private ["PSo12UIAppearance", "image"]
+- !private ["PSo12UIAppearance", "lineBreakMode"]
+- !private ["PSo12UIAppearance", "numberOfLines"]
+- !private ["PSo12UIAppearance", "setRegion"]
+- !private ["PSo12UIAppearance", "text"]
+- !private ["PSo21UIAppearanceContainer", "CLLocationCoordinate2D"]
+- !private ["PSo21UIAppearanceContainer", "DispatchQueue"]
+- !private ["PSo21UIAppearanceContainer", "Double"]
+- !private ["PSo21UIAppearanceContainer", "MKCoordinateRegion"]
+- !private ["PSo21UIAppearanceContainer", "MKCoordinateSpan"]
+- !private ["PSo21UIAppearanceContainer", "MKPointAnnotation"]
+- !private ["PSo21UIAppearanceContainer", "UIImage"]
+- !private ["PSo21UIAppearanceContainer", "URL"]
+- !private ["PSo21UIAppearanceContainer", "URLSession"]
+- ["PSo21UIAppearanceContainer", "addAnnotation"]
+- ["PSo21UIAppearanceContainer", "currentFavourite"]
+- ["PSo21UIAppearanceContainer", "descriptionLabel"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "favouriteImage"]
+- !private ["PSo21UIAppearanceContainer", "image"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "lat"]
+- !private ["PSo21UIAppearanceContainer", "lineBreakMode"]
+- ["PSo21UIAppearanceContainer", "lng"]
+- ["PSo21UIAppearanceContainer", "mapView"]
+- !private ["PSo21UIAppearanceContainer", "numberOfLines"]
+- !private ["PSo21UIAppearanceContainer", "print"]
+- !private ["PSo21UIAppearanceContainer", "setRegion"]
+- ["PSo21UIAppearanceContainer", "statusImage"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "title"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo18UIContentContainer", "CLLocationCoordinate2D"]
+- !private ["PSo18UIContentContainer", "DispatchQueue"]
+- !private ["PSo18UIContentContainer", "Double"]
+- !private ["PSo18UIContentContainer", "MKCoordinateRegion"]
+- !private ["PSo18UIContentContainer", "MKCoordinateSpan"]
+- !private ["PSo18UIContentContainer", "MKPointAnnotation"]
+- !private ["PSo18UIContentContainer", "UIImage"]
+- !private ["PSo18UIContentContainer", "URL"]
+- !private ["PSo18UIContentContainer", "URLSession"]
+- ["PSo18UIContentContainer", "addAnnotation"]
+- ["PSo18UIContentContainer", "currentFavourite"]
+- ["PSo18UIContentContainer", "descriptionLabel"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "favouriteImage"]
+- !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "lat"]
+- ["PSo18UIContentContainer", "lng"]
+- ["PSo18UIContentContainer", "mapView"]
+- !private ["PSo18UIContentContainer", "print"]
+- ["PSo18UIContentContainer", "statusImage"]
+- !private ["PSo18UIContentContainer", "title"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "lineBreakMode"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "numberOfLines"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["PSo17UICoordinateSpace", "addAnnotation"]
+- !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "lineBreakMode"]
+- !private ["PSo17UICoordinateSpace", "numberOfLines"]
+- !private ["PSo17UICoordinateSpace", "setRegion"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo13UIDynamicItem", "addAnnotation"]
+- !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "lineBreakMode"]
+- !private ["PSo13UIDynamicItem", "numberOfLines"]
+- !private ["PSo13UIDynamicItem", "setRegion"]
+- !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo18UIFocusEnvironment", "CLLocationCoordinate2D"]
+- !private ["PSo18UIFocusEnvironment", "DispatchQueue"]
+- !private ["PSo18UIFocusEnvironment", "Double"]
+- !private ["PSo18UIFocusEnvironment", "MKCoordinateRegion"]
+- !private ["PSo18UIFocusEnvironment", "MKCoordinateSpan"]
+- !private ["PSo18UIFocusEnvironment", "MKPointAnnotation"]
+- !private ["PSo18UIFocusEnvironment", "UIImage"]
+- !private ["PSo18UIFocusEnvironment", "URL"]
+- !private ["PSo18UIFocusEnvironment", "URLSession"]
+- ["PSo18UIFocusEnvironment", "addAnnotation"]
+- ["PSo18UIFocusEnvironment", "currentFavourite"]
+- ["PSo18UIFocusEnvironment", "descriptionLabel"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "favouriteImage"]
+- !private ["PSo18UIFocusEnvironment", "image"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "lat"]
+- !private ["PSo18UIFocusEnvironment", "lineBreakMode"]
+- ["PSo18UIFocusEnvironment", "lng"]
+- ["PSo18UIFocusEnvironment", "mapView"]
+- !private ["PSo18UIFocusEnvironment", "numberOfLines"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- !private ["PSo18UIFocusEnvironment", "setRegion"]
+- ["PSo18UIFocusEnvironment", "statusImage"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "title"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "addAnnotation"]
+- !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "lineBreakMode"]
+- !private ["PSo11UIFocusItem", "numberOfLines"]
+- !private ["PSo11UIFocusItem", "setRegion"]
+- !private ["PSo11UIFocusItem", "text"]
+- ["CSo7UIImage", "deinit"]
+- !private ["CSo7UIImage", "init"]
+- !private ["CSo11UIImageView", "image"]
+- !private ["CSo7UILabel", "lineBreakMode"]
+- !private ["CSo7UILabel", "numberOfLines"]
+- !private ["CSo7UILabel", "text"]
+- !private ["CSo11UIResponder", "CLLocationCoordinate2D"]
+- !private ["CSo11UIResponder", "DispatchQueue"]
+- !private ["CSo11UIResponder", "Double"]
+- ["CSo11UIResponder", "Favourite"]
+- !private ["CSo11UIResponder", "MKCoordinateRegion"]
+- !private ["CSo11UIResponder", "MKCoordinateSpan"]
+- ["CSo11UIResponder", "MKMapView"]
+- !private ["CSo11UIResponder", "MKPointAnnotation"]
+- ["CSo11UIResponder", "String"]
+- !private ["CSo11UIResponder", "UIImage"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- !private ["CSo11UIResponder", "URL"]
+- !private ["CSo11UIResponder", "URLSession"]
+- ["CSo11UIResponder", "addAnnotation"]
+- ["CSo11UIResponder", "currentFavourite"]
+- ["CSo11UIResponder", "descriptionLabel"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "favouriteImage"]
+- !private ["CSo11UIResponder", "image"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "lat"]
+- !private ["CSo11UIResponder", "lineBreakMode"]
+- ["CSo11UIResponder", "lng"]
+- ["CSo11UIResponder", "mapView"]
+- !private ["CSo11UIResponder", "numberOfLines"]
+- !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "setRegion"]
+- ["CSo11UIResponder", "statusImage"]
+- !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "title"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- !private ["PSo30UIResponderStandardEditActions", "CLLocationCoordinate2D"]
+- !private ["PSo30UIResponderStandardEditActions", "DispatchQueue"]
+- !private ["PSo30UIResponderStandardEditActions", "Double"]
+- !private ["PSo30UIResponderStandardEditActions", "MKCoordinateRegion"]
+- !private ["PSo30UIResponderStandardEditActions", "MKCoordinateSpan"]
+- !private ["PSo30UIResponderStandardEditActions", "MKPointAnnotation"]
+- !private ["PSo30UIResponderStandardEditActions", "UIImage"]
+- !private ["PSo30UIResponderStandardEditActions", "URL"]
+- !private ["PSo30UIResponderStandardEditActions", "URLSession"]
+- ["PSo30UIResponderStandardEditActions", "addAnnotation"]
+- ["PSo30UIResponderStandardEditActions", "currentFavourite"]
+- ["PSo30UIResponderStandardEditActions", "descriptionLabel"]
+- ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- ["PSo30UIResponderStandardEditActions", "favouriteImage"]
+- !private ["PSo30UIResponderStandardEditActions", "image"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "lat"]
+- !private ["PSo30UIResponderStandardEditActions", "lineBreakMode"]
+- ["PSo30UIResponderStandardEditActions", "lng"]
+- ["PSo30UIResponderStandardEditActions", "mapView"]
+- !private ["PSo30UIResponderStandardEditActions", "numberOfLines"]
+- !private ["PSo30UIResponderStandardEditActions", "print"]
+- !private ["PSo30UIResponderStandardEditActions", "setRegion"]
+- ["PSo30UIResponderStandardEditActions", "statusImage"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "title"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo16UIStateRestoring", "CLLocationCoordinate2D"]
+- !private ["PSo16UIStateRestoring", "DispatchQueue"]
+- !private ["PSo16UIStateRestoring", "Double"]
+- !private ["PSo16UIStateRestoring", "MKCoordinateRegion"]
+- !private ["PSo16UIStateRestoring", "MKCoordinateSpan"]
+- !private ["PSo16UIStateRestoring", "MKPointAnnotation"]
+- !private ["PSo16UIStateRestoring", "UIImage"]
+- !private ["PSo16UIStateRestoring", "URL"]
+- !private ["PSo16UIStateRestoring", "URLSession"]
+- ["PSo16UIStateRestoring", "addAnnotation"]
+- ["PSo16UIStateRestoring", "currentFavourite"]
+- ["PSo16UIStateRestoring", "descriptionLabel"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "favouriteImage"]
+- !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "lat"]
+- ["PSo16UIStateRestoring", "lng"]
+- ["PSo16UIStateRestoring", "mapView"]
+- !private ["PSo16UIStateRestoring", "print"]
+- ["PSo16UIStateRestoring", "statusImage"]
+- !private ["PSo16UIStateRestoring", "title"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["PSo18UITraitEnvironment", "CLLocationCoordinate2D"]
+- !private ["PSo18UITraitEnvironment", "DispatchQueue"]
+- !private ["PSo18UITraitEnvironment", "Double"]
+- !private ["PSo18UITraitEnvironment", "MKCoordinateRegion"]
+- !private ["PSo18UITraitEnvironment", "MKCoordinateSpan"]
+- !private ["PSo18UITraitEnvironment", "MKPointAnnotation"]
+- !private ["PSo18UITraitEnvironment", "UIImage"]
+- !private ["PSo18UITraitEnvironment", "URL"]
+- !private ["PSo18UITraitEnvironment", "URLSession"]
+- ["PSo18UITraitEnvironment", "addAnnotation"]
+- ["PSo18UITraitEnvironment", "currentFavourite"]
+- ["PSo18UITraitEnvironment", "descriptionLabel"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "favouriteImage"]
+- !private ["PSo18UITraitEnvironment", "image"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "lat"]
+- !private ["PSo18UITraitEnvironment", "lineBreakMode"]
+- ["PSo18UITraitEnvironment", "lng"]
+- ["PSo18UITraitEnvironment", "mapView"]
+- !private ["PSo18UITraitEnvironment", "numberOfLines"]
+- !private ["PSo18UITraitEnvironment", "print"]
+- !private ["PSo18UITraitEnvironment", "setRegion"]
+- ["PSo18UITraitEnvironment", "statusImage"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "title"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "addAnnotation"]
+- !private ["CSo6UIView", "image"]
+- !private ["CSo6UIView", "lineBreakMode"]
+- !private ["CSo6UIView", "numberOfLines"]
+- !private ["CSo6UIView", "setRegion"]
+- !private ["CSo6UIView", "text"]
+- !private ["CSo16UIViewController", "CLLocationCoordinate2D"]
+- !private ["CSo16UIViewController", "DispatchQueue"]
+- !private ["CSo16UIViewController", "Double"]
+- ["CSo16UIViewController", "Favourite"]
+- !private ["CSo16UIViewController", "MKCoordinateRegion"]
+- !private ["CSo16UIViewController", "MKCoordinateSpan"]
+- ["CSo16UIViewController", "MKMapView"]
+- !private ["CSo16UIViewController", "MKPointAnnotation"]
+- ["CSo16UIViewController", "String"]
+- !private ["CSo16UIViewController", "UIImage"]
+- ["CSo16UIViewController", "UIImageView"]
+- ["CSo16UIViewController", "UILabel"]
+- !private ["CSo16UIViewController", "URL"]
+- !private ["CSo16UIViewController", "URLSession"]
+- ["CSo16UIViewController", "addAnnotation"]
+- ["CSo16UIViewController", "currentFavourite"]
+- ["CSo16UIViewController", "deinit"]
+- ["CSo16UIViewController", "descriptionLabel"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "favouriteImage"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "lat"]
+- ["CSo16UIViewController", "lng"]
+- ["CSo16UIViewController", "mapView"]
+- !private ["CSo16UIViewController", "print"]
+- ["CSo16UIViewController", "statusImage"]
+- !private ["CSo16UIViewController", "title"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- ["V10Foundation3URL", "deinit"]
+- !private ["V10Foundation3URL", "init"]
+- !private ["CSo10URLSession", "dataTask"]
+- ["CSo10URLSession", "deinit"]
+- !private ["CSo10URLSession", "shared"]
+- ["CSo18URLSessionDataTask", "deinit"]
+- !private ["CSo18URLSessionDataTask", "resume"]
+- !private ["CSo14URLSessionTask", "resume"]
+- !private ["Sc", "deinit"]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addAnnotation"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "lineBreakMode"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "numberOfLines"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setRegion"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps26_ExpressibleByImageLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
+- !private ["Ps9_Hashable", "CLLocationCoordinate2D"]
+- !private ["Ps9_Hashable", "DispatchQueue"]
+- !private ["Ps9_Hashable", "Double"]
+- !private ["Ps9_Hashable", "MKCoordinateRegion"]
+- !private ["Ps9_Hashable", "MKCoordinateSpan"]
+- !private ["Ps9_Hashable", "MKPointAnnotation"]
+- !private ["Ps9_Hashable", "UIImage"]
+- !private ["Ps9_Hashable", "URL"]
+- !private ["Ps9_Hashable", "URLSession"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "addAnnotation"]
+- !private ["Ps9_Hashable", "async"]
+- !private ["Ps9_Hashable", "byWordWrapping"]
+- !private ["Ps9_Hashable", "coordinate"]
+- ["Ps9_Hashable", "currentFavourite"]
+- !private ["Ps9_Hashable", "dataTask"]
+- !private ["Ps9_Hashable", "desc"]
+- ["Ps9_Hashable", "descriptionLabel"]
+- ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- ["Ps9_Hashable", "favouriteImage"]
+- !private ["Ps9_Hashable", "image"]
+- !private ["Ps9_Hashable", "imageURL"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isEmpty"]
+- ["Ps9_Hashable", "lat"]
+- !private ["Ps9_Hashable", "lineBreakMode"]
+- ["Ps9_Hashable", "lng"]
+- !private ["Ps9_Hashable", "main"]
+- ["Ps9_Hashable", "mapView"]
+- !private ["Ps9_Hashable", "numberOfLines"]
+- !private ["Ps9_Hashable", "print"]
+- !private ["Ps9_Hashable", "resume"]
+- !private ["Ps9_Hashable", "setRegion"]
+- !private ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "status"]
+- ["Ps9_Hashable", "statusImage"]
+- !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "title"]
+- ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "VSC22CLLocationCoordinate2D"
+- "Ps7CVarArg"
+- !private "Vs9Character"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "V10Foundation4Data"
+- !private "CSo14DispatchObject"
+- !private "CSo13DispatchQueue"
+- "Sd"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "C7ReMindr9Favourite"
+- "C7ReMindr27FavouriteOnlyViewController"
+- !private "Sf"
+- !private "Ps13FloatingPoint"
+- "Ps8Hashable"
+- "SQ"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps25LosslessStringConvertible"
+- !private "PSo12MKAnnotation"
+- "VSC18MKCoordinateRegion"
+- "VSC16MKCoordinateSpan"
+- !private "CSo9MKMapView"
+- "CSo17MKPointAnnotation"
+- !private "CSo7MKShape"
+- !private "Ps10MirrorPath"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- "OSC15NSLineBreakMode"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo9OS_object"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "CSo7UIImage"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- "V10Foundation3URL"
+- "CSo10URLSession"
+- "CSo18URLSessionDataTask"
+- !private "CSo14URLSessionTask"
+- !private "Sc"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- !private "Ps26_ExpressibleByImageLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTaskSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageUploadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageObservableTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageDownloadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FirebaseStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "a27e541467d515f6988fca8d3e5b7256"

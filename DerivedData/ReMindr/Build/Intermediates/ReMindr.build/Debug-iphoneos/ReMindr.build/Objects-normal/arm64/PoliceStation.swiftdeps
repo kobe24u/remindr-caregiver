@@ -1,0 +1,255 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "PoliceStation"
+provides-nominal:
+- "C7ReMindr13PoliceStation"
+provides-member:
+- ["C7ReMindr13PoliceStation", ""]
+provides-dynamic-lookup:
+- "name"
+- "website"
+- "placeID"
+- "imageURL"
+- "phone"
+- "mapsURL"
+- "address"
+depends-top-level:
+- "PoliceStation"
+- "AssignmentPrecedence"
+- "NSObject"
+- "String"
+- "Double"
+- "Bool"
+depends-member:
+- ["Ps9AnyObject", "address"]
+- ["Ps9AnyObject", "imageURL"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "isClosest"]
+- ["Ps9AnyObject", "lat"]
+- ["Ps9AnyObject", "lng"]
+- ["Ps9AnyObject", "mapsURL"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "phone"]
+- ["Ps9AnyObject", "placeID"]
+- ["Ps9AnyObject", "rating"]
+- ["Ps9AnyObject", "website"]
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- ["Ps7CVarArg", "address"]
+- ["Ps7CVarArg", "imageURL"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "isClosest"]
+- ["Ps7CVarArg", "lat"]
+- ["Ps7CVarArg", "lng"]
+- ["Ps7CVarArg", "mapsURL"]
+- ["Ps7CVarArg", "name"]
+- ["Ps7CVarArg", "phone"]
+- ["Ps7CVarArg", "placeID"]
+- ["Ps7CVarArg", "rating"]
+- ["Ps7CVarArg", "website"]
+- ["Ps7CVarArg", ""]
+- ["Ps28CustomDebugStringConvertible", "address"]
+- ["Ps28CustomDebugStringConvertible", "imageURL"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "isClosest"]
+- ["Ps28CustomDebugStringConvertible", "lat"]
+- ["Ps28CustomDebugStringConvertible", "lng"]
+- ["Ps28CustomDebugStringConvertible", "mapsURL"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "phone"]
+- ["Ps28CustomDebugStringConvertible", "placeID"]
+- ["Ps28CustomDebugStringConvertible", "rating"]
+- ["Ps28CustomDebugStringConvertible", "website"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "address"]
+- ["Ps23CustomStringConvertible", "imageURL"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "isClosest"]
+- ["Ps23CustomStringConvertible", "lat"]
+- ["Ps23CustomStringConvertible", "lng"]
+- ["Ps23CustomStringConvertible", "mapsURL"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "phone"]
+- ["Ps23CustomStringConvertible", "placeID"]
+- ["Ps23CustomStringConvertible", "rating"]
+- ["Ps23CustomStringConvertible", "website"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "address"]
+- ["Ps9Equatable", "imageURL"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "isClosest"]
+- ["Ps9Equatable", "lat"]
+- ["Ps9Equatable", "lng"]
+- ["Ps9Equatable", "mapsURL"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "phone"]
+- ["Ps9Equatable", "placeID"]
+- ["Ps9Equatable", "rating"]
+- ["Ps9Equatable", "website"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "address"]
+- ["Ps8Hashable", "imageURL"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "isClosest"]
+- ["Ps8Hashable", "lat"]
+- ["Ps8Hashable", "lng"]
+- ["Ps8Hashable", "mapsURL"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "phone"]
+- ["Ps8Hashable", "placeID"]
+- ["Ps8Hashable", "rating"]
+- ["Ps8Hashable", "website"]
+- ["Ps8Hashable", ""]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "Double"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "address"]
+- ["CSo8NSObject", "deinit"]
+- ["CSo8NSObject", "imageURL"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "isClosest"]
+- ["CSo8NSObject", "lat"]
+- ["CSo8NSObject", "lng"]
+- ["CSo8NSObject", "mapsURL"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "phone"]
+- ["CSo8NSObject", "placeID"]
+- ["CSo8NSObject", "rating"]
+- ["CSo8NSObject", "website"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "address"]
+- ["PSo16NSObjectProtocol", "imageURL"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "isClosest"]
+- ["PSo16NSObjectProtocol", "lat"]
+- ["PSo16NSObjectProtocol", "lng"]
+- ["PSo16NSObjectProtocol", "mapsURL"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "phone"]
+- ["PSo16NSObjectProtocol", "placeID"]
+- ["PSo16NSObjectProtocol", "rating"]
+- ["PSo16NSObjectProtocol", "website"]
+- ["PSo16NSObjectProtocol", ""]
+- ["Sq", "deinit"]
+- ["C7ReMindr13PoliceStation", "Bool"]
+- ["C7ReMindr13PoliceStation", "Double"]
+- ["C7ReMindr13PoliceStation", "String"]
+- ["C7ReMindr13PoliceStation", "address"]
+- ["C7ReMindr13PoliceStation", "deinit"]
+- ["C7ReMindr13PoliceStation", "imageURL"]
+- ["C7ReMindr13PoliceStation", "init"]
+- ["C7ReMindr13PoliceStation", "isClosest"]
+- ["C7ReMindr13PoliceStation", "lat"]
+- ["C7ReMindr13PoliceStation", "lng"]
+- ["C7ReMindr13PoliceStation", "mapsURL"]
+- ["C7ReMindr13PoliceStation", "name"]
+- ["C7ReMindr13PoliceStation", "phone"]
+- ["C7ReMindr13PoliceStation", "placeID"]
+- ["C7ReMindr13PoliceStation", "rating"]
+- ["C7ReMindr13PoliceStation", "website"]
+- ["SS", "deinit"]
+- ["Ps9_Hashable", "address"]
+- ["Ps9_Hashable", "imageURL"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "isClosest"]
+- ["Ps9_Hashable", "lat"]
+- ["Ps9_Hashable", "lng"]
+- ["Ps9_Hashable", "mapsURL"]
+- ["Ps9_Hashable", "name"]
+- ["Ps9_Hashable", "phone"]
+- ["Ps9_Hashable", "placeID"]
+- ["Ps9_Hashable", "rating"]
+- ["Ps9_Hashable", "website"]
+- ["Ps9_Hashable", ""]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "Ps7CVarArg"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Sd"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Sq"
+- "C7ReMindr13PoliceStation"
+- "SS"
+- "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTaskSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageUploadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageObservableTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageDownloadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FirebaseStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "eb530df208d3c4dd6c440335a4831b33"
