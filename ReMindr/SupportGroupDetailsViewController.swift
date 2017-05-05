@@ -136,7 +136,8 @@ class SupportGroupDetailsViewController: UIViewController, MFMailComposeViewCont
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["\(String(describing: currentSupportGroup?.email!))"])
+            print(currentSupportGroup)
+            mail.setToRecipients([(currentSupportGroup?.email)!])
             mail.setSubject("Support Group Information")
             mail.setMessageBody("<p>Hi, </p>", isHTML: true)
             
