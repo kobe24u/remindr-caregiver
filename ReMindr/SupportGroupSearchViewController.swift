@@ -33,6 +33,7 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.suburbPickerView.layer.cornerRadius = 10
         self.automaticallyAdjustsScrollViewInsets = false
         suburbNames.append("All")
         
@@ -58,6 +59,13 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return suburbNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let textColor = UIColor(colorLiteralRed: 45/255, green: 86/255, blue: 105/255, alpha: 1)
+        let attributedString = NSAttributedString(string: suburbNames[row], attributes: [NSForegroundColorAttributeName : textColor])
+        return attributedString
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -103,6 +111,8 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
         if (selectedSuburb == "All")
         {
             matchedSupportGroupList.addObjects(from: supportGroupList as! [Any])
+            sortMatchedListInAlphabeticalOrder()
+            self.supportGroupsTableView.reloadData()
         }
         else
         {
@@ -113,8 +123,9 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
                     matchedSupportGroupList.add(current)
                 }
             }
+            sortMatchedListInAlphabeticalOrder()
+            self.supportGroupsTableView.reloadData()
         }
-        self.supportGroupsTableView.reloadData()
     }
     
     
@@ -197,6 +208,8 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
                         }
                     }
                 }
+            suburbNames = removeDuplicateSuburbs(array: suburbNames)
+            sortListInAlpahbeticalOrder()
             self.suburbPickerView.reloadAllComponents()
         }
         
@@ -212,6 +225,37 @@ class SupportGroupSearchViewController: UIViewController, UITableViewDataSource,
             let destinationVC: SupportGroupDetailsViewController = segue.destination as! SupportGroupDetailsViewController
             destinationVC.currentSupportGroup = selectedSupportGroup
         }
+    }
+    
+    func removeDuplicateSuburbs(array: [String]) -> [String]
+    {
+        var set = Set<String>()
+        let result = array.filter {
+            guard !set.contains($0)
+            else {
+                return false
+            }
+            set.insert($0)
+            return true
+        }
+        return result
+    }
+    
+    func sortListInAlpahbeticalOrder()
+    {
+        suburbNames = suburbNames.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+    }
+    
+    func sortMatchedListInAlphabeticalOrder()
+    {
+        let sortedList = matchedSupportGroupList.sortedArray(comparator: {
+            (object1, object2) -> ComparisonResult in
+            let support1 = object1 as! SupportGroup
+            let support2 = object2 as! SupportGroup
+            let result = support1.name!.compare(support2.name!)
+            return result
+        })
+        matchedSupportGroupList.setArray(sortedList)
     }
     
     /*

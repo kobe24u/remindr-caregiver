@@ -18,6 +18,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     let BASE_URL: String = "http://35.161.212.185"
     let POLICE_METHOD: String = "/policeinfo/"
+    let HOSPITAL_METHOD: String = "/hospitalinfo/"
     
     let locationManager = CLLocationManager()
     var patientLatitude: String?
