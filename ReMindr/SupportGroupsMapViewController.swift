@@ -168,6 +168,7 @@ class SupportGroupsMapViewController: UIViewController, MKMapViewDelegate, CLLoc
         geoMarker.subtitle = suburb
         geoMarker.imageName = "supportgroupicon"
         self.mapView.addAnnotation(geoMarker)
+        self.mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
     

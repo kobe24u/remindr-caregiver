@@ -15,6 +15,7 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     @IBOutlet var addContactView: UIView!
     @IBOutlet weak var textContactName: UITextField!
     @IBOutlet weak var textContactNumber: UITextField!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     var ref: FIRDatabaseReference?
     var emergencyList: NSMutableArray
@@ -33,14 +34,16 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
 
         self.addContactView.layer.cornerRadius = 5
         self.saveContactButton.layer.cornerRadius = 5
+        self.addContactView.layer.cornerRadius = 10
+        self.backgroundImageView.layer.cornerRadius = 10
+        self.backgroundImageView.clipsToBounds = true
+        
         self.textContactName.delegate = self
         self.textContactNumber.delegate = self
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-
         view.addGestureRecognizer(tap)
-
         
         ref = FIRDatabase.database().reference()
         self.noContactsLabel.text = ""

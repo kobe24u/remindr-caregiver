@@ -72,6 +72,8 @@
 		F88C5C171E94790A000F0965 /* GeoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */; };
 		F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */; };
 		F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C1A1E94B8B7000F0965 /* Geofence.swift */; };
+		F8DC75E61EBC20C000983773 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */; };
+		F8DC75F21EBC219300983773 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSettingsViewController.swift; sourceTree = "<group>"; };
 		F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencingViewController.swift; sourceTree = "<group>"; };
 		F88C5C1A1E94B8B7000F0965 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
+		F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +349,7 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
+				F8DC75E41EBC209100983773 /* Settings */,
 				F813F5581EB959500067ABFE /* SupportGroups */,
 				BF276EE01EAB2906006E5EAC /* timebasedReminder */,
 				F85288CF1E9CF86100595E0A /* PanicLogs */,
@@ -416,6 +421,55 @@
 				F87447381E9A0EAB009713AC /* patientBackIcon.png */,
 			);
 			name = notificationImages;
+			sourceTree = "<group>";
+		};
+		F8DC75E41EBC209100983773 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F8DC75EC1EBC212200983773 /* AboutUs */,
+				F8DC75EB1EBC211800983773 /* EmergencyContacts */,
+				F8DC75E91EBC20FE00983773 /* PatientProfile */,
+				F8DC75E81EBC20E700983773 /* TableViewCells */,
+				F8DC75E71EBC20DD00983773 /* ViewControllers */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		F8DC75E71EBC20DD00983773 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F8DC75E81EBC20E700983773 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		F8DC75E91EBC20FE00983773 /* PatientProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PatientProfile;
+			sourceTree = "<group>";
+		};
+		F8DC75EB1EBC211800983773 /* EmergencyContacts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EmergencyContacts;
+			sourceTree = "<group>";
+		};
+		F8DC75EC1EBC212200983773 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AboutUs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -708,6 +762,7 @@
 			files = (
 				F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */,
 				F813F5691EBA23860067ABFE /* EmergencyService.swift in Sources */,
+				F8DC75F21EBC219300983773 /* SettingsTableViewCell.swift in Sources */,
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
 				BF4135621EBC326E003849FF /* AudioRecorderManager.swift in Sources */,
@@ -730,6 +785,7 @@
 				BF9546201EBAECC700806C8B /* SupportGroupDetailsViewController.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,
+				F8DC75E61EBC20C000983773 /* SettingsTableViewController.swift in Sources */,
 				BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */,
 				F865A3221EA8CEA500CE99F9 /* PoliceStation.swift in Sources */,
 				F813F5601EB95A8E0067ABFE /* SupportGroup.swift in Sources */,
