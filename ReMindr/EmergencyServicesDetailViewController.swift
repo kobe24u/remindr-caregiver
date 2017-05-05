@@ -18,9 +18,12 @@ class EmergencyServicesDetailViewController: UIViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var additionalDetailsView: UIView!
     
+    @IBOutlet weak var navigationTextButton: UIButton!
+    @IBOutlet weak var navigationImageButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        additionalDetailsView.layer.cornerRadius = 10
         additionalDetailsView.isHidden = true
         
         self.labelAddress.lineBreakMode = .byWordWrapping
@@ -32,7 +35,7 @@ class EmergencyServicesDetailViewController: UIViewController {
         
 
         
-        if (currentEmergencyService?.type != "Police Station")
+        if (currentEmergencyService?.type == "Fire Station")
         {
             if Reachability.isConnectedToNetwork() == false      // if data network exists
             {
@@ -128,26 +131,33 @@ class EmergencyServicesDetailViewController: UIViewController {
                     }
                     else if (status == "OK")
                     {
-                        
+                        var phone: String? = "000"
+                        var address: String? = "Unavailable"
+                        var mapsURL: String? = "Unavailable"
+                        var website: String? = "Unavailable"
                         if let results = query.object(forKey: "result") as? NSDictionary
                         {
-                            if let address = results.object(forKey: "formatted_address") as? String
+                            if let parseAddress = results.object(forKey: "formatted_address") as? String
                             {
-                                if let phone = results.object(forKey: "international_phone_number") as? String
-                                {
-                                    if let mapsURL = results.object(forKey: "url") as? String
-                                    {
-                                        if let website = results.object(forKey: "website") as? String
-                                        {
-                                            currentEmergencyService?.address = address
-                                            currentEmergencyService?.mapsURL = mapsURL
-                                            currentEmergencyService?.phone = phone
-                                            DispatchQueue.main.async(){
-                                                self.assignLabels()
-                                            }
-                                        }
-                                    }
-                                }
+                                address = parseAddress
+                            }
+                            if let phoneNo = results.object(forKey: "international_phone_number") as? String
+                            {
+                                phone = phoneNo
+                            }
+                            if let parseMapsURL = results.object(forKey: "url") as? String
+                            {
+                                mapsURL = parseMapsURL
+                            }
+                            if let parseWebsite = results.object(forKey: "website") as? String
+                            {
+                                website = parseWebsite
+                            }
+                            currentEmergencyService?.address = address
+                            currentEmergencyService?.mapsURL = mapsURL
+                            currentEmergencyService?.phone = phone
+                            DispatchQueue.main.async(){
+                                self.assignLabels()
                             }
                         }
                     }
@@ -169,15 +179,21 @@ class EmergencyServicesDetailViewController: UIViewController {
         
         if (currentEmergencyService?.type == "Fire Station")
         {
-            self.serviceImageView.image = #imageLiteral(resourceName: "firestationorange")
+            self.serviceImageView.image = #imageLiteral(resourceName: "firestationbig")
         }
         else if (currentEmergencyService?.type == "Hospital")
         {
-            self.serviceImageView.image = #imageLiteral(resourceName: "hospitalred")
+            self.serviceImageView.image = #imageLiteral(resourceName: "hospitalbig")
         }
         else
         {
-            self.serviceImageView.image = #imageLiteral(resourceName: "policeblue")
+            self.serviceImageView.image = #imageLiteral(resourceName: "policebig")
+        }
+        if (currentEmergencyService?.mapsURL == "Unavailable")
+        {
+            self.navigationImageButton.isEnabled = false
+            self.navigationTextButton.isEnabled = false
+            self.navigationTextButton.setTitle("Unavailable", for: .normal)
         }
         
         
