@@ -16,6 +16,10 @@ import UserNotificationsUI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
 
+    struct GlobalVariables {
+        static var patientID = "Unknown"
+    }
+    
     var window: UIWindow?
     let locationManager = CLLocationManager()
     var ref: FIRDatabaseReference?
@@ -23,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        readUUIDFromDataPList()
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
@@ -114,6 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         application.applicationIconBadgeNumber = 0
         self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+        readUUIDFromDataPList()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -636,35 +639,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func readUUIDFromDataPList()
     {
-        var format = PropertyListSerialization.PropertyListFormat.xml
-        //var format = PropertyListSerialization.PropertyListFormat.XMLFormat_v1_0 //format of the property list
-        var plistData:[String:AnyObject] = [:]  //our data
-        let plistPath:String? = Bundle.main.path(forResource: "data", ofType: "plist")! //the path of the data
-        let plistXML = FileManager.default.contents(atPath: plistPath!)! //the data in XML format
-        let plistDictionary = NSMutableDictionary(contentsOfFile: plistPath!)
-        
-        do{
-            //convert the data to a dictionary and handle errors.
-            plistData = try PropertyListSerialization.propertyList(from: plistXML,options: .mutableContainersAndLeaves,format: &format)as! [String:AnyObject]
-            
-            let patientDeviceUUID: String = plistData["patientDeviceUUID"] as! String
-            print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
-            
-            if ( patientDeviceUUID == "Unknown")
-            {
-                if UIApplication.shared.applicationState == .active {
-                    // App is active, show an alert
-                    let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your app", preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(alertAction)
-                    UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-                }
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let path = paths.appending("/data.plist")
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
+        {
+            let bundle: NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
+            do{
+                try fileManager.copyItem(atPath: bundle as String, toPath: path)
+            }catch{
+                print("copy failure.")
             }
         }
-        catch{ // error condition
-            print("Error reading plist: \(error), format: \(format)")
+        let plistData : NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
+            
+        let patientDeviceUUID: String = plistData["patientDeviceUUID"] as! String
+        print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
+        
+        GlobalVariables.patientID = patientDeviceUUID
+        if (patientDeviceUUID == "Unknown")
+        {
+            let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your device", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
-
 }
 
