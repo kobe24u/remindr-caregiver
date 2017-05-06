@@ -61,10 +61,12 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
-            qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
-            qrCodeFrameView?.layer.borderWidth = 2
-            view.addSubview(qrCodeFrameView!)
-            view.bringSubview(toFront: qrCodeFrameView!)
+            if let qrCodeFrameView = qrCodeFrameView {
+                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                qrCodeFrameView.layer.borderWidth = 2
+                view.addSubview(qrCodeFrameView)
+                view.bringSubview(toFront: qrCodeFrameView)
+            }
             
         }
         catch
@@ -78,6 +80,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         // Dispose of any resources that can be recreated.
     }
     
+
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
@@ -92,8 +95,8 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
-            qrCodeFrameView?.frame = barCodeObject.bounds;
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
