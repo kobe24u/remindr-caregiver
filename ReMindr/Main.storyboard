@@ -755,19 +755,42 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-6h-3ke">
-                                <rect key="frame" x="16" y="608" width="343" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-6h-3ke">
+                                <rect key="frame" x="0.0" y="608" width="375" height="59"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IED-rn-DDi">
+                                <rect key="frame" x="67" y="243" width="240" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="linkokay" translatesAutoresizingMaskIntoConstraints="NO" id="Qf3-GD-IEJ">
+                                        <rect key="frame" x="60" y="16" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Successfully linked!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUR-l0-Ydb">
+                                        <rect key="frame" x="8" y="144" width="224" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                                        <color key="textColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cuV-6h-3ke" firstAttribute="leading" secondItem="wQ6-FR-87J" secondAttribute="leading" id="9VZ-Zq-WMF"/>
+                            <constraint firstItem="cuV-6h-3ke" firstAttribute="top" secondItem="Otk-wx-dCm" secondAttribute="bottom" constant="544" id="Qdf-aJ-URV"/>
+                            <constraint firstItem="cuV-6h-3ke" firstAttribute="bottom" secondItem="pxl-fX-3Jm" secondAttribute="top" id="Z2I-tO-ZDQ"/>
+                            <constraint firstAttribute="trailing" secondItem="cuV-6h-3ke" secondAttribute="trailing" id="woU-Pm-8TD"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="cuV-6h-3ke" id="PgE-yk-Mrs"/>
+                        <outlet property="successView" destination="IED-rn-DDi" id="yDS-rH-hkc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h07-ta-BKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2913,6 +2936,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="heart" width="48" height="48"/>
         <image name="icon" width="462" height="464"/>
         <image name="lightgreytexturedbackground" width="550" height="250"/>
+        <image name="linkokay" width="528" height="528"/>
         <image name="logo" width="472" height="582"/>
         <image name="maps" width="32" height="32"/>
         <image name="mapsnav" width="96" height="96"/>

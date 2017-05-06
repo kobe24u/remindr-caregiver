@@ -16,15 +16,18 @@ import AVFoundation
 
 class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
+    @IBOutlet weak var successView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
+    var patientDeviceUUID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.successView.isHidden = true
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -138,7 +141,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code is detected"
+            messageLabel.text = "No QR code detected"
             return
         }
         
@@ -151,42 +154,48 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                self.patientDeviceUUID = metadataObj.stringValue
+                //messageLabel.text = metadataObj.stringValue
+                messageLabel.isHidden = true
+                writingDataToPList()
+                showSuccessMessage()
             }
         }
     }
     
-//    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-//        
-//        // Check if the metadataObjects array is not nil and it contains at least one object.
-//        if metadataObjects == nil || metadataObjects.count == 0 {
-//            qrCodeFrameView?.frame = CGRect.zero
-//            messageLabel.text = "No QR code is detected"
-//            return
-//        }
-//        
-//        // Get the metadata object.
-//        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-//        
-//        if metadataObj.type == AVMetadataObjectTypeQRCode {
-//            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-//            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-//            qrCodeFrameView?.frame = barCodeObject!.bounds
-//            
-//            if metadataObj.stringValue != nil {
-//                messageLabel.text = metadataObj.stringValue
-//            }
-//        }
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func writingDataToPList()
+    {
+        let plistPath:String? = Bundle.main.path(forResource: "data", ofType: "plist")! //the path of the data
+        let plistDictionary = NSMutableDictionary(contentsOfFile: plistPath!)
+        
+        do{
+            // Reading the UUID of the device
+            self.patientDeviceUUID = UIDevice.current.identifierForVendor!.uuidString
+            plistDictionary?.setObject(self.patientDeviceUUID, forKey: "patientDeviceUUID" as NSCopying)
+            var success: Bool = (plistDictionary?.write(toFile: plistPath!, atomically: true))!
+            if success
+            {
+                print ("Successfully wrote to data.plist")
+            }
+            else
+            {
+                print ("Writing to data.plist unsuccessful")
+            }
+        }
+        catch{ // error condition
+            print("Error writing to plist: \(error)")
+        }
     }
-    */
-
+    
+    
+    func showSuccessMessage()
+    {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.successView.isHidden = false
+            self.view.bringSubview(toFront: self.successView)
+        }, completion: {(success: Bool) in
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
+    
 }
