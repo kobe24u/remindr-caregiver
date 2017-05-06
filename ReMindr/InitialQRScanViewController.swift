@@ -1,5 +1,5 @@
 //
-//  QRCodeScannerViewController.swift
+//  InitialQRScanViewController.swift
 //  ReMindr
 //
 //  Created by Priyanka Gopakumar on 6/5/17.
@@ -13,23 +13,38 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
-class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBOutlet weak var successView: UIView!
+    
     @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var textPatientName: UITextField!
+    
+    @IBOutlet weak var textPatientMobile: UITextField!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     var patientDeviceUUID: String?
     var detected: Bool?
+    var ref: FIRDatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.ref = FIRDatabase.database().reference()
         self.detected = false
         self.successView.isHidden = true
+        self.textPatientName.delegate = self
+        self.textPatientMobile.delegate = self
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        successView.addGestureRecognizer(tap)
+        
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -59,7 +74,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             
             // Start video capture.
             captureSession?.startRunning()
-
+            
             // Move the message label and top bar to the front
             view.bringSubview(toFront: messageLabel)
             
@@ -78,9 +93,20 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             print(error)
             return
         }
-
+        
     }
-
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textPatientName.endEditing(true)
+        self.textPatientMobile.endEditing(true)
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -148,7 +174,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     
     func showSuccessMessage()
     {
-
+        
         //1015
         let systemSoundID: SystemSoundID = 1013
         
@@ -161,26 +187,68 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             self.successView.isHidden = false
             self.view.bringSubview(toFront: self.successView)
             
-            })
+        })
         
+    }
+    
+    @IBAction func savePatientInformation(_ sender: Any) {
+        var textName: String?
+        var textMobile: String?
+        
+        textName = self.textPatientName.text
+        textMobile = self.textPatientMobile.text
+        
+        print ("name and contact \(textName) \(textMobile)")
+        
+        if ((textName?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)! || (textMobile?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty)!)
+        {
+            displayAlertMessage(title: "Alert", message: "Name and mobile number are mandatory")
+        }
+        else
+        {
+            if (textMobile?.characters.count != 10)
+            {
+                displayAlertMessage(title: "Invalid number", message: "Please enter a 10 digit number (eg. 0401234567")
+            }
+            else
+            {
+                let username: String = self.patientDeviceUUID!
+                let values: [String: Any]
+                values = ["name": textName ?? "nil", "mobileNumber": textMobile ?? "nil", "username": username]
+                ref?.child("patientContacts").child(username).setValue(values)
+                performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+            }
+        }
+    }
+    
+    /*
+     A function to allow custom alerts to be created by passing a title and a message
+     */
+    func displayAlertMessage(title: String, message: String)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+        /*
         let when = DispatchTime.now() + 1.5
         DispatchQueue.main.asyncAfter(deadline: when){
             // your code with delay
             
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            
-//            let vc  = storyboard.instantiateViewController(withIdentifier: "home") as! MainMenuViewController
-//            
-//            
-//            
-//            let navController = UINavigationController(rootViewController: vc)
-//            
-//            self.navigationController?.popToViewController(vc, animated: true)
+            //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //
+            //            let vc  = storyboard.instantiateViewController(withIdentifier: "home") as! MainMenuViewController
+            //
+            //
+            //
+            //            let navController = UINavigationController(rootViewController: vc)
+            //
+            //            self.navigationController?.popToViewController(vc, animated: true)
             
             self.navigationController?.popToRootViewController(animated: true)
         }
-    }
+ */
     
 }
-
-

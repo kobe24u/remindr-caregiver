@@ -17,6 +17,10 @@ import UserNotificationsUI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
 
+    struct GlobalVariables {
+        static var patientID = "Unknown"
+    }
+    
     var window: UIWindow?
     let locationManager = CLLocationManager()
     var ref: FIRDatabaseReference?
@@ -24,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
@@ -115,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         readUUIDFromDataPList()
         application.applicationIconBadgeNumber = 0
         self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+        readUUIDFromDataPList()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -642,7 +646,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let fileManager = FileManager.default
         if (!(fileManager.fileExists(atPath: path)))
         {
-            let bundle : NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
+            let bundle: NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
             do{
                 try fileManager.copyItem(atPath: bundle as String, toPath: path)
             }catch{
@@ -650,10 +654,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
         let plistData : NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
-        
+            
         let patientDeviceUUID: String = plistData["patientDeviceUUID"] as! String
         print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
         
+        GlobalVariables.patientID = patientDeviceUUID
         if (patientDeviceUUID == "Unknown")
         {
             let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your device", preferredStyle: .alert)
@@ -684,6 +689,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
             
     }
-
 }
 
