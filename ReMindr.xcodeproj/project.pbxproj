@@ -72,6 +72,8 @@
 		F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C1A1E94B8B7000F0965 /* Geofence.swift */; };
 		F8DC75E61EBC20C000983773 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */; };
 		F8DC75F21EBC219300983773 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */; };
+		F8DC75F51EBD543D00983773 /* SupportGroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F31EBD543D00983773 /* SupportGroupDetailsViewController.swift */; };
+		F8DC75F61EBD543D00983773 /* SupportGroupWebDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F41EBD543D00983773 /* SupportGroupWebDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		F88C5C1A1E94B8B7000F0965 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		F8DC75F31EBD543D00983773 /* SupportGroupDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupDetailsViewController.swift; sourceTree = "<group>"; };
+		F8DC75F41EBD543D00983773 /* SupportGroupWebDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupWebDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +316,8 @@
 		F813F5651EB9EC580067ABFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F8DC75F31EBD543D00983773 /* SupportGroupDetailsViewController.swift */,
+				F8DC75F41EBD543D00983773 /* SupportGroupWebDetailsViewController.swift */,
 				F813F5591EB959770067ABFE /* SupportGroupSearchViewController.swift */,
 				F813F5631EB9E8320067ABFE /* SupportGroupsMapViewController.swift */,
 			);
@@ -760,6 +766,7 @@
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
 				BF4135621EBC326E003849FF /* AudioRecorderManager.swift in Sources */,
+				F8DC75F61EBD543D00983773 /* SupportGroupWebDetailsViewController.swift in Sources */,
 				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
 				F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */,
 				F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */,
@@ -775,6 +782,7 @@
 				F816D45A1E875B4A00BF3995 /* ReMindr.xcdatamodeld in Sources */,
 				BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */,
 				BFAD72C41E9796B300FE5180 /* Photo.swift in Sources */,
+				F8DC75F51EBD543D00983773 /* SupportGroupDetailsViewController.swift in Sources */,
 				BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */,
 				F88C5C151E947733000F0965 /* AddLocationViewController.swift in Sources */,
 				F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */,

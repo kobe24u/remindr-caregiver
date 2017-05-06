@@ -20,8 +20,8 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         var lng : Double?
         var favName: String?
         var delegate: geofenceLocationDelegate?
-        
-        
+        var isFirstTime: Bool = true
+    
         @IBOutlet weak var textAddress: UITextField!
         @IBOutlet weak var mapView: MKMapView!
         
@@ -34,6 +34,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            isFirstTime = true
             self.textAddress.delegate = self
             //Looks for single or multiple taps.
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -163,11 +164,16 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
     
         // MARK: MKMapViewDelegate
         func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-            // Zoom to new user location when updated
-            var mapRegion = MKCoordinateRegion()
-            mapRegion.center = mapView.userLocation.coordinate
-            mapRegion.span = mapView.region.span; // Use current 'zoom'
-            mapView.setRegion(mapRegion, animated: true)
+            // Zoom to new user location when updated first time
+            
+            if (isFirstTime)
+            {
+                var mapRegion = MKCoordinateRegion()
+                mapRegion.center = mapView.userLocation.coordinate
+                mapRegion.span = mapView.region.span; // Use current 'zoom'
+                mapView.setRegion(mapRegion, animated: true)
+            }
+            isFirstTime = false
         }
         
         // MARK: CLLocationManagerDelegate
