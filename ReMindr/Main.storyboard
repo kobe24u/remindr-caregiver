@@ -743,6 +743,37 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
             </objects>
             <point key="canvasLocation" x="-338" y="-429"/>
         </scene>
+        <!--Code Scanner View Controller-->
+        <scene sceneID="8o1-Co-oZG">
+            <objects>
+                <viewController id="Xyu-fG-mMT" customClass="QRCodeScannerViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Otk-wx-dCm"/>
+                        <viewControllerLayoutGuide type="bottom" id="pxl-fX-3Jm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wQ6-FR-87J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-6h-3ke">
+                                <rect key="frame" x="16" y="608" width="343" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="cuV-6h-3ke" id="PgE-yk-Mrs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h07-ta-BKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1023.2" y="246.9265367316342"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="vNc-9e-gxJ">
             <objects>
@@ -753,13 +784,13 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" editingAccessoryType="disclosureIndicator" rowHeight="70" id="Sam-2l-WBC" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sam-2l-WBC" id="HGu-hl-UKU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PATIENT PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PwD PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
                                             <rect key="frame" x="72" y="8" width="295" height="53"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -768,18 +799,18 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-CD-Bg6">
                                             <rect key="frame" x="8" y="9" width="45" height="52"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="1i2-SZ-cw9"/>
+                                                <constraint firstAttribute="width" constant="45" id="AQE-Bs-J7B"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="top" secondItem="HGu-hl-UKU" secondAttribute="topMargin" id="1CA-Dp-xJd"/>
-                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="leading" secondItem="HGu-hl-UKU" secondAttribute="leadingMargin" id="669-Oy-tPX"/>
-                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="trailing" secondItem="HGu-hl-UKU" secondAttribute="trailingMargin" id="HiY-nn-gnv"/>
-                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="centerY" secondItem="HGu-hl-UKU" secondAttribute="centerY" id="WyU-PO-cwg"/>
-                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="leading" secondItem="2sk-CD-Bg6" secondAttribute="trailing" constant="19" id="e1X-8o-I0k"/>
-                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="bottom" secondItem="Z7N-6D-rGF" secondAttribute="bottom" id="prh-12-0Ac"/>
-                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="centerY" secondItem="Z7N-6D-rGF" secondAttribute="centerY" id="u7H-SK-B0o"/>
+                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="bottom" secondItem="Z7N-6D-rGF" secondAttribute="bottom" id="08Y-V1-BDS"/>
+                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="centerY" secondItem="HGu-hl-UKU" secondAttribute="centerY" id="85O-tH-8IK"/>
+                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="top" secondItem="HGu-hl-UKU" secondAttribute="topMargin" id="EjG-Er-QT4"/>
+                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="leading" secondItem="HGu-hl-UKU" secondAttribute="leadingMargin" id="FXn-WT-N1l"/>
+                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="trailing" secondItem="HGu-hl-UKU" secondAttribute="trailingMargin" id="VOa-mS-I0A"/>
+                                        <constraint firstItem="Z7N-6D-rGF" firstAttribute="leading" secondItem="2sk-CD-Bg6" secondAttribute="trailing" constant="19" id="WkR-Zq-APm"/>
+                                        <constraint firstItem="2sk-CD-Bg6" firstAttribute="centerY" secondItem="Z7N-6D-rGF" secondAttribute="centerY" id="qCn-rB-Nhf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -788,10 +819,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" rowHeight="70" id="Fn9-Mv-D8D" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="125.5" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="126" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fn9-Mv-D8D" id="Aq7-hw-K8J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMERGENCY CONTACTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-xx-rdO">
@@ -803,18 +834,18 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emergencycontacts" translatesAutoresizingMaskIntoConstraints="NO" id="rRg-Gl-kbW">
                                             <rect key="frame" x="8" y="9" width="45" height="52"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="SZS-ev-gpX"/>
+                                                <constraint firstAttribute="width" constant="45" id="5or-zT-yBk"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="N9A-xx-rdO" firstAttribute="trailing" secondItem="Aq7-hw-K8J" secondAttribute="trailingMargin" id="0Ou-W3-GHz"/>
-                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="top" secondItem="Aq7-hw-K8J" secondAttribute="topMargin" constant="1" id="1G7-PM-bqS"/>
-                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="leading" secondItem="Aq7-hw-K8J" secondAttribute="leadingMargin" id="S2R-GE-7ex"/>
-                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="centerY" secondItem="Aq7-hw-K8J" secondAttribute="centerY" id="XGX-Cb-i8O"/>
-                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="top" secondItem="N9A-xx-rdO" secondAttribute="top" id="jzi-gI-4Ww"/>
-                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="bottom" secondItem="N9A-xx-rdO" secondAttribute="bottom" id="l0G-HU-Z2C"/>
-                                        <constraint firstItem="N9A-xx-rdO" firstAttribute="leading" secondItem="rRg-Gl-kbW" secondAttribute="trailing" constant="17" id="mdf-FR-neM"/>
+                                        <constraint firstItem="N9A-xx-rdO" firstAttribute="leading" secondItem="rRg-Gl-kbW" secondAttribute="trailing" constant="17" id="6qg-id-agG"/>
+                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="leading" secondItem="Aq7-hw-K8J" secondAttribute="leadingMargin" id="EGT-cR-1TA"/>
+                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="centerY" secondItem="Aq7-hw-K8J" secondAttribute="centerY" id="SP5-tF-kCH"/>
+                                        <constraint firstItem="N9A-xx-rdO" firstAttribute="trailing" secondItem="Aq7-hw-K8J" secondAttribute="trailingMargin" id="iS0-oz-7v9"/>
+                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="top" secondItem="Aq7-hw-K8J" secondAttribute="topMargin" constant="1" id="mHI-db-Oz2"/>
+                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="top" secondItem="N9A-xx-rdO" secondAttribute="top" id="ug9-vI-czn"/>
+                                        <constraint firstItem="rRg-Gl-kbW" firstAttribute="bottom" secondItem="N9A-xx-rdO" secondAttribute="bottom" id="xuC-lH-Fcf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -824,19 +855,19 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutUsCell" rowHeight="70" id="Yhu-KR-vOE" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="195.5" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="196" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhu-KR-vOE" id="c3p-V2-4Il">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="lbm-64-Ya2">
                                             <rect key="frame" x="0.0" y="0.0" width="65" height="70"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="uwr-DD-H2z"/>
+                                                <constraint firstAttribute="width" constant="65" id="PXz-dL-SfD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-3w-tRG">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT ReMindr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-3w-tRG">
                                             <rect key="frame" x="73" y="8" width="294" height="54"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -844,19 +875,55 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="top" secondItem="c3p-V2-4Il" secondAttribute="topMargin" id="1Vb-y1-hLN"/>
-                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="centerY" secondItem="vhB-3w-tRG" secondAttribute="centerY" id="5Yn-op-CZT"/>
-                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="trailing" secondItem="c3p-V2-4Il" secondAttribute="trailingMargin" id="BAF-Sr-umd"/>
-                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="leading" secondItem="c3p-V2-4Il" secondAttribute="leading" id="PQ0-82-6eO"/>
-                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="leading" secondItem="lbm-64-Ya2" secondAttribute="trailing" constant="8" symbolic="YES" id="Quq-sN-suv"/>
-                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="centerY" secondItem="c3p-V2-4Il" secondAttribute="centerY" id="Vev-OQ-Tfk"/>
-                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="top" secondItem="c3p-V2-4Il" secondAttribute="top" id="Zyw-fn-Bf6"/>
+                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="centerY" secondItem="vhB-3w-tRG" secondAttribute="centerY" id="5hS-MQ-zCw"/>
+                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="trailing" secondItem="c3p-V2-4Il" secondAttribute="trailingMargin" id="87t-rb-dvv"/>
+                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="leading" secondItem="c3p-V2-4Il" secondAttribute="leading" id="G2f-aV-yq9"/>
+                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="top" secondItem="c3p-V2-4Il" secondAttribute="top" id="K8j-YK-PCD"/>
+                                        <constraint firstItem="lbm-64-Ya2" firstAttribute="centerY" secondItem="c3p-V2-4Il" secondAttribute="centerY" id="Lmy-Ue-VO6"/>
+                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="leading" secondItem="lbm-64-Ya2" secondAttribute="trailing" constant="8" symbolic="YES" id="eWs-gv-1No"/>
+                                        <constraint firstItem="vhB-3w-tRG" firstAttribute="top" secondItem="c3p-V2-4Il" secondAttribute="topMargin" id="ml8-Qc-FyH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="settingImage" destination="lbm-64-Ya2" id="npg-nW-Wm5"/>
                                     <outlet property="settingLabel" destination="vhB-3w-tRG" id="NWt-od-tp8"/>
                                     <segue destination="RGY-F2-BTN" kind="show" id="duj-iU-fLN"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QRCodeCell" rowHeight="70" id="2JU-tC-WgD" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="266" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2JU-tC-WgD" id="9wF-RH-bWL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN QR CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-D3-DCL">
+                                            <rect key="frame" x="73" y="8" width="294" height="54"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="y1b-K9-2ge">
+                                            <rect key="frame" x="8" y="12" width="40" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="HQL-AO-8ar"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="trailing" secondItem="9wF-RH-bWL" secondAttribute="trailingMargin" id="52p-Ev-g45"/>
+                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="centerY" secondItem="9wF-RH-bWL" secondAttribute="centerY" id="Vzg-Jy-OT6"/>
+                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="leading" secondItem="y1b-K9-2ge" secondAttribute="trailing" constant="25" id="cI3-SB-n0s"/>
+                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="leading" secondItem="9wF-RH-bWL" secondAttribute="leadingMargin" id="flb-NA-wVG"/>
+                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="top" secondItem="9wF-RH-bWL" secondAttribute="topMargin" constant="4" id="i2V-tz-mS1"/>
+                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="top" secondItem="9wF-RH-bWL" secondAttribute="topMargin" id="pbe-yo-jwd"/>
+                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="centerY" secondItem="KsN-D3-DCL" secondAttribute="centerY" id="zGi-Ir-CW5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="settingImage" destination="y1b-K9-2ge" id="PfE-ay-ZcG"/>
+                                    <outlet property="settingLabel" destination="KsN-D3-DCL" id="Mtx-Md-UdX"/>
+                                    <segue destination="Xyu-fG-mMT" kind="show" id="cFV-Yb-OT2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2843,6 +2910,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="photoAlbumicon" width="601" height="476"/>
         <image name="play-2" width="45" height="45"/>
         <image name="profile" width="50" height="50"/>
+        <image name="qrcode" width="26" height="26"/>
         <image name="reminder" width="1000" height="1000"/>
         <image name="search" width="50" height="50"/>
         <image name="searchicon" width="32" height="32"/>
