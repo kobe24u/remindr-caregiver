@@ -73,7 +73,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
 
     
@@ -91,12 +91,15 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
-        else if indexPath.row == 2 {
+        
+        else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AboutUsCell", for: indexPath) as! SettingsTableViewCell
             //set the data here
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
+            /*
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "QRCodeCell", for: indexPath) as! SettingsTableViewCell
@@ -104,6 +107,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
+        */
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
