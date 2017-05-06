@@ -53,6 +53,7 @@
 		F816D4991E89E9F600BF3995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D4981E89E9F600BF3995 /* MapViewController.swift */; };
 		F816D49B1E8A038400BF3995 /* FavouriteOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */; };
 		F8254B891E8F8B1000C43899 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */; };
+		F83A04901EBDC4950079C05D /* InitialQRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A048F1EBDC4950079C05D /* InitialQRScanViewController.swift */; };
 		F85288C91E9B60FD00595E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F85288C81E9B60FD00595E0A /* Main.storyboard */; };
 		F85288D11E9CF87E00595E0A /* PanicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */; };
 		F85288D31E9CF8B300595E0A /* PanicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */; };
@@ -154,6 +155,7 @@
 		F816D4981E89E9F600BF3995 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteOnlyViewController.swift; sourceTree = "<group>"; };
 		F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
+		F83A048F1EBDC4950079C05D /* InitialQRScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialQRScanViewController.swift; sourceTree = "<group>"; };
 		F85288C81E9B60FD00595E0A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F85288D01E9CF87E00595E0A /* PanicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanicTableViewController.swift; sourceTree = "<group>"; };
 		F85288D21E9CF8B300595E0A /* PanicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanicTableViewCell.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			children = (
 				F89E57341EBD723D006FA69D /* QRCodeScannerViewController.swift */,
 				F8DA95621EBD965D00A15BF4 /* data.plist */,
+				F83A048F1EBDC4950079C05D /* InitialQRScanViewController.swift */,
 			);
 			name = QRCodeScan;
 			sourceTree = "<group>";
@@ -563,7 +566,6 @@
 				TargetAttributes = {
 					F816D44D1E875B4900BF3995 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NHS5CFX24Q;
 						ProvisioningStyle = Automatic;
 					};
 					F816D4641E875B4A00BF3995 = {
@@ -821,6 +823,7 @@
 				F8019E9A1EA6090A0058D4EE /* EmergencyContactsTableViewController.swift in Sources */,
 				BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */,
 				F816D4931E890A1800BF3995 /* Reachability.swift in Sources */,
+				F83A04901EBDC4950079C05D /* InitialQRScanViewController.swift in Sources */,
 				F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */,
 				F8019E9C1EA609700058D4EE /* EmergencyTableViewCell.swift in Sources */,
 				F816D48F1E87BFE400BF3995 /* Favourite.swift in Sources */,
@@ -973,7 +976,7 @@
 			baseConfigurationReference = D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NHS5CFX24Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -988,7 +991,7 @@
 			baseConfigurationReference = BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NHS5CFX24Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
