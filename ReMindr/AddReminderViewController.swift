@@ -115,19 +115,19 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let values = ["message": name, "time": dateFormatter.string(from: time), "completed": "no"] as [String : Any]
+            let values = ["id": uuid, "message": name, "time": dateFormatter.string(from: time), "completed": "no"] as [String : Any]
             self.ref.child("reminders/testpatient").child(uuid).setValue(values)
             
             // build notification
             let notification = UILocalNotification()
             notification.alertTitle = "Reminder"
             notification.alertBody = "Don't forget to \(name!)!"
-            notification.fireDate = time
+//            notification.fireDate = time
             notification.soundName = UILocalNotificationDefaultSoundName
             
-            UIApplication.shared.scheduleLocalNotification(notification)
+//            UIApplication.shared.scheduleLocalNotification(notification)
             
-            reminder = Reminder(name: name!, time: time, notification: notification)
+            reminder = Reminder(name: name!, time: time, notification: notification, completed: "no")
         }
     }
     

@@ -41,7 +41,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
     
     func retrieveFromServer()
     {
-        self.reminders.removeAll()
+//        self.reminders.removeAll()
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityView.color = UIColor.black
         activityView.center = self.view.center
@@ -54,11 +54,14 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             // Take the value from snapshot and add it to the favourites list
             
             // Get user value
+            
+            self.reminders.removeAll()
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
                 let value = current.value as? NSDictionary
                 let message = value?["message"] as? String ?? ""
                 let time = value?["time"]
+                let completed = value?["completed"] as? String ?? ""
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let date = dateFormatter.date(from: time as! String)
@@ -69,7 +72,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
                 notification.fireDate = date
                 notification.soundName = UILocalNotificationDefaultSoundName
                 
-                let newReminder = Reminder(name: message, time: date!, notification: notification)
+                let newReminder = Reminder(name: message, time: date!, notification: notification, completed: completed)
                  self.reminders.append(newReminder)
                 print(self.reminders.count)
                                                 DispatchQueue.main.async( execute: {
@@ -105,23 +108,40 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         return 50
     }
     
+    func sorterForFileIDASC(this:Reminder, that:Reminder) -> Bool {
+        
+        return this.completed == "no"
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "reminderCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        print(reminders.count)
+//        print(reminders.count)
+////        let sortDescriptor = NSSortDescriptor(key: "completed", ascending: true)
+//        reminders.sort(by: sorterForFileIDASC(this:that:))
         let reminder = reminders[indexPath.row]
         // Fetches the appropriate info if reminder exists
         cell.textLabel?.text = reminder.name
-        cell.detailTextLabel?.text = "Due " + dateFormatter.string(from: reminder.time as Date)
-        
-        // Make due date red if overdue
-        if (Date() as NSDate).earlierDate(reminder.time as Date) == reminder.time as Date {
+        var completed: String?
+        if(reminder.completed == "no")
+        {
+            completed = "Uncompleted"
             cell.detailTextLabel?.textColor = UIColor.red
         }
-        else {
-            cell.detailTextLabel?.textColor = UIColor.blue
+        else{
+            completed = "Completed"
+            cell.detailTextLabel?.textColor = UIColor.green
         }
+        cell.detailTextLabel?.text = "Due " + dateFormatter.string(from: reminder.time as Date) + " " +  "(\(completed!))"
+        
+        // Make due date red if overdue
+//        if (Date() as NSDate).earlierDate(reminder.time as Date) == reminder.time as Date {
+//            cell.detailTextLabel?.textColor = UIColor.red
+//        }
+//        else {
+//            cell.detailTextLabel?.textColor = UIColor.blue
+//        }
         return cell
     }
     
@@ -164,7 +184,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
                                 current.ref.removeValue()
                                 let toRemove = self.reminders.remove(at: indexPath.row)
                                 UIApplication.shared.cancelLocalNotification(toRemove.notification)
-                                self.saveReminders()
+//                                self.saveReminders()
                                 tableView.deleteRows(at: [indexPath], with: .fade)
                                 self.reminders.removeAll()
                                 tableView.reloadData()

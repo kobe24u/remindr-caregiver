@@ -50,7 +50,7 @@ class ModifyViewController: UIViewController, UITextFieldDelegate {
         
         UIApplication.shared.scheduleLocalNotification(notification)
         
-        reminder = Reminder(name: name!, time: time, notification: notification)
+        reminder = Reminder(name: name!, time: time, notification: notification, completed: "no")
         
         self.delegate?.editReminder(reminder: reminder!)
         self.dismiss(animated: true, completion: nil)
