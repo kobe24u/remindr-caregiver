@@ -271,10 +271,14 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
          // Zoom to new user location when updated
-                var mapRegion = MKCoordinateRegion()
-                mapRegion.center = mapView.userLocation.coordinate
-                //mapRegion.span = MKSpan
-                mapView.setRegion(mapRegion, animated: true)
+        if (isFirstTime)
+        {
+            var mapRegion = MKCoordinateRegion()
+            mapRegion.center = mapView.userLocation.coordinate
+            //mapRegion.span = MKSpan
+            mapView.setRegion(mapRegion, animated: true)
+        }
+        isFirstTime = false
     }
     
     func searchForAddressCoordinates()
