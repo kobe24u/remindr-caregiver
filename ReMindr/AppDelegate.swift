@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        readUUIDFromDataPList()
+        
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
         application.beginBackgroundTask(withName: "patientPressedPanicButton", expirationHandler: nil)
@@ -632,5 +634,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
     }
     
+    func readUUIDFromDataPList()
+    {
+        var format = PropertyListSerialization.PropertyListFormat.xml
+        //var format = PropertyListSerialization.PropertyListFormat.XMLFormat_v1_0 //format of the property list
+        var plistData:[String:AnyObject] = [:]  //our data
+        let plistPath:String? = Bundle.main.path(forResource: "data", ofType: "plist")! //the path of the data
+        let plistXML = FileManager.default.contents(atPath: plistPath!)! //the data in XML format
+        let plistDictionary = NSMutableDictionary(contentsOfFile: plistPath!)
+        
+        do{
+            //convert the data to a dictionary and handle errors.
+            plistData = try PropertyListSerialization.propertyList(from: plistXML,options: .mutableContainersAndLeaves,format: &format)as! [String:AnyObject]
+            
+            let patientDeviceUUID: String = plistData["patientDeviceUUID"] as! String
+            print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
+            
+            if ( patientDeviceUUID == "Unknown")
+            {
+                if UIApplication.shared.applicationState == .active {
+                    // App is active, show an alert
+                    let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your app", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+        catch{ // error condition
+            print("Error reading plist: \(error), format: \(format)")
+        }
+    }
+
 }
 

@@ -71,6 +71,7 @@
 		F88C5C191E948C5F000F0965 /* GeofencingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */; };
 		F88C5C1B1E94B8B7000F0965 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88C5C1A1E94B8B7000F0965 /* Geofence.swift */; };
 		F89E57351EBD723D006FA69D /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E57341EBD723D006FA69D /* QRCodeScannerViewController.swift */; };
+		F8DA95631EBD965D00A15BF4 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8DA95621EBD965D00A15BF4 /* data.plist */; };
 		F8DC75E61EBC20C000983773 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */; };
 		F8DC75F21EBC219300983773 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */; };
 		F8DC75F51EBD543D00983773 /* SupportGroupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DC75F31EBD543D00983773 /* SupportGroupDetailsViewController.swift */; };
@@ -171,6 +172,7 @@
 		F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencingViewController.swift; sourceTree = "<group>"; };
 		F88C5C1A1E94B8B7000F0965 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		F89E57341EBD723D006FA69D /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		F8DA95621EBD965D00A15BF4 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		F8DC75E51EBC20C000983773 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F8DC75F11EBC219300983773 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		F8DC75F31EBD543D00983773 /* SupportGroupDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportGroupDetailsViewController.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				F89E57341EBD723D006FA69D /* QRCodeScannerViewController.swift */,
+				F8DA95621EBD965D00A15BF4 /* data.plist */,
 			);
 			name = QRCodeScan;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,
 				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
+				F8DA95631EBD965D00A15BF4 /* data.plist in Resources */,
 				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
