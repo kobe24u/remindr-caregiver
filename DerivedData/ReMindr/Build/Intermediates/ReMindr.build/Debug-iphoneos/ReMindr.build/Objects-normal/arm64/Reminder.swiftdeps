@@ -1,0 +1,492 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Reminder"
+provides-nominal:
+- "C7ReMindr8Reminder"
+- "VC7ReMindr8Reminder11PropertyKey"
+provides-member:
+- ["C7ReMindr8Reminder", ""]
+- ["VC7ReMindr8Reminder11PropertyKey", ""]
+provides-dynamic-lookup:
+- "DocumentsDirectory"
+- "ArchiveURL"
+- "time"
+- "name"
+- "encode"
+- "notification"
+depends-top-level:
+- "NSCoding"
+- !private "UIApplication"
+- "CastingPrecedence"
+- "String"
+- "FileManager"
+- "AssignmentPrecedence"
+- "UILocalNotification"
+- "Date"
+- "NSCoder"
+- "Reminder"
+- "NSObject"
+- "StringLiteralType"
+depends-member:
+- ["Ps9AnyObject", "ArchiveURL"]
+- ["Ps9AnyObject", "DocumentsDirectory"]
+- ["Ps9AnyObject", "FileManager"]
+- !private ["Ps9AnyObject", "PropertyKey"]
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "cancelLocalNotification"]
+- !private ["Ps9AnyObject", "decodeObject"]
+- ["Ps9AnyObject", "encode"]
+- ["Ps9AnyObject", "encodeWithCoder"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "notification"]
+- !private ["Ps9AnyObject", "shared"]
+- ["Ps9AnyObject", "time"]
+- ["Ps9AnyObject", "urls"]
+- ["Ps9AnyObject", ""]
+- ["Sa", "Iterator"]
+- ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- ["Sa", "first"]
+- ["Ps23BidirectionalCollection", "Iterator"]
+- ["Ps23BidirectionalCollection", "_Element"]
+- ["Ps23BidirectionalCollection", "first"]
+- ["Ps22BidirectionalIndexable", "Iterator"]
+- ["Ps22BidirectionalIndexable", "_Element"]
+- ["Ps22BidirectionalIndexable", "first"]
+- ["Ps7CVarArg", "ArchiveURL"]
+- ["Ps7CVarArg", "DocumentsDirectory"]
+- ["Ps7CVarArg", "FileManager"]
+- ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "PropertyKey"]
+- !private ["Ps7CVarArg", "UIApplication"]
+- ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "cancelLocalNotification"]
+- !private ["Ps7CVarArg", "decodeObject"]
+- ["Ps7CVarArg", "encode"]
+- ["Ps7CVarArg", "encodeWithCoder"]
+- ["Ps7CVarArg", "first"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "name"]
+- ["Ps7CVarArg", "notification"]
+- !private ["Ps7CVarArg", "shared"]
+- ["Ps7CVarArg", "time"]
+- ["Ps7CVarArg", "urls"]
+- ["Ps7CVarArg", ""]
+- ["Ps10Collection", "Iterator"]
+- ["Ps10Collection", "_Element"]
+- ["Ps10Collection", "first"]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "ArchiveURL"]
+- ["Ps28CustomDebugStringConvertible", "DocumentsDirectory"]
+- ["Ps28CustomDebugStringConvertible", "FileManager"]
+- ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "PropertyKey"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- ["Ps28CustomDebugStringConvertible", "_Element"]
+- ["Ps28CustomDebugStringConvertible", "appendingPathComponent"]
+- !private ["Ps28CustomDebugStringConvertible", "cancelLocalNotification"]
+- !private ["Ps28CustomDebugStringConvertible", "decodeObject"]
+- ["Ps28CustomDebugStringConvertible", "encode"]
+- ["Ps28CustomDebugStringConvertible", "encodeWithCoder"]
+- ["Ps28CustomDebugStringConvertible", "first"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "notification"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- ["Ps28CustomDebugStringConvertible", "time"]
+- ["Ps28CustomDebugStringConvertible", "urls"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps29CustomPlaygroundQuickLookable", "appendingPathComponent"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "Iterator"]
+- ["Ps17CustomReflectable", "_Element"]
+- ["Ps17CustomReflectable", "first"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "ArchiveURL"]
+- ["Ps23CustomStringConvertible", "DocumentsDirectory"]
+- ["Ps23CustomStringConvertible", "FileManager"]
+- ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "PropertyKey"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
+- ["Ps23CustomStringConvertible", "_Element"]
+- ["Ps23CustomStringConvertible", "appendingPathComponent"]
+- !private ["Ps23CustomStringConvertible", "cancelLocalNotification"]
+- !private ["Ps23CustomStringConvertible", "decodeObject"]
+- ["Ps23CustomStringConvertible", "encode"]
+- ["Ps23CustomStringConvertible", "encodeWithCoder"]
+- ["Ps23CustomStringConvertible", "first"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "notification"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- ["Ps23CustomStringConvertible", "time"]
+- ["Ps23CustomStringConvertible", "urls"]
+- ["Ps23CustomStringConvertible", ""]
+- ["V10Foundation4Date", "deinit"]
+- ["Ps9Equatable", "ArchiveURL"]
+- ["Ps9Equatable", "DocumentsDirectory"]
+- ["Ps9Equatable", "FileManager"]
+- !private ["Ps9Equatable", "PropertyKey"]
+- !private ["Ps9Equatable", "UIApplication"]
+- ["Ps9Equatable", "appendingPathComponent"]
+- !private ["Ps9Equatable", "cancelLocalNotification"]
+- !private ["Ps9Equatable", "decodeObject"]
+- ["Ps9Equatable", "documentDirectory"]
+- ["Ps9Equatable", "encode"]
+- ["Ps9Equatable", "encodeWithCoder"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "notification"]
+- !private ["Ps9Equatable", "shared"]
+- ["Ps9Equatable", "time"]
+- ["Ps9Equatable", "urls"]
+- ["Ps9Equatable", "userDomainMask"]
+- ["Ps9Equatable", ""]
+- ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- ["Ps25ExpressibleByArrayLiteral", "first"]
+- ["Ps25ExpressibleByArrayLiteral", "userDomainMask"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["CSo11FileManager", "deinit"]
+- ["CSo11FileManager", "init"]
+- ["CSo11FileManager", "urls"]
+- ["Ps8Hashable", "ArchiveURL"]
+- ["Ps8Hashable", "DocumentsDirectory"]
+- ["Ps8Hashable", "FileManager"]
+- !private ["Ps8Hashable", "PropertyKey"]
+- !private ["Ps8Hashable", "UIApplication"]
+- ["Ps8Hashable", "appendingPathComponent"]
+- !private ["Ps8Hashable", "cancelLocalNotification"]
+- !private ["Ps8Hashable", "decodeObject"]
+- ["Ps8Hashable", "documentDirectory"]
+- ["Ps8Hashable", "encode"]
+- ["Ps8Hashable", "encodeWithCoder"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "notification"]
+- !private ["Ps8Hashable", "shared"]
+- ["Ps8Hashable", "time"]
+- ["Ps8Hashable", "urls"]
+- ["Ps8Hashable", ""]
+- ["Ps9Indexable", "Iterator"]
+- ["Ps9Indexable", "_Element"]
+- ["Ps9Indexable", "first"]
+- ["Ps13IndexableBase", "Iterator"]
+- ["Ps13IndexableBase", "_Element"]
+- ["Ps13IndexableBase", "first"]
+- ["Vs16IndexingIterator", "Element"]
+- ["Ps16IteratorProtocol", "Element"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["Ps17MutableCollection", "Iterator"]
+- ["Ps17MutableCollection", "_Element"]
+- ["Ps17MutableCollection", "first"]
+- ["Ps16MutableIndexable", "Iterator"]
+- ["Ps16MutableIndexable", "_Element"]
+- ["Ps16MutableIndexable", "first"]
+- !private ["CSo7NSCoder", "decodeObject"]
+- ["CSo7NSCoder", "deinit"]
+- !private ["CSo7NSCoder", "encode"]
+- ["PSo8NSCoding", "DocumentsDirectory"]
+- ["PSo8NSCoding", "FileManager"]
+- !private ["PSo8NSCoding", "PropertyKey"]
+- !private ["PSo8NSCoding", "UIApplication"]
+- ["PSo8NSCoding", "encode"]
+- ["PSo8NSCoding", "encodeWithCoder"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "name"]
+- !private ["PSo8NSCoding", "notification"]
+- !private ["PSo8NSCoding", "time"]
+- ["PSo8NSCoding", ""]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "ArchiveURL"]
+- ["CSo8NSObject", "Date"]
+- ["CSo8NSObject", "DocumentsDirectory"]
+- ["CSo8NSObject", "FileManager"]
+- ["CSo8NSObject", "NSCoder"]
+- !private ["CSo8NSObject", "PropertyKey"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "UILocalNotification"]
+- !private ["CSo8NSObject", "cancelLocalNotification"]
+- !private ["CSo8NSObject", "decodeObject"]
+- ["CSo8NSObject", "deinit"]
+- ["CSo8NSObject", "encode"]
+- ["CSo8NSObject", "encodeWithCoder"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "notification"]
+- !private ["CSo8NSObject", "shared"]
+- ["CSo8NSObject", "time"]
+- ["CSo8NSObject", "urls"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "ArchiveURL"]
+- ["PSo16NSObjectProtocol", "DocumentsDirectory"]
+- ["PSo16NSObjectProtocol", "FileManager"]
+- !private ["PSo16NSObjectProtocol", "PropertyKey"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "cancelLocalNotification"]
+- !private ["PSo16NSObjectProtocol", "decodeObject"]
+- ["PSo16NSObjectProtocol", "encode"]
+- ["PSo16NSObjectProtocol", "encodeWithCoder"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "notification"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- ["PSo16NSObjectProtocol", "time"]
+- ["PSo16NSObjectProtocol", "urls"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["Os5Never", "deinit"]
+- ["Ps9OptionSet", "userDomainMask"]
+- ["Sq", "deinit"]
+- ["VC7ReMindr8Reminder11PropertyKey", "init"]
+- ["VC7ReMindr8Reminder11PropertyKey", "nameKey"]
+- ["VC7ReMindr8Reminder11PropertyKey", "notificationKey"]
+- ["VC7ReMindr8Reminder11PropertyKey", "timeKey"]
+- ["Ps22RandomAccessCollection", "Iterator"]
+- ["Ps22RandomAccessCollection", "_Element"]
+- ["Ps22RandomAccessCollection", "first"]
+- ["Ps21RandomAccessIndexable", "Iterator"]
+- ["Ps21RandomAccessIndexable", "_Element"]
+- ["Ps21RandomAccessIndexable", "first"]
+- ["Ps26RangeReplaceableCollection", "Iterator"]
+- ["Ps26RangeReplaceableCollection", "_Element"]
+- ["Ps26RangeReplaceableCollection", "first"]
+- ["Ps25RangeReplaceableIndexable", "Iterator"]
+- ["Ps25RangeReplaceableIndexable", "_Element"]
+- ["Ps25RangeReplaceableIndexable", "first"]
+- ["Ps16RawRepresentable", "documentDirectory"]
+- ["Ps16RawRepresentable", "userDomainMask"]
+- ["P10Foundation20ReferenceConvertible", "appendingPathComponent"]
+- ["C7ReMindr8Reminder", "ArchiveURL"]
+- ["C7ReMindr8Reminder", "Date"]
+- ["C7ReMindr8Reminder", "DocumentsDirectory"]
+- ["C7ReMindr8Reminder", "FileManager"]
+- ["C7ReMindr8Reminder", "NSCoder"]
+- ["C7ReMindr8Reminder", "PropertyKey"]
+- ["C7ReMindr8Reminder", "String"]
+- !private ["C7ReMindr8Reminder", "UIApplication"]
+- ["C7ReMindr8Reminder", "UILocalNotification"]
+- ["C7ReMindr8Reminder", "deinit"]
+- ["C7ReMindr8Reminder", "encode"]
+- ["C7ReMindr8Reminder", "encodeWithCoder"]
+- ["C7ReMindr8Reminder", "init"]
+- ["C7ReMindr8Reminder", "name"]
+- ["C7ReMindr8Reminder", "notification"]
+- ["C7ReMindr8Reminder", "time"]
+- ["OCSo11FileManager19SearchPathDirectory", "deinit"]
+- ["OCSo11FileManager19SearchPathDirectory", "documentDirectory"]
+- ["VCSo11FileManager20SearchPathDomainMask", "deinit"]
+- ["VCSo11FileManager20SearchPathDomainMask", "userDomainMask"]
+- ["Ps8Sequence", "Element"]
+- ["Ps8Sequence", "Iterator"]
+- ["Ps8Sequence", "_Element"]
+- ["Ps8Sequence", "first"]
+- ["Ps10SetAlgebra", "userDomainMask"]
+- ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["CSo13UIApplication", "cancelLocalNotification"]
+- ["CSo13UIApplication", "deinit"]
+- !private ["CSo13UIApplication", "shared"]
+- ["CSo19UILocalNotification", "deinit"]
+- !private ["CSo11UIResponder", "cancelLocalNotification"]
+- !private ["CSo11UIResponder", "shared"]
+- !private ["PSo30UIResponderStandardEditActions", "cancelLocalNotification"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- ["Su", "deinit"]
+- ["V10Foundation3URL", "appendingPathComponent"]
+- ["V10Foundation3URL", "deinit"]
+- ["Ps14_ArrayProtocol", "Iterator"]
+- ["Ps14_ArrayProtocol", "_Element"]
+- ["Ps14_ArrayProtocol", "first"]
+- ["Ps24_DestructorSafeContainer", "Iterator"]
+- ["Ps24_DestructorSafeContainer", "_Element"]
+- ["Ps24_DestructorSafeContainer", "first"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps34_ExpressibleByFileReferenceLiteral", "appendingPathComponent"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "ArchiveURL"]
+- ["Ps9_Hashable", "DocumentsDirectory"]
+- ["Ps9_Hashable", "FileManager"]
+- !private ["Ps9_Hashable", "PropertyKey"]
+- !private ["Ps9_Hashable", "UIApplication"]
+- ["Ps9_Hashable", "appendingPathComponent"]
+- !private ["Ps9_Hashable", "cancelLocalNotification"]
+- !private ["Ps9_Hashable", "decodeObject"]
+- ["Ps9_Hashable", "documentDirectory"]
+- ["Ps9_Hashable", "encode"]
+- ["Ps9_Hashable", "encodeWithCoder"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "name"]
+- ["Ps9_Hashable", "notification"]
+- !private ["Ps9_Hashable", "shared"]
+- ["Ps9_Hashable", "time"]
+- ["Ps9_Hashable", "urls"]
+- ["Ps9_Hashable", ""]
+- ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- ["Ps21_ObjectiveCBridgeable", "_Element"]
+- ["Ps21_ObjectiveCBridgeable", "appendingPathComponent"]
+- ["Ps21_ObjectiveCBridgeable", "first"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- "Ps23BidirectionalCollection"
+- "Ps22BidirectionalIndexable"
+- "Ps7CVarArg"
+- "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "Ps9Equatable"
+- "Ps25ExpressibleByArrayLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "CSo11FileManager"
+- "Ps8Hashable"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- "Vs16IndexingIterator"
+- "Ps16IteratorProtocol"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "Ps17MutableCollection"
+- "Ps16MutableIndexable"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "Os5Never"
+- "Ps9OptionSet"
+- "Sq"
+- "VC7ReMindr8Reminder11PropertyKey"
+- "Ps22RandomAccessCollection"
+- "Ps21RandomAccessIndexable"
+- "Ps26RangeReplaceableCollection"
+- "Ps25RangeReplaceableIndexable"
+- "Ps16RawRepresentable"
+- "P10Foundation20ReferenceConvertible"
+- "C7ReMindr8Reminder"
+- "OCSo11FileManager19SearchPathDirectory"
+- "VCSo11FileManager20SearchPathDomainMask"
+- "Ps8Sequence"
+- "Ps10SetAlgebra"
+- "Vs12StaticString"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "CSo13UIApplication"
+- "CSo19UILocalNotification"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- "Su"
+- "V10Foundation3URL"
+- "Ps14_ArrayProtocol"
+- "Ps24_DestructorSafeContainer"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps34_ExpressibleByFileReferenceLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTaskSnapshot.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageUploadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageReference.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageObservableTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageDownloadTask.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FirebaseStorage.h"
+- "/Users/NMB12/Documents/caregiverapp/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Modules/module.modulemap"
+- "/Users/NMB12/Documents/caregiverapp/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "9e610025d35dab4dafcffcaa953379e9"

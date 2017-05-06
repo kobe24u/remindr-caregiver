@@ -20,6 +20,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
     var chosenPhoto: Photo?
     var needRefresh: Bool?
     var photoToAdd: UIImage?
+    var justAdded: Bool?
     
     
     struct Storyboard {
@@ -31,6 +32,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
     func table2WillDismissed()
     {
         self.photos.removeAll()
+        self.justAdded = true
     }
     
     func failDelete() {
@@ -59,6 +61,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        justAdded == false
         needRefresh = true
         let collectionViewWidth = collectionView?.frame.width
         let itemWidth = (collectionViewWidth! - Storyboard.leftAndRightPaddings) / Storyboard.numberOfItemsPerRow
@@ -73,11 +76,45 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         let btn1 = UIButton(type: .custom)
         btn1.setImage(UIImage(named: "addPhotoIcon"), for: .normal)
         btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        btn1.addTarget(self, action: #selector(addphoto), for: .touchUpInside)
+        
+        
+        
+        
+        
+        
+        
+        btn1.addTarget(self, action: #selector(chooseSourceAlertController), for: .touchUpInside)
         let item1 = UIBarButtonItem(customView: btn1)
         
         self.navigationItem.setRightBarButtonItems([item1], animated: true)
 
+    }
+    
+    func chooseSourceAlertController()
+    {
+        let alertController = UIAlertController(title: "Where is the photo?", message: "Please choose an photo source", preferredStyle: .actionSheet)
+        
+        let sendButton = UIAlertAction(title: "Choose from photo library", style: .default, handler: { (action) -> Void in
+            self.addphotoUsingLibrary()
+        })
+        
+        let  deleteButton = UIAlertAction(title: "Take photo using camera", style: .default, handler: { (action) -> Void in
+            self.addphotoUsingCamera()
+        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        
+        
+        
+        
+        alertController.addAction(sendButton)
+        alertController.addAction(deleteButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
@@ -87,6 +124,12 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         if needRefresh == true
         {
             retrieveDataFromFirebase()
+        }
+        
+        if justAdded == true
+        {
+            self.promptMessage(title: "Ta-da!", message: "You've successfully added a new photo")
+            self.justAdded = false
         }
         
     }

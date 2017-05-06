@@ -1072,8 +1072,8 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <!--Photo Collection View Controller-->
         <scene sceneID="XT3-AY-Qjs">
             <objects>
-                <collectionViewController id="lmF-zg-Pzb" customClass="PhotoCollectionViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="l6Q-6d-YH2">
+                <collectionViewController storyboardIdentifier="PhotoCollectionView" id="lmF-zg-Pzb" customClass="PhotoCollectionViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="l6Q-6d-YH2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1548,7 +1548,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owb-wm-Il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="2471"/>
+            <point key="canvasLocation" x="1249" y="1658"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="UuG-Eu-tAK">
@@ -1562,90 +1562,106 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dk7-JL-lT3">
-                                <rect key="frame" x="60" y="52" width="263" height="206"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4b-n6-MRC">
-                                <rect key="frame" x="17" y="313" width="343" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. This is my lovely granddaughter Jane" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vY4-jM-RDQ">
-                                <rect key="frame" x="16" y="362" width="343" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description: e.g.This is daughter Jane" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vY4-jM-RDQ">
+                                <rect key="frame" x="24" y="254" width="335" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmr-nM-jmx">
-                                <rect key="frame" x="168" y="497" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-KP-PwY">
+                                <rect key="frame" x="31" y="589" width="100" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Record" image="rec"/>
-                                <connections>
-                                    <action selector="startRecording:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="hcY-i5-Tux"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Audio recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uo-9A-zvN">
-                                <rect key="frame" x="17" y="425" width="342" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x70-NT-Pu5">
-                                <rect key="frame" x="284" y="497" width="39" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Rerecord" image="rerecord"/>
-                                <connections>
-                                    <action selector="rerecordButtonTapped:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="i45-Gx-JY1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-KP-PwY">
-                                <rect key="frame" x="139" y="545" width="98" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.020372178819444444" green="0.76934136284722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="checkBeforeSaveIntoDatabase:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="5mW-mI-p4i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJQ-oQ-6o7">
-                                <rect key="frame" x="139" y="591" width="98" height="42"/>
+                                <rect key="frame" x="243" y="589" width="98" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.02037217882" green="0.76934136279999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="0dh-qJ-DHR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51o-cO-9ty">
-                                <rect key="frame" x="60" y="497" width="40" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press mic &amp; hold to record an audio message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA8-Ls-6nQ">
+                                <rect key="frame" x="24" y="420" width="339" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Stop" image="stop"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.27539541790600008" blue="0.50609027789308025" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXZ-Uh-Utz">
+                                <rect key="frame" x="143" y="464" width="116" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="micButton"/>
                                 <connections>
-                                    <action selector="stopButtonTapped:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="k6m-RX-FEI"/>
+                                    <action selector="StartRecording:" destination="GFF-Tk-ZlS" eventType="touchDown" id="Cxu-UO-npq"/>
+                                    <action selector="stopRecording:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="rel-WS-AHq"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="blS-jU-i9m">
+                                <rect key="frame" x="22" y="317" width="343" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB4-Wz-p56">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-bB-JK0">
+                                <rect key="frame" x="243" y="485" width="80" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="play-2"/>
+                                <connections>
+                                    <action selector="playFile:" destination="GFF-Tk-ZlS" eventType="touchUpInside" id="IYs-62-hi8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saving time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hv-Vn-WqK">
+                                <rect key="frame" x="31" y="391" width="328" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Give it a text and audio description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpr-b0-s2p">
+                                <rect key="frame" x="0.0" y="28" width="375" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dk7-JL-lT3">
+                                <rect key="frame" x="31" y="83" width="310" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="cancelLabel" destination="UJQ-oQ-6o7" id="atR-OE-scY"/>
                         <outlet property="chosenImageView" destination="dk7-JL-lT3" id="7p3-L0-6bu"/>
-                        <outlet property="descLabel" destination="i4b-n6-MRC" id="1fB-8z-KJN"/>
+                        <outlet property="durationLabel" destination="PB4-Wz-p56" id="8HH-Tg-ssK"/>
+                        <outlet property="micBtn" destination="wXZ-Uh-Utz" id="Pay-L0-Pag"/>
                         <outlet property="photoDescTextfield" destination="vY4-jM-RDQ" id="PCq-e8-rp4"/>
-                        <outlet property="playButton" destination="mmr-nM-jmx" id="hSD-Bv-DLN"/>
-                        <outlet property="recordLabel" destination="0Uo-9A-zvN" id="Ttq-jj-bcJ"/>
-                        <outlet property="rerecordButton" destination="x70-NT-Pu5" id="ZGq-0u-VWl"/>
+                        <outlet property="playBtn" destination="y7H-bB-JK0" id="YIi-YG-dtV"/>
+                        <outlet property="recoredView" destination="blS-jU-i9m" id="d8O-IX-WQ8"/>
                         <outlet property="saveButton" destination="hRo-KP-PwY" id="Hm6-ef-8Ku"/>
-                        <outlet property="stopButton" destination="51o-cO-9ty" id="GTi-BR-mk6"/>
+                        <outlet property="savingLabel" destination="6Hv-Vn-WqK" id="b5R-hR-6yZ"/>
+                        <outlet property="statusLabel" destination="TA8-Ls-6nQ" id="tt0-Qi-Ujy"/>
+                        <outlet property="titleLabel" destination="hpr-b0-s2p" id="cv3-m5-cik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0F-gT-LxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2821,18 +2837,16 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="mapsnav" width="96" height="96"/>
         <image name="marker" width="100" height="100"/>
         <image name="markergreen" width="50" height="50"/>
+        <image name="micButton" width="100" height="100"/>
         <image name="phonecallgreen" width="100" height="100"/>
         <image name="phoneincircle" width="100" height="100"/>
         <image name="photoAlbumicon" width="601" height="476"/>
-        <image name="profile" width="50" height="50"/>
-        <image name="rec" width="1034" height="1034"/>
+        <image name="play-2" width="45" height="45"/>
         <image name="reminder" width="1000" height="1000"/>
-        <image name="rerecord" width="300" height="300"/>
         <image name="search" width="50" height="50"/>
         <image name="searchicon" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
         <image name="starrating" width="100" height="100"/>
-        <image name="stop" width="512" height="512"/>
         <image name="websitegreen" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>

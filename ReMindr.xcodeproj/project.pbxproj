@@ -13,6 +13,7 @@
 		BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */; };
 		BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */; };
 		BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE51EAB29C3006E5EAC /* Reminder.swift */; };
+		BF4135621EBC326E003849FF /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4135611EBC326E003849FF /* AudioRecorderManager.swift */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
 		BF67AE2F1EAC833300B109C8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */; };
 		BFAD72C31E9796B300FE5180 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */; };
@@ -100,6 +101,7 @@
 		BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		BF276EE51EAB29C3006E5EAC /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		BF4135611EBC326E003849FF /* AudioRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
 		BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		BFAD72BE1E9796B300FE5180 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				BFF0B03A1E97A7CF007AD381 /* PhotoCollectionAddPhotoHandler.swift */,
 				BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */,
 				BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */,
+				BF4135611EBC326E003849FF /* AudioRecorderManager.swift */,
 			);
 			name = PhotoAlbum;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				F8DC75F21EBC219300983773 /* SettingsTableViewCell.swift in Sources */,
 				F816D4891E87BC7B00BF3995 /* AddFavouriteViewController.swift in Sources */,
 				F816D48D1E87BE9000BF3995 /* FavouriteCell.swift in Sources */,
+				BF4135621EBC326E003849FF /* AudioRecorderManager.swift in Sources */,
 				BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */,
 				F865A3241EA8DAED00CE99F9 /* PoliceStationDetailsViewController.swift in Sources */,
 				F865A3281EA8E32F00CE99F9 /* PoliceWebDetailsViewController.swift in Sources */,
