@@ -563,6 +563,7 @@
 				TargetAttributes = {
 					F816D44D1E875B4900BF3995 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NHS5CFX24Q;
 						ProvisioningStyle = Automatic;
 					};
 					F816D4641E875B4A00BF3995 = {
@@ -972,7 +973,7 @@
 			baseConfigurationReference = D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -987,7 +988,7 @@
 			baseConfigurationReference = BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
