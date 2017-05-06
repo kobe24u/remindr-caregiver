@@ -144,7 +144,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="reminder"/>
                                 <connections>
-                                    <segue destination="THe-EI-3kl" kind="show" id="cyE-nK-jpx"/>
+                                    <segue destination="THe-EI-3kl" kind="show" identifier="toReminderList" id="cyE-nK-jpx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD0-lX-Akt">
@@ -170,7 +170,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="hW6-CB-ypT"/>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="H7g-UY-iOP">
                             <connections>
-                                <segue destination="QlM-QY-9z5" kind="show" id="pDz-5v-Xg6"/>
+                                <segue destination="QlM-QY-9z5" kind="show" identifier="setSegue" id="pDz-5v-Xg6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1071,7 +1071,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                     </subviews>
                 </view>
             </objects>
-            <point key="canvasLocation" x="376.80000000000001" y="226.23688155922042"/>
+            <point key="canvasLocation" x="401" y="48"/>
         </scene>
         <!--Panic Logs-->
         <scene sceneID="jGo-5d-pAm">
@@ -1761,7 +1761,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <!--Geofencing-->
         <scene sceneID="hLi-M2-Blp">
             <objects>
-                <viewController storyboardIdentifier="GeofencingViewController" id="BcV-WE-07t" customClass="GeofencingViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeofencingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BcV-WE-07t" customClass="GeofencingViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KRf-3m-m2P"/>
                         <viewControllerLayoutGuide type="bottom" id="UUh-RG-QKU"/>
@@ -2679,7 +2679,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <!--Add New Notification-->
         <scene sceneID="tb6-HO-ZOr">
             <objects>
-                <viewController id="5rI-4O-BLh" customClass="AddReminderViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addRe" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5rI-4O-BLh" customClass="AddReminderViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RFE-cN-TCk"/>
                         <viewControllerLayoutGuide type="bottom" id="UKg-fd-re8"/>

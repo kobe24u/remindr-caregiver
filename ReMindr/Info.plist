@@ -5,10 +5,10 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
+			<key>UIApplicationShortcutItemIconFile</key>
 			<string>UIApplicationShortcutIconTypeSearch</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Search</string>
+			<string>Where is my patient</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>search</string>
 		</dict>

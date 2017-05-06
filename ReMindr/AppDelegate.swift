@@ -668,27 +668,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             if shortcutItem.type == "search"
             {
 
-                print("Click search")
-//                let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "photoInforController") as UIViewController
-//                self.window = UIWindow(frame: UIScreen.main.bounds)
-//                self.window?.rootViewController = initialViewControlleripad
-//                self.window?.makeKeyAndVisible()
-                
-//                self.window?.rootViewController?.navigationController?.pushViewController(UIViewController, animated: true)
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                let vc  = storyboard.instantiateViewController(withIdentifier: "scanvc") as! QRCodeScannerViewController
+                let rootNavigationViewController = window!.rootViewController as? MainNavigationController
+                let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
                 
 //                
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let vc = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
 //                
-//                let navController = UINavigationController(rootViewController: vc)
 //                
-//                self.window?.rootViewController = navController
-                    self.window?.rootViewController?.navigationController?.pushViewController(vc, animated: true)
-//                self.window?.rootViewController?.present(navController, animated: true, completion: nil)
-
+//                rootNavigationViewController?.pushViewController(vc, animated: true)
+                rootNavigationViewController?.popToRootViewController(animated: false)
+                rootViewController?.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: nil)
+                
                 
         }
             
