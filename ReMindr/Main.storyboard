@@ -1073,7 +1073,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <scene sceneID="XT3-AY-Qjs">
             <objects>
                 <collectionViewController storyboardIdentifier="PhotoCollectionView" id="lmF-zg-Pzb" customClass="PhotoCollectionViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="l6Q-6d-YH2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="l6Q-6d-YH2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1185,7 +1185,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aBI-3o-bom" id="ybH-se-2op">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Umbrella Dementia Cafe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxL-Bw-J6F">
@@ -2550,16 +2550,16 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZcJ-j8-7OM">
-                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
+                                            <rect key="frame" x="15" y="-2" width="48" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RW4-Jj-ExT">
-                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                            <rect key="frame" x="15" y="28" width="53" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -2598,13 +2598,13 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Don't Forget To..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Bo-cWH">
-                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Don't Forget To..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Bo-cWH">
+                                <rect key="frame" x="16" y="136" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0ig-W2-Ai2">
-                                <rect key="frame" x="20" y="192" width="560" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0ig-W2-Ai2">
+                                <rect key="frame" x="20" y="236" width="339" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="487366616.34614098">
                                     <!--2016-06-11 19:36:56 +0000-->
                                 </date>
@@ -2613,25 +2613,39 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Daily repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-Kx-TQ2">
-                                <rect key="frame" x="16" y="449" width="159" height="21"/>
+                                <rect key="frame" x="16" y="484" width="159" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-96-yiJ">
-                                <rect key="frame" x="183" y="444" width="51" height="31"/>
+                                <rect key="frame" x="183" y="479" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yL4-kw-tav">
+                                <rect key="frame" x="20" y="174" width="339" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ove-ka-b5n">
+                                <rect key="frame" x="20" y="95" width="339" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0ig-W2-Ai2" firstAttribute="trailing" secondItem="Vcg-NB-kCj" secondAttribute="trailingMargin" id="D92-ng-SWl"/>
-                            <constraint firstItem="0ig-W2-Ai2" firstAttribute="centerY" secondItem="Vcg-NB-kCj" secondAttribute="centerY" id="Jzb-uN-xbQ"/>
-                            <constraint firstItem="0ig-W2-Ai2" firstAttribute="leading" secondItem="Vcg-NB-kCj" secondAttribute="leadingMargin" id="Wsh-2E-elk"/>
+                            <constraint firstItem="0ig-W2-Ai2" firstAttribute="centerY" secondItem="Vcg-NB-kCj" secondAttribute="centerY" constant="10.5" id="Jzb-uN-xbQ"/>
+                            <constraint firstItem="0ig-W2-Ai2" firstAttribute="leading" secondItem="Vcg-NB-kCj" secondAttribute="leadingMargin" constant="4" id="Wsh-2E-elk"/>
                             <constraint firstItem="Z9o-Bo-cWH" firstAttribute="leading" secondItem="Vcg-NB-kCj" secondAttribute="leadingMargin" id="kFh-d8-QOp"/>
                             <constraint firstItem="Z9o-Bo-cWH" firstAttribute="trailing" secondItem="Vcg-NB-kCj" secondAttribute="trailingMargin" id="lFs-dj-R5F"/>
-                            <constraint firstItem="Z9o-Bo-cWH" firstAttribute="top" secondItem="RFE-cN-TCk" secondAttribute="bottom" constant="8" id="pni-Wc-rlc"/>
+                            <constraint firstItem="Z9o-Bo-cWH" firstAttribute="top" secondItem="RFE-cN-TCk" secondAttribute="bottom" constant="72" id="pni-Wc-rlc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Notification" id="5Fo-so-juX">
@@ -2655,7 +2669,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMH-xq-EgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="byK-n8-cxV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3406" y="922"/>
+            <point key="canvasLocation" x="3405.5999999999999" y="921.58920539730138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WiX-r4-DX0">
@@ -2842,6 +2856,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="phoneincircle" width="100" height="100"/>
         <image name="photoAlbumicon" width="601" height="476"/>
         <image name="play-2" width="45" height="45"/>
+        <image name="profile" width="50" height="50"/>
         <image name="reminder" width="1000" height="1000"/>
         <image name="search" width="50" height="50"/>
         <image name="searchicon" width="32" height="32"/>

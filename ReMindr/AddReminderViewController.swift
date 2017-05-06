@@ -31,6 +31,11 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
         
         ref = FIRDatabase.database().reference()
         storageRef = FIRStorage.storage().reference()
+        
+        reminderTextField.returnKeyType = .done
+        
+        
+        hideKeyboard()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,6 +84,20 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
+    
     
     // MARK: - Navigation
     
@@ -96,7 +115,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let values = ["message": name, "time": dateFormatter.string(from: time)] as [String : Any]
+            let values = ["message": name, "time": dateFormatter.string(from: time), "completed": "no"] as [String : Any]
             self.ref.child("reminders/testpatient").child(uuid).setValue(values)
             
             // build notification
