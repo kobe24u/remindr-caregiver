@@ -146,7 +146,8 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         self.view.addSubview(activityView)
         activityView.startAnimating()
         
-        ref.child("Photos/testpatient").observe(.value, with: {(snapshot) in
+        ref.child("Photos").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref.child("Photos/testpatient").observe(.value, with: {(snapshot) in
             
             // code to execute when child is changed
             // Take the value from snapshot and add it to the favourites list

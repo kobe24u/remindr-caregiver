@@ -134,13 +134,15 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
             {
                 if (selectedContact != nil)
                 {
-                    ref?.child("emergencyContacts/testpatient").child(selectedContact!).removeValue()
+                    ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(selectedContact!).removeValue()
+                    //ref?.child("emergencyContacts/testpatient").child(selectedContact!).removeValue()
                     selectedContact = nil
                 }
                 
                 let values: [String: Any]
                 values = ["name": textName ?? "nil", "mobile": textMobile ?? "nil"]
-                ref?.child("emergencyContacts/testpatient").child(textMobile!).setValue(values)
+                ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(textMobile!).setValue(values)
+                //ref?.child("emergencyContacts/testpatient").child(textMobile!).setValue(values)
                 animateOut()
                 self.textContactName.text = ""
                 self.textContactNumber.text = ""
@@ -157,7 +159,8 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     
     func retrieveDataFromFirebase()
     {
-        ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+        ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
             
             self.emergencyList.removeAllObjects()
             
@@ -210,8 +213,8 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
                 
                 deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
                     
-                    
-                    self.ref?.child("emergencyContacts/testpatient").child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
+                    self.ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
+                    //self.ref?.child("emergencyContacts/testpatient").child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
                     
                 }))
                 

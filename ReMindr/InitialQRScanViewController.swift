@@ -35,8 +35,14 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+        }
+        
         self.ref = FIRDatabase.database().reference()
         self.detected = false
+        self.successView.layer.cornerRadius = 5
         self.successView.isHidden = true
         self.textPatientName.delegate = self
         self.textPatientMobile.delegate = self

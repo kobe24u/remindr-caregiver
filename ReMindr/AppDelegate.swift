@@ -82,8 +82,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.requestAlwaysAuthorization()
         
         ref = FIRDatabase.database().reference()
-        patientLeftGeofencingArea()
-        patientPressedPanicButton()
+        if (GlobalVariables.patientID != "Unknown")
+        {
+            patientLeftGeofencingArea()
+            patientPressedPanicButton()
+        }
         return true
     }
     
@@ -117,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         readUUIDFromDataPList()
         application.applicationIconBadgeNumber = 0
-        self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+        self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
         readUUIDFromDataPList()
     }
 
@@ -237,7 +240,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     {
         self.ref?.child("geofencing").observe(.value, with: { (snapshot) in
             
-            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            if let current = snapshot.childSnapshot(forPath: GlobalVariables.patientID) as? FIRDataSnapshot
+            //if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
                 if let locationName = value?["locationName"] as? String {
@@ -254,7 +258,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
-                                    self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+                                    self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
+                                    //self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
                                     
                                     //let mainNav = self.window?.rootViewController as! MainNavigationController
 //                                    let mainNav = UIApplication.shared.windows[0].rootViewController as! MainNavigationController
@@ -516,7 +521,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         self.ref?.child("panicked").observe(.value, with: { (snapshot) in
             
             print("Changed happen")
-            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            if let current = snapshot.childSnapshot(forPath: GlobalVariables.patientID) as? FIRDataSnapshot
+            //if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
                 if let isPanicked = value?["isPanicked"] as? String {
@@ -532,7 +538,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
-                                    self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
+                                    self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
+                                    //self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
 //                                    let mainNav = self.window?.rootViewController as! UINavigationController
 //                                    let mainPage = mainNav.topViewController!
 //                                    mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)

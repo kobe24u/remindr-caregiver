@@ -116,7 +116,8 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let values = ["id": uuid, "message": name, "time": dateFormatter.string(from: time), "completed": "no"] as [String : Any]
-            self.ref.child("reminders/testpatient").child(uuid).setValue(values)
+            self.ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).child(uuid).setValue(values)
+            //self.ref.child("reminders/testpatient").child(uuid).setValue(values)
             
             // build notification
             let notification = UILocalNotification()

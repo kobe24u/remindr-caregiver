@@ -115,7 +115,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
 
     func retrieveDataFromFirebase()
     {
-        ref?.child("patientContacts").child("testpatient").observe(.value, with: {(snapshot) in
+        ref?.child("patientContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref?.child("patientContacts").child("testpatient").observe(.value, with: {(snapshot) in
             
             if let name = snapshot.childSnapshot(forPath: "name").value as? String {
                 self.patientName = name
@@ -204,7 +205,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             }
             else
             {
-                let username: String = "testpatient"
+                let username: String = AppDelegate.GlobalVariables.patientID
+                //let username: String = "testpatient"
                 let values: [String: Any]
                 values = ["name": textName ?? "nil", "mobileNumber": textMobile ?? "nil", "username": username]
                 ref?.child("patientContacts").child(username).setValue(values)

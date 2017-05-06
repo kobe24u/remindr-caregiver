@@ -70,7 +70,8 @@ class PanicTableViewController: UITableViewController {
         print ("the scam date is \(date)")
         
         // Retrieve the list of favourites and listen for changes
-        ref.child("panicEvents/testpatient").observe(.value, with: {(snapshot) in
+        ref.child("panicEvents").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref.child("panicEvents/testpatient").observe(.value, with: {(snapshot) in
             
             self.eventList.removeAllObjects()
             
@@ -258,10 +259,14 @@ class PanicTableViewController: UITableViewController {
             let dateResult = dateFormatter.string(from: dateTime as Date)
             let timeResult = timeFormatter.string(from: dateTime as Date)
            
+            self.ref?.child("panicEvents").child(AppDelegate.GlobalVariables.patientID).child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolved").setValue("true")
+            //self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolved").setValue("true")
             
-            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolved").setValue("true")
-            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedDate").setValue(dateResult)
-            self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedTime").setValue(timeResult)
+            self.ref?.child("panicEvents").child(AppDelegate.GlobalVariables.patientID).child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedDate").setValue(dateResult)
+            //self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedDate").setValue(dateResult)
+            
+            self.ref?.child("panicEvents").child(AppDelegate.GlobalVariables.patientID).child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedTime").setValue(timeResult)
+            //self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).child("resolvedTime").setValue(timeResult)
             
             
         }
@@ -275,8 +280,8 @@ class PanicTableViewController: UITableViewController {
             
             deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
                 
-                
-                self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).removeValue()
+                self.ref?.child("panicEvents").child(AppDelegate.GlobalVariables.patientID).child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).removeValue()
+                //self.ref?.child("panicEvents/testpatient").child(((self.eventList.object(at: indexPath.row)) as! Panic).eventName!).removeValue()
                 
             }))
             

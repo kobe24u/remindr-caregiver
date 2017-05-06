@@ -101,7 +101,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let number = value?["mobileNumber"] as? String {
                         guard let number = URL(string: "telprompt://" + number) else { return }
@@ -239,7 +240,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let patientLat = value?["patLat"] as? String {
                         if let patientLng = value?["patLng"] as? String {
@@ -272,8 +274,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 self.mapView.removeAnnotation(self.previousGeofenceMarker!)
             }
             
-
-            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            if let current = snapshot.childSnapshot(forPath: AppDelegate.GlobalVariables.patientID) as? FIRDataSnapshot
+            //if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
                 if let location = value?["locationName"] as? String
@@ -329,7 +331,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let patientLat = value?["patLat"] as? String {
                         if let patientLng = value?["patLng"] as? String {
@@ -348,6 +351,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                 }
             }})
     }
+    
     @IBAction func dismissThisViewController(_ sender: Any) {
 
         if (fromSegue) {

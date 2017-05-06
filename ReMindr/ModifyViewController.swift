@@ -39,7 +39,8 @@ class ModifyViewController: UIViewController, UITextFieldDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let values = ["message": name, "time": dateFormatter.string(from: time)] as [String : Any]
-        self.ref.child("reminders/testpatient").child(uuid).setValue(values)
+        self.ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).child(uuid).setValue(values)
+        //self.ref.child("reminders/testpatient").child(uuid).setValue(values)
         
         // build notification
         let notification = UILocalNotification()

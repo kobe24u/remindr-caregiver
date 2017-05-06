@@ -48,7 +48,8 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         self.view.addSubview(activityView)
         activityView.startAnimating()
         
-        ref.child("reminders/testpatient").observe(.value, with: {(snapshot) in
+        ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref.child("reminders/testpatient").observe(.value, with: {(snapshot) in
             
             // code to execute when child is changed
             // Take the value from snapshot and add it to the favourites list
@@ -167,8 +168,8 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
                 
                 
-                
-                let ref = FIRDatabase.database().reference().child("reminders").child("testpatient")
+                let ref = FIRDatabase.database().reference().child("reminders").child(AppDelegate.GlobalVariables.patientID)
+                //let ref = FIRDatabase.database().reference().child("reminders").child("testpatient")
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
                     
