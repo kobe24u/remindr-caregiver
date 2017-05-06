@@ -23,10 +23,12 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     var patientDeviceUUID: String?
+    var detected: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.detected = false
         self.successView.isHidden = true
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -76,60 +78,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             print(error)
             return
         }
-        
-        
-        
-        /*
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        
-        // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-        //var error:NSError?
-        do
-        {
-            let input: AnyObject! = try AVCaptureDeviceInput.init(device: captureDevice)
-            // Initialize the captureSession object.
-            captureSession = AVCaptureSession()
-            // Set the input device on the capture session.
-            captureSession?.addInput(input as! AVCaptureInput)
-            
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
-            
-            // Set delegate and use the default dispatch queue to execute the call back
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
-            
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
-            
-            // Start video capture.
-            captureSession?.startRunning()
-            
-            // Move the message label to the top view
-            view.bringSubview(toFront: messageLabel)
-            
-            // Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
-            }
-            
-        }
-        catch
-        {
-            print("error in initializing device")
-        }
- 
- */
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,54 +97,89 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if metadataObj.stringValue != nil {
-                self.patientDeviceUUID = metadataObj.stringValue
-                //messageLabel.text = metadataObj.stringValue
-                messageLabel.isHidden = true
-                writingDataToPList()
-                showSuccessMessage()
+        if (self.detected == false)
+        {
+            if metadataObj.type == AVMetadataObjectTypeQRCode {
+                self.detected = true
+                // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+                let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+                qrCodeFrameView?.frame = barCodeObject!.bounds
+                
+                if metadataObj.stringValue != nil {
+                    self.patientDeviceUUID = metadataObj.stringValue
+                    //messageLabel.text = metadataObj.stringValue
+                    messageLabel.isHidden = true
+                    writingDataToPList()
+                    
+                    showSuccessMessage()
+                }
             }
         }
+        
     }
     
     func writingDataToPList()
     {
-        let plistPath:String? = Bundle.main.path(forResource: "data", ofType: "plist")! //the path of the data
-        let plistDictionary = NSMutableDictionary(contentsOfFile: plistPath!)
-        
-        do{
-            // Reading the UUID of the device
-            self.patientDeviceUUID = UIDevice.current.identifierForVendor!.uuidString
-            plistDictionary?.setObject(self.patientDeviceUUID, forKey: "patientDeviceUUID" as NSCopying)
-            var success: Bool = (plistDictionary?.write(toFile: plistPath!, atomically: true))!
-            if success
-            {
-                print ("Successfully wrote to data.plist")
-            }
-            else
-            {
-                print ("Writing to data.plist unsuccessful")
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let path = paths.appending("/data.plist")
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
+        {
+            let bundle : NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
+            do{
+                try fileManager.copyItem(atPath: bundle as String, toPath: path)
+            }catch{
+                print("copy failure.")
             }
         }
-        catch{ // error condition
-            print("Error writing to plist: \(error)")
+        let data : NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
+        data.setObject(self.patientDeviceUUID, forKey: "patientDeviceUUID" as NSCopying)
+        let success: Bool = data.write(toFile: path, atomically: true)
+        if (success)
+        {
+            print ("Success plist")
         }
-    }
+        else
+        {
+            print("Unsuccessful plist")
+        }    }
     
     
     func showSuccessMessage()
     {
-        UIView.animate(withDuration: 0.3, animations: {
+
+        //1015
+        let systemSoundID: SystemSoundID = 1013
+        
+        // to play sound
+        AudioServicesPlaySystemSound (systemSoundID)
+        
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+        
+        UIView.animate(withDuration: 0.4, animations: {
             self.successView.isHidden = false
             self.view.bringSubview(toFront: self.successView)
-        }, completion: {(success: Bool) in
-            self.dismiss(animated: true, completion: nil)
-        })
+            
+            })
+        
+        let when = DispatchTime.now() + 1.5
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            
+//            let vc  = storyboard.instantiateViewController(withIdentifier: "home") as! MainMenuViewController
+//            
+//            
+//            
+//            let navController = UINavigationController(rootViewController: vc)
+//            
+//            self.navigationController?.popToViewController(vc, animated: true)
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
 }
+
+

@@ -89,7 +89,7 @@
         <!--Main Menu View Controller-->
         <scene sceneID="J4N-wd-fEC">
             <objects>
-                <viewController id="WFy-1Z-KWV" customClass="MainMenuViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WFy-1Z-KWV" customClass="MainMenuViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bUT-a2-J3J"/>
                         <viewControllerLayoutGuide type="bottom" id="PVI-X8-6lW"/>
@@ -746,7 +746,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <!--Code Scanner View Controller-->
         <scene sceneID="8o1-Co-oZG">
             <objects>
-                <viewController id="Xyu-fG-mMT" customClass="QRCodeScannerViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanvc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xyu-fG-mMT" customClass="QRCodeScannerViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Otk-wx-dCm"/>
                         <viewControllerLayoutGuide type="bottom" id="pxl-fX-3Jm"/>
@@ -800,7 +800,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <!--Settings-->
         <scene sceneID="vNc-9e-gxJ">
             <objects>
-                <tableViewController id="QlM-QY-9z5" customClass="SettingsTableViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QlM-QY-9z5" customClass="SettingsTableViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="b7f-Ul-alo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1638,7 +1638,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owb-wm-Il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="1612"/>
+            <point key="canvasLocation" x="1948" y="1562"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="UuG-Eu-tAK">
@@ -2957,7 +2957,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="websitegreen" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gdL-2U-li4"/>
+        <segue reference="u16-J2-Od1"/>
         <segue reference="cBU-qq-8DN"/>
     </inferredMetricsTieBreakers>
 </document>
