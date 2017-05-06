@@ -784,10 +784,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" editingAccessoryType="disclosureIndicator" rowHeight="70" id="Sam-2l-WBC" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sam-2l-WBC" id="HGu-hl-UKU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PwD PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
@@ -819,10 +819,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" rowHeight="70" id="Fn9-Mv-D8D" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="126" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="125.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fn9-Mv-D8D" id="Aq7-hw-K8J">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMERGENCY CONTACTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-xx-rdO">
@@ -855,10 +855,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutUsCell" rowHeight="70" id="Yhu-KR-vOE" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="196" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="195.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yhu-KR-vOE" id="c3p-V2-4Il">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="lbm-64-Ya2">
@@ -891,10 +891,10 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QRCodeCell" rowHeight="70" id="2JU-tC-WgD" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="266" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="265.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2JU-tC-WgD" id="9wF-RH-bWL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN QR CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-D3-DCL">
@@ -1615,7 +1615,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owb-wm-Il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="1658"/>
+            <point key="canvasLocation" x="1449" y="1612"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="UuG-Eu-tAK">
@@ -1903,7 +1903,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb1-vY-yVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="1771"/>
+            <point key="canvasLocation" x="2361" y="1690"/>
         </scene>
         <!--Choose Location-->
         <scene sceneID="2iK-pR-LBc">
