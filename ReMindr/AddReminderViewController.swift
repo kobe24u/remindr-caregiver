@@ -128,7 +128,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
             
 //            UIApplication.shared.scheduleLocalNotification(notification)
             
-            reminder = Reminder(name: name!, time: time, notification: notification, completed: "no")
+            reminder = Reminder(name: name!, time: time, notification: notification, completed: "no", uuid: uuid)
         }
     }
     

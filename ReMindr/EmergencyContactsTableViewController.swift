@@ -73,7 +73,9 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+        self.textContactNumber.endEditing(true)
+        self.textContactName.endEditing(true)
+        //view.endEditing(true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
