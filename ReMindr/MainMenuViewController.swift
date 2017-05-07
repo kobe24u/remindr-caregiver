@@ -11,6 +11,8 @@ import LocalAuthentication
 
 class MainMenuViewController: UIViewController {
 
+    var isPaired: Bool?
+    
     @IBOutlet weak var pairingStatusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +21,19 @@ class MainMenuViewController: UIViewController {
         
         if (AppDelegate.GlobalVariables.patientID == "Unknown")
         {
+            isPaired = false
             self.pairingStatusLabel.text = "Device is not paired. Please go to settings and scan the QR code to pair the device."
         }
         else
         {
+            isPaired = true
             self.pairingStatusLabel.text = "Device is paired"
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MainMenuViewController.goToQRCodeScanView))
+        self.pairingStatusLabel.isUserInteractionEnabled = true
+        self.pairingStatusLabel.addGestureRecognizer(tap)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,5 +110,12 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    func goToQRCodeScanView()
+    {
+        if (!isPaired!)
+        {
+            performSegue(withIdentifier: "DirectlyScanQRCodeSegue", sender: self)
+        }
+    }
 
 }

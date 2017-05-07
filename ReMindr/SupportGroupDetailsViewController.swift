@@ -13,6 +13,7 @@ class SupportGroupDetailsViewController: UIViewController, MFMailComposeViewCont
     
     var currentSupportGroup: SupportGroup?
     var requestedURL: String?
+    var isWebsite: Bool?
     
     @IBOutlet weak var supportImage: UIImageView!
     @IBOutlet weak var labelName: UILabel!
@@ -78,21 +79,25 @@ class SupportGroupDetailsViewController: UIViewController, MFMailComposeViewCont
     }
     
     @IBAction func websiteSupportGroup1(_ sender: Any) {
+        self.isWebsite = true
         self.requestedURL = currentSupportGroup?.website!
         performSegue(withIdentifier: "ShowSupportWebDetailsSegue", sender: self)
     }
     
     @IBAction func websiteSupportGroup2(_ sender: Any) {
+        self.isWebsite = true
         self.requestedURL = currentSupportGroup?.website!
         performSegue(withIdentifier: "ShowSupportWebDetailsSegue", sender: self)
     }
     
     @IBAction func locationSupportGroup1(_ sender: Any) {
+        self.isWebsite = false
         self.requestedURL = currentSupportGroup?.mapsURL!
         performSegue(withIdentifier: "ShowSupportWebDetailsSegue", sender: self)
     }
     
     @IBAction func locationSupportGroup2(_ sender: Any) {
+        self.isWebsite = false
         self.requestedURL = currentSupportGroup?.mapsURL!
         performSegue(withIdentifier: "ShowSupportWebDetailsSegue", sender: self)
     }
@@ -156,6 +161,7 @@ class SupportGroupDetailsViewController: UIViewController, MFMailComposeViewCont
         {
             let destinationVC: SupportGroupWebDetailsViewController = segue.destination as! SupportGroupWebDetailsViewController
             destinationVC.urlToLoad = self.requestedURL
+            destinationVC.isWebsite = self.isWebsite
         }
     }
     

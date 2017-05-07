@@ -226,6 +226,7 @@
                         <outlet property="pairingStatusLabel" destination="SfG-UL-IZI" id="X76-ji-1gb"/>
                         <segue destination="YNn-LA-84D" kind="show" identifier="ShowPanicMapSegue" id="4aU-2C-2SJ"/>
                         <segue destination="BcV-WE-07t" kind="show" identifier="ShowGeofencingMapSegue" id="rV1-Uo-pLh"/>
+                        <segue destination="zbk-CS-DVf" kind="show" identifier="DirectlyScanQRCodeSegue" id="IkP-3f-vXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PFJ-gM-Bzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -728,13 +729,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bho-UN-Xbz">
                                 <rect key="frame" x="16" y="544" width="343" height="115"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="115" id="nqd-bm-513"/>
+                                    <constraint firstAttribute="height" constant="115" id="FK0-3u-chs"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReMindr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-b4-czk">
-                                <rect key="frame" x="16" y="241" width="343" height="40"/>
+                                <rect key="frame" x="16" y="345" width="343" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="s5P-qN-WRK"/>
+                                    <constraint firstAttribute="height" constant="40" id="a3R-1u-cNU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -743,55 +744,66 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzs-h6-Omy">
                                 <rect key="frame" x="16" y="517" width="343" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="oMZ-Ms-fdD"/>
+                                    <constraint firstAttribute="height" constant="21" id="xQG-8M-ZIc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
-                                <rect key="frame" x="16" y="289" width="343" height="220"/>
-                                <string key="text">ReMindr is a twinning iOS app that aims to enhance the communication between people living with dementia (PLwD) and their caregivers. 
-For PLwD, it offers photos and audio of family members to stimulate memory function, as well as a panic button in case of emergency. 
-For caregivers, it allows real-time monitoring of the location of PLWD and setting notifications to remind PLWD to perform daily tasks. </string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
+                                <rect key="frame" x="16" y="72" width="343" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="2hN-p6-ooB"/>
+                                </constraints>
+                                <string key="text">ReMindr is a twinning iOS app that aims to enhance the communication between people living with dementia (PLwD) and their caregivers. </string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dxd-AQ-lU7">
-                                <rect key="frame" x="16" y="72" width="343" height="209"/>
+                                <rect key="frame" x="16" y="155" width="343" height="209"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 200 OK Inc. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVU-wB-cjg">
+                                <rect key="frame" x="110" y="372" width="155" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="reo-dE-LTB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Bho-UN-Xbz" secondAttribute="trailing" id="0aZ-Bt-kb1"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="XnE-TS-K96" secondAttribute="bottom" constant="8" symbolic="YES" id="7YZ-QF-nuY"/>
-                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="trailing" secondItem="yMC-b4-czk" secondAttribute="trailing" id="C85-dj-2f7"/>
-                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="leading" secondItem="yMC-b4-czk" secondAttribute="leading" id="HSZ-Nu-eQj"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Bho-UN-Xbz" secondAttribute="leading" id="HmY-zN-8nO"/>
-                            <constraint firstItem="cki-ZZ-M45" firstAttribute="bottom" secondItem="v2Z-3k-AaG" secondAttribute="top" id="Jgs-ut-BpJ"/>
-                            <constraint firstItem="Bho-UN-Xbz" firstAttribute="top" secondItem="kzs-h6-Omy" secondAttribute="bottom" constant="6" id="MER-4o-Grr"/>
-                            <constraint firstItem="XnE-TS-K96" firstAttribute="trailing" secondItem="kzs-h6-Omy" secondAttribute="trailing" id="MjJ-wT-Pfe"/>
-                            <constraint firstItem="cki-ZZ-M45" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" id="U6m-Zl-CJO"/>
-                            <constraint firstItem="XnE-TS-K96" firstAttribute="leading" secondItem="kzs-h6-Omy" secondAttribute="leading" id="UXo-Zq-f5x"/>
-                            <constraint firstAttribute="trailing" secondItem="cki-ZZ-M45" secondAttribute="trailing" id="WUp-iW-y3b"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="trailing" secondItem="XnE-TS-K96" secondAttribute="trailing" id="WfY-t0-JdN"/>
-                            <constraint firstItem="v2Z-3k-AaG" firstAttribute="top" secondItem="Bho-UN-Xbz" secondAttribute="bottom" constant="8" symbolic="YES" id="YE0-Qr-OhY"/>
-                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="8" symbolic="YES" id="ZLu-Q3-fS9"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="leading" secondItem="XnE-TS-K96" secondAttribute="leading" id="hu6-mS-9EY"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="177" id="j9T-1L-yyY"/>
-                            <constraint firstItem="cki-ZZ-M45" firstAttribute="centerX" secondItem="kzs-h6-Omy" secondAttribute="centerX" id="k1y-Qn-Ppg"/>
-                            <constraint firstItem="cki-ZZ-M45" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leading" id="lui-OH-cVi"/>
-                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leadingMargin" id="nAu-pj-qbi"/>
-                            <constraint firstItem="XnE-TS-K96" firstAttribute="top" secondItem="yMC-b4-czk" secondAttribute="bottom" constant="8" symbolic="YES" id="oX6-9k-RSF"/>
-                            <constraint firstItem="XnE-TS-K96" firstAttribute="top" secondItem="Dxd-AQ-lU7" secondAttribute="bottom" constant="8" symbolic="YES" id="t9s-kl-VCx"/>
+                            <constraint firstItem="Bho-UN-Xbz" firstAttribute="top" secondItem="kzs-h6-Omy" secondAttribute="bottom" constant="6" id="07a-rC-tv5"/>
+                            <constraint firstItem="cki-ZZ-M45" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leading" id="1mX-Cm-Pyp"/>
+                            <constraint firstItem="cki-ZZ-M45" firstAttribute="centerX" secondItem="gVU-wB-cjg" secondAttribute="centerX" id="2bu-Nv-Euj"/>
+                            <constraint firstItem="yMC-b4-czk" firstAttribute="centerX" secondItem="gVU-wB-cjg" secondAttribute="centerX" id="3Kk-uU-Gqw"/>
+                            <constraint firstAttribute="trailing" secondItem="cki-ZZ-M45" secondAttribute="trailing" id="4Pp-l3-Krr"/>
+                            <constraint firstItem="XnE-TS-K96" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leadingMargin" id="9IC-8v-Aew"/>
+                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="91" id="Bl1-86-mgY"/>
+                            <constraint firstItem="cki-ZZ-M45" firstAttribute="centerY" secondItem="yMC-b4-czk" secondAttribute="centerY" id="EXK-1H-U0P"/>
+                            <constraint firstItem="yMC-b4-czk" firstAttribute="trailing" secondItem="kzs-h6-Omy" secondAttribute="trailing" id="Er5-xP-k7V"/>
+                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="trailing" secondItem="yMC-b4-czk" secondAttribute="trailing" id="QEn-hD-sb7"/>
+                            <constraint firstItem="yMC-b4-czk" firstAttribute="leading" secondItem="kzs-h6-Omy" secondAttribute="leading" id="QQN-Ir-EEw"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Bho-UN-Xbz" secondAttribute="trailing" id="V5Y-44-ZdN"/>
+                            <constraint firstItem="XnE-TS-K96" firstAttribute="leading" secondItem="Dxd-AQ-lU7" secondAttribute="leading" id="YYI-Om-n9S"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Bho-UN-Xbz" secondAttribute="leading" id="aCG-R3-vUf"/>
+                            <constraint firstItem="XnE-TS-K96" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="8" symbolic="YES" id="h65-TZ-jXe"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="gVU-wB-cjg" secondAttribute="bottom" constant="83" id="hbE-1W-HLw"/>
+                            <constraint firstItem="gVU-wB-cjg" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leadingMargin" constant="94" id="i4x-Ia-wlp"/>
+                            <constraint firstItem="Dxd-AQ-lU7" firstAttribute="leading" secondItem="yMC-b4-czk" secondAttribute="leading" id="m8p-3b-4HU"/>
+                            <constraint firstItem="cki-ZZ-M45" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" id="o2V-Ok-xjE"/>
+                            <constraint firstItem="gVU-wB-cjg" firstAttribute="top" secondItem="Dxd-AQ-lU7" secondAttribute="bottom" constant="8" symbolic="YES" id="o65-fn-bFe"/>
+                            <constraint firstItem="v2Z-3k-AaG" firstAttribute="top" secondItem="Bho-UN-Xbz" secondAttribute="bottom" constant="8" symbolic="YES" id="oRN-6p-6HZ"/>
+                            <constraint firstItem="cki-ZZ-M45" firstAttribute="bottom" secondItem="v2Z-3k-AaG" secondAttribute="top" id="tvu-BZ-CVy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="l7W-Dq-IsA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Axa-fR-AbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="-429"/>
+            <point key="canvasLocation" x="-338.39999999999998" y="-429.53523238380814"/>
         </scene>
         <!--Code Scanner View Controller-->
         <scene sceneID="8o1-Co-oZG">
@@ -2590,7 +2602,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMp-ku-4oO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="ttu-cT-8Cx" customClass="ZoomTransitioningDelegate" customModule="ReMindr" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-458.39999999999998" y="921.58920539730138"/>
+            <point key="canvasLocation" x="-458" y="922"/>
         </scene>
         <!--Modify View Controller-->
         <scene sceneID="AvQ-H1-m3c">
@@ -3133,6 +3145,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="websitegreen" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="IkP-3f-vXe"/>
         <segue reference="gdL-2U-li4"/>
         <segue reference="cBU-qq-8DN"/>
     </inferredMetricsTieBreakers>

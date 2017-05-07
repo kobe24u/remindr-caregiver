@@ -121,9 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 //        readUUIDFromDataPList()
         application.applicationIconBadgeNumber = 0
-    self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
         if (GlobalVariables.patientID != "Unknown")
         {
+            self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
             patientLeftGeofencingArea()
             patientPressedPanicButton()
             //let mainPage = self.window?.rootViewController as! InitialQRScanViewController
@@ -682,6 +682,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
         
         GlobalVariables.patientID = patientDeviceUUID
+
         /*
         if (patientDeviceUUID == "Unknown")
         {
@@ -742,6 +743,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
         
             
+    }
+    
+    
+    func writingDataToPList()
+    {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let path = paths.appending("/data.plist")
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
+        {
+            let bundle : NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
+            do{
+                try fileManager.copyItem(atPath: bundle as String, toPath: path)
+            }catch{
+                print("copy failure.")
+            }
+        }
+        let data : NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
+        data.setObject("632A5BEE-CDEC-4969-82D3-F8C04BD289C7", forKey: "patientDeviceUUID" as NSCopying)
+        let success: Bool = data.write(toFile: path, atomically: true)
+        if (success)
+        {
+            print ("Success plist")
+            AppDelegate.GlobalVariables.patientID = "632A5BEE-CDEC-4969-82D3-F8C04BD289C7"
+        }
+        else
+        {
+            print("Unsuccessful plist")
+        }
     }
 }
 
