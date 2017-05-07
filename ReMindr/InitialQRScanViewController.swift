@@ -229,6 +229,8 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                 let values: [String: Any]
                 values = ["name": textName ?? "nil", "mobileNumber": textMobile ?? "nil", "username": username]
                 ref?.child("patientContacts").child(username).setValue(values)
+                AppDelegate.GlobalVariables.patientName = textName!
+                AppDelegate.GlobalVariables.patientNumber = textMobile!
                 self.navigationController?.popViewController(animated: true)
                 //performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
             }

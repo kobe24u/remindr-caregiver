@@ -35,7 +35,7 @@ class MainMenuViewController: UIViewController {
         if (AppDelegate.GlobalVariables.patientID == "Unknown")
         {
             isPaired = false
-            self.pairingStatusLabel.text = "Device is not paired. Please go to settings and scan the QR code to pair the device."
+            self.pairingStatusLabel.text = "Device is not paired. Click here to scan the QR code and connect with your loved one"
             self.pairingStatusLabel.textColor = UIColor.red
         }
         else

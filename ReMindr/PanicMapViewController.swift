@@ -121,9 +121,11 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     func smsEmergencyContacts()
     {
+        var name: String = AppDelegate.GlobalVariables.patientName
+        var mobileNumber: String = AppDelegate.GlobalVariables.patientNumber
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Patient needs your help. Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
+            controller.body = "\(name) needs your help. \(name)'s mobile number is \(mobileNumber). Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
 //            controller.recipients = ["0401289325"]
             controller.recipients = emergencyContacts as! [String]
             controller.messageComposeDelegate = self

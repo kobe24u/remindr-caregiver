@@ -49,6 +49,13 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         activityView.startAnimating()
         
         ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+            
+            
+            var hasChildren: Bool = false
+            if (snapshot.hasChildren())
+            {
+                hasChildren = true
+            }
         //ref.child("reminders/testpatient").observe(.value, with: {(snapshot) in
             
             // code to execute when child is changed
@@ -87,6 +94,13 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             
             }
             self.tableView?.reloadData()
+            activityView.stopAnimating()
+            DispatchQueue.main.async( execute: {
+                if (self.reminders.count == 0 && !hasChildren)
+                {
+                    self.promptMessage(title: "Oops", message: "No reminders to display")
+                }
+            })
             
         })
         
@@ -96,6 +110,19 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
 //        super.viewDidAppear(true)
 //        tableView.reloadData()
 //    }
+    
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 4
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
     
     // Table view data
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -153,9 +180,9 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         
         let selectedReminder: Reminder  = reminders[selectedRow!] as Reminder
 //        // TODO: send this reminder again
-        let sendAlert = UIAlertController(title: "Confirm Send", message: "Do you want to send this reminder right now?", preferredStyle: UIAlertControllerStyle.alert)
+        let sendAlert = UIAlertController(title: "Resend", message: "Do you want to resend this reminder?", preferredStyle: UIAlertControllerStyle.alert)
         
-        sendAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+        sendAlert.addAction(UIAlertAction(title: "Resend", style: .default, handler: { (action: UIAlertAction!) in
             
             let name = selectedReminder.name
             let uuid = selectedReminder.uuid
@@ -165,7 +192,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             
             // adding 10 secs to the current time
             let calendar = Calendar.current
-            currentDate = calendar.date(byAdding: .second, value: 10, to: currentDate)!
+            currentDate = calendar.date(byAdding: .minute, value: 1, to: currentDate)!
             
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let values = ["id": uuid, "message": name, "time": dateFormatter.string(from: currentDate), "completed": "no"] as [String : Any]
@@ -173,6 +200,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             currentDate = Date(timeIntervalSinceReferenceDate: timeInterval)
             
         self.ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).child(uuid!).child("time").setValue(dateFormatter.string(from: currentDate))
+            self.ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).child(uuid!).child("completed").setValue("no")
 
         }))
         

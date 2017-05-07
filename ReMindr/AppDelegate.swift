@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     struct GlobalVariables {
         static var patientID = "Unknown"
+        static var patientName: String = "Unknown"
+        static var patientNumber: String = "Unknown"
     }
     
     var window: UIWindow?
@@ -84,11 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         ref = FIRDatabase.database().reference()
         readUUIDFromDataPList()
-//        if (GlobalVariables.patientID != "Unknown")
-//        {
-//            patientLeftGeofencingArea()
-//            patientPressedPanicButton()
-//        }
+        if (GlobalVariables.patientID != "Unknown")
+        {
+            patientLeftGeofencingArea()
+            patientPressedPanicButton()
+        }
         return true
     }
     
@@ -125,8 +127,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         if (GlobalVariables.patientID != "Unknown")
         {
             self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
-            patientLeftGeofencingArea()
-            patientPressedPanicButton()
+            //patientLeftGeofencingArea()
+            //patientPressedPanicButton()
             //let mainPage = self.window?.rootViewController as! InitialQRScanViewController
             //mainPage.performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
         }
@@ -665,6 +667,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         GlobalVariables.patientID = patientDeviceUUID
 
+        ref?.child("patientContacts").child(GlobalVariables.patientID).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let patName = snapshot.childSnapshot(forPath: "name").value as? String {
+                if let patNum = snapshot.childSnapshot(forPath: "mobileNumber").value as? String {
+                    GlobalVariables.patientName = patName
+                    GlobalVariables.patientNumber = patNum
+                }
+            }
+        })
+        
         /*
         if (patientDeviceUUID == "Unknown")
         {

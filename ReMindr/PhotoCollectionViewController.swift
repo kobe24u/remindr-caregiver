@@ -152,6 +152,12 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
             // code to execute when child is changed
             // Take the value from snapshot and add it to the favourites list
             
+            var hasChildren: Bool = false
+            if (snapshot.hasChildren())
+            {
+                hasChildren = true
+            }
+            
             // Get user value
             for current in snapshot.children.allObjects as! [FIRDataSnapshot]
             {
@@ -188,7 +194,13 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
                 }
             }
             self.collectionView?.reloadData()
-            
+            activityView.stopAnimating()
+            DispatchQueue.main.async( execute: {
+                if (self.photos.count == 0 && !hasChildren)
+                {
+                    self.promptMessage(title: "Oops", message: "No photos to display")
+                }
+            })
         })
         
     }
