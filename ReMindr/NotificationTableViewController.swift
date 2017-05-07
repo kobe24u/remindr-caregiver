@@ -146,14 +146,33 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.selectedRow = indexPath.row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRow = indexPath.row
+        
+//        // TODO: delete this item
+//        let deleteAlert = UIAlertController(title: "Confirm Delete", message: "Are you sure you want to delete this contact?", preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+//            
+//            self.ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
+//            //self.ref?.child("emergencyContacts/testpatient").child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
+//            
+//        }))
+//        
+//        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+//            print("Delete cancelled")
+//        }))
+//        
+//        self.present(deleteAlert, animated: true, completion: nil)
+        
+    
+    
 //        let popoverVC = storyboard?.instantiateViewController(withIdentifier: "modifyReminder") as! ModifyViewController
 //        let reminder = reminders[indexPath.row]
 //        popoverVC.reminder = reminder
 //        popoverVC.delegate = self
 //        self.present(popoverVC, animated: true, completion: nil)
-//    }
+    }
     
     func editReminder(reminder: Reminder) {
         reminders[self.selectedRow!] = reminder

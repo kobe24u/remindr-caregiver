@@ -181,7 +181,8 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
         else
         {
             print("Unsuccessful plist")
-        }    }
+        }
+    }
     
     
     func showSuccessMessage()

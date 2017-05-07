@@ -8,17 +8,20 @@
 
 import UIKit
 
-class SupportGroupWebDetailsViewController: UIViewController {
+class SupportGroupWebDetailsViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     
     var urlToLoad: String?
+    var isWebsite: Bool?
     var activityView: UIActivityIndicatorView?
     var progressView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.webView.delegate = self
+        setProgressView()
         // checking if network is available (Reachability class is defined in another file)
         if Reachability.isConnectedToNetwork() == false      // if data network exists
         {
@@ -30,19 +33,20 @@ class SupportGroupWebDetailsViewController: UIViewController {
         }
         else
         {
-            setProgressView()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             // Do any additional setup after loading the view.
             print ("url : \(self.urlToLoad)")
             
-            showProgress()
-            self.view.addSubview(progressView)
             loadURLRequest(completion: {
                 (success) -> Void in
                 if success {
-                    stopProgressView()
-                    self.activityView?.stopAnimating()
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//                    stopProgressView()
+//                    self.activityView?.stopAnimating()
+//                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+                else
+                {
+                    print ("There was an error loading the website")
                 }
             })
         }
@@ -52,6 +56,25 @@ class SupportGroupWebDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        
+        if (isWebsite)!
+        {
+            showProgress()
+            //self.view.addSubview(progressView)
+        }
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        if (isWebsite)!
+        {
+            //stopProgressView()
+            self.activityView?.removeFromSuperview()
+            self.activityView?.stopAnimating()
+        }
     }
     
     func showProgress()

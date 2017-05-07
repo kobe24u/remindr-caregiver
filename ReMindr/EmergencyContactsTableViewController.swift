@@ -260,9 +260,14 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
         let e: EmergencyContact = self.emergencyList[indexPath.row] as! EmergencyContact
         self.textContactName.text = e.name
         self.textContactNumber.text = e.mobile
-        animateIn()
-    }
-    
+        let mobileNumber: String = (e.mobile?.replacingOccurrences(of: " ", with: ""))!
+            guard let number = URL(string: "telprompt://" + mobileNumber) else { return }
+            UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        }
+
+        //animateIn()
+
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
