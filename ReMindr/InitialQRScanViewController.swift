@@ -25,20 +25,16 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
     
     @IBOutlet weak var textPatientMobile: UITextField!
     
+    var patientDeviceUUID: String?
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
-    var patientDeviceUUID: String?
     var detected: Bool?
     var ref: FIRDatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (AppDelegate.GlobalVariables.patientID != "Unknown")
-        {
-            performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
-        }
         
         self.ref = FIRDatabase.database().reference()
         self.detected = false
@@ -46,7 +42,8 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
         self.successView.isHidden = true
         self.textPatientName.delegate = self
         self.textPatientMobile.delegate = self
-        
+        self.textPatientName.returnKeyType = .done
+            
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         successView.addGestureRecognizer(tap)
@@ -100,6 +97,15 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
             return
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.readUUIDFromDataPList()
+//        if (self.patientDeviceUUID != "Unknown")
+//        {
+//            AppDelegate.GlobalVariables.patientID = self.patientDeviceUUID!
+//            performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+//        }
     }
     
     func dismissKeyboard()
@@ -222,7 +228,8 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                 let values: [String: Any]
                 values = ["name": textName ?? "nil", "mobileNumber": textMobile ?? "nil", "username": username]
                 ref?.child("patientContacts").child(username).setValue(values)
-                performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+                self.navigationController?.popViewController(animated: true)
+                //performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
             }
         }
     }
@@ -236,6 +243,35 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func readUUIDFromDataPList()
+    {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let path = paths.appending("/data.plist")
+        let fileManager = FileManager.default
+        if (!(fileManager.fileExists(atPath: path)))
+        {
+            let bundle: NSString = Bundle.main.path(forResource: "data", ofType: "plist")! as NSString
+            do{
+                try fileManager.copyItem(atPath: bundle as String, toPath: path)
+            }catch{
+                print("copy failure.")
+            }
+        }
+        let plistData : NSMutableDictionary = NSMutableDictionary(contentsOfFile: path)!
+        
+        patientDeviceUUID = plistData["patientDeviceUUID"] as! String
+        print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
+        
+        //AppDelegate.GlobalVariables.patientID = patientDeviceUUID
+        if (patientDeviceUUID == "Unknown")
+        {
+            let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your device", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
     }
     
         /*

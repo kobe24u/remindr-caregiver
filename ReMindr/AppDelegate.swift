@@ -82,11 +82,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.requestAlwaysAuthorization()
         
         ref = FIRDatabase.database().reference()
-        if (GlobalVariables.patientID != "Unknown")
-        {
-            patientLeftGeofencingArea()
-            patientPressedPanicButton()
-        }
+        readUUIDFromDataPList()
+//        if (GlobalVariables.patientID != "Unknown")
+//        {
+//            patientLeftGeofencingArea()
+//            patientPressedPanicButton()
+//        }
         return true
     }
     
@@ -118,10 +119,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        readUUIDFromDataPList()
+//        readUUIDFromDataPList()
         application.applicationIconBadgeNumber = 0
-        self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
-        readUUIDFromDataPList()
+    self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
+        if (GlobalVariables.patientID != "Unknown")
+        {
+            patientLeftGeofencingArea()
+            patientPressedPanicButton()
+            //let mainPage = self.window?.rootViewController as! InitialQRScanViewController
+            //mainPage.performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -452,9 +459,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             case "informContacts":
                 print ("call function to SMS emergency contacts")
                 badgeCount = 0
+                
+                //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                //let mainNav = storyboard.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+                
+                
+                //UIStoryboardSegue.init(identifier: "ShowPanicMapSegue", source: <#T##UIViewController#>, destination: <#T##UIViewController#>)
+                //let firstScreen = self.window?.rootViewController as! InitialQRScanViewController
+                //firstScreen.performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
                 let mainNav = self.window?.rootViewController as! UINavigationController
-                let mainPage = mainNav.topViewController!
-                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let mainPage = mainNav.topViewController as! MainMenuViewController
+                //let sb = UIStoryboard(name: "Main", bundle: nil)
                 mainPage.performSegue(withIdentifier: "ShowPanicMapSegue", sender: self)
             
 //                let otherVC = sb.instantiateViewController(withIdentifier: "PanicMapViewController") as! PanicMapViewController
@@ -539,6 +554,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
+                                   
                                     //self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
 //                                    let mainNav = self.window?.rootViewController as! UINavigationController
 //                                    let mainPage = mainNav.topViewController!
@@ -671,7 +687,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your device", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
-            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            //UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
     

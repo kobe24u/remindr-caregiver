@@ -355,7 +355,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func dismissThisViewController(_ sender: Any) {
 
         if (fromSegue) {
-            self.navigationController?.popViewController(animated: true)
+//            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         else
         {
