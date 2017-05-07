@@ -13,6 +13,9 @@
 		BF276EE21EAB2932006E5EAC /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */; };
 		BF276EE41EAB2991006E5EAC /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */; };
 		BF276EE61EAB29C3006E5EAC /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF276EE51EAB29C3006E5EAC /* Reminder.swift */; };
+		BF2F43611EBDCBB30082D24E /* where.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2F43601EBDCBB30082D24E /* where.png */; };
+		BF2F43651EBDCD4E0082D24E /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2F43641EBDCD4E0082D24E /* photo.png */; };
+		BF2F43691EBDD00E0082D24E /* bell.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2F43681EBDD00E0082D24E /* bell.png */; };
 		BF4135621EBC326E003849FF /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4135611EBC326E003849FF /* AudioRecorderManager.swift */; };
 		BF6792E21E988A5C00B820CB /* photoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */; };
 		BF67AE2F1EAC833300B109C8 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */; };
@@ -21,7 +24,6 @@
 		BFAD72C51E9796B300FE5180 /* PhotoCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */; };
 		BFAD72C61E9796B300FE5180 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */; };
 		BFAD72C71E9796B300FE5180 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */; };
-		BFAEB0491EBDC9BD00DB8AB8 /* thunder.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAEB0481EBDC9BD00DB8AB8 /* thunder.png */; };
 		BFBC69201EA9E64F003219D0 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC691F1EA9E64F003219D0 /* AddContactViewController.swift */; };
 		BFBC69221EA9E68B003219D0 /* FastestRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBC69211EA9E68B003219D0 /* FastestRouteViewController.swift */; };
 		BFBDBE751EB74FC600EE4EEF /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBDBE741EB74FC600EE4EEF /* ModifyViewController.swift */; };
@@ -107,6 +109,9 @@
 		BF276EE11EAB2932006E5EAC /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BF276EE31EAB2991006E5EAC /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		BF276EE51EAB29C3006E5EAC /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		BF2F43601EBDCBB30082D24E /* where.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = where.png; sourceTree = "<group>"; };
+		BF2F43641EBDCD4E0082D24E /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
+		BF2F43681EBDD00E0082D24E /* bell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bell.png; sourceTree = "<group>"; };
 		BF4135611EBC326E003849FF /* AudioRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		BF6792E11E988A5C00B820CB /* photoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoInfoViewController.swift; sourceTree = "<group>"; };
 		BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -115,7 +120,6 @@
 		BFAD72C01E9796B300FE5180 /* PhotoCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		BFAD72C11E9796B300FE5180 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		BFAD72C21E9796B300FE5180 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
-		BFAEB0481EBDC9BD00DB8AB8 /* thunder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thunder.png; sourceTree = "<group>"; };
 		BFBC691F1EA9E64F003219D0 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		BFBC69211EA9E68B003219D0 /* FastestRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastestRouteViewController.swift; sourceTree = "<group>"; };
 		BFBDBE741EB74FC600EE4EEF /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
@@ -356,7 +360,9 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
-				BFAEB0481EBDC9BD00DB8AB8 /* thunder.png */,
+				BF2F43601EBDCBB30082D24E /* where.png */,
+				BF2F43681EBDD00E0082D24E /* bell.png */,
+				BF2F43641EBDCD4E0082D24E /* photo.png */,
 				F8DC75E41EBC209100983773 /* Settings */,
 				F813F5581EB959500067ABFE /* SupportGroups */,
 				BF276EE01EAB2906006E5EAC /* timebasedReminder */,
@@ -569,6 +575,7 @@
 				TargetAttributes = {
 					F816D44D1E875B4900BF3995 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NHS5CFX24Q;
 						ProvisioningStyle = Automatic;
 					};
 					F816D4641E875B4A00BF3995 = {
@@ -612,13 +619,15 @@
 				F816D45F1E875B4A00BF3995 /* LaunchScreen.storyboard in Resources */,
 				F85288D91E9E379E00595E0A /* redalert.png in Resources */,
 				F85288D71E9CFC4100595E0A /* alertred.png in Resources */,
+				BF2F43691EBDD00E0082D24E /* bell.png in Resources */,
 				F816D4871E87B74800BF3995 /* GoogleService-Info.plist in Resources */,
 				F874474B1E9A35BA009713AC /* patientBackIcon New.png in Resources */,
 				F87447391E9A0EAB009713AC /* patientLeftIcon.png in Resources */,
 				F816D45C1E875B4A00BF3995 /* Assets.xcassets in Resources */,
-				BFAEB0491EBDC9BD00DB8AB8 /* thunder.png in Resources */,
 				F8DA95631EBD965D00A15BF4 /* data.plist in Resources */,
 				F874473A1E9A0EAB009713AC /* patientBackIcon.png in Resources */,
+				BF2F43651EBDCD4E0082D24E /* photo.png in Resources */,
+				BF2F43611EBDCBB30082D24E /* where.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,7 +989,7 @@
 			baseConfigurationReference = D55DDA3C145C40BACC31CA87 /* Pods-ReMindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -995,7 +1004,7 @@
 			baseConfigurationReference = BBBF576B6FE1A4548F41D627 /* Pods-ReMindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NHS5CFX24Q;
 				INFOPLIST_FILE = ReMindr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

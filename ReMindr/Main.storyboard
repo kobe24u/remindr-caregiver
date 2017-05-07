@@ -114,7 +114,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="photoAlbumicon"/>
                                 <connections>
-                                    <segue destination="lmF-zg-Pzb" kind="show" id="8lr-sz-Y6X"/>
+                                    <segue destination="lmF-zg-Pzb" kind="show" identifier="showPhotos" id="8lr-sz-Y6X"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photo Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfl-WH-Fn3">

@@ -683,10 +683,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 //                
 //                rootNavigationViewController?.pushViewController(vc, animated: true)
                 rootNavigationViewController?.popToRootViewController(animated: false)
-                rootViewController?.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: nil)
-                
-                
+                rootViewController?.performSegue(withIdentifier: "ShowPanicMapSegue", sender: nil)
+            }
+            if shortcutItem.type == "reminder"
+        {
+            
+            let rootNavigationViewController = window!.rootViewController as? MainNavigationController
+            let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
+            
+            //
+            //                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            //                let vc = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
+            //
+            //
+            //                rootNavigationViewController?.pushViewController(vc, animated: true)
+            rootNavigationViewController?.popToRootViewController(animated: false)
+            rootViewController?.performSegue(withIdentifier: "toReminderList", sender: nil)
         }
+        if shortcutItem.type == "photo"
+        {
+            
+            let rootNavigationViewController = window!.rootViewController as? MainNavigationController
+            let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
+            
+            //
+            //                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            //                let vc = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
+            //
+            //
+            //                rootNavigationViewController?.pushViewController(vc, animated: true)
+            rootNavigationViewController?.popToRootViewController(animated: false)
+            rootViewController?.performSegue(withIdentifier: "showPhotos", sender: nil)
+        }
+        
             
     }
 }
