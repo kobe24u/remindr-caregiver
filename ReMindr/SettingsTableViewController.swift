@@ -73,7 +73,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
 
     
@@ -91,12 +91,15 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
-        else if indexPath.row == 2 {
+        
+        else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AboutUsCell", for: indexPath) as! SettingsTableViewCell
             //set the data here
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
+            /*
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "QRCodeCell", for: indexPath) as! SettingsTableViewCell
@@ -104,6 +107,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
+        */
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,7 +119,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
 
     func retrieveDataFromFirebase()
     {
-        ref?.child("patientContacts").child("testpatient").observe(.value, with: {(snapshot) in
+        ref?.child("patientContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref?.child("patientContacts").child("testpatient").observe(.value, with: {(snapshot) in
             
             if let name = snapshot.childSnapshot(forPath: "name").value as? String {
                 self.patientName = name
@@ -204,7 +209,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
             }
             else
             {
-                let username: String = "testpatient"
+                let username: String = AppDelegate.GlobalVariables.patientID
+                //let username: String = "testpatient"
                 let values: [String: Any]
                 values = ["name": textName ?? "nil", "mobileNumber": textMobile ?? "nil", "username": username]
                 ref?.child("patientContacts").child(username).setValue(values)

@@ -188,7 +188,8 @@ class DetailViewController: UIViewController, AVAudioPlayerDelegate{
         
         //the confirm action taking the inputs
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
-            let ref = FIRDatabase.database().reference().child("Photos").child("testpatient")
+            let ref = FIRDatabase.database().reference().child("Photos").child(AppDelegate.GlobalVariables.patientID)
+            //let ref = FIRDatabase.database().reference().child("Photos").child("testpatient")
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 

@@ -90,7 +90,8 @@ class GeoSettingsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             values = ["locationName": locationName ?? "Home", "enabled": notificationOn ?? "true", "range": notificationRange, "locLat": "\(locationLat!)", "locLng": "\(locationLng!)", "violated": "false" ]
             
             //TODO: Add this value to geofencing settings for the given patient
-            self.ref.child("geofencing/testpatient").setValue(values)
+            self.ref.child("geofencing").child(AppDelegate.GlobalVariables.patientID).setValue(values)
+            //self.ref.child("geofencing/testpatient").setValue(values)
             self.navigationController?.popViewController(animated: true)
             
         }

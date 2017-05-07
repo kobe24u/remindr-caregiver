@@ -94,7 +94,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let number = value?["mobileNumber"] as? String {
                         guard let number = URL(string: "telprompt://" + number) else { return }
@@ -128,7 +129,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     func readAllEmergencyContacts()
     {
-        ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+        ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+        //ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
             
             self.emergencyContacts.removeAllObjects()
             // Get user value
@@ -857,7 +859,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let patientLat = value?["patLat"] as? String {
                         if let patientLng = value?["patLng"] as? String {
@@ -893,7 +896,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 let value = current.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 print ("username \(username)")
-                if (username == "testpatient")
+                if (username == AppDelegate.GlobalVariables.patientID)
+                //if (username == "testpatient")
                 {
                     if let patientLat = value?["patLat"] as? String {
                         if let patientLng = value?["patLng"] as? String {
@@ -925,7 +929,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let geoMarker = CustomPointAnnotation()
         self.ref?.child("geofencing").observe(.value, with: { (snapshot) in
             
-            if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
+            if let current = snapshot.childSnapshot(forPath: AppDelegate.GlobalVariables.patientID) as? FIRDataSnapshot
+            //if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
             {
                 let value = current.value as? NSDictionary
                 if let location = value?["locationName"] as? String

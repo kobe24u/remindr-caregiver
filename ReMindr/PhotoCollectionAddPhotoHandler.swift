@@ -38,7 +38,8 @@ extension PhotoCollectionViewController: UIImagePickerControllerDelegate, UINavi
     
     fileprivate func addPhotoIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
         let ref = FIRDatabase.database().reference()
-        let usersReference = ref.child("Photos").child("testpatient").child(uid)
+        let usersReference = ref.child("Photos").child(AppDelegate.GlobalVariables.patientID).child(uid)
+        //let usersReference = ref.child("Photos").child("testpatient").child(uid)
         
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             

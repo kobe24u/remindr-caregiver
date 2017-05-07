@@ -913,42 +913,6 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                     <segue destination="RGY-F2-BTN" kind="show" id="duj-iU-fLN"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QRCodeCell" rowHeight="70" id="2JU-tC-WgD" customClass="SettingsTableViewCell" customModule="ReMindr" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="265.5" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2JU-tC-WgD" id="9wF-RH-bWL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN QR CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-D3-DCL">
-                                            <rect key="frame" x="73" y="8" width="294" height="54"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="y1b-K9-2ge">
-                                            <rect key="frame" x="8" y="12" width="40" height="46"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="HQL-AO-8ar"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="trailing" secondItem="9wF-RH-bWL" secondAttribute="trailingMargin" id="52p-Ev-g45"/>
-                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="centerY" secondItem="9wF-RH-bWL" secondAttribute="centerY" id="Vzg-Jy-OT6"/>
-                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="leading" secondItem="y1b-K9-2ge" secondAttribute="trailing" constant="25" id="cI3-SB-n0s"/>
-                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="leading" secondItem="9wF-RH-bWL" secondAttribute="leadingMargin" id="flb-NA-wVG"/>
-                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="top" secondItem="9wF-RH-bWL" secondAttribute="topMargin" constant="4" id="i2V-tz-mS1"/>
-                                        <constraint firstItem="KsN-D3-DCL" firstAttribute="top" secondItem="9wF-RH-bWL" secondAttribute="topMargin" id="pbe-yo-jwd"/>
-                                        <constraint firstItem="y1b-K9-2ge" firstAttribute="centerY" secondItem="KsN-D3-DCL" secondAttribute="centerY" id="zGi-Ir-CW5"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="settingImage" destination="y1b-K9-2ge" id="PfE-ay-ZcG"/>
-                                    <outlet property="settingLabel" destination="KsN-D3-DCL" id="Mtx-Md-UdX"/>
-                                    <segue destination="Xyu-fG-mMT" kind="show" id="cFV-Yb-OT2"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="QlM-QY-9z5" id="svl-Ie-MI5"/>
@@ -1638,7 +1602,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owb-wm-Il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="1562"/>
+            <point key="canvasLocation" x="1942" y="1613"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="UuG-Eu-tAK">
@@ -1926,7 +1890,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb1-vY-yVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="1690"/>
+            <point key="canvasLocation" x="2670" y="1735"/>
         </scene>
         <!--Choose Location-->
         <scene sceneID="2iK-pR-LBc">
@@ -1998,7 +1962,7 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTc-ua-iQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3140" y="1771"/>
+            <point key="canvasLocation" x="3479" y="1735"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="zua-7g-IDG">
@@ -2932,52 +2896,56 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuS-Ts-tcr">
-                                <rect key="frame" x="0.0" y="564" width="375" height="103"/>
+                                <rect key="frame" x="0.0" y="598" width="375" height="69"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="103" id="0yh-ad-d3W"/>
+                                    <constraint firstAttribute="height" constant="69" id="r0x-L9-HEM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-Ow-9ry">
-                                <rect key="frame" x="67" y="114" width="240" height="336"/>
+                                <rect key="frame" x="16" y="57" width="343" height="356"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkokay" translatesAutoresizingMaskIntoConstraints="NO" id="lGv-3G-rue">
-                                        <rect key="frame" x="60" y="16" width="120" height="120"/>
+                                        <rect key="frame" x="111" y="22" width="121" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="aaE-hp-fwH"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Successfully linked!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwp-5X-AcS">
-                                        <rect key="frame" x="8" y="144" width="224" height="23"/>
+                                        <rect key="frame" x="59" y="150" width="225" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="23" id="Gza-mN-o4M"/>
+                                            <constraint firstAttribute="height" constant="23" id="HG6-Dr-q3X"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
                                         <color key="textColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqk-XS-Y0X">
-                                        <rect key="frame" x="8" y="213" width="224" height="30"/>
+                                        <rect key="frame" x="8" y="219" width="327" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="uhh-Ob-MOc"/>
+                                            <constraint firstAttribute="height" constant="30" id="o2n-O7-vzG"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile (e.g. 0401234567)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqm-4H-kO8">
-                                        <rect key="frame" x="8" y="251" width="224" height="30"/>
+                                        <rect key="frame" x="8" y="257" width="327" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="FM7-xh-Rm3"/>
+                                            <constraint firstAttribute="height" constant="30" id="P6y-dF-6Fj"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfY-Da-fbc">
-                                        <rect key="frame" x="85" y="289" width="70" height="39"/>
+                                        <rect key="frame" x="136" y="295" width="71" height="39"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="1xH-3o-HPS"/>
+                                            <constraint firstAttribute="height" constant="39" id="HZG-rK-jhh"/>
+                                            <constraint firstAttribute="width" constant="71" id="lK1-Kz-cx6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Save">
@@ -2988,9 +2956,9 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter PwD's details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrT-ZH-wPz">
-                                        <rect key="frame" x="8" y="184" width="207" height="21"/>
+                                        <rect key="frame" x="8" y="190" width="327" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="f14-BF-tZh"/>
+                                            <constraint firstAttribute="height" constant="21" id="W4b-VE-vAz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -2999,37 +2967,35 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="lGv-3G-rue" firstAttribute="top" secondItem="Edt-Ow-9ry" secondAttribute="top" constant="16" id="C7D-g2-rbd"/>
-                                    <constraint firstItem="lGv-3G-rue" firstAttribute="leading" secondItem="Edt-Ow-9ry" secondAttribute="leading" constant="60" id="Dhh-Ed-gMf"/>
-                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="leading" secondItem="Edt-Ow-9ry" secondAttribute="leadingMargin" id="Eed-BE-cKy"/>
-                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="leading" secondItem="KrT-ZH-wPz" secondAttribute="leading" id="GhH-rJ-ScC"/>
-                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="trailing" secondItem="Edt-Ow-9ry" secondAttribute="trailingMargin" id="Jid-uI-ZT7"/>
-                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="trailing" secondItem="hqm-4H-kO8" secondAttribute="trailing" id="Sbx-b2-2XW"/>
-                                    <constraint firstItem="lGv-3G-rue" firstAttribute="centerX" secondItem="Pwp-5X-AcS" secondAttribute="centerX" id="TXy-Lh-hpN"/>
-                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="leading" secondItem="aqk-XS-Y0X" secondAttribute="leading" id="TtH-5N-TXt"/>
-                                    <constraint firstItem="XfY-Da-fbc" firstAttribute="top" secondItem="hqm-4H-kO8" secondAttribute="bottom" constant="8" symbolic="YES" id="W0v-Zc-6Yy"/>
-                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="top" secondItem="KrT-ZH-wPz" secondAttribute="bottom" constant="8" symbolic="YES" id="Wa5-pp-kwf"/>
-                                    <constraint firstItem="XfY-Da-fbc" firstAttribute="leading" secondItem="Edt-Ow-9ry" secondAttribute="leading" constant="85" id="cTm-g2-6iB"/>
-                                    <constraint firstItem="hqm-4H-kO8" firstAttribute="centerX" secondItem="XfY-Da-fbc" secondAttribute="centerX" id="d2F-cp-CvW"/>
-                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="trailing" secondItem="aqk-XS-Y0X" secondAttribute="trailing" id="e0w-SZ-ChS"/>
-                                    <constraint firstAttribute="trailing" secondItem="KrT-ZH-wPz" secondAttribute="trailing" constant="25" id="ef1-5P-269"/>
-                                    <constraint firstItem="hqm-4H-kO8" firstAttribute="top" secondItem="aqk-XS-Y0X" secondAttribute="bottom" constant="8" symbolic="YES" id="hef-T2-Sh0"/>
-                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="top" secondItem="Pwp-5X-AcS" secondAttribute="bottom" constant="17" id="mXb-cY-fmW"/>
-                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="leading" secondItem="hqm-4H-kO8" secondAttribute="leading" id="sWJ-Lh-6R4"/>
-                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="top" secondItem="lGv-3G-rue" secondAttribute="bottom" constant="8" symbolic="YES" id="uKv-wM-S11"/>
-                                    <constraint firstItem="XfY-Da-fbc" firstAttribute="bottom" secondItem="Edt-Ow-9ry" secondAttribute="bottomMargin" id="w3W-6y-Sm8"/>
+                                    <constraint firstItem="lGv-3G-rue" firstAttribute="centerX" secondItem="Pwp-5X-AcS" secondAttribute="centerX" id="308-6A-GR4"/>
+                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="leading" secondItem="Edt-Ow-9ry" secondAttribute="leadingMargin" id="59W-1i-J4f"/>
+                                    <constraint firstItem="XfY-Da-fbc" firstAttribute="top" secondItem="hqm-4H-kO8" secondAttribute="bottom" constant="8" symbolic="YES" id="Ann-CX-0jQ"/>
+                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="centerX" secondItem="KrT-ZH-wPz" secondAttribute="centerX" id="C89-2n-r8j"/>
+                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="leading" secondItem="aqk-XS-Y0X" secondAttribute="leading" id="LtN-2G-QuD"/>
+                                    <constraint firstItem="hqm-4H-kO8" firstAttribute="top" secondItem="aqk-XS-Y0X" secondAttribute="bottom" constant="8" symbolic="YES" id="Rx8-cf-ox2"/>
+                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="top" secondItem="lGv-3G-rue" secondAttribute="bottom" constant="8" symbolic="YES" id="Sco-wd-5bp"/>
+                                    <constraint firstItem="Pwp-5X-AcS" firstAttribute="leading" secondItem="Edt-Ow-9ry" secondAttribute="leading" constant="59" id="WBe-Wr-wUk"/>
+                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="top" secondItem="KrT-ZH-wPz" secondAttribute="bottom" constant="8" symbolic="YES" id="ZzI-gJ-Pxl"/>
+                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="top" secondItem="Pwp-5X-AcS" secondAttribute="bottom" constant="17" id="br0-Ux-ax6"/>
+                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="trailing" secondItem="hqm-4H-kO8" secondAttribute="trailing" id="g2O-pW-CzT"/>
+                                    <constraint firstItem="hqm-4H-kO8" firstAttribute="centerX" secondItem="XfY-Da-fbc" secondAttribute="centerX" id="goN-tA-OXv"/>
+                                    <constraint firstItem="aqk-XS-Y0X" firstAttribute="leading" secondItem="hqm-4H-kO8" secondAttribute="leading" id="hC6-iU-t3Y"/>
+                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="trailing" secondItem="Edt-Ow-9ry" secondAttribute="trailingMargin" id="u6D-6c-iXE"/>
+                                    <constraint firstItem="KrT-ZH-wPz" firstAttribute="trailing" secondItem="aqk-XS-Y0X" secondAttribute="trailing" id="uRR-fl-ka6"/>
+                                    <constraint firstItem="lGv-3G-rue" firstAttribute="top" secondItem="Edt-Ow-9ry" secondAttribute="top" constant="22" id="vYc-GK-i2u"/>
+                                    <constraint firstAttribute="bottom" secondItem="XfY-Da-fbc" secondAttribute="bottom" constant="22" id="vh9-Kl-qQa"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="centerX" secondItem="EuS-Ts-tcr" secondAttribute="centerX" id="45e-94-hPP"/>
-                            <constraint firstAttribute="bottom" secondItem="Edt-Ow-9ry" secondAttribute="bottom" constant="217" id="66Y-Xz-dlh"/>
-                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="top" secondItem="Jrg-Ae-boA" secondAttribute="bottom" constant="94" id="UrS-8g-np7"/>
-                            <constraint firstItem="EuS-Ts-tcr" firstAttribute="bottom" secondItem="5b2-d2-Rke" secondAttribute="top" id="VSp-YO-ktJ"/>
-                            <constraint firstItem="EuS-Ts-tcr" firstAttribute="leading" secondItem="Xs1-nc-gZ2" secondAttribute="leading" id="bo6-ZD-oz0"/>
-                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="leading" secondItem="Xs1-nc-gZ2" secondAttribute="leadingMargin" constant="51" id="hjg-7C-IIS"/>
-                            <constraint firstAttribute="trailing" secondItem="EuS-Ts-tcr" secondAttribute="trailing" id="pGn-OX-0dX"/>
+                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="leading" secondItem="Xs1-nc-gZ2" secondAttribute="leadingMargin" id="41H-kr-UF6"/>
+                            <constraint firstAttribute="bottom" secondItem="Edt-Ow-9ry" secondAttribute="bottom" constant="254" id="41x-Kt-cgb"/>
+                            <constraint firstAttribute="trailing" secondItem="EuS-Ts-tcr" secondAttribute="trailing" id="And-iQ-MSV"/>
+                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="top" secondItem="Jrg-Ae-boA" secondAttribute="bottom" constant="37" id="GK6-0x-tZq"/>
+                            <constraint firstItem="Edt-Ow-9ry" firstAttribute="centerX" secondItem="EuS-Ts-tcr" secondAttribute="centerX" id="oBW-9E-BIt"/>
+                            <constraint firstItem="EuS-Ts-tcr" firstAttribute="bottom" secondItem="5b2-d2-Rke" secondAttribute="top" id="xaX-qp-MJH"/>
+                            <constraint firstItem="EuS-Ts-tcr" firstAttribute="leading" secondItem="Xs1-nc-gZ2" secondAttribute="leading" id="xju-K0-Odd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3073,7 +3039,6 @@ For caregivers, it allows real-time monitoring of the location of PLWD and setti
         <image name="photoAlbumicon" width="601" height="476"/>
         <image name="play-2" width="45" height="45"/>
         <image name="profile" width="50" height="50"/>
-        <image name="qrcode" width="26" height="26"/>
         <image name="reminder" width="1000" height="1000"/>
         <image name="search" width="50" height="50"/>
         <image name="searchicon" width="32" height="32"/>
