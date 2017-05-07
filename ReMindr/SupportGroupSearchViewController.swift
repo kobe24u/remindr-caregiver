@@ -10,7 +10,7 @@ import UIKit
 
 class SupportGroupSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var BASE_URL: String = "http://35.161.212.185"
+    var BASE_URL: String = "http://35.164.11.87"
     var SUPPORT_METHOD: String = "/supportgroupinfo/"
     
     var supportGroupList: NSMutableArray
