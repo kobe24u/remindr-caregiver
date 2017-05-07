@@ -12,6 +12,7 @@ import CoreLocation
 import Firebase
 import UserNotifications
 import UserNotificationsUI
+import LocalAuthentication
 
 
 @UIApplicationMain
@@ -266,34 +267,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                                 let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                                     
                                     self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
-                                    //self.ref?.child("panicked/testpatient/isPanicked").setValue("false")
-                                    
-                                    //let mainNav = self.window?.rootViewController as! MainNavigationController
-//                                    let mainNav = UIApplication.shared.windows[0].rootViewController as! MainNavigationController
-//                                    let mainPage = mainNav.topViewController!
-//                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
-                     
-//                                    let VC1 = self.storyboard!.instantiateViewControllerWithIdentifier("MyViewController") as! ViewController
-//                                    let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
-//                                    self.presentViewController(navController, animated:true, completion: nil)
-                                    
+                                                                        
                                     
                                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                                     let mainNav = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
                                     
                                     let navController = UINavigationController(rootViewController: mainNav)
-                                    //let mapController = mainNav.topViewController?.shouldPerformSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
-                                    //navController.navigationItem.backBarButtonItem? = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(self.backAction))
-                                   
-                                    //self.window?.rootViewController?.navigationController?.pushViewController(mainNav, animated: true)
+                                    
                                     self.window?.rootViewController?.present(navController, animated: true, completion: nil)
-//                                    // If you want to push to new ViewController then use this
-//                                    self.navigationController?.pushViewController(objSomeViewController, animated: true)
-//                                    
-//                                    let nav = self.window?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "MainNavigationController") as! MainNavigationController
-//                                    let mainPage = nav.topViewController!
-//                                    mainPage.performSegue(withIdentifier: "ShowGeofencingMapSegue", sender: self)
-                                })
+                                                                    })
                                 
                                 alertController.addAction(alertAction)
                                 alertController.addAction(takeToScreenAction)
@@ -698,17 +680,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             if shortcutItem.type == "search"
             {
 
-                let rootNavigationViewController = window!.rootViewController as? MainNavigationController
-                let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
+                let context = LAContext()
+                var error: NSError?
                 
-//                
-//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//                let vc = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
-//                
-//                
-//                rootNavigationViewController?.pushViewController(vc, animated: true)
-                rootNavigationViewController?.popToRootViewController(animated: false)
-                rootViewController?.performSegue(withIdentifier: "ShowPanicMapSegue", sender: nil)
+                
+                context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Please authenticate to proceed.") { [weak self] (success, error) in
+                    
+                    if success{
+                        DispatchQueue.main.async {
+                            let rootNavigationViewController = self?.window!.rootViewController as? MainNavigationController
+                            let rootViewController = rootNavigationViewController?.viewControllers.first as UIViewController?
+                            
+                            
+                            rootNavigationViewController?.popToRootViewController(animated: false)
+                            rootViewController?.performSegue(withIdentifier: "ShowPanicMapSegue", sender: nil)                        }
+                    }
+                    else {
+//                        let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
+//                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+//                        self?.present(ac, animated: true)
+                    }
+                    
+                }
+                
+               
             }
             if shortcutItem.type == "reminder"
         {

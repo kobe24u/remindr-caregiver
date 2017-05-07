@@ -176,6 +176,8 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
                                                 
                                                 self.photos.append(newPhoto)
                                                 
+                                                print(self.photos.count)
+                                                
                                                 DispatchQueue.main.async( execute: {
                                                     
                                                     self.collectionView?.reloadData()
