@@ -5,20 +5,28 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>photo</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Search</string>
+			<string>Add a photo</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>photo</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>where</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>FInd my patient</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>search</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>thunder</string>
+			<string>bell</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Create something special</string>
+			<string>Add a reminer</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>special</string>
+			<string>reminder</string>
 		</dict>
 	</array>
 	<key>NSAppTransportSecurity</key>
