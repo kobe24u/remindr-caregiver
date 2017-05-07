@@ -63,6 +63,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
                 let message = value?["message"] as? String ?? ""
                 let time = value?["time"]
                 let completed = value?["completed"] as? String ?? ""
+                let uuid = value?["id"] as? String ?? ""
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 let date = dateFormatter.date(from: time as! String)
@@ -73,7 +74,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
                 notification.fireDate = date
                 notification.soundName = UILocalNotificationDefaultSoundName
                 
-                let newReminder = Reminder(name: message, time: date!, notification: notification, completed: completed)
+                let newReminder = Reminder(name: message, time: date!, notification: notification, completed: completed, uuid: uuid)
                  self.reminders.append(newReminder)
                 print(self.reminders.count)
                                                 DispatchQueue.main.async( execute: {
@@ -150,29 +151,37 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedRow = indexPath.row
         
-//        // TODO: delete this item
-//        let deleteAlert = UIAlertController(title: "Confirm Delete", message: "Are you sure you want to delete this contact?", preferredStyle: UIAlertControllerStyle.alert)
-//        
-//        deleteAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
-//            
-//            self.ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
-//            //self.ref?.child("emergencyContacts/testpatient").child(((self.emergencyList.object(at: indexPath.row)) as! EmergencyContact).mobile!).removeValue()
-//            
-//        }))
-//        
-//        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-//            print("Delete cancelled")
-//        }))
-//        
-//        self.present(deleteAlert, animated: true, completion: nil)
+        let selectedReminder: Reminder  = reminders[selectedRow!] as Reminder
+//        // TODO: send this reminder again
+        let sendAlert = UIAlertController(title: "Confirm Send", message: "Do you want to send this reminder right now?", preferredStyle: UIAlertControllerStyle.alert)
         
-    
-    
-//        let popoverVC = storyboard?.instantiateViewController(withIdentifier: "modifyReminder") as! ModifyViewController
-//        let reminder = reminders[indexPath.row]
-//        popoverVC.reminder = reminder
-//        popoverVC.delegate = self
-//        self.present(popoverVC, animated: true, completion: nil)
+        sendAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+            
+            let name = selectedReminder.name
+            let uuid = selectedReminder.uuid
+            
+            var currentDate: Date = Date()
+            let dateFormatter = DateFormatter()
+            
+            // adding 10 secs to the current time
+            let calendar = Calendar.current
+            currentDate = calendar.date(byAdding: .second, value: 10, to: currentDate)!
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let values = ["id": uuid, "message": name, "time": dateFormatter.string(from: currentDate), "completed": "no"] as [String : Any]
+            let timeInterval = floor(currentDate.timeIntervalSinceReferenceDate/60)*60
+            currentDate = Date(timeIntervalSinceReferenceDate: timeInterval)
+            
+        self.ref.child("reminders").child(AppDelegate.GlobalVariables.patientID).child(uuid!).child("time").setValue(dateFormatter.string(from: currentDate))
+
+        }))
+        
+        sendAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Send cancelled")
+        }))
+        
+        self.present(sendAlert, animated: true, completion: nil)
+        
     }
     
     func editReminder(reminder: Reminder) {

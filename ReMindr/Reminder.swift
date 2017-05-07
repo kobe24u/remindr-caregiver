@@ -15,6 +15,7 @@ class Reminder: NSObject {
     var name: String
     var time: Date
     var completed: String?
+    var uuid: String?
     
     // Archive Paths for Persistent Data
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -28,13 +29,13 @@ class Reminder: NSObject {
     }
     
     // Initializer
-    init(name: String, time: Date, notification: UILocalNotification, completed: String) {
+    init(name: String, time: Date, notification: UILocalNotification, completed: String, uuid: String) {
         // set properties
         self.name = name
         self.time = time
         self.notification = notification
         self.completed = completed
-        
+        self.uuid = uuid
         super.init()
     }
     
