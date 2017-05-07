@@ -42,8 +42,9 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
         self.textContactNumber.delegate = self
         
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EmergencyContactsTableViewController.dismissKeyboard))
+        self.addContactView.addGestureRecognizer(tap)
+        self.backgroundImageView.addGestureRecognizer(tap)
         
         ref = FIRDatabase.database().reference()
         self.noContactsLabel.text = ""
@@ -73,7 +74,9 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+//        view.endEditing(true)
+        self.textContactName.endEditing(true)
+        self.textContactNumber.endEditing(true)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

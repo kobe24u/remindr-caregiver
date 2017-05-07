@@ -127,12 +127,13 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
         var completed: String?
         if(reminder.completed == "no")
         {
-            completed = "Uncompleted"
+            completed = "Incomplete"
             cell.detailTextLabel?.textColor = UIColor.red
         }
         else{
             completed = "Completed"
-            cell.detailTextLabel?.textColor = UIColor.green
+            let newColor = UIColor(colorLiteralRed: 39/255, green: 174/255, blue: 96/255, alpha: 1)
+            cell.detailTextLabel?.textColor = newColor
         }
         cell.detailTextLabel?.text = "Due " + dateFormatter.string(from: reminder.time as Date) + " " +  "(\(completed!))"
         
