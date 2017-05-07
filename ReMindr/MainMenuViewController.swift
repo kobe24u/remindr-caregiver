@@ -11,10 +11,20 @@ import LocalAuthentication
 
 class MainMenuViewController: UIViewController {
 
+    @IBOutlet weak var pairingStatusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.pairingStatusLabel.layer.cornerRadius = 5
+        
+        if (AppDelegate.GlobalVariables.patientID == "Unknown")
+        {
+            self.pairingStatusLabel.text = "Device is not paired. Please go to settings and scan the QR code to pair the device."
+        }
+        else
+        {
+            self.pairingStatusLabel.text = "Device is paired"
+        }
     }
 
     override func didReceiveMemoryWarning() {

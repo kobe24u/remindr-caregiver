@@ -682,6 +682,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         print("Device UUID read from data.plist is \(plistData["patientDeviceUUID"] as! String)")
         
         GlobalVariables.patientID = patientDeviceUUID
+        /*
         if (patientDeviceUUID == "Unknown")
         {
             let alertController = UIAlertController(title: "Device not linked", message: "Please go to settings and scan the QR code to link your device", preferredStyle: .alert)
@@ -689,6 +690,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             alertController.addAction(alertAction)
             //UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
+    */
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
