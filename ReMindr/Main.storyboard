@@ -726,28 +726,19 @@
                             <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightgreytexturedbackground" translatesAutoresizingMaskIntoConstraints="NO" id="cki-ZZ-M45">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bho-UN-Xbz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Bho-UN-Xbz">
                                 <rect key="frame" x="16" y="562" width="343" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="L00-u7-79k"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReMindr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMC-b4-czk">
-                                <rect key="frame" x="-113" y="345" width="601" height="40"/>
+                                <rect key="frame" x="-48.5" y="345" width="472" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VD7-cW-07N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Developed By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzs-h6-Omy">
-                                <rect key="frame" x="16" y="517" width="343" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="7Ul-Be-zER"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReMindr is a twinning iOS app that aims to enhance the communication between people with dementia (PwD) and their caregivers. " textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="342" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
@@ -759,7 +750,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dxd-AQ-lU7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dxd-AQ-lU7">
                                 <rect key="frame" x="16" y="155" width="343" height="209"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 200 OK Inc. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVU-wB-cjg">
@@ -772,28 +763,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzs-h6-Omy">
+                                <rect key="frame" x="16" y="533" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8jm-oF-D60"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="trailing" secondItem="yMC-b4-czk" secondAttribute="trailing" constant="-64.5" id="0MI-Ci-WCD"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" id="3kP-yg-Xrv"/>
-                            <constraint firstItem="Bho-UN-Xbz" firstAttribute="top" secondItem="kzs-h6-Omy" secondAttribute="bottom" constant="24" id="9mu-hx-y04"/>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="91" id="9wf-Ei-llG"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="bottom" secondItem="v2Z-3k-AaG" secondAttribute="top" id="AMD-va-DTA"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Bho-UN-Xbz" secondAttribute="trailing" id="Bok-SA-zWq"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="gVU-wB-cjg" secondAttribute="bottom" constant="99" id="AiS-Bp-hVO"/>
                             <constraint firstItem="yMC-b4-czk" firstAttribute="centerY" secondItem="cki-ZZ-M45" secondAttribute="centerY" id="CSA-7e-GOF"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="leading" secondItem="kzs-h6-Omy" secondAttribute="leading" constant="-64.5" id="D74-Qr-EcA"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Dxd-AQ-lU7" secondAttribute="trailing" id="GQX-DX-an7"/>
                             <constraint firstItem="gVU-wB-cjg" firstAttribute="centerX" secondItem="yMC-b4-czk" secondAttribute="centerX" id="HRf-nf-TWo"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Bho-UN-Xbz" secondAttribute="leading" id="J3K-qI-D9r"/>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="leading" secondItem="yMC-b4-czk" secondAttribute="leading" constant="64.5" id="KA9-1D-SiK"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Bho-UN-Xbz" secondAttribute="leading" id="Mrg-xv-RYl"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Bho-UN-Xbz" secondAttribute="trailing" id="KpL-hj-4KQ"/>
+                            <constraint firstItem="Bho-UN-Xbz" firstAttribute="top" secondItem="kzs-h6-Omy" secondAttribute="bottom" constant="8" symbolic="YES" id="O6w-X6-A1a"/>
                             <constraint firstItem="XnE-TS-K96" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="8" symbolic="YES" id="Qjq-en-s52"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="trailing" secondItem="kzs-h6-Omy" secondAttribute="trailing" constant="64.5" id="Ufn-if-4RY"/>
                             <constraint firstItem="gVU-wB-cjg" firstAttribute="top" secondItem="Dxd-AQ-lU7" secondAttribute="bottom" constant="8" symbolic="YES" id="Xrb-Tt-32Y"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="gVU-wB-cjg" secondAttribute="bottom" constant="83" id="Zec-HY-akb"/>
                             <constraint firstItem="v2Z-3k-AaG" firstAttribute="top" secondItem="Bho-UN-Xbz" secondAttribute="bottom" constant="8" symbolic="YES" id="bKv-Yu-93S"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="centerX" secondItem="Bho-UN-Xbz" secondAttribute="centerX" id="eRt-nO-Qmx"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leadingMargin" id="i81-eD-lQd"/>
                             <constraint firstAttribute="trailing" secondItem="cki-ZZ-M45" secondAttribute="trailing" id="j0G-sk-7C8"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leading" id="nT2-T7-Ckp"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Dxd-AQ-lU7" secondAttribute="leading" id="nzn-4g-PQz"/>
                             <constraint firstItem="XnE-TS-K96" firstAttribute="centerX" secondItem="Dxd-AQ-lU7" secondAttribute="centerX" id="qwS-zx-eaW"/>
                         </constraints>
                     </view>
@@ -873,9 +874,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PwD PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PwD Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-6D-rGF">
                                             <rect key="frame" x="72" y="8" width="295" height="53"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -908,9 +909,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMERGENCY CONTACTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-xx-rdO">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-xx-rdO">
                                             <rect key="frame" x="70" y="9" width="297" height="52"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -950,9 +951,9 @@
                                                 <constraint firstAttribute="width" constant="65" id="byA-zR-vFL"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT ReMindr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-3w-tRG">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About ReMindr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-3w-tRG">
                                             <rect key="frame" x="73" y="8" width="294" height="54"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -980,9 +981,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCAN QR CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLE-lJ-ALD">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan QR Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLE-lJ-ALD">
                                             <rect key="frame" x="73" y="8" width="294" height="54"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1764705882" green="0.33725490200000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -3162,8 +3163,8 @@
         <image name="websitegreen" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IkP-3f-vXe"/>
         <segue reference="gdL-2U-li4"/>
+        <segue reference="d3f-Ft-YvM"/>
         <segue reference="cBU-qq-8DN"/>
     </inferredMetricsTieBreakers>
 </document>
