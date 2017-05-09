@@ -21,6 +21,8 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     var ref: FIRDatabaseReference?
     var emergencyList: NSMutableArray
     var selectedContact: String?
+    var isFromPhonebook: Bool = false
+    var hasMobile: Bool = true
     
     @IBOutlet weak var noContactsLabel: UILabel!
     
@@ -128,10 +130,12 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
         let alertController = UIAlertController(title: "Add Contact", message: "Please choose how you would like to add a new contact", preferredStyle: .actionSheet)
         
         let phoneButton = UIAlertAction(title: "Choose from phone contacts", style: .default, handler: { (action) -> Void in
+            self.isFromPhonebook = true
             self.addcontactUsingPhonebook()
         })
         
         let  manualButton = UIAlertAction(title: "Type in the information", style: .default, handler: { (action) -> Void in
+            self.isFromPhonebook = false
             self.animateIn()
         })
         
@@ -168,45 +172,48 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         contacts.forEach { contact in
-        
+
+            var foundMobile: Bool = false
             if let name: String = contact.givenName {
                 for number in contact.phoneNumbers {
-                    if number.label == CNLabelPhoneNumberMobile
+                    if (number.label == "_$!<Mobile>!$_")
+                    //if number.label == CNLabelPhoneNumberMobile
                     {
                         let phoneNumber = number.value.stringValue
                         let values: [String: Any]
                         values = ["name": name ?? "nil", "mobile": phoneNumber ?? "nil"]
                         print (values)
                         ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(phoneNumber).setValue(values)
-
-                    }
-                    else
-                    {
-                        displayAlertMessage(title: "Error", message: "Please choose a contact with a mobile number")
+                        foundMobile = true
                     }
                 }
+                if (!foundMobile)
+                {
+                    hasMobile = false
+                }
+                
             }
             else
             {
                 if let name: String = contact.familyName {
                     for number in contact.phoneNumbers {
-                        if number.label == CNLabelPhoneNumberMobile
+                        if (number.label == "_$!<Mobile>!$_")
+                        //if number.label == CNLabelPhoneNumberMobile
                         {
                             let phoneNumber = number.value.stringValue
                             let values: [String: Any]
                             values = ["name": name ?? "nil", "mobile": phoneNumber ?? "nil"]
                             print (values)
                            ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(phoneNumber).setValue(values)
-                            
+                            foundMobile = true
                         }
-                        else
-                        {
-                            displayAlertMessage(title: "Error", message: "Please choose a contact with a mobile number")
-                        }
+                    }
+                    if (!foundMobile)
+                    {
+                        hasMobile = false
                     }
                 }
             }
-            
         }
     }
     
@@ -265,6 +272,13 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     {
         ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
         //ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+            
+            if (self.isFromPhonebook && !self.hasMobile)
+            {
+                self.displayAlertMessage(title: "Error", message: "Contact(s) without a mobile number were not added")
+                self.isFromPhonebook = false
+                self.hasMobile = true
+            }
             
             self.emergencyList.removeAllObjects()
             

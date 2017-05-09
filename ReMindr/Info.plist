@@ -24,7 +24,7 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>bell</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Add a reminer</string>
+			<string>Add a reminder</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>reminder</string>
 		</dict>

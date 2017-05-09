@@ -676,6 +676,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
         
+        
         /*
         if (patientDeviceUUID == "Unknown")
         {
