@@ -750,12 +750,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="342" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
-                                <rect key="frame" x="16.5" y="72" width="342" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReMindr is a twinning iOS app that aims to enhance the communication between people with dementia (PwD) and their caregivers. " textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="342" translatesAutoresizingMaskIntoConstraints="NO" id="XnE-TS-K96">
+                                <rect key="frame" x="17" y="72" width="342" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="bEj-FA-xbx"/>
                                 </constraints>
-                                <string key="text">ReMindr is a twinning iOS app that aims to enhance the communication between people living with dementia (PLwD) and their caregivers. </string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -764,9 +763,10 @@
                                 <rect key="frame" x="16" y="155" width="343" height="209"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 200 OK Inc. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVU-wB-cjg">
-                                <rect key="frame" x="110" y="372" width="156" height="62"/>
+                                <rect key="frame" x="122" y="372" width="131" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="Ua0-Pp-pT8"/>
+                                    <constraint firstAttribute="width" constant="131" id="Il6-0s-096"/>
+                                    <constraint firstAttribute="height" constant="62" id="zvu-l1-4ew"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="textColor"/>
@@ -777,24 +777,23 @@
                         <constraints>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="trailing" secondItem="yMC-b4-czk" secondAttribute="trailing" constant="-64.5" id="0MI-Ci-WCD"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" id="3kP-yg-Xrv"/>
-                            <constraint firstItem="gVU-wB-cjg" firstAttribute="top" secondItem="Dxd-AQ-lU7" secondAttribute="bottom" constant="8" symbolic="YES" id="9aF-7G-IQo"/>
                             <constraint firstItem="Bho-UN-Xbz" firstAttribute="top" secondItem="kzs-h6-Omy" secondAttribute="bottom" constant="24" id="9mu-hx-y04"/>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="91" id="9wf-Ei-llG"/>
-                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="gVU-wB-cjg" secondAttribute="bottom" constant="83" id="A6n-XM-xE8"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="bottom" secondItem="v2Z-3k-AaG" secondAttribute="top" id="AMD-va-DTA"/>
                             <constraint firstItem="kzs-h6-Omy" firstAttribute="trailing" secondItem="Bho-UN-Xbz" secondAttribute="trailing" id="Bok-SA-zWq"/>
                             <constraint firstItem="yMC-b4-czk" firstAttribute="centerY" secondItem="cki-ZZ-M45" secondAttribute="centerY" id="CSA-7e-GOF"/>
                             <constraint firstItem="yMC-b4-czk" firstAttribute="leading" secondItem="kzs-h6-Omy" secondAttribute="leading" constant="-64.5" id="D74-Qr-EcA"/>
-                            <constraint firstItem="yMC-b4-czk" firstAttribute="centerX" secondItem="gVU-wB-cjg" secondAttribute="centerX" id="J59-1a-XHf"/>
+                            <constraint firstItem="gVU-wB-cjg" firstAttribute="centerX" secondItem="yMC-b4-czk" secondAttribute="centerX" id="HRf-nf-TWo"/>
                             <constraint firstItem="Dxd-AQ-lU7" firstAttribute="leading" secondItem="yMC-b4-czk" secondAttribute="leading" constant="64.5" id="KA9-1D-SiK"/>
                             <constraint firstItem="kzs-h6-Omy" firstAttribute="leading" secondItem="Bho-UN-Xbz" secondAttribute="leading" id="Mrg-xv-RYl"/>
                             <constraint firstItem="XnE-TS-K96" firstAttribute="top" secondItem="bVi-Vr-DUp" secondAttribute="bottom" constant="8" symbolic="YES" id="Qjq-en-s52"/>
                             <constraint firstItem="yMC-b4-czk" firstAttribute="trailing" secondItem="kzs-h6-Omy" secondAttribute="trailing" constant="64.5" id="Ufn-if-4RY"/>
+                            <constraint firstItem="gVU-wB-cjg" firstAttribute="top" secondItem="Dxd-AQ-lU7" secondAttribute="bottom" constant="8" symbolic="YES" id="Xrb-Tt-32Y"/>
+                            <constraint firstItem="kzs-h6-Omy" firstAttribute="top" secondItem="gVU-wB-cjg" secondAttribute="bottom" constant="83" id="Zec-HY-akb"/>
                             <constraint firstItem="v2Z-3k-AaG" firstAttribute="top" secondItem="Bho-UN-Xbz" secondAttribute="bottom" constant="8" symbolic="YES" id="bKv-Yu-93S"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="centerX" secondItem="Bho-UN-Xbz" secondAttribute="centerX" id="eRt-nO-Qmx"/>
                             <constraint firstAttribute="trailing" secondItem="cki-ZZ-M45" secondAttribute="trailing" id="j0G-sk-7C8"/>
                             <constraint firstItem="cki-ZZ-M45" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leading" id="nT2-T7-Ckp"/>
-                            <constraint firstItem="gVU-wB-cjg" firstAttribute="leading" secondItem="Fhr-Ls-P1M" secondAttribute="leadingMargin" constant="94" id="qT9-EF-QRd"/>
                             <constraint firstItem="XnE-TS-K96" firstAttribute="centerX" secondItem="Dxd-AQ-lU7" secondAttribute="centerX" id="qwS-zx-eaW"/>
                         </constraints>
                     </view>
@@ -1699,7 +1698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Owb-wm-Il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="1613"/>
+            <point key="canvasLocation" x="1340" y="2471"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="UuG-Eu-tAK">
@@ -1834,10 +1833,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Eef-O8-AcR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcR-YK-PI3">
-                                <rect key="frame" x="299" y="586" width="60" height="61"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8X-PR-xXi">
+                                <rect key="frame" x="16" y="600" width="343" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="4xF-G9-EVf"/>
+                                    <constraint firstAttribute="height" constant="48" id="KqJ-U9-hg1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="SMS Emergency Contacts">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="smsEmergencyContacts:" destination="BcV-WE-07t" eventType="touchUpInside" id="zeh-FG-Guw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcR-YK-PI3">
+                                <rect key="frame" x="299" y="531" width="60" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Zaw-Xm-dfk"/>
                                 </constraints>
                                 <state key="normal" image="phoneincircle"/>
                                 <connections>
@@ -1847,13 +1860,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XcR-YK-PI3" firstAttribute="top" secondItem="KRf-3m-m2P" secondAttribute="bottom" constant="522" id="1Lo-ww-cvc"/>
-                            <constraint firstAttribute="trailing" secondItem="Eef-O8-AcR" secondAttribute="trailing" id="D3O-vx-VrF"/>
-                            <constraint firstItem="Eef-O8-AcR" firstAttribute="top" secondItem="KRf-3m-m2P" secondAttribute="bottom" id="OB5-Q4-VPA"/>
-                            <constraint firstItem="XcR-YK-PI3" firstAttribute="trailing" secondItem="OlA-Ok-UgY" secondAttribute="trailingMargin" id="hSZ-vz-Z4A"/>
-                            <constraint firstItem="Eef-O8-AcR" firstAttribute="bottom" secondItem="UUh-RG-QKU" secondAttribute="top" id="oNI-Po-rI3"/>
-                            <constraint firstItem="Eef-O8-AcR" firstAttribute="leading" secondItem="OlA-Ok-UgY" secondAttribute="leading" id="tLz-3P-hii"/>
-                            <constraint firstAttribute="bottom" secondItem="XcR-YK-PI3" secondAttribute="bottom" constant="20" symbolic="YES" id="uIR-JE-ZBZ"/>
+                            <constraint firstItem="X8X-PR-xXi" firstAttribute="top" secondItem="XcR-YK-PI3" secondAttribute="bottom" constant="8" symbolic="YES" id="C8J-9I-aLi"/>
+                            <constraint firstItem="UUh-RG-QKU" firstAttribute="top" secondItem="X8X-PR-xXi" secondAttribute="bottom" constant="19" id="NQ6-KX-mnp"/>
+                            <constraint firstItem="Eef-O8-AcR" firstAttribute="top" secondItem="KRf-3m-m2P" secondAttribute="bottom" id="T64-QX-068"/>
+                            <constraint firstItem="Eef-O8-AcR" firstAttribute="leading" secondItem="OlA-Ok-UgY" secondAttribute="leading" id="TpF-iq-D7u"/>
+                            <constraint firstItem="Eef-O8-AcR" firstAttribute="bottom" secondItem="UUh-RG-QKU" secondAttribute="top" id="WWd-48-PSY"/>
+                            <constraint firstItem="X8X-PR-xXi" firstAttribute="leading" secondItem="OlA-Ok-UgY" secondAttribute="leadingMargin" id="XEZ-uW-yxe"/>
+                            <constraint firstItem="Eef-O8-AcR" firstAttribute="centerX" secondItem="X8X-PR-xXi" secondAttribute="centerX" id="ZKL-fH-fMG"/>
+                            <constraint firstItem="XcR-YK-PI3" firstAttribute="top" secondItem="KRf-3m-m2P" secondAttribute="bottom" constant="467" id="a2B-0z-DBt"/>
+                            <constraint firstItem="XcR-YK-PI3" firstAttribute="trailing" secondItem="X8X-PR-xXi" secondAttribute="trailing" id="sVc-qQ-4TL"/>
+                            <constraint firstAttribute="trailing" secondItem="Eef-O8-AcR" secondAttribute="trailing" id="xQu-Md-eax"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Geofencing" id="AlF-kR-dGR">
@@ -1864,18 +1880,20 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="settings" id="Qgp-G0-SNg">
                             <connections>
-                                <segue destination="vPr-vN-K3p" kind="show" id="slC-KZ-CkB"/>
+                                <action selector="goToGeoSettings:" destination="BcV-WE-07t" id="f9x-bH-zj0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="manualDismissButton" destination="vHt-OD-CWP" id="D2x-wj-HtP"/>
                         <outlet property="mapView" destination="Eef-O8-AcR" id="tIx-FX-CRC"/>
+                        <outlet property="smsEmergencyButton" destination="X8X-PR-xXi" id="tAV-G9-f8A"/>
+                        <segue destination="vPr-vN-K3p" kind="show" identifier="ShowGeofencingSettingsSegue" id="o7W-Tt-BK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Odl-Ll-EDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="1771"/>
+            <point key="canvasLocation" x="961" y="1735"/>
         </scene>
         <!--Settings-->
         <scene sceneID="yUk-Pn-lK6">
@@ -1987,7 +2005,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb1-vY-yVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="1735"/>
+            <point key="canvasLocation" x="1988" y="1735"/>
         </scene>
         <!--Choose Location-->
         <scene sceneID="2iK-pR-LBc">
@@ -2059,7 +2077,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTc-ua-iQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3479" y="1735"/>
+            <point key="canvasLocation" x="2946" y="1735"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="zua-7g-IDG">

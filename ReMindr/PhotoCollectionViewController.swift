@@ -77,11 +77,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         btn1.setImage(UIImage(named: "addPhotoIcon"), for: .normal)
         btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         
-        
-        
-        
-        
-        
+
         
         btn1.addTarget(self, action: #selector(chooseSourceAlertController), for: .touchUpInside)
         let item1 = UIBarButtonItem(customView: btn1)
@@ -107,14 +103,18 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
         })
         
         
-        
-        
-        
         alertController.addAction(sendButton)
         alertController.addAction(deleteButton)
         alertController.addAction(cancelButton)
         
-        self.present(alertController, animated: true, completion: nil)
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else
+        {
+            promptMessage(title: "Device Not Paired", message: "Please pair the device before adding a photo")
+        }
     }
     
     
@@ -138,7 +138,7 @@ class PhotoCollectionViewController: UICollectionViewController, Table2Delegate,
     {
         self.photos.removeAll()
         needRefresh = false
-        // Retrieve the list of favourites and listen for changes
+        // Retrieve the list of photos and listen for changes
         
         let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityView.color = UIColor.black

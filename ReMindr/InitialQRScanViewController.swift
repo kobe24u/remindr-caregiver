@@ -48,6 +48,35 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         successView.addGestureRecognizer(tap)
         
+        
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            let addPatientAlert = UIAlertController(title: "Warning", message: "You are already linked to a PwD. Scanning a new QR code will overwrite previous link. Do you wish to scan?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            addPatientAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+                
+                self.initiateQRCodeScan()
+            }))
+            
+            addPatientAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Scan cancelled")
+            }))
+            
+            self.present(addPatientAlert, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.readUUIDFromDataPList()
+//        if (self.patientDeviceUUID != "Unknown")
+//        {
+//            AppDelegate.GlobalVariables.patientID = self.patientDeviceUUID!
+//            performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
+//        }
+    }
+    
+    func initiateQRCodeScan()
+    {
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -96,17 +125,9 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
             print(error)
             return
         }
-        
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        self.readUUIDFromDataPList()
-//        if (self.patientDeviceUUID != "Unknown")
-//        {
-//            AppDelegate.GlobalVariables.patientID = self.patientDeviceUUID!
-//            performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
-//        }
-    }
     
     func dismissKeyboard()
     {
