@@ -64,6 +64,10 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
             
             self.present(addPatientAlert, animated: true, completion: nil)
         }
+        else
+        {
+            self.initiateQRCodeScan()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
