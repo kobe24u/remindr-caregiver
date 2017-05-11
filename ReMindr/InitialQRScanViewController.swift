@@ -150,11 +150,14 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                     writingDataToPList()
                     
                     showSuccessMessage()
+                    
                 }
             }
         }
         
     }
+    
+    
     
     func writingDataToPList()
     {
