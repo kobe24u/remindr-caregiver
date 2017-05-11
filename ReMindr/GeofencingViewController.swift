@@ -148,7 +148,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         var mobileNumber: String = AppDelegate.GlobalVariables.patientNumber
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "\(name) needs your help. \(name)'s mobile number is \(mobileNumber). Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
+            controller.body = "I am unable to contact \(name). Need your help. \(name)'s mobile number is \(mobileNumber). Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
             //            controller.recipients = ["0401289325"]
             controller.recipients = emergencyContacts as! [String]
             controller.messageComposeDelegate = self
@@ -244,7 +244,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
             print("cpa.imageName : \(cpa.imageName!)")
             patPinAnnotationView.canShowCallout = true
             
-            if (cpa.title == "Patient Location")
+            if (cpa.title == "\(AppDelegate.GlobalVariables.patientName)'s Location")
             {
                 print ("showing the patient annotation")
                 patPinAnnotationView.image = #imageLiteral(resourceName: "patient")
@@ -333,8 +333,8 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             self.patientLongitude = patientLng
                             print ("lat and lng for patient \(patientLat) \(patientLng)")
                             patMarker.coordinate = CLLocationCoordinate2D(latitude: Double(patientLat)!, longitude: Double(patientLng)!)
-                            patMarker.title = "Patient Location"
-                            patMarker.subtitle = "My patient is here"
+                            patMarker.title = "\(AppDelegate.GlobalVariables.patientName)'s Location"
+                            patMarker.subtitle = "\(AppDelegate.GlobalVariables.patientName) is here"
                             patMarker.imageName = "patient"
                             
                             self.previousPatientMarker = patMarker

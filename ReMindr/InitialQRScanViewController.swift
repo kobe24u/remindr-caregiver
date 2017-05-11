@@ -321,4 +321,20 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
         }
  */
     
+    func patientLeftGeofencingArea()
+    {
+        self.ref?.child("geofencing").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: { (snapshot) in
+
+        })
+    }
+    
+    func patientPressedPanicButton()
+    {
+        
+        self.ref?.child("panicked").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: { (snapshot) in
+            
+        })
+    }
+
+    
 }

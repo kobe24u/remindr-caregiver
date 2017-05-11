@@ -225,7 +225,7 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             print("cpa.imageName : \(cpa.imageName!)")
             patPinAnnotationView.canShowCallout = true
             
-            if (cpa.title == "Patient Location")
+            if (cpa.title == "\(AppDelegate.GlobalVariables.patientName)'s Location")
             {
                 print ("showing the patient annotation")
                 patPinAnnotationView.image = #imageLiteral(resourceName: "patient")
@@ -881,8 +881,8 @@ class PanicMapViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                             
                             print ("lat and lng for patient \(patientLat) \(patientLng)")
                             patMarker.coordinate = CLLocationCoordinate2D(latitude: Double(patientLat)!, longitude: Double(patientLng)!)
-                            patMarker.title = "Patient Location"
-                            patMarker.subtitle = "My patient is here"
+                            patMarker.title = "\(AppDelegate.GlobalVariables.patientName)'s Location"
+                            patMarker.subtitle = "\(AppDelegate.GlobalVariables.patientName) is here"
                             patMarker.imageName = "patient"
                             
                             self.previousPatientMarker = patMarker

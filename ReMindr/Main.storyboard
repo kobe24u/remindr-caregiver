@@ -233,7 +233,7 @@
             </objects>
             <point key="canvasLocation" x="400.80000000000001" y="921.58920539730138"/>
         </scene>
-        <!--Route to Patient-->
+        <!--Route to PwD-->
         <scene sceneID="8yb-F2-dh0">
             <objects>
                 <viewController id="2DM-QC-MAP" customClass="FastestRouteViewController" customModule="ReMindr" customModuleProvider="target" sceneMemberID="viewController">
@@ -258,7 +258,7 @@
                             <constraint firstItem="4ea-7V-Ty1" firstAttribute="leading" secondItem="7CS-q4-8lE" secondAttribute="leading" id="aKx-4A-cWZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Route to Patient" id="hfZ-mj-fz4"/>
+                    <navigationItem key="navigationItem" title="Route to PwD" id="hfZ-mj-fz4"/>
                     <connections>
                         <outlet property="webView" destination="4ea-7V-Ty1" id="5R6-GZ-e6L"/>
                     </connections>
