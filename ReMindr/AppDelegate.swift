@@ -258,8 +258,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     if let isViolated = value?["violated"] as? String {
                         if (isViolated == "true")
                         {
-                            let title = "Patient outside Safe Zone"
-                            let message = "Patient has left region: \(locationName)"
+                            //let title = "Patient outside Safe Zone"
+                            //let message = "Patient has left region: \(locationName)"
+                            let title = "\(GlobalVariables.patientName) outside Safe Zone"
+                            let message = "\(GlobalVariables.patientName) has left region: \(locationName)"
                             
                             if UIApplication.shared.applicationState == .active {
                                 // App is active, show an alert
@@ -303,8 +305,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                         }
                         else
                         {
-                            let title = "Patient in Safe Zone"
-                            let message = "Patient has returned to region: \(locationName)"
+                            let title = "\(GlobalVariables.patientName) in Safe Zone"
+                            let message = "\(GlobalVariables.patientName) has returned to region: \(locationName)"
                             
                             if UIApplication.shared.applicationState == .active {
                                 // App is active, show an alert
@@ -382,8 +384,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let geofencingNotificationCategory = UNNotificationCategory(identifier: "geofencingNotificationCategory", actions: actionsArray as! [UNNotificationAction], intentIdentifiers: [], options: [])
         
         let content = UNMutableNotificationContent()
-        content.title = "Patient has left safe zone"
-        content.body = "Your patient has wandered away from the safe zone"
+        content.title = "\(GlobalVariables.patientName) has left safe zone"
+        content.body = "\(GlobalVariables.patientName) has wandered away from the safe zone"
         content.sound = UNNotificationSound.default()
         content.badge = badgeCount as NSNumber
         content.categoryIdentifier = "geofencingNotificationCategory"
@@ -478,8 +480,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         badgeCount += 1
         // App is inactive, show a notification
         let content = UNMutableNotificationContent()
-        content.title = "Patient has returned to safe zone"
-        content.body = "Your patient is back inside the safe zone"
+        content.title = "\(GlobalVariables.patientName) has returned to safe zone"
+        content.body = "\(GlobalVariables.patientName) is back inside the safe zone"
         content.sound = UNNotificationSound.default()
         content.badge = badgeCount as NSNumber
         content.launchImageName = "home"
@@ -527,8 +529,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 if let isPanicked = value?["isPanicked"] as? String {
                     if (isPanicked == "true")
                     {
-                            let title = "Patient needs help"
-                            let message = "Your patient has pressed the panic button and requires your help"
+                            let title = "\(GlobalVariables.patientName) needs help"
+                            let message = "\(GlobalVariables.patientName) has pressed the panic button and requires your help"
                             
                             if UIApplication.shared.applicationState == .active {
                                 // App is active, show an alert
@@ -600,8 +602,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         let content = UNMutableNotificationContent()
         
-        content.title = "Patient needs help"
-        content.body = "Your patient has pressed the panic button and requires your help"
+        content.title = "\(GlobalVariables.patientName) needs help"
+        content.body = "\(GlobalVariables.patientName) has pressed the panic button and requires your help"
         content.sound = UNNotificationSound.default()
         content.badge = badgeCount as NSNumber
         content.categoryIdentifier = "panicNotificationCategory"
@@ -675,6 +677,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 }
             }
         })
+        
         
         /*
         if (patientDeviceUUID == "Unknown")

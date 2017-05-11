@@ -360,6 +360,7 @@
 		F816D4501E875B4A00BF3995 /* ReMindr */ = {
 			isa = PBXGroup;
 			children = (
+				F83A04921EC167CD0079C05D /* Geofencing */,
 				BF2F43601EBDCBB30082D24E /* where.png */,
 				BF2F43681EBDD00E0082D24E /* bell.png */,
 				BF2F43641EBDCD4E0082D24E /* photo.png */,
@@ -387,10 +388,6 @@
 				F816D4981E89E9F600BF3995 /* MapViewController.swift */,
 				F816D49A1E8A038400BF3995 /* FavouriteOnlyViewController.swift */,
 				F8254B881E8F8B1000C43899 /* CustomPointAnnotation.swift */,
-				F88C5C141E947733000F0965 /* AddLocationViewController.swift */,
-				F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */,
-				F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */,
-				F88C5C1A1E94B8B7000F0965 /* Geofence.swift */,
 				BF67AE2E1EAC833300B109C8 /* MainNavigationController.swift */,
 				F85925851EACA14F00609D2F /* MainMenuViewController.swift */,
 			);
@@ -413,6 +410,17 @@
 				F816D4761E875B4A00BF3995 /* Info.plist */,
 			);
 			path = ReMindrUITests;
+			sourceTree = "<group>";
+		};
+		F83A04921EC167CD0079C05D /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				F88C5C141E947733000F0965 /* AddLocationViewController.swift */,
+				F88C5C161E94790A000F0965 /* GeoSettingsViewController.swift */,
+				F88C5C181E948C5F000F0965 /* GeofencingViewController.swift */,
+				F88C5C1A1E94B8B7000F0965 /* Geofence.swift */,
+			);
+			name = Geofencing;
 			sourceTree = "<group>";
 		};
 		F85288CF1E9CF86100595E0A /* PanicLogs */ = {
@@ -451,9 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				F89E57331EBD71E3006FA69D /* QRCodeScan */,
-				F8DC75EC1EBC212200983773 /* AboutUs */,
 				F8DC75EB1EBC211800983773 /* EmergencyContacts */,
-				F8DC75E91EBC20FE00983773 /* PatientProfile */,
 				F8DC75E81EBC20E700983773 /* TableViewCells */,
 				F8DC75E71EBC20DD00983773 /* ViewControllers */,
 			);
@@ -476,26 +482,12 @@
 			name = TableViewCells;
 			sourceTree = "<group>";
 		};
-		F8DC75E91EBC20FE00983773 /* PatientProfile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = PatientProfile;
-			sourceTree = "<group>";
-		};
 		F8DC75EB1EBC211800983773 /* EmergencyContacts */ = {
 			isa = PBXGroup;
 			children = (
 				F8019E991EA6090A0058D4EE /* EmergencyContactsTableViewController.swift */,
 			);
 			name = EmergencyContacts;
-			sourceTree = "<group>";
-		};
-		F8DC75EC1EBC212200983773 /* AboutUs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = AboutUs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

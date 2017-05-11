@@ -9,14 +9,19 @@
 import UIKit
 import MapKit
 import Firebase
+import MessageUI
 
-class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, MFMessageComposeViewControllerDelegate {
 
     @IBOutlet weak var manualDismissButton: UIBarButtonItem!
    
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var smsEmergencyButton: UIButton!
     
     //var currentCategory: Category?
+    var emergencyContacts: NSMutableArray
+    var patientLatitude: String?
+    var patientLongitude: String?
     var selectedPosition: Int?
     let locationManager = CLLocationManager()
     var ref: FIRDatabaseReference!
@@ -29,6 +34,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     required init?(coder aDecoder: NSCoder)
     {
+        emergencyContacts = NSMutableArray()
         fromSegue = false
         previousPatientMarker = nil
         previousGeofenceMarker = nil
@@ -40,6 +46,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         
+        smsEmergencyButton.layer.cornerRadius = 10
 //        if let sender = sender {
 //                manualDismissButton.isEnabled = false
 //                manualDismissButton.tintColor = UIColor.clear
@@ -75,11 +82,29 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
     }
     
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 4
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         readPatientCoordinatesOnce()
         plotGeofenceReferenceLocation()
         plotPatientLocationOnMap()
-
+        readAllEmergencyContacts()
+        
+        if (AppDelegate.GlobalVariables.patientID == "Unknown")
+        {
+            promptMessage(title: "Device Not Paired", message: "Please pair the device to your loved one's device to view their location")
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -112,6 +137,49 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
             }
         })
     }
+    
+    @IBAction func smsEmergencyContacts(_ sender: Any) {
+        smsEmergencyContacts()
+    }
+    
+    func smsEmergencyContacts()
+    {
+        var name: String = AppDelegate.GlobalVariables.patientName
+        var mobileNumber: String = AppDelegate.GlobalVariables.patientNumber
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "I am unable to contact \(name). Need your help. \(name)'s mobile number is \(mobileNumber). Last known location can be seen here: https://www.google.com/maps/dir/current+location/\((patientLatitude)!),\((patientLongitude)!)"
+            //            controller.recipients = ["0401289325"]
+            controller.recipients = emergencyContacts as! [String]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func readAllEmergencyContacts()
+    {
+        ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
+            //ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+            
+            self.emergencyContacts.removeAllObjects()
+            // Get user value
+            for current in snapshot.children.allObjects as! [FIRDataSnapshot]
+            {
+                let value = current.value as? NSDictionary
+                let name = value?["name"] as? String ?? ""
+                let mobile = value?["mobile"] as? String ?? ""
+                let newItem: EmergencyContact = EmergencyContact(name: name, mobile: mobile)
+                
+                self.emergencyContacts.add(mobile)
+            }
+        })
+        
+    }
+
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
         // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -176,7 +244,7 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
             print("cpa.imageName : \(cpa.imageName!)")
             patPinAnnotationView.canShowCallout = true
             
-            if (cpa.title == "Patient Location")
+            if (cpa.title == "\(AppDelegate.GlobalVariables.patientName)'s Location")
             {
                 print ("showing the patient annotation")
                 patPinAnnotationView.image = #imageLiteral(resourceName: "patient")
@@ -219,8 +287,23 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
  */
     
+    @IBAction func goToGeoSettings(_ sender: Any) {
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            performSegue(withIdentifier: "ShowGeofencingSettingsSegue", sender: self)
+        }
+        else
+        {
+            promptMessage(title: "Device Not Paired", message: "Please pair the device to access geofencing settings")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        if (segue.identifier == "ShowGeofencingSettingsSegue")
+        {
+                let destinationVC: GeoSettingsViewController = segue.destination as! GeoSettingsViewController
+        }
     }
     
     func plotPatientLocationOnMap()
@@ -246,10 +329,12 @@ class GeofencingViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     if let patientLat = value?["patLat"] as? String {
                         if let patientLng = value?["patLng"] as? String {
                             
+                            self.patientLatitude = patientLat
+                            self.patientLongitude = patientLng
                             print ("lat and lng for patient \(patientLat) \(patientLng)")
                             patMarker.coordinate = CLLocationCoordinate2D(latitude: Double(patientLat)!, longitude: Double(patientLng)!)
-                            patMarker.title = "Patient Location"
-                            patMarker.subtitle = "My patient is here"
+                            patMarker.title = "\(AppDelegate.GlobalVariables.patientName)'s Location"
+                            patMarker.subtitle = "\(AppDelegate.GlobalVariables.patientName) is here"
                             patMarker.imageName = "patient"
                             
                             self.previousPatientMarker = patMarker

@@ -30,6 +30,17 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
 
         self.detected = false
         self.successView.isHidden = true
+        
+        initiateQRCodeScanning()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func initiateQRCodeScanning()
+    {
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -59,7 +70,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
             
             // Start video capture.
             captureSession?.startRunning()
-
+            
             // Move the message label and top bar to the front
             view.bringSubview(toFront: messageLabel)
             
@@ -80,11 +91,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         }
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         // Check if the metadataObjects array is not nil and it contains at least one object.

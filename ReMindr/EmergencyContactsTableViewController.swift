@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import ContactsUI
 
-class EmergencyContactsTableViewController: UITableViewController, UITextFieldDelegate {
+class EmergencyContactsTableViewController: UITableViewController, UITextFieldDelegate, CNContactPickerDelegate {
 
     @IBOutlet weak var saveContactButton: UIButton!
     @IBOutlet var addContactView: UIView!
@@ -20,6 +21,8 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     var ref: FIRDatabaseReference?
     var emergencyList: NSMutableArray
     var selectedContact: String?
+    var isFromPhonebook: Bool = false
+    var hasMobile: Bool = true
     
     @IBOutlet weak var noContactsLabel: UILabel!
     
@@ -110,7 +113,112 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
 
     @IBAction func addEmergencyContact(_ sender: Any) {
         
-        animateIn()
+        
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            chooseSourceAlertController()
+        }
+        else
+        {
+            promptMessage(title: "Device Not Paired", message: "Please pair the device before adding an emergency contact")
+        }
+        //animateIn()
+    }
+    
+    func chooseSourceAlertController()
+    {
+        let alertController = UIAlertController(title: "Add Contact", message: "Please choose how you would like to add a new contact", preferredStyle: .actionSheet)
+        
+        let phoneButton = UIAlertAction(title: "Choose from phone contacts", style: .default, handler: { (action) -> Void in
+            self.isFromPhonebook = true
+            self.addcontactUsingPhonebook()
+        })
+        
+        let  manualButton = UIAlertAction(title: "Type in the information", style: .default, handler: { (action) -> Void in
+            self.isFromPhonebook = false
+            self.animateIn()
+        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        alertController.addAction(phoneButton)
+        alertController.addAction(manualButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func addcontactUsingPhonebook()
+    {
+        let cnPicker = CNContactPickerViewController()
+        cnPicker.delegate = self
+        self.present(cnPicker, animated: true, completion: nil)
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+        contacts.forEach { contact in
+
+            var foundMobile: Bool = false
+            if let name: String = contact.givenName {
+                for number in contact.phoneNumbers {
+                    if (number.label == "_$!<Mobile>!$_")
+                    //if number.label == CNLabelPhoneNumberMobile
+                    {
+                        let phoneNumber = number.value.stringValue
+                        let values: [String: Any]
+                        values = ["name": name ?? "nil", "mobile": phoneNumber ?? "nil"]
+                        print (values)
+                        ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(phoneNumber).setValue(values)
+                        foundMobile = true
+                    }
+                }
+                if (!foundMobile)
+                {
+                    hasMobile = false
+                }
+                
+            }
+            else
+            {
+                if let name: String = contact.familyName {
+                    for number in contact.phoneNumbers {
+                        if (number.label == "_$!<Mobile>!$_")
+                        //if number.label == CNLabelPhoneNumberMobile
+                        {
+                            let phoneNumber = number.value.stringValue
+                            let values: [String: Any]
+                            values = ["name": name ?? "nil", "mobile": phoneNumber ?? "nil"]
+                            print (values)
+                           ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).child(phoneNumber).setValue(values)
+                            foundMobile = true
+                        }
+                    }
+                    if (!foundMobile)
+                    {
+                        hasMobile = false
+                    }
+                }
+            }
+        }
+    }
+    
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        print("Cancel Contact Picker")
     }
     
     @IBAction func saveEmergencyContact(_ sender: Any) {
@@ -164,6 +272,13 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
     {
         ref?.child("emergencyContacts").child(AppDelegate.GlobalVariables.patientID).observe(.value, with: {(snapshot) in
         //ref?.child("emergencyContacts/testpatient").observe(.value, with: {(snapshot) in
+            
+            if (self.isFromPhonebook && !self.hasMobile)
+            {
+                self.displayAlertMessage(title: "Error", message: "Contact(s) without a mobile number were not added")
+                self.isFromPhonebook = false
+                self.hasMobile = true
+            }
             
             self.emergencyList.removeAllObjects()
             
@@ -266,6 +381,9 @@ class EmergencyContactsTableViewController: UITableViewController, UITextFieldDe
         let mobileNumber: String = (e.mobile?.replacingOccurrences(of: " ", with: ""))!
             guard let number = URL(string: "telprompt://" + mobileNumber) else { return }
             UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
         }
 
         //animateIn()

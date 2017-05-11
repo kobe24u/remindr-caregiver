@@ -82,7 +82,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! SettingsTableViewCell
             //set the data here
-            cell.accessoryType = UITableViewCellAccessoryType.detailButton
+            //cell.accessoryType = UITableViewCellAccessoryType.detailButton
             return cell
         }
         else if indexPath.row == 1 {
