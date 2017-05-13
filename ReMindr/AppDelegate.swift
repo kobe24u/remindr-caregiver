@@ -88,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         readUUIDFromDataPList()
         if (GlobalVariables.patientID != "Unknown")
         {
+            print(GlobalVariables.patientID)
             patientLeftGeofencingArea()
             patientPressedPanicButton()
         }
@@ -124,6 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 //        readUUIDFromDataPList()
         application.applicationIconBadgeNumber = 0
+        readUUIDFromDataPList()
         if (GlobalVariables.patientID != "Unknown")
         {
             self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")

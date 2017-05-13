@@ -163,7 +163,7 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
             let newColor = UIColor(colorLiteralRed: 39/255, green: 174/255, blue: 96/255, alpha: 1)
             cell.detailTextLabel?.textColor = newColor
         }
-        cell.detailTextLabel?.text = "Due " + dateFormatter.string(from: reminder.time as Date) + " " +  "(\(completed!))"
+        cell.detailTextLabel?.text = dateFormatter.string(from: reminder.time as Date) + " " +  "(\(completed!))"
         
         // Make due date red if overdue
 //        if (Date() as NSDate).earlierDate(reminder.time as Date) == reminder.time as Date {
@@ -307,5 +307,19 @@ class NotificationTableViewController: UITableViewController, EditReminderProtoc
 //            retrieveFromServer()
             self.reminders.removeAll()
         }
+    }
+    
+
+    
+    @IBAction func checkBeforeAdding(_ sender: Any) {
+        if (AppDelegate.GlobalVariables.patientID != "Unknown")
+        {
+            performSegue(withIdentifier: "AddItem", sender: self)
+        }
+        else
+        {
+            promptMessage(title: "Device Not Paired", message: "Please pair the device before adding a photo")
+        }
+        
     }
 }
