@@ -60,6 +60,7 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
             
             addPatientAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
                 print("Scan cancelled")
+                self.navigationController?.popViewController(animated: true)
             }))
             
             self.present(addPatientAlert, animated: true, completion: nil)
@@ -259,6 +260,7 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                 ref?.child("patientContacts").child(username).setValue(values)
                 AppDelegate.GlobalVariables.patientName = textName!
                 AppDelegate.GlobalVariables.patientNumber = textMobile!
+                AppDelegate.GlobalVariables.patientID = self.patientDeviceUUID!
                 let appDel = UIApplication.shared.delegate as! AppDelegate
                 appDel.patientPressedPanicButton()
                 appDel.patientLeftGeofencingArea()

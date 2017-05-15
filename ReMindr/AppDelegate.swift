@@ -250,100 +250,94 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func patientLeftGeofencingArea()
     {
-        self.ref?.child("geofencing").observe(.value, with: { (snapshot) in
+        self.ref?.child("geofencing").child(GlobalVariables.patientID).child("violated").observe(.value, with: {(snapshot) in
             
-            if let current = snapshot.childSnapshot(forPath: GlobalVariables.patientID) as? FIRDataSnapshot
-            //if let current = snapshot.childSnapshot(forPath: "testpatient") as? FIRDataSnapshot
-            {
-                let value = current.value as? NSDictionary
-                if let locationName = value?["locationName"] as? String {
-                    if let isViolated = value?["violated"] as? String {
-                        if (isViolated == "true")
-                        {
-                            //let title = "Patient outside Safe Zone"
-                            //let message = "Patient has left region: \(locationName)"
-                            let title = "\(GlobalVariables.patientName) outside Safe Zone"
-                            let message = "\(GlobalVariables.patientName) has left region: \(locationName)"
+            print (snapshot.value!)
+            if let isViolated = snapshot.value! as? String {
+                if (isViolated == "true")
+                {
+                    //let title = "Patient outside Safe Zone"
+                    //let message = "Patient has left region: \(locationName)"
+                    let title = "\(GlobalVariables.patientName) outside safety zone"
+                    let message = "\(GlobalVariables.patientName) has wandered away from assigned region"
+                    
+                    if UIApplication.shared.applicationState == .active {
+                        // App is active, show an alert
+                        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        
+                        let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
                             
-                            if UIApplication.shared.applicationState == .active {
-                                // App is active, show an alert
-                                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                                
-                                let takeToScreenAction = UIAlertAction(title: "Take me to the map", style: .default, handler: { (action: UIAlertAction!) in
-                                    
-                                    self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
-                                                                        
-                                    
-                                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                                    let mainNav = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
-                                    
-                                    let navController = UINavigationController(rootViewController: mainNav)
-                                    
-                                    self.window?.rootViewController?.present(navController, animated: true, completion: nil)
-                                                                    })
-                                
-                                alertController.addAction(alertAction)
-                                alertController.addAction(takeToScreenAction)
-
-                                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-                                //self.present(alertController, animated: true, completion: nil)
-                            } else {
-                                // App is inactive, show a notification
-                                if #available(iOS 10.0, *) {
-                                    self.generateLocalNotification()
-                                }
-                                else
-                                 {
-                                    let notification = UILocalNotification()
-                                    notification.alertTitle = title
-                                    notification.alertBody = message
-                                    notification.soundName = UILocalNotificationDefaultSoundName
-                                    UIApplication.shared.presentLocalNotificationNow(notification)
-
-                                }
-                            }
+                            self.ref?.child("panicked").child(GlobalVariables.patientID).child("isPanicked").setValue("false")
                             
+                            
+                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                            let mainNav = storyBoard.instantiateViewController(withIdentifier: "GeofencingViewController") as! GeofencingViewController
+                            
+                            let navController = UINavigationController(rootViewController: mainNav)
+                            
+                            self.window?.rootViewController?.present(navController, animated: true, completion: nil)
+                        })
+                        
+                        alertController.addAction(alertAction)
+                        alertController.addAction(takeToScreenAction)
+                        
+                        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                        //self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        // App is inactive, show a notification
+                        if #available(iOS 10.0, *) {
+                            self.generateLocalNotification()
                         }
                         else
                         {
-                            let title = "\(GlobalVariables.patientName) in Safe Zone"
-                            let message = "\(GlobalVariables.patientName) has returned to region: \(locationName)"
+                            let notification = UILocalNotification()
+                            notification.alertTitle = title
+                            notification.alertBody = message
+                            notification.soundName = UILocalNotificationDefaultSoundName
+                            UIApplication.shared.presentLocalNotificationNow(notification)
                             
-                            if UIApplication.shared.applicationState == .active {
-                                // App is active, show an alert
-                                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                                alertController.addAction(alertAction)
-                                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-                                //self.present(alertController, animated: true, completion: nil)
-                            } else {
-//                                // App is inactive, show a notification
-                                if #available(iOS 10.0, *) {
-                                    self.generateNotificationWithNoActions()
-                                }
-                                else
-                                {
-                                    let notification = UILocalNotification()
-                                    notification.alertTitle = title
-                                    notification.alertBody = message
-                                    notification.soundName = UILocalNotificationDefaultSoundName
-                                    UIApplication.shared.presentLocalNotificationNow(notification)
-                                }
-                            }
-
                         }
                     }
+                    
+                }
+                else
+                {
+                    let title = "\(GlobalVariables.patientName) in safety zone"
+                    let message = "\(GlobalVariables.patientName) has returned to assigned region"
+                    
+                    if UIApplication.shared.applicationState == .active {
+                        // App is active, show an alert
+                        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alertController.addAction(alertAction)
+                        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                        //self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        //                                // App is inactive, show a notification
+                        if #available(iOS 10.0, *) {
+                            self.generateNotificationWithNoActions()
+                        }
+                        else
+                        {
+                            let notification = UILocalNotification()
+                            notification.alertTitle = title
+                            notification.alertBody = message
+                            notification.soundName = UILocalNotificationDefaultSoundName
+                            UIApplication.shared.presentLocalNotificationNow(notification)
+                        }
+                    }
+                    
                 }
             }
         })
     }
-    
+
     func backAction()
     {
         self.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
-    
+
     func setupNotificationSettings() {
 
         // Specify the notification actions.
@@ -680,6 +674,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
         
+      
+       /*
+         //For simulator only
+         
+        if (patientDeviceUUID == "Unknown")
+        {
+            writingDataToPList()
+        }
+        */
         
         /*
         if (patientDeviceUUID == "Unknown")
