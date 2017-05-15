@@ -65,8 +65,29 @@ class EmergencyServicesDetailViewController: UIViewController {
         var phNumber: String?
         phNumber = currentEmergencyService?.phone
         phNumber = phNumber?.replacingOccurrences(of: " ", with: "")
-        guard let number = URL(string: "telprompt://" + phNumber!) else { return }
-        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        if phNumber != "000"{
+            guard let number = URL(string: "telprompt://" + phNumber!) else { return }
+            UIApplication.shared.open(number, options: [:], completionHandler: nil)
+
+        }
+        else
+        {
+            promptMessage(title: "Blocked", message: "000 has been temporarly blocked")
+        }
+        
+}
+    
+    func promptMessage(title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        // change to desired number of seconds (in this case 5 seconds)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+            // your code with delay
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
 
 

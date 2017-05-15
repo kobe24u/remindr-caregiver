@@ -175,11 +175,14 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                     writingDataToPList()
                     
                     showSuccessMessage()
+                    
                 }
             }
         }
         
     }
+    
+    
     
     func writingDataToPList()
     {
@@ -256,6 +259,9 @@ class InitialQRScanViewController: UIViewController, UITextFieldDelegate, AVCapt
                 ref?.child("patientContacts").child(username).setValue(values)
                 AppDelegate.GlobalVariables.patientName = textName!
                 AppDelegate.GlobalVariables.patientNumber = textMobile!
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.patientPressedPanicButton()
+                appDel.patientLeftGeofencingArea()
                 self.navigationController?.popViewController(animated: true)
                 //performSegue(withIdentifier: "ShowMainScreenSegue", sender: self)
             }
